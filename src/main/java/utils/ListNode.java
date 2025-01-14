@@ -35,7 +35,5 @@ public class ListNode {
             System.out.print(head.val + " ");
             head = head.next;
         }
-
-
     }
 }

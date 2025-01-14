@@ -5,13 +5,12 @@ public class Node {
     public Node left;
     public Node right;
     public Node next;
-    public Node random;
 
     public Node() {
     }
 
-    public Node(int _val) {
-        val = _val;
+    public Node(int val) {
+        this.val = val;
     }
 
     public Node(int val, Node left, Node right, Node next) {
@@ -20,4 +19,12 @@ public class Node {
         this.right = right;
         this.next = next;
     }
+
+    public static void print(Node head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }
+
 };
