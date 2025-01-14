@@ -35,7 +35,7 @@ import java.util.List;
 public class SurroundedRegions {
 
     public static void main(String[] args) throws Exception {
-        char[][] board = new char[][]{{'X','X','X','X'},{'X','O','O','X'},{'X','X','O','X'},{'X','O','X','X'}};
+        char[][] board = new char[][]{{'X', 'X', 'X', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'X', 'O', 'X'}, {'X', 'O', 'X', 'X'}};
         new SurroundedRegions().solve(board);
         System.out.println(Arrays.deepToString(board));
     }

@@ -36,6 +36,17 @@ import java.util.Map;
  */
 public class LetterCombinationsOfPhoneNumber {
 
+    private static final Map<Character, String> DIGIT_TO_CHAR_MAPPING = Map.of(
+            '2', "abc",
+            '3', "def",
+            '4', "ghi",
+            '5', "jkl",
+            '6', "mno",
+            '7', "pqrs",
+            '8', "tuv",
+            '9', "wxyz"
+    );
+
     public static void main(String[] args) {
         LetterCombinationsOfPhoneNumber solution = new LetterCombinationsOfPhoneNumber();
 
@@ -49,17 +60,6 @@ public class LetterCombinationsOfPhoneNumber {
         String digits3 = "2";
         System.out.println("Example 3 Output: " + solution.letterCombinations(digits3));
     }
-
-    private static final Map<Character, String> DIGIT_TO_CHAR_MAPPING = Map.of(
-            '2', "abc",
-            '3', "def",
-            '4', "ghi",
-            '5', "jkl",
-            '6', "mno",
-            '7', "pqrs",
-            '8', "tuv",
-            '9', "wxyz"
-    );
 
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<>();

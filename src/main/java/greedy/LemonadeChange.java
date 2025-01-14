@@ -48,7 +48,6 @@ package greedy;
  */
 public class LemonadeChange {
 
-
     public static void main(String[] args) {
         System.out.println(new LemonadeChange().lemonadeChange(new int[]{5, 5, 10, 10, 20}));
     }

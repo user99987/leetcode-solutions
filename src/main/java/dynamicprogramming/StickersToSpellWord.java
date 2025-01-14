@@ -46,17 +46,17 @@ import java.util.HashSet;
  */
 public class StickersToSpellWord {
 
-    public static void main(String[] args) {
-        String[] stickers = {"bright", "neighbor", "capital"};
-
-        System.out.println(new StickersToSpellWord().minStickers(stickers, "originalchair"));
-    }
-
     // count the characters of every sticker
     private int[][] counts;
     // For each character, save the sticker index which has this character
     private HashMap<Character, HashSet<Integer>> map = new HashMap<>();
     private HashMap<Integer, Integer> cache = new HashMap<>();
+
+    public static void main(String[] args) {
+        String[] stickers = {"bright", "neighbor", "capital"};
+
+        System.out.println(new StickersToSpellWord().minStickers(stickers, "originalchair"));
+    }
 
     public int minStickers(String[] stickers, String target) {
         counts = new int[stickers.length][26];

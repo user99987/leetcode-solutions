@@ -39,6 +39,7 @@ import java.util.Arrays;
  * 1 <= people[i] <= limit <= 3 * 10^4
  */
 public class BoatsToSavePeople {
+
     public static void main(String[] args) {
         int[] A = {3, 5, 3, 4};
         System.out.println(new BoatsToSavePeople().numRescueBoats(A, 8));

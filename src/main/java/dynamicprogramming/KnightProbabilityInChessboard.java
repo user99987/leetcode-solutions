@@ -37,13 +37,13 @@ package dynamicprogramming;
  */
 public class KnightProbabilityInChessboard {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new KnightProbabilityInChessboard().knightProbability(3, 2, 0, 0));
-    }
-
     private final int[][] directions =
             new int[][]{{-2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, -1}, {2, 1}, {1, -2}, {-1, -2}};
     private double[][][] probabilityGiven;
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(new KnightProbabilityInChessboard().knightProbability(3, 2, 0, 0));
+    }
 
     public double knightProbability(int n, int k, int row, int column) {
         probabilityGiven = new double[n][n][k + 1];

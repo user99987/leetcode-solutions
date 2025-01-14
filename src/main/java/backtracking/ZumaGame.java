@@ -69,8 +69,6 @@ import java.util.Map;
  * The initial row of balls on the board will not have any groups of three or more consecutive balls of the same color.
  */
 public class ZumaGame {
-    Map<Character, Integer> map;
-    int min = Integer.MAX_VALUE;
 
     public static void main(String[] args) {
         System.out.println(new ZumaGame().findMinStep("BBWWRRYYRRWWBB", "Y"));
@@ -110,7 +108,7 @@ public class ZumaGame {
                     int sR =
                             findMinStepDp(
                                     removeRepeated(newS.toString()),
-                                    hand.substring(0, j) + hand.substring(j + 1, hand.length()),
+                                    hand.substring(0, j) + hand.substring(j + 1),
                                     dp);
                     if (sR != -1) {
                         min = min == -1 ? sR + 1 : Integer.min(min, sR + 1);
@@ -134,7 +132,7 @@ public class ZumaGame {
                 if (count >= 3) {
                     return removeRepeated(
                             original.substring(0, i - count)
-                                    + original.substring(i, original.length()));
+                                    + original.substring(i));
                 } else {
                     count = 1;
                     i++;

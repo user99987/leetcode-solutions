@@ -35,6 +35,7 @@ import java.util.Set;
  * 0 <= sum(words[i].length) <= 10^5
  */
 public class ConcatenatedWords {
+
     public static void main(String[] args) throws Exception {
         String[] words = {""};
         System.out.println(new ConcatenatedWords().findAllConcatenatedWordsInADict(words));

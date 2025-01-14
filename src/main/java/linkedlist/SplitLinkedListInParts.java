@@ -44,6 +44,7 @@ import java.util.Objects;
  * 1 <= k <= 50
  */
 public class SplitLinkedListInParts {
+
     public static void main(String[] args) {
         ListNode root = new ListNode(1);
         root.next = new ListNode(2);

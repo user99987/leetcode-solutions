@@ -35,7 +35,6 @@ import java.util.List;
  */
 public class GrayCode {
 
-
     public static void main(String[] args) throws Exception {
         System.out.println(new GrayCode().grayCode(3));
     }

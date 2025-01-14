@@ -45,8 +45,9 @@ import java.util.List;
 public class CombinationSumII {
 
     public static void main(String[] args) throws Exception {
-        int[] candidates = {1, 1, 2, 2};
-        List<List<Integer>> result = new CombinationSumII().combinationSum2(candidates, 4);
+        int[] candidates = {2,5,2,1,2};
+        List<List<Integer>> result = new CombinationSumII().combinationSum2(candidates, 5);
+        System.out.println(result);
     }
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {

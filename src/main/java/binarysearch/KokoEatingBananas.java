@@ -36,6 +36,7 @@ package binarysearch;
  * 1 <= piles[i] <= 10^9
  */
 public class KokoEatingBananas {
+
     public static void main(String[] args) {
         int[] A = {312884470};
         System.out.println(new KokoEatingBananas().minEatingSpeed(A, 968709470));

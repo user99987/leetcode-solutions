@@ -40,6 +40,7 @@ import java.util.List;
  * It is guaranteed that the queue can be reconstructed.
  */
 public class QueueReconstructionByHeight {
+
     public static void main(String[] args) throws Exception {
         int[][] A = {{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}};
         int[][] r = new QueueReconstructionByHeight().reconstructQueue(A);

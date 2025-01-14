@@ -52,7 +52,6 @@ public class CanIWin {
 
     private Map<Boolean, Map<Integer, Boolean>> DP;
 
-
     public static void main(String[] args) throws Exception {
         System.out.println(new CanIWin().canIWin(5, 15));
     }

@@ -38,7 +38,6 @@ import java.util.Arrays;
  */
 public class IncreasingTripletSubsequence {
 
-
     public static void main(String[] args) throws Exception {
         int[] A = {1, 2, 3, 4, 5};
         System.out.println(new IncreasingTripletSubsequence().increasingTriplet(A));

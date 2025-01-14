@@ -61,6 +61,13 @@ public class MinimumCostForTickets {
         System.out.println(new MinimumCostForTickets().mincostTickets(days, costs));
     }
 
+    public static int getNext(int[] days, int index, int goodUntil) {
+        while (index < days.length && days[index] <= goodUntil) {
+            index++;
+        }
+        return index;
+    }
+
     public int mincostTickets(int[] days, int[] costs) {
         int[] memo = new int[days.length + 1];
         memo[memo.length - 1] = 0;
@@ -73,12 +80,5 @@ public class MinimumCostForTickets {
                             costs[2] + memo[getNext(days, i, days[i] + 29)]);
         }
         return memo[0];
-    }
-
-    public static int getNext(int[] days, int index, int goodUntil) {
-        while (index < days.length && days[index] <= goodUntil) {
-            index++;
-        }
-        return index;
     }
 }

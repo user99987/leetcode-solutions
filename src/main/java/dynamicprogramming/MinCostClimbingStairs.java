@@ -38,7 +38,7 @@ package dynamicprogramming;
  */
 public class MinCostClimbingStairs {
     public static void main(String[] args) throws Exception {
-        System.out.println(new MinCostClimbingStairs().minCostClimbingStairs(new int[]{1,100,1,1,1,100,1,1,100,1}));
+        System.out.println(new MinCostClimbingStairs().minCostClimbingStairs(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}));
     }
 
     public int minCostClimbingStairs(int[] cost) {

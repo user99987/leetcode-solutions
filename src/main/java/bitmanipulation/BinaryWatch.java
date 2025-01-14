@@ -35,6 +35,7 @@ import java.util.List;
  * 0 <= turnedOn <= 10
  */
 public class BinaryWatch {
+
     public static void main(String[] args) {
         System.out.println(new BinaryWatch().readBinaryWatch(1));
     }

@@ -38,7 +38,6 @@ import java.util.Comparator;
  */
 public class MaximumLengthOfPairChain {
 
-
     public static void main(String[] args) throws Exception {
         int[][] A = {{1, 2}, {2, 3}, {3, 4}};
         System.out.println(new MaximumLengthOfPairChain().findLongestChain(A));

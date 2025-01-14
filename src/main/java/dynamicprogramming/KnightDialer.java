@@ -48,10 +48,6 @@ import java.util.List;
  */
 public class KnightDialer {
 
-    public static void main(String[] args) {
-        System.out.println(new KnightDialer().knightDialer(2));
-    }
-
     private static final int[][] MAP = new int[10][];
     private static final List<int[]> MEMO = new ArrayList<>();
 
@@ -67,6 +63,10 @@ public class KnightDialer {
         MAP[8] = new int[]{1, 3};
         MAP[9] = new int[]{2, 4};
         MEMO.add(new int[]{1, 1, 1, 1, 1, 0, 1, 1, 1, 1});
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new KnightDialer().knightDialer(2));
     }
 
     public int knightDialer(int n) {

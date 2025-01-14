@@ -31,6 +31,7 @@ package array;
  * 0 <= arr[i] <= 9
  */
 public class LargestTimeForGivenDigits {
+
     public static void main(String[] args) {
         int[] A = {1, 2, 3, 4};
         System.out.println(new LargestTimeForGivenDigits().largestTimeFromDigits(A));

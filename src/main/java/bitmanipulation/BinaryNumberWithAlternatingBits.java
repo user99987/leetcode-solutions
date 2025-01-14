@@ -34,6 +34,7 @@ package bitmanipulation;
  * 1 <= n <= 2^31 - 1
  */
 public class BinaryNumberWithAlternatingBits {
+
     public static void main(String[] args) {
         System.out.println(new BinaryNumberWithAlternatingBits().hasAlternatingBits(18));
     }

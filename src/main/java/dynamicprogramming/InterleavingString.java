@@ -40,6 +40,7 @@ package dynamicprogramming;
  * s1, s2, and s3 consist of lowercase English letters.
  */
 public class InterleavingString {
+
     public static void main(String[] args) {
         System.out.println(new InterleavingString().isInterleave("aabcc", "aabcc", "aabcaabccc"));
     }

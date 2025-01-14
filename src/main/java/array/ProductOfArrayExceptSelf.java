@@ -28,6 +28,7 @@ package array;
  * The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
  */
 public class ProductOfArrayExceptSelf {
+
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4};
         int[] result = new ProductOfArrayExceptSelf().productExceptSelf(nums);

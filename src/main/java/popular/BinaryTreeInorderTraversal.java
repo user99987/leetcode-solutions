@@ -47,6 +47,7 @@ import java.util.Stack;
  * -100 <= Node.val <= 100
  */
 public class BinaryTreeInorderTraversal {
+
     public static void main(String[] args) throws Exception {
         TreeNode root = new TreeNode(3);
         root.left = new TreeNode(4);

@@ -1,8 +1,6 @@
 package popular;
 
 
-import java.util.List;
-
 /**
  * Easy
  * <p>
@@ -51,7 +49,7 @@ import java.util.List;
 public class PlusOne {
 
     public static void main(String[] args) throws Exception {
-        int[] result = new PlusOne().plusOne(new int[]{4,3,2,1});
+        int[] result = new PlusOne().plusOne(new int[]{4, 3, 2, 1});
         for (int j : result) {
             System.out.println(j);
         }

@@ -46,6 +46,8 @@ import java.util.Map;
  */
 public class SmallestSufficientTeam {
 
+    private List<Integer> ans = new ArrayList<>();
+
     public static void main(String[] args) {
         String[] req = {"java", "nodejs", "reactjs"};
         List<List<String>> people = new ArrayList<>();
@@ -58,8 +60,6 @@ public class SmallestSufficientTeam {
         }
         System.out.println();
     }
-
-    private List<Integer> ans = new ArrayList<>();
 
     public int[] smallestSufficientTeam(String[] skills, List<List<String>> people) {
         int n = skills.length;

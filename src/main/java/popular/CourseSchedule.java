@@ -36,14 +36,14 @@ import java.util.ArrayList;
  */
 public class CourseSchedule {
 
+    private static final int WHITE = 0;
+    private static final int GRAY = 1;
+    private static final int BLACK = 2;
+
     public static void main(String[] args) throws Exception {
         int[][] pre = {{1, 0}};
         System.out.println(new CourseSchedule().canFinish(2, pre));
     }
-
-    private static final int WHITE = 0;
-    private static final int GRAY = 1;
-    private static final int BLACK = 2;
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         ArrayList[] adj = new ArrayList[numCourses];

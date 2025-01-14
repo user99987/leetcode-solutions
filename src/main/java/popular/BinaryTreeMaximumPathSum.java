@@ -2,8 +2,6 @@ package popular;
 
 import utils.TreeNode;
 
-import java.util.List;
-
 /**
  * Hard
  * <p>
@@ -35,7 +33,7 @@ import java.util.List;
  * -1000 <= Node.val <= 1000
  */
 public class BinaryTreeMaximumPathSum {
-    int maxVal = Integer.MIN_VALUE;;
+    int maxVal = Integer.MIN_VALUE;
 
     public static void main(String[] args) throws Exception {
         TreeNode root = new TreeNode(-10);

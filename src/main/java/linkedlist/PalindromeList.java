@@ -24,13 +24,13 @@ import utils.ListNode;
  * The number of nodes in the list is in the range [1, 105].
  * 0 <= Node.val <= 9
  */
-public class PaliandromeList {
+public class PalindromeList {
 
     public static void main(String[] args) throws Exception {
         ListNode node = new ListNode(1);
         node.next = new ListNode(2);
         ;
-        System.out.println(new PaliandromeList().isPalindrome(node));
+        System.out.println(new PalindromeList().isPalindrome(node));
     }
 
     public boolean isPalindrome(ListNode head) {

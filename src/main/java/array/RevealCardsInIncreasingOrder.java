@@ -57,6 +57,7 @@ import java.util.Arrays;
  * All the values of deck are unique.
  */
 public class RevealCardsInIncreasingOrder {
+
     public static void main(String[] args) {
         int[] A = {17, 13, 11, 2, 3, 5, 7};
         int[] R = new RevealCardsInIncreasingOrder().deckRevealedIncreasing(A);

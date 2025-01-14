@@ -44,10 +44,10 @@ public class MergeKSortedLists {
         MergeKSortedLists solution = new MergeKSortedLists();
 
         // Test case
-        ListNode[] lists = new ListNode[] {
-                ListNode.createList(new int[] {1, 4, 5}),
-                ListNode.createList(new int[] {1, 3, 4}),
-                ListNode.createList(new int[] {2, 6})
+        ListNode[] lists = new ListNode[]{
+                ListNode.createList(new int[]{1, 4, 5}),
+                ListNode.createList(new int[]{1, 3, 4}),
+                ListNode.createList(new int[]{2, 6})
         };
         System.out.println("Merged list:");
         ListNode.printList(solution.mergeKLists(lists));

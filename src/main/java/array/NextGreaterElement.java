@@ -54,7 +54,6 @@ import java.util.Map;
  */
 public class NextGreaterElement {
 
-
     public static void main(String[] args) throws Exception {
         int[] A = {4, 1, 2};
         int[] B = {1, 3, 4, 2};

@@ -55,6 +55,7 @@ import utils.ListNode;
  * The node to be deleted is in the list and is not a tail node
  */
 public class DeleteNode {
+
     public static void main(String[] args) {
         ListNode node = new ListNode(1);
         node.next = new ListNode(2);

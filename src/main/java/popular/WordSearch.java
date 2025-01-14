@@ -36,7 +36,7 @@ package popular;
 public class WordSearch {
 
     public static void main(String[] args) throws Exception {
-        char[][] board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
+        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
         System.out.println(new WordSearch().exist(board, "ABCCED"));
     }
 

@@ -42,7 +42,6 @@ import java.util.Map;
  */
 public class RelativeRanks {
 
-
     public static void main(String[] args) throws Exception {
         int[] A = {5, 4, 3, 2, 1};
         String[] S = new RelativeRanks().findRelativeRanks(A);

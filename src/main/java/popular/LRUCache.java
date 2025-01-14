@@ -30,6 +30,16 @@ import java.util.Map;
  */
 public class LRUCache {
 
+    private final int capacity;
+    private final Map<Integer, LruCacheNode> cacheMap = new HashMap<>();
+    // insert here
+    private LruCacheNode head;
+    // remove here
+    private LruCacheNode tail;
+    public LRUCache(int cap) {
+        capacity = cap;
+    }
+
     public static void main(String[] args) throws Exception {
         LRUCache cache = new LRUCache(2);
         cache.put(1, 1);
@@ -41,29 +51,6 @@ public class LRUCache {
         System.out.println(cache.get(1));
         System.out.println(cache.get(3));
         System.out.println(cache.get(4));
-    }
-
-    private static class LruCacheNode {
-        int key;
-        int value;
-        LruCacheNode prev;
-        LruCacheNode next;
-
-        public LruCacheNode(int k, int v) {
-            key = k;
-            value = v;
-        }
-    }
-
-    private final int capacity;
-    private final Map<Integer, LruCacheNode> cacheMap = new HashMap<>();
-    // insert here
-    private LruCacheNode head;
-    // remove here
-    private LruCacheNode tail;
-
-    public LRUCache(int cap) {
-        capacity = cap;
     }
 
     public int get(int key) {
@@ -154,5 +141,17 @@ public class LRUCache {
         node.next = head;
         head.prev = node;
         head = node;
+    }
+
+    private static class LruCacheNode {
+        int key;
+        int value;
+        LruCacheNode prev;
+        LruCacheNode next;
+
+        public LruCacheNode(int k, int v) {
+            key = k;
+            value = v;
+        }
     }
 }

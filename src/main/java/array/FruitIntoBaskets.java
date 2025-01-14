@@ -43,10 +43,6 @@ package array;
  */
 public class FruitIntoBaskets {
 
-    private int count = 0;
-    private int max = 0;
-
-    
     public static void main(String[] args) {
         int[] trees = {1, 0, 3, 4, 3};
         System.out.println(new FruitIntoBaskets().totalFruit(trees));

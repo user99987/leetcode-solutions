@@ -46,6 +46,7 @@ import java.util.Queue;
  * -1000 <= satisfaction[i] <= 1000
  */
 public class ReducingDishes {
+
     public static void main(String[] args) {
         int[] A = {4, 3, 2};
         System.out.println(new ReducingDishes().maxSatisfaction(A));

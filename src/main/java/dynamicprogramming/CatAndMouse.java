@@ -49,16 +49,16 @@ import java.util.Queue;
  */
 public class CatAndMouse {
 
-    public static void main(String[] args) {
-        int[][] graph = {{2, 5}, {3}, {0, 4, 5}, {1, 4, 5}, {2, 3}, {0, 2, 3}};
-        System.out.println(new CatAndMouse().catMouseGame(graph));
-    }
-
     private static final int DRAW = 0;
     private static final int MOUSE_WIN = 1;
     private static final int CAT_WIN = 2;
     private static final int MOUSE = 0;
     private static final int CAT = 1;
+
+    public static void main(String[] args) {
+        int[][] graph = {{2, 5}, {3}, {0, 4, 5}, {1, 4, 5}, {2, 3}, {0, 2, 3}};
+        System.out.println(new CatAndMouse().catMouseGame(graph));
+    }
 
     public int catMouseGame(int[][] graph) {
         int n = graph.length;

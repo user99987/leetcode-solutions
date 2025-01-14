@@ -37,6 +37,17 @@ import java.util.Map;
 
 public class LFUCache {
 
+    private final Map<Integer, Node> endOfBlock;
+    private final Map<Integer, Node> map;
+    private final int capacity;
+    private final Node linkedList;
+    public LFUCache(int capacity) {
+        endOfBlock = new HashMap<>();
+        map = new HashMap<>();
+        this.capacity = capacity;
+        linkedList = new Node();
+    }
+
     public static void main(String[] args) {
         LFUCache lfu = new LFUCache(2);
         lfu.put(1, 1);  // cache=[1,_], cnt(1)=1
@@ -54,26 +65,6 @@ public class LFUCache {
         System.out.println(lfu.get(3));     // return 3
         // cache=[3,4], cnt(4)=1, cnt(3)=3
         System.out.println(lfu.get(4));     // return 4
-    }
-
-    private static class Node {
-        Node prev;
-        Node next;
-        int key = -1;
-        int val;
-        int freq;
-    }
-
-    private final Map<Integer, Node> endOfBlock;
-    private final Map<Integer, Node> map;
-    private final int capacity;
-    private final Node linkedList;
-
-    public LFUCache(int capacity) {
-        endOfBlock = new HashMap<>();
-        map = new HashMap<>();
-        this.capacity = capacity;
-        linkedList = new Node();
     }
 
     public int get(int key) {
@@ -155,6 +146,14 @@ public class LFUCache {
         } else {
             endOfBlock.remove(node.freq);
         }
+    }
+
+    private static class Node {
+        Node prev;
+        Node next;
+        int key = -1;
+        int val;
+        int freq;
     }
 
 }

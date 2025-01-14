@@ -28,9 +28,8 @@ import java.util.Map;
  */
 public class SubarraySumEqualsK {
 
-
     public static void main(String[] args) throws Exception {
-        int[] A = {1,2,3};
+        int[] A = {1, 2, 3};
         System.out.println(new SubarraySumEqualsK().subarraySum(A, 3));
     }
 

@@ -45,6 +45,7 @@ package binarysearch;
  * -10^4 <= target <= 10^4
  */
 public class SearchInsertPosition {
+
     public static void main(String[] args) throws Exception {
         int[] A = {1, 3, 5, 6};
         System.out.println(new SearchInsertPosition().searchInsert(A, 5));

@@ -44,6 +44,8 @@ import java.util.Queue;
  */
 public class SwimInRisingWater {
 
+    private final int[] dir = new int[]{-1, 0, 1, 0, -1};
+
     public static void main(String[] args) {
         int[][] grid = {
                 {0, 1, 2, 3, 4},
@@ -54,8 +56,6 @@ public class SwimInRisingWater {
         };
         System.out.println(new SwimInRisingWater().swimInWater(grid));
     }
-
-    private final int[] dir = new int[]{-1, 0, 1, 0, -1};
 
     public int swimInWater(int[][] grid) {
         int max = 0;

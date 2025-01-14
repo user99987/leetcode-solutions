@@ -57,12 +57,12 @@ package dynamicprogramming;
  */
 public class MinimumDistanceToTypeAWordUsingTwoFingers {
 
+    private String word;
+    private Integer[][][] dp;
+
     public static void main(String[] args) {
         System.out.println(new MinimumDistanceToTypeAWordUsingTwoFingers().minimumDistance("YEAR"));
     }
-
-    private String word;
-    private Integer[][][] dp;
 
     public int minimumDistance(String word) {
         this.word = word;

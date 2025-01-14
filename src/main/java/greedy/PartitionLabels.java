@@ -33,6 +33,7 @@ import java.util.List;
  * s consists of lowercase English letters.
  */
 public class PartitionLabels {
+
     public static void main(String[] args) {
         System.out.println(new PartitionLabels().partitionLabels("ababcbacadefegdehijhklij"));
     }

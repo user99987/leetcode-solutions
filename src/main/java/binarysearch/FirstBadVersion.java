@@ -29,9 +29,10 @@ package binarysearch;
  * <p>
  * Constraints:
  * <p>
- * 1 <= bad <= n <= 231 - 1
+ * 1 <= bad <= n <= 2^31 - 1
  */
 public class FirstBadVersion {
+
     public static void main(String[] args) throws Exception {
         System.out.println(new FirstBadVersion().firstBadVersion(2126753390));
     }
@@ -48,7 +49,6 @@ public class FirstBadVersion {
     }
 
     private boolean isBadVersion(int n) {
-        if (n >= 1702766719) return true;
-        return false;
+        return n >= 1702766719;
     }
 }

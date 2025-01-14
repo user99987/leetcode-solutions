@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Set;
-
 /**
  * Medium
  * <p>
@@ -41,8 +39,6 @@ import java.util.Set;
  * All the values of nums are unique.
  */
 public class ArrayNesting {
-    Set<Integer> done;
-    int count;
 
     public static void main(String[] args) {
         int[] A = {5, 4, 0, 3, 1, 6, 2};

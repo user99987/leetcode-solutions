@@ -48,8 +48,8 @@ package popular;
 public class GasStation {
 
     public static void main(String[] args) throws Exception {
-        int[] gas = {2,3,4};
-        int[] cost = {3,4,3};
+        int[] gas = {2, 3, 4};
+        int[] cost = {3, 4, 3};
         System.out.println(new GasStation().canCompleteCircuit(gas, cost));
     }
 

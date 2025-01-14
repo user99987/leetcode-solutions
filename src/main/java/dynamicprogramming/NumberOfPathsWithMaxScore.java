@@ -39,14 +39,14 @@ import java.util.stream.Collectors;
  */
 public class NumberOfPathsWithMaxScore {
 
+    private static final int[][] DIRECTIONS = new int[][]{{1, 0}, {0, 1}, {1, 1}};
+
     public static void main(String[] args) {
         String[] board = {"E11", "XXX", "11S"};
         List<String> input = Arrays.stream(board).collect(Collectors.toList());
         int[] r = new NumberOfPathsWithMaxScore().pathsWithMaxScore(input);
         System.out.println(r[0] + " " + r[1]);
     }
-
-    private static final int[][] DIRECTIONS = new int[][]{{1, 0}, {0, 1}, {1, 1}};
 
     public int[] pathsWithMaxScore(List<String> board) {
         int rows = board.size();

@@ -46,18 +46,6 @@ public class PalindromePairs {
         result.stream().map(x -> (x.get(0) + " " + x.get(1))).forEach(System.out::println);
     }
 
-    private static class TrieNode {
-        TrieNode[] next;
-        int index;
-        List<Integer> list;
-
-        TrieNode() {
-            next = new TrieNode[26];
-            index = -1;
-            list = new ArrayList<>();
-        }
-    }
-
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();
         TrieNode root = new TrieNode();
@@ -112,5 +100,17 @@ public class PalindromePairs {
             }
         }
         return true;
+    }
+
+    private static class TrieNode {
+        TrieNode[] next;
+        int index;
+        List<Integer> list;
+
+        TrieNode() {
+            next = new TrieNode[26];
+            index = -1;
+            list = new ArrayList<>();
+        }
     }
 }
