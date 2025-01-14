@@ -41,6 +41,7 @@ public class LFUCache {
     private final Map<Integer, Node> map;
     private final int capacity;
     private final Node linkedList;
+
     public LFUCache(int capacity) {
         endOfBlock = new HashMap<>();
         map = new HashMap<>();

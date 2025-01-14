@@ -1,7 +1,5 @@
 package popular;
 
-import utils.Node;
-
 /**
  * Medium
  * <p>
@@ -40,18 +38,12 @@ public class PopulatingNextRightPointersInEachNode {
 
     public static void main(String[] args) throws Exception {
         Node node = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        Node node6 = new Node(6);
-        Node node7 = new Node(7);
-        node.left = node2;
-        node.right = node3;
-        node2.left = node4;
-        node2.right = node5;
-        node3.left = node6;
-        node3.right = node7;
+        node.left = new Node(2);
+        node.right = new Node(3);
+        node.left.left = new Node(4);
+        node.left.right = new Node(5);
+        node.right .left = new Node(6);
+        node.right .right = new Node(7);
 
         Node result = new PopulatingNextRightPointersInEachNode().connect(node);
         Node.print(result);
@@ -70,6 +62,25 @@ public class PopulatingNextRightPointersInEachNode {
         connect(root.left);
         connect(root.right);
         return root;
+    }
+
+    private static class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node next;
+
+        public Node(int val) {
+            this.val = val;
+        }
+
+        public static void print(Node head) {
+            while (head != null) {
+                System.out.print(head.val + " ");
+                head = head.next;
+            }
+        }
+
     }
 
 }

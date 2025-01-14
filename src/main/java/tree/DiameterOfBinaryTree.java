@@ -32,6 +32,8 @@ import utils.TreeNode;
  */
 public class DiameterOfBinaryTree {
 
+    private int diameter;
+
     public static void main(String[] args) throws Exception {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -40,7 +42,6 @@ public class DiameterOfBinaryTree {
         root.right = new TreeNode(3);
         System.out.println(new DiameterOfBinaryTree().diameterOfBinaryTree(root));
     }
-    private int diameter;
 
     public int diameterOfBinaryTree(TreeNode root) {
         diameter = 0;

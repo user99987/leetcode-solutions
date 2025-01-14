@@ -2,12 +2,10 @@ package tree;
 
 import utils.TreeNode;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 
 /**
  * Easy
@@ -61,7 +59,7 @@ public class AverageOfLevelsInBinaryTree {
         if (root == null) {
             return;
         }
-        Double[] pair = map.containsKey(level) ? map.get(level) : new Double[] {0.0, 0.0};
+        Double[] pair = map.containsKey(level) ? map.get(level) : new Double[]{0.0, 0.0};
         pair[0] += 1;
         pair[1] += root.val;
         map.put(level, pair);

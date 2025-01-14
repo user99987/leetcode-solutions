@@ -36,6 +36,7 @@ public class LRUCache {
     private LruCacheNode head;
     // remove here
     private LruCacheNode tail;
+
     public LRUCache(int cap) {
         capacity = cap;
     }
