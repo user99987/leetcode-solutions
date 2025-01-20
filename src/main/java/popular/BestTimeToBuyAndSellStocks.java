@@ -32,11 +32,6 @@ package popular;
  */
 public class BestTimeToBuyAndSellStocks {
 
-    public static void main(String[] args) throws Exception {
-        int[] prices = {7, 1, 5, 3, 6, 4};
-        System.out.println(new BestTimeToBuyAndSellStocks().maxProfit(prices));
-    }
-
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length <= 1) return 0; // Check for empty array or single element
 

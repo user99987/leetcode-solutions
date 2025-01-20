@@ -29,10 +29,6 @@ package popular;
  */
 public class ClimbingStairs {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new ClimbingStairs().climbStairs(2));
-    }
-
     public int climbStairs(int n) {
         if (n == 0 || n == 1) return 1;
         int[] A = new int[n + 1];

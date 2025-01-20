@@ -37,21 +37,6 @@ import java.util.Queue;
  */
 public class BinaryTreeLevelOrderTraversal {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(2);
-        root.left = new TreeNode(3);
-        root.right = new TreeNode(4);
-        root.right.right = new TreeNode(5);
-        root.right.left = new TreeNode(4);
-        root.right.left.right = new TreeNode(8);
-        root.right.left.left = new TreeNode(7);
-        root.right.left.left.right = new TreeNode(10);
-        root.right.left.left.left = new TreeNode(9);
-
-        List<List<Integer>> result = new BinaryTreeLevelOrderTraversal().levelOrder(root);
-        System.out.println(result);
-    }
-
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>(); // Initialize list to store level order traversal
         if (root == null) return result; // Check for empty tree
@@ -65,6 +50,7 @@ public class BinaryTreeLevelOrderTraversal {
 
             for (int i = 0; i < levelSize; i++) {
                 TreeNode node = queue.poll(); // Dequeue the front node
+                assert node != null;
                 level.add(node.val); // Add node value to the current level list
 
                 // Enqueue the left and right children if they exist

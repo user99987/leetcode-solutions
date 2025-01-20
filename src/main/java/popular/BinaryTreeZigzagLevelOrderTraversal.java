@@ -36,16 +36,6 @@ import java.util.Queue;
  */
 public class BinaryTreeZigzagLevelOrderTraversal {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.right = new TreeNode(7);
-        root.right.left = new TreeNode(15);
-
-        System.out.println(new BinaryTreeZigzagLevelOrderTraversal().zigzagLevelOrder(root));
-    }
-
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
         if (root == null) {

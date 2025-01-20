@@ -33,10 +33,6 @@ import java.util.stream.Collectors;
  */
 public class ContainsDuplicate {
 
-    public static void main(String[] args) {
-        System.out.println(new ContainsDuplicate().containsDuplicate(new int[]{1, 2, 3, 4}));
-    }
-
     public boolean containsDuplicate(int[] nums) {
         return Arrays.stream(nums).boxed().collect(Collectors.toSet()).size() < nums.length;
     }

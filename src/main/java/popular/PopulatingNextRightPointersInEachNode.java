@@ -49,7 +49,7 @@ public class PopulatingNextRightPointersInEachNode {
         Node.print(result);
     }
 
-    public Node connect(Node root) {
+    private Node connect(Node root) {
         if (root == null) {
             return null;
         }

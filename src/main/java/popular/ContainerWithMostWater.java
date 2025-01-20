@@ -36,27 +36,10 @@ package popular;
  * Constraints:
  * <p>
  * n == height.length
- * 2 <= n <= 105
- * 0 <= height[i] <= 104
+ * 2 <= n <= 10^5
+ * 0 <= height[i] <= 10^4
  */
 public class ContainerWithMostWater {
-
-    public static void main(String[] args) {
-        ContainerWithMostWater solution = new ContainerWithMostWater();
-
-        // Test cases
-        int[] height1 = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-        System.out.println("Example 1 Output: " + solution.maxArea(height1));
-
-        int[] height2 = {1, 1};
-        System.out.println("Example 2 Output: " + solution.maxArea(height2));
-
-        int[] height3 = {4, 3, 2, 1, 4};
-        System.out.println("Example 3 Output: " + solution.maxArea(height3));
-
-        int[] height4 = {1, 2, 1};
-        System.out.println("Example 4 Output: " + solution.maxArea(height4));
-    }
 
     public int maxArea(int[] height) {
         int left = 0;

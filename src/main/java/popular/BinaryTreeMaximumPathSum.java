@@ -33,17 +33,8 @@ import utils.TreeNode;
  * -1000 <= Node.val <= 1000
  */
 public class BinaryTreeMaximumPathSum {
+
     int maxVal = Integer.MIN_VALUE;
-
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(-10);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.right = new TreeNode(7);
-        root.right.left = new TreeNode(15);
-
-        System.out.println(new BinaryTreeMaximumPathSum().maxPathSum(root));
-    }
 
     public int maxPathSum(TreeNode root) {
         helper(root);
@@ -60,4 +51,5 @@ public class BinaryTreeMaximumPathSum {
         maxVal = Math.max(maxVal, sum);
         return root.val + Math.max(left, right);
     }
+
 }

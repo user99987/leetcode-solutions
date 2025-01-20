@@ -48,20 +48,6 @@ import java.util.Stack;
  */
 public class BinaryTreeInorderTraversal {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(4);
-        root.left.left = new TreeNode(5);
-        root.left.right = new TreeNode(6);
-        root.left.left.left = new TreeNode(9);
-        root.left.left.right = new TreeNode(10);
-        root.right = new TreeNode(2);
-        root.right.left = new TreeNode(7);
-        root.right.right = new TreeNode(8);
-        List<Integer> result = new BinaryTreeInorderTraversal().inorderTraversal(root);
-        System.out.println(result);
-    }
-
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> inorder = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();

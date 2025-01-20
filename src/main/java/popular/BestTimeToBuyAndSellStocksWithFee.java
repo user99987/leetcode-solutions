@@ -41,11 +41,6 @@ package popular;
  */
 public class BestTimeToBuyAndSellStocksWithFee {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {1, 3, 2, 8, 4, 9};
-        System.out.println(new BestTimeToBuyAndSellStocksWithFee().maxProfit(A, 2));
-    }
-
     public int maxProfit(int[] prices, int fee) {
         int cash = 0;
         int hold = -prices[0];
