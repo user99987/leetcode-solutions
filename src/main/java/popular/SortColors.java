@@ -1,7 +1,5 @@
 package popular;
 
-import java.util.Arrays;
-
 /**
  * Medium
  * <p>
@@ -42,12 +40,6 @@ import java.util.Arrays;
  * nums[i] is 0, 1, or 2.
  */
 public class SortColors {
-
-    public static void main(String[] args) throws Exception {
-        int[] ints = {2, 0, 2, 1, 1, 0};
-        new SortColors().sortColors(ints);
-        System.out.println(Arrays.toString(ints));
-    }
 
     public void sortColors(int[] nums) {
         int zeroIdx = 0;

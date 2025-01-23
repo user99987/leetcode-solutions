@@ -45,10 +45,6 @@ import java.util.Map;
  */
 public class MinimumWindowSubstring {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MinimumWindowSubstring().minWindow("ADOBECODEBANC", "ABC"));
-    }
-
     public String minWindow(String s, String t) {
         Map<Character, Integer> tFreqMap = new HashMap<>();
         Map<Character, Integer> sFreqMap = new HashMap<>();

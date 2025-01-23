@@ -1,7 +1,5 @@
 package popular;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -46,12 +44,6 @@ import java.util.Set;
  * All the strings of wordDict are unique.
  */
 public class WordBreak {
-
-    public static void main(String[] args) throws Exception {
-        List<String> dic = new ArrayList<>();
-        Collections.addAll(dic, "cats", "dog", "sand", "and", "cat");
-        System.out.println(new WordBreak().wordBreak("catsandog", dic));
-    }
 
     public boolean wordBreak(String s, List<String> wordDict) {
         Set<String> dictionary = new HashSet<>(wordDict);

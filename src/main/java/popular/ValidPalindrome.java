@@ -38,10 +38,6 @@ package popular;
  */
 public class ValidPalindrome {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new ValidPalindrome().isPalindrome("A man, a plan, a canal: Panama"));
-    }
-
     public boolean isPalindrome(String s) {
         if (s == null || s.isEmpty()) return true;
         s = s.toLowerCase();

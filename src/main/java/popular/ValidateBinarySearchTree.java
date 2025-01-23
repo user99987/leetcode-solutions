@@ -34,15 +34,6 @@ import utils.TreeNode;
  */
 public class ValidateBinarySearchTree {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode node1 = new TreeNode(2);
-        TreeNode node2 = new TreeNode(1);
-        TreeNode node3 = new TreeNode(3);
-        node1.left = node2;
-        node1.right = node3;
-        System.out.println(new ValidateBinarySearchTree().isValidBST(node1));
-    }
-
     public boolean isValidBST(TreeNode root) {
         return isValidBSTHelper(root, (((long) Integer.MAX_VALUE) + 1), ((long) Integer.MIN_VALUE) - 1);
     }

@@ -34,11 +34,6 @@ import java.util.List;
  */
 public class Permutations {
 
-    public static void main(String[] args) throws Exception {
-        List<List<Integer>> result = new Permutations().permute(new int[]{1, 2, 3});
-        result.forEach(System.out::println);
-    }
-
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         permuteHelper(nums, new ArrayList<>(), result);

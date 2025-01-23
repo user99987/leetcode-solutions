@@ -1,7 +1,5 @@
 package popular;
 
-import java.util.Arrays;
-
 /**
  * Medium
  * <p>
@@ -41,12 +39,6 @@ import java.util.Arrays;
  * -1000 <= matrix[i][j] <= 1000
  */
 public class RotateImage {
-
-    public static void main(String[] args) throws Exception {
-        int[][] ints = {{1, 2}, {3, 4}};
-        new RotateImage().rotate(ints);
-        System.out.println(Arrays.deepToString(ints));
-    }
 
     public void rotate(int[][] matrix) {
         int n = matrix.length;

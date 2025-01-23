@@ -29,10 +29,6 @@ import java.util.Map;
  */
 public class MaxPointsOnLine {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MaxPointsOnLine().maxPoints(new int[][]{{1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}}));
-    }
-
     public int maxPoints(int[][] points) {
         int max = 0;
         for (int i = 0; i < points.length - 1; i++) {

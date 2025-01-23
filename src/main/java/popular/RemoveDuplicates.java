@@ -27,10 +27,6 @@ import utils.ListNode;
  */
 public class RemoveDuplicates {
 
-    public static void main(String[] args) throws Exception {
-        ListNode.printList(new RemoveDuplicates().deleteDuplicates(ListNode.createList(new int[]{1, 1, 2})));
-    }
-
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null) {
             return null;

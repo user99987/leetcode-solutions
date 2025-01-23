@@ -67,10 +67,6 @@ import java.util.Map;
  */
 public class RomanToInteger {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new RomanToInteger().romanToInt("MCMXCIV"));
-    }
-
     public int romanToInt(String s) {
         Map<Character, Integer> map = new HashMap<>();
         map.put('I', 1);

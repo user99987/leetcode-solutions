@@ -30,11 +30,6 @@ import java.util.List;
  */
 public class Subsets {
 
-    public static void main(String[] args) throws Exception {
-        List<List<Integer>> result = new Subsets().subsets(new int[]{1, 2, 3});
-        System.out.println(result);
-    }
-
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         result.add(new ArrayList<>()); // empty subset

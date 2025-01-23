@@ -43,13 +43,6 @@ package popular;
  */
 public class MergeSortedArray {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {1, 2, 3, 0, 0, 0};
-        int[] B = {2, 5, 6};
-        new MergeSortedArray().merge(A, 3, B, 3);
-        for (int i : A) System.out.println(i);
-    }
-
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m - 1;
         int j = nums1.length - 1;

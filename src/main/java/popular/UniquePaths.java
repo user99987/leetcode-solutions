@@ -48,10 +48,6 @@ import java.util.Arrays;
  */
 public class UniquePaths {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new UniquePaths().uniquePaths(3, 3));
-    }
-
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
         for (int[] arr : dp) {

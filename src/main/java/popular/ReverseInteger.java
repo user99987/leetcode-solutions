@@ -37,23 +37,6 @@ package popular;
  */
 public class ReverseInteger {
 
-    public static void main(String[] args) {
-        ReverseInteger solution = new ReverseInteger();
-
-        // Test cases
-        int x1 = 123;
-        System.out.println("Example 1 Output: " + solution.reverse(x1));
-
-        int x2 = -123;
-        System.out.println("Example 2 Output: " + solution.reverse(x2));
-
-        int x3 = 120;
-        System.out.println("Example 3 Output: " + solution.reverse(x3));
-
-        int x4 = 0;
-        System.out.println("Example 4 Output: " + solution.reverse(x4));
-    }
-
     public int reverse(int x) {
         int reverse = 0;
         while (x != 0) {

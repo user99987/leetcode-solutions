@@ -33,11 +33,6 @@ import utils.ListNode;
  */
 public class SortList {
 
-    public static void main(String[] args) throws Exception {
-        ListNode node = ListNode.createList(new int[]{-1, 5, 3, 4, 0});
-        ListNode.printList(new SortList().sortList(node));
-    }
-
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;

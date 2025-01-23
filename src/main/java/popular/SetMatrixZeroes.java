@@ -1,6 +1,5 @@
 package popular;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,12 +30,6 @@ import java.util.Set;
  * -2^31 <= matrix[i][j] <= 2^31 - 1
  */
 public class SetMatrixZeroes {
-
-    public static void main(String[] args) throws Exception {
-        int[][] matrix = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
-        new SetMatrixZeroes().setZeroes(matrix);
-        System.out.println(Arrays.deepToString(matrix));
-    }
 
     public void setZeroes(int[][] matrix) {
         Set<Integer> row = new HashSet<>();

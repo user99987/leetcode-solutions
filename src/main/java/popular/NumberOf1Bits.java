@@ -40,10 +40,6 @@ package popular;
 
 public class NumberOf1Bits {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new NumberOf1Bits().hammingWeight(31));
-    }
-
     public int hammingWeight(int n) {
         int sum = 0;
         boolean flag = false;

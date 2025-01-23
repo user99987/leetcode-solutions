@@ -28,11 +28,6 @@ import java.util.List;
  */
 public class PascalsTriangle {
 
-    public static void main(String[] args) throws Exception {
-        List<List<Integer>> result = new PascalsTriangle().generate(5);
-        result.forEach(System.out::println);
-    }
-
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> output = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {

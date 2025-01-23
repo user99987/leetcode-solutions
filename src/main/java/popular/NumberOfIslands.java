@@ -40,14 +40,6 @@ package popular;
  */
 public class NumberOfIslands {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new NumberOfIslands().numIslands(new char[][]{
-                {'1', '1', '0', '0', '0'},
-                {'1', '1', '0', '0', '0'},
-                {'0', '0', '1', '0', '0'},
-                {'0', '0', '0', '1', '1'}}));
-    }
-
     public int numIslands(char[][] grid) {
         int islands = 0;
         if (grid != null && grid.length != 0 && grid[0].length != 0) {

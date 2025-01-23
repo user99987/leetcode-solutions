@@ -33,10 +33,6 @@ import java.util.List;
  */
 public class SpiralMatrix {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new SpiralMatrix().spiralOrder(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
-    }
-
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
         int rowStart = 0;

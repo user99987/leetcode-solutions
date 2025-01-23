@@ -32,17 +32,7 @@ package popular;
  */
 public class SearchA2DMatrix {
 
-    public static void main(String[] args) throws Exception {
-        int[][] matrix = {
-                {1, 3, 5, 7},
-                {10, 11, 16, 20},
-                {23, 30, 34, 60}
-        };
-
-        System.out.println(new SearchA2DMatrix().searchMatrix(matrix, 3));
-    }
-
-    private boolean searchMatrix(int[][] matrix, int target) {
+    boolean searchMatrix(int[][] matrix, int target) {
         if (matrix.length == 0) return false;
         int M = matrix.length;
         int N = matrix[0].length;

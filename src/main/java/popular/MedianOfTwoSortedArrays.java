@@ -52,12 +52,6 @@ package popular;
  */
 public class MedianOfTwoSortedArrays {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {1, 2, 5, 8, 44, 45, 45};
-        int[] B = {1, 2, 3, 4, 5, 6, 7, 23, 23, 23, 33, 44, 45, 45, 56, 77, 5555};
-        System.out.println(new MedianOfTwoSortedArrays().findMedianSortedArrays(A, B));
-    }
-
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;

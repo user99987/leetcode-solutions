@@ -29,11 +29,6 @@ import java.util.List;
  */
 public class PalindromePartitioning {
 
-    public static void main(String[] args) throws Exception {
-        List<List<String>> result = new PalindromePartitioning().partition("aab");
-        result.forEach(System.out::println);
-    }
-
     public List<List<String>> partition(String s) {
         List<List<String>> result = new ArrayList<>();
         backtrack(s, 0, new ArrayList<>(), result);

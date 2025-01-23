@@ -29,10 +29,6 @@ package popular;
  */
 public class SqrtX {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new SqrtX().mySqrt(Integer.MAX_VALUE));
-    }
-
     public int mySqrt(int x) {
         int s = 0, e = x;
         long ans = 0L;

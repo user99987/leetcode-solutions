@@ -48,13 +48,6 @@ package popular;
  */
 public class PlusOne {
 
-    public static void main(String[] args) throws Exception {
-        int[] result = new PlusOne().plusOne(new int[]{4, 3, 2, 1});
-        for (int j : result) {
-            System.out.println(j);
-        }
-    }
-
     public int[] plusOne(int[] digits) {
         int carry = 1;
         int n = digits.length;

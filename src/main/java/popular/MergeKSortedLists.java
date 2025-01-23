@@ -40,19 +40,6 @@ import utils.ListNode;
  */
 public class MergeKSortedLists {
 
-    public static void main(String[] args) {
-        MergeKSortedLists solution = new MergeKSortedLists();
-
-        // Test case
-        ListNode[] lists = new ListNode[]{
-                ListNode.createList(new int[]{1, 4, 5}),
-                ListNode.createList(new int[]{1, 3, 4}),
-                ListNode.createList(new int[]{2, 6})
-        };
-        System.out.println("Merged list:");
-        ListNode.printList(solution.mergeKLists(lists));
-    }
-
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) return null;
         if (lists.length == 1) return lists[0];

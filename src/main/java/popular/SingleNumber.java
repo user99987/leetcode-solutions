@@ -33,10 +33,6 @@ package popular;
  */
 public class SingleNumber {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new SingleNumber().singleNumber(new int[]{4, 1, 2, 1, 2}));
-    }
-
     public int singleNumber(int[] nums) {
         int singleNumber = 0; // Initialize variable to store result
 

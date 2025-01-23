@@ -1,7 +1,8 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DecodeWaysTest {
 
@@ -22,6 +23,6 @@ public class DecodeWaysTest {
 
     @Test
     public void testCase4() {
-        assertEquals(0, new DecodeWays().numDecodings( "06"));
+        assertEquals(0, new DecodeWays().numDecodings("06"));
     }
 }

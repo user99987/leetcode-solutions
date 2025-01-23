@@ -37,29 +37,35 @@ package popular;
 public class LongestPalindromicSubstring {
 
     public String longestPalindrome(String s) {
-        if (s == null || s.isEmpty()) return "";
-        int start = 0;
-        int end = 0;
+        int n = s.length();
 
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expandAroundCenter(s, i, i);
-            int len2 = expandAroundCenter(s, i, i + 1);
-            int len = Math.max(len1, len2);
-            if (len > end - start) {
-                start = i - (len - 1) / 2;
-                end = i + len / 2;
+        // All substrings of length 1 are palindromes
+        int maxLen = 1, start = 0;
+
+        // Nested loop to mark start and end index
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+
+                // Check if the current substring is
+                // a palindrome
+                if (checkPal(s, i, j) && (j - i + 1) > maxLen) {
+                    start = i;
+                    maxLen = j - i + 1;
+                }
             }
         }
 
-        return s.substring(start, end + 1);
+        return s.substring(start, start + maxLen);
     }
 
-    private int expandAroundCenter(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
+    private boolean checkPal(String s, int low, int high) {
+        while (low < high) {
+            if (s.charAt(low) != s.charAt(high))
+                return false;
+            low++;
+            high--;
         }
-        return right - left - 1;
+        return true;
     }
 
 }

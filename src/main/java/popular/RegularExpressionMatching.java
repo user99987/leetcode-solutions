@@ -57,31 +57,6 @@ package popular;
  */
 public class RegularExpressionMatching {
 
-    public static void main(String[] args) {
-        RegularExpressionMatching solution = new RegularExpressionMatching();
-
-        // Test cases
-        String s1 = "aa";
-        String p1 = "a";
-        System.out.println("Example 1 Output: " + solution.isMatch(s1, p1));
-
-        String s2 = "aa";
-        String p2 = "a*";
-        System.out.println("Example 2 Output: " + solution.isMatch(s2, p2));
-
-        String s3 = "ab";
-        String p3 = ".*";
-        System.out.println("Example 3 Output: " + solution.isMatch(s3, p3));
-
-        String s4 = "aab";
-        String p4 = "c*a*b";
-        System.out.println("Example 4 Output: " + solution.isMatch(s4, p4));
-
-        String s5 = "mississippi";
-        String p5 = "mis*is*p*.";
-        System.out.println("Example 5 Output: " + solution.isMatch(s5, p5));
-    }
-
     public boolean isMatch(String s, String p) {
         if (p.isEmpty())
             return s.isEmpty();

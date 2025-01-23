@@ -33,10 +33,6 @@ package popular;
  */
 public class PowXN {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new PowXN().myPow(2.00000, 10));
-    }
-
     public double myPow(double x, int n) {
         if (n == 0) return 1D;
         // use long to avoid overflow.

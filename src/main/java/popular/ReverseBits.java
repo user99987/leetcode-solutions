@@ -31,10 +31,6 @@ package popular;
  */
 public class ReverseBits {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new ReverseBits().reverseBits(43261596));
-    }
-
     public int reverseBits(int n) {
         int ret = 0;
         // because there are 32 bits in total

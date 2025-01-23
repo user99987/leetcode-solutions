@@ -1,6 +1,5 @@
 package popular;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,17 +41,6 @@ import java.util.Set;
  * All the words in wordList are unique.
  */
 public class WordLadder {
-
-    public static void main(String[] args) throws Exception {
-        List<String> list = new ArrayList<>();
-        list.add("hot");
-        list.add("dot");
-        list.add("dog");
-        list.add("lot");
-        list.add("log");
-        list.add("cog");
-        System.out.println(new WordLadder().ladderLength("hit", "cog", list));
-    }
 
     public int ladderLength(String beginWord, String endWord, List<String> wordDict) {
         Set<String> beginSet = new HashSet<>();

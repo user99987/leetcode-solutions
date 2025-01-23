@@ -31,17 +31,6 @@ import java.util.Stack;
 public class MinStack {
     private final Stack<Node> stack = new Stack<>();
 
-    public static void main(String[] args) throws Exception {
-        MinStack minStack = new MinStack();
-        minStack.push(-2);
-        minStack.push(0);
-        minStack.push(-3);
-        System.out.println(minStack.getMin());
-        minStack.pop();
-        System.out.println(minStack.top());
-        System.out.println(minStack.getMin());
-    }
-
     public void push(int x) {
         Node node;
         if (!stack.isEmpty()) {

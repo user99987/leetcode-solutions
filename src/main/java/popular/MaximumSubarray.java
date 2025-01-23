@@ -34,10 +34,6 @@ package popular;
  */
 public class MaximumSubarray {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MaximumSubarray().maxSubArray(new int[]{5, 4, -1, 7, 8}));
-    }
-
     public int maxSubArray(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;

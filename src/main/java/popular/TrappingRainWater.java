@@ -27,10 +27,6 @@ package popular;
  */
 public class TrappingRainWater {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new TrappingRainWater().trap(new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));
-    }
-
     public int trap(int[] height) {
         int left = 0, right = height.length - 1;
         int leftMax = 0, rightMax = 0;

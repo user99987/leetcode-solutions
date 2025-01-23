@@ -32,7 +32,7 @@ package twopointers;
  * 1 <= nums[i], k <= nums.length
  */
 public class SubarraysWithKDifferentIntegers {
-    
+
     public static void main(String[] args) {
         int[] A = {1, 2, 1, 2, 3};
         SubarraysWithKDifferentIntegers task = new SubarraysWithKDifferentIntegers();

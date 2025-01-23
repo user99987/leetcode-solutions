@@ -34,12 +34,6 @@ package popular;
  */
 public class RotateArray {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {1, 2, 3, 4, 5, 6, 7};
-        new RotateArray().rotate(A, 3);
-        for (int i : A) System.out.print(i + " ");
-    }
-
     private void reverse(int[] nums, int l, int r) {
         while (l <= r) {
             int temp = nums[l];

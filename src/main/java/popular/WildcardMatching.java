@@ -55,10 +55,6 @@ package popular;
  */
 public class WildcardMatching {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new WildcardMatching().isMatch("acdcb", "a*c?b"));
-    }
-
     public boolean isMatch(String inputString, String pattern) {
         int i = 0;
         int j = 0;
