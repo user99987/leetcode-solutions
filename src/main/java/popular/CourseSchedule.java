@@ -28,7 +28,7 @@ import java.util.ArrayList;
  * <p>
  * Constraints:
  * <p>
- * 1 <= numCourses <= 105
+ * 1 <= numCourses <= 10^5
  * 0 <= prerequisites.length <= 5000
  * prerequisites[i].length == 2
  * 0 <= ai, bi < numCourses
@@ -40,13 +40,8 @@ public class CourseSchedule {
     private static final int GRAY = 1;
     private static final int BLACK = 2;
 
-    public static void main(String[] args) throws Exception {
-        int[][] pre = {{1, 0}};
-        System.out.println(new CourseSchedule().canFinish(2, pre));
-    }
-
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        ArrayList[] adj = new ArrayList[numCourses];
+        var adj = new ArrayList[numCourses];
         for (int i = 0; i < numCourses; i++) {
             adj[i] = new ArrayList<>();
         }

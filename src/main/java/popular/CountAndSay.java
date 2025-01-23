@@ -41,10 +41,6 @@ package popular;
  */
 public class CountAndSay {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new CountAndSay().countAndSay(4));
-    }
-
     public String countAndSay(int n) {
         if (n == 1) {
             return "1";

@@ -34,10 +34,6 @@ import java.util.Map;
  */
 public class ContainsDuplicateII {
 
-    public static void main(String[] args) {
-        System.out.println(new ContainsDuplicateII().containsNearbyDuplicate(new int[]{1, 2, 3, 1}, 3));
-    }
-
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {

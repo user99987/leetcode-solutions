@@ -26,10 +26,6 @@ import java.util.List;
  */
 public class GenerateParentheses {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new GenerateParentheses().generateParenthesis(3));
-    }
-
     public List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();
         generateParenthesisHelper("", 0, 0, n, result);

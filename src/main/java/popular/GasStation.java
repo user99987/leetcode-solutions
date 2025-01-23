@@ -47,12 +47,6 @@ package popular;
  */
 public class GasStation {
 
-    public static void main(String[] args) throws Exception {
-        int[] gas = {2, 3, 4};
-        int[] cost = {3, 4, 3};
-        System.out.println(new GasStation().canCompleteCircuit(gas, cost));
-    }
-
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int debt = 0, sum = 0, start = 0;
         for (int i = 0; i < gas.length; i++) {

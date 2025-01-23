@@ -27,10 +27,6 @@ package popular;
  */
 class MajorityElement {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MajorityElement().majorityElement(new int[]{2, 2, 1, 1, 1, 2, 2}));
-    }
-
     public int majorityElement(int[] nums) {
         int majorityElement = nums[0];
         int count = 0;

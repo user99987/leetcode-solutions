@@ -34,10 +34,6 @@ package popular;
  */
 public class HouseRobber {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new HouseRobber().rob(new int[]{2, 7, 9, 3, 1}));
-    }
-
     public int rob(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n + 1];

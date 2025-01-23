@@ -33,10 +33,6 @@ package popular;
  */
 public class MaximumProductSubarray {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MaximumProductSubarray().maxProduct(new int[]{2, 3, -2, 4}));
-    }
-
     public int maxProduct(int[] nums) {
         int overAllMaxProd = Integer.MIN_VALUE;
         int n = nums.length;

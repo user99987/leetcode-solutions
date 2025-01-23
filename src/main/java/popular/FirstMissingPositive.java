@@ -33,11 +33,6 @@ package popular;
 public class FirstMissingPositive {
     private int L;
 
-    public static void main(String[] args) throws Exception {
-        int[] nums = {1, 3, 5, 9};
-        System.out.println(new FirstMissingPositive().firstMissingPositive(nums));
-    }
-
     public int firstMissingPositive(int[] nums) {
         L = nums.length;
         for (int i = 0; i < L; i++) {

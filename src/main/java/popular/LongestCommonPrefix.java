@@ -29,11 +29,6 @@ package popular;
  */
 public class LongestCommonPrefix {
 
-    public static void main(String[] args) throws Exception {
-        String[] A = {"abc", "a", "adkd"};
-        System.out.println(new LongestCommonPrefix().longestCommonPrefix(A));
-    }
-
     public String longestCommonPrefix(String[] strs) {
         if (strs.length == 0) return "";
         String result = strs[0];

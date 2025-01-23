@@ -1,7 +1,5 @@
 package popular;
 
-import java.util.Arrays;
-
 /**
  * Medium
  * <p>
@@ -37,10 +35,6 @@ import java.util.Arrays;
  * -10^9 <= target <= 10^9
  */
 public class FindFirstAndLastPositionOfElementInSortedArray {
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(Arrays.toString(new FindFirstAndLastPositionOfElementInSortedArray().searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8)));
-    }
 
     public int[] searchRange(int[] nums, int target) {
         int left = 0;

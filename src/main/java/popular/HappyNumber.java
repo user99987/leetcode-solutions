@@ -40,10 +40,6 @@ package popular;
  */
 public class HappyNumber {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new HappyNumber().isHappy(19));
-    }
-
     public boolean isHappy(int n) {
         boolean happy;
         int a = n;

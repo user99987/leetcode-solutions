@@ -28,10 +28,6 @@ import java.util.Stack;
  */
 public class LargestRectangleInHistogram {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new LargestRectangleInHistogram().largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3}));
-    }
-
     public int largestRectangleArea(int[] heights) {
         Stack<Integer> stack = new Stack<>();
         int maxArea = 0;

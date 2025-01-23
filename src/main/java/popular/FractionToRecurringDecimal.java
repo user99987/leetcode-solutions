@@ -51,11 +51,7 @@ import java.util.Map;
  */
 public class FractionToRecurringDecimal {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new FractionToRecurringDecimal().fractionToDecimal(1, 2));
-    }
-
-    private String fractionToDecimal(int numerator, int denominator) {
+    String fractionToDecimal(int numerator, int denominator) {
         if (numerator == 0) {
             return "0";
         }

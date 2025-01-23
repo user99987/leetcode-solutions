@@ -41,10 +41,6 @@ import java.util.stream.Collectors;
  */
 public class LargestNumber {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new LargestNumber().largestNumber(new int[]{3, 30, 34, 5, 9}));
-    }
-
     public String largestNumber(int[] nums) {
         String largestNum = Arrays.stream(nums)
                 .boxed()

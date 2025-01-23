@@ -44,23 +44,6 @@ import java.util.HashMap;
  */
 public class LongestSubstringWithoutRepeatingCharacters {
 
-    public static void main(String[] args) {
-        LongestSubstringWithoutRepeatingCharacters solution = new LongestSubstringWithoutRepeatingCharacters();
-
-        // Test cases
-        String s1 = "abcabcbb";
-        System.out.println("Example 1 Output: " + solution.lengthOfLongestSubstring(s1));
-
-        String s2 = "bbbbb";
-        System.out.println("Example 2 Output: " + solution.lengthOfLongestSubstring(s2));
-
-        String s3 = "pwwkew";
-        System.out.println("Example 3 Output: " + solution.lengthOfLongestSubstring(s3));
-
-        String s4 = "";
-        System.out.println("Example 4 Output: " + solution.lengthOfLongestSubstring(s4));
-    }
-
     public int lengthOfLongestSubstring(String s) {
         // Initialize variables
         int start = 0;

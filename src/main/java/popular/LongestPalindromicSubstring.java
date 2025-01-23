@@ -36,23 +36,6 @@ package popular;
  */
 public class LongestPalindromicSubstring {
 
-    public static void main(String[] args) {
-        LongestPalindromicSubstring solution = new LongestPalindromicSubstring();
-
-        // Test cases
-        String s1 = "babad";
-        System.out.println("Example 1 Output: " + solution.longestPalindrome(s1));
-
-        String s2 = "cbbd";
-        System.out.println("Example 2 Output: " + solution.longestPalindrome(s2));
-
-        String s3 = "a";
-        System.out.println("Example 3 Output: " + solution.longestPalindrome(s3));
-
-        String s4 = "ac";
-        System.out.println("Example 4 Output: " + solution.longestPalindrome(s4));
-    }
-
     public String longestPalindrome(String s) {
         if (s == null || s.isEmpty()) return "";
         int start = 0;

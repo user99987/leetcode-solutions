@@ -38,10 +38,6 @@ import java.util.stream.Collectors;
  */
 public class GroupAnagrams {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new GroupAnagrams().groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
-    }
-
     public static String getCodedString(String s) {
         return s.chars()
                 .mapToObj(c -> (char) c)

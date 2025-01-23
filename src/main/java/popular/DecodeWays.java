@@ -56,10 +56,6 @@ package popular;
  */
 public class DecodeWays {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new DecodeWays().numDecodings("3120"));
-    }
-
     public int numDecodings(String s) {
         if (s.charAt(0) == '0') {
             return 0;

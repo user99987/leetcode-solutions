@@ -47,10 +47,6 @@ package popular;
  */
 public class ExcelSheetColumnNumber {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new ExcelSheetColumnNumber().titleToNumber("AAB"));
-    }
-
     public int titleToNumber(String s) {
         int num = 0;
         int pow = 0;

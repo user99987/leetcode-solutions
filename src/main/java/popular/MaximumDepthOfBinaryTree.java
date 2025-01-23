@@ -41,11 +41,6 @@ import utils.TreeNode;
  */
 public class MaximumDepthOfBinaryTree {
 
-    public static void main(String[] args) throws Exception {
-        int[] nums = {3, 9, 20, 15, 7};
-        System.out.println(new MaximumDepthOfBinaryTree().maxDepth(build(nums, 0, nums.length - 1)));
-    }
-
     private static TreeNode build(int[] nums, int start, int end) {
         if (start > end) {
             return null;

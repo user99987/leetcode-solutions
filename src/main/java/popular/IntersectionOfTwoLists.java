@@ -63,13 +63,6 @@ import utils.ListNode;
  */
 public class IntersectionOfTwoLists {
 
-    public static void main(String[] args) throws Exception {
-        ListNode node1 = new ListNode(2);
-        ListNode node2 = new ListNode(3);
-        node1.next = node2;
-        System.out.println(new IntersectionOfTwoLists().getIntersectionNode(node1, node2));
-    }
-
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode node1 = headA;
         ListNode node2 = headB;

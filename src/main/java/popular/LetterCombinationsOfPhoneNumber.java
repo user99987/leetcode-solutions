@@ -47,20 +47,6 @@ public class LetterCombinationsOfPhoneNumber {
             '9', "wxyz"
     );
 
-    public static void main(String[] args) {
-        LetterCombinationsOfPhoneNumber solution = new LetterCombinationsOfPhoneNumber();
-
-        // Test cases
-        String digits1 = "23";
-        System.out.println("Example 1 Output: " + solution.letterCombinations(digits1));
-
-        String digits2 = "";
-        System.out.println("Example 2 Output: " + solution.letterCombinations(digits2));
-
-        String digits3 = "2";
-        System.out.println("Example 3 Output: " + solution.letterCombinations(digits3));
-    }
-
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<>();
         letterCombinations(digits, 0, new StringBuilder(), result);

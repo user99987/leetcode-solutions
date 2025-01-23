@@ -41,15 +41,11 @@ package popular;
  * <p>
  * Constraints:
  * <p>
- * -231 <= dividend, divisor <= 231 - 1
+ * -2^31 <= dividend, divisor <= 2^31 - 1
  * divisor != 0
  * Solution
  */
 public class DivideTwoIntegers {
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(new DivideTwoIntegers().divide(0, 775));
-    }
 
     public int divide(int dividend, int divisor) {
         boolean isNegative = dividend > 0 && divisor < 0 || dividend < 0 && divisor > 0;

@@ -34,10 +34,6 @@ package popular;
  * nums[i] != nums[i + 1] for all valid i.
  */
 public class FindPeakElement {
-    public static void main(String[] args) throws Exception {
-        int[] nums = {1, 2, 1, 3, 5, 6, 4};
-        System.out.println(new FindPeakElement().findPeakElement(nums));
-    }
 
     public int findPeakElement(int[] nums) {
         int start = 0;
