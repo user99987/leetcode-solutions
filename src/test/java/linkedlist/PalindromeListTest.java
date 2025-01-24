@@ -3,8 +3,8 @@ package linkedlist;
 import org.junit.jupiter.api.Test;
 import utils.ListNode;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PalindromeListTest {
 

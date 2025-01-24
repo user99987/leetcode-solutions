@@ -18,7 +18,7 @@ public class PalindromePairsTest {
 
         );
         assertEquals(expected, new PalindromePairs().palindromePairs(
-                new String[]{"abcd","dcba","lls","s","sssll"}));
+                new String[]{"abcd", "dcba", "lls", "s", "sssll"}));
     }
 
     @Test

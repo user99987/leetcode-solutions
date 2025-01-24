@@ -1,6 +1,7 @@
 package greedy;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StringWithout3A3BTest {

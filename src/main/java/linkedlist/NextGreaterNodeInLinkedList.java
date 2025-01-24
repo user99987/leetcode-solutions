@@ -2,8 +2,6 @@ package linkedlist;
 
 import utils.ListNode;
 
-import java.util.Arrays;
-
 /**
  * Medium
  * <p>

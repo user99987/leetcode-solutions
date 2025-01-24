@@ -1,8 +1,6 @@
 package greedy;
 
 import java.util.Arrays;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
  * Hard
@@ -46,7 +44,7 @@ import java.util.Queue;
  * -1000 <= satisfaction[i] <= 1000
  */
 public class ReducingDishes {
-    
+
     public int maxSatisfaction(int[] satisfaction) {
         Arrays.sort(satisfaction);
         int ans = 0, s = 0;
