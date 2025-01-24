@@ -26,12 +26,6 @@ package twopointers;
  */
 public class MoveZeroes {
 
-    public static void main(String[] args) throws Exception {
-        int[] nums = {0, 1, 0, 3, 12};
-        new MoveZeroes().moveZeroes(nums);
-        for (int n : nums) System.out.println(n);
-    }
-
     public void moveZeroes(int[] nums) {
         int i = 0;
         for (int j = 0, l = nums.length; j < l; ) {

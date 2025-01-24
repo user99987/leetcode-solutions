@@ -33,15 +33,6 @@ import java.util.List;
  */
 public class BinaryTreePaths {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new utils.TreeNode(1);
-        root.left = new utils.TreeNode(2);
-        root.right = new utils.TreeNode(3);
-        root.left.right = new utils.TreeNode(5);
-
-        System.out.println(new BinaryTreePaths().binaryTreePaths(root));
-    }
-
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> result = new ArrayList<>();
         new BinaryTreePaths().inorder(root, result, "");

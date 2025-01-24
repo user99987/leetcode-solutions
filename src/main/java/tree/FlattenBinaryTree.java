@@ -34,22 +34,6 @@ import utils.TreeNode;
  */
 public class FlattenBinaryTree {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(5);
-        root.left.left = new TreeNode(3);
-        root.left.right = new TreeNode(4);
-        root.right.right = new TreeNode(6);
-        new FlattenBinaryTree().flatten(root);
-        System.out.println(root.val);
-        System.out.println(root.right.val);
-        System.out.println(root.right.right.val);
-        System.out.println(root.right.right.right.val);
-        System.out.println(root.right.right.right.right.val);
-        System.out.println(root.right.right.right.right.right.val);
-    }
-
     public void flatten(TreeNode root) {
         if (root == null) return; // Check for empty tree
         flattenTree(root); // Flatten the tree

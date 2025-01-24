@@ -47,14 +47,6 @@ import java.util.List;
  */
 public class BinaryTreePostorderTraversal {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(1);
-        root.right = new TreeNode(2);
-        root.right.left = new TreeNode(3);
-        List<Integer> result = new BinaryTreePostorderTraversal().postorderTraversal(root);
-        result.forEach(System.out::println);
-    }
-
     public List<Integer> postorderTraversal(TreeNode root) {
         if (root == null) {
             return new ArrayList<>();

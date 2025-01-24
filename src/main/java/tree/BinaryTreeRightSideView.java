@@ -33,20 +33,10 @@ import java.util.List;
  * The number of nodes in the tree is in the range [0, 100].
  * -100 <= Node.val <= 100
  */
-public class BinarayTreeRightSideView {
+public class BinaryTreeRightSideView {
 
     List<Integer> list = new ArrayList<>();
     private int maxHeight = Integer.MIN_VALUE;
-
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.right = new TreeNode(5);
-        root.right.right = new TreeNode(4);
-
-        System.out.println(new BinarayTreeRightSideView().rightSideView(root));
-    }
 
     public List<Integer> rightSideView(TreeNode root) {
         if (root == null) return list;

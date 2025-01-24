@@ -3,7 +3,6 @@ package tree;
 import utils.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,17 +27,10 @@ import java.util.Map;
  * <p>
  * Constraints:
  * <p>
- * The number of nodes in the tree is in the range [1, 104].
- * -105 <= Node.val <= 105
+ * The number of nodes in the tree is in the range [1, 10^4].
+ * -105 <= Node.val <= 10^5
  */
 public class MostFrequentSubtreeSum {
-
-    public static void main(String[] args) throws Exception {
-        TreeNode node = new TreeNode(5);
-        node.left = new TreeNode(2);
-        node.right = new TreeNode(-3);
-        System.out.println(Arrays.toString(new MostFrequentSubtreeSum().findFrequentTreeSum(node)));
-    }
 
     public int[] findFrequentTreeSum(TreeNode root) {
         ArrayList<Integer> arr = new ArrayList<>();

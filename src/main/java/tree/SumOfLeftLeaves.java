@@ -28,16 +28,6 @@ import utils.TreeNode;
  */
 public class SumOfLeftLeaves {
 
-
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(15);
-        System.out.println(new SumOfLeftLeaves().sumOfLeftLeaves(root));
-    }
-
     public int sumOfLeftLeaves(TreeNode root) {
         return inorder(root, false);
     }

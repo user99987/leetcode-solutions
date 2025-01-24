@@ -27,16 +27,11 @@ package twopointers;
  * <p>
  * Constraints:
  * <p>
- * 1 <= target <= 109
- * 1 <= nums.length <= 105
- * 1 <= nums[i] <= 105
+ * 1 <= target <= 10^9
+ * 1 <= nums.length <= 10^5
+ * 1 <= nums[i] <= 10^5
  */
 public class MinimumSizeSubarraySum {
-
-    public static void main(String[] args) throws Exception {
-        int[] nums = {2, 3, 1, 2, 4, 3};
-        System.out.println(new MinimumSizeSubarraySum().minSubArrayLen(7, nums));
-    }
 
     public int minSubArrayLen(int s, int[] nums) {
         int sum = 0, count = 0, min = Integer.MAX_VALUE;

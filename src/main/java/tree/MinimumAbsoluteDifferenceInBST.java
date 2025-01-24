@@ -58,15 +58,11 @@ import java.util.TreeSet;
  * <p>
  * Constraints:
  * <p>
- * 1 <= nums.length <= 105
- * 1 <= nums[i] <= 109
+ * 1 <= nums.length <= 10^5
+ * 1 <= nums[i] <= 10^9
  * 0 <= x < nums.length
  */
 public class MinimumAbsoluteDifferenceInBST {
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MinimumAbsoluteDifferenceInBST().minAbsoluteDifference(List.of(5, 3, 2, 10, 15), 1));
-    }
 
     public int minAbsoluteDifference(List<Integer> nums, int x) {
         // if (x == 0) x = 1;

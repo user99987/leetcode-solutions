@@ -40,27 +40,6 @@ import utils.TreeNode;
  */
 public class FlipEquivalentBinaryTrees {
 
-    public static void main(String[] args) {
-        TreeNode node = new TreeNode(1);
-        node.left = new TreeNode(2);
-        node.left.left = new TreeNode(4);
-        node.left.right = new TreeNode(5);
-        node.left.right.left = new TreeNode(7);
-        node.left.right.right = new TreeNode(8);
-        node.right = new TreeNode(3);
-        node.right.left = new TreeNode(6);
-
-        TreeNode node1 = new TreeNode(1);
-        node1.left = new TreeNode(3);
-        node1.left.right = new TreeNode(6);
-        node1.right = new TreeNode(2);
-        node1.right.left = new TreeNode(4);
-        node1.right.right = new TreeNode(5);
-        node1.right.right.left = new TreeNode(8);
-        node1.right.right.right = new TreeNode(7);
-        System.out.println(new FlipEquivalentBinaryTrees().flipEquiv(node, node1));
-    }
-
     public boolean flipEquiv(TreeNode root1, TreeNode root2) {
         if (root1 == null && root2 == null) {
             return true;

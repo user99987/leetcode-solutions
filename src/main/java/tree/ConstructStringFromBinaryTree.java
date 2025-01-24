@@ -36,14 +36,6 @@ import utils.TreeNode;
  */
 public class ConstructStringFromBinaryTree {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode t = new TreeNode(1);
-        t.left = new TreeNode(2);
-        t.left.left = new TreeNode(4);
-        t.right = new TreeNode(3);
-        System.out.println(new ConstructStringFromBinaryTree().tree2str(t));
-    }
-
     public String tree2str(TreeNode t) {
         if (t == null) {
             return "";

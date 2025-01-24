@@ -30,17 +30,9 @@ import utils.TreeNode;
  * Constraints:
  * <p>
  * The number of nodes in both trees is in the range [0, 100].
- * -104 <= Node.val <= 104
+ * -10^4 <= Node.val <= 10^4
  */
 public class SameTree {
-
-    public static void main(String[] args) throws Exception {
-        TreeNode node1 = new TreeNode(1);
-        node1.left = new TreeNode(2);
-        TreeNode node2 = new TreeNode(1);
-        node2.right = new TreeNode(2);
-        System.out.println(new SameTree().isSameTree(node1, node2));
-    }
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null || q == null) {

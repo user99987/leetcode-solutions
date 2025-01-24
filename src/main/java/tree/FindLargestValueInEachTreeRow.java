@@ -31,15 +31,6 @@ import java.util.Queue;
  */
 public class FindLargestValueInEachTreeRow {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(3);
-        root.left.left = new TreeNode(5);
-        root.right = new TreeNode(2);
-        root.right.right = new TreeNode(9);
-        System.out.println(new FindLargestValueInEachTreeRow().largestValues(root));
-    }
-
     public List<Integer> largestValues(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();

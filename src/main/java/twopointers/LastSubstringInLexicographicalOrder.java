@@ -21,14 +21,10 @@ package twopointers;
  * <p>
  * Constraints:
  * <p>
- * 1 <= s.length <= 4 * 105
+ * 1 <= s.length <= 4 * 10^5
  * s contains only lowercase English letters.
  */
 public class LastSubstringInLexicographicalOrder {
-
-    public static void main(String[] args) {
-        System.out.println(new LastSubstringInLexicographicalOrder().lastSubstring("leetcode"));
-    }
 
     public String lastSubstring(String s) {
         int i = 0;

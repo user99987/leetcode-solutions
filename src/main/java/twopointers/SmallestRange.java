@@ -43,10 +43,6 @@ package twopointers;
  */
 public class SmallestRange {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new SmallestRange().smallestRange(new int[]{1, 3, 6}, 3));
-    }
-
     public int smallestRange(int[] nums, int k) {
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;

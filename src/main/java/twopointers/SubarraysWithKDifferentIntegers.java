@@ -28,16 +28,10 @@ package twopointers;
  * <p>
  * Constraints:
  * <p>
- * 1 <= nums.length <= 2 * 104
+ * 1 <= nums.length <= 2 * 10^4
  * 1 <= nums[i], k <= nums.length
  */
 public class SubarraysWithKDifferentIntegers {
-
-    public static void main(String[] args) {
-        int[] A = {1, 2, 1, 2, 3};
-        SubarraysWithKDifferentIntegers task = new SubarraysWithKDifferentIntegers();
-        System.out.println(task.subarraysWithKDistinct(A, 2));
-    }
 
     public int subarraysWithKDistinct(int[] A, int K) {
         return calculate(A, K) - calculate(A, K - 1);

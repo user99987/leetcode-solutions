@@ -52,17 +52,6 @@ import utils.TreeNode;
  */
 public class MaximumBinaryTree {
 
-    public static void main(String[] args) throws Exception {
-        int[] nums = {3, 2, 1, 6, 0, 5};
-        TreeNode root = new MaximumBinaryTree().constructMaximumBinaryTree(nums);
-        System.out.println(root.val);
-        System.out.println(root.left.val);
-        System.out.println(root.left.right.val);
-        System.out.println(root.left.right.right.val);
-        System.out.println(root.right.val);
-        System.out.println(root.right.left.val);
-    }
-
     public TreeNode constructMaximumBinaryTree(int[] nums) {
         return mbt(nums, 0, nums.length - 1);
     }

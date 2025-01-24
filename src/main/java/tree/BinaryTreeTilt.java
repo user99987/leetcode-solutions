@@ -44,19 +44,12 @@ import utils.TreeNode;
  * <p>
  * Constraints:
  * <p>
- * The number of nodes in the tree is in the range [0, 104].
+ * The number of nodes in the tree is in the range [0, 10^4].
  * -1000 <= Node.val <= 1000
  */
 public class BinaryTreeTilt {
 
     int sum = 0;
-
-    public static void main(String[] args) {
-        TreeNode node = new TreeNode(1);
-        node.left = new TreeNode(2);
-        node.right = new TreeNode(3);
-        System.out.println(new BinaryTreeTilt().findTilt(node));
-    }
 
     private int sumTilt(TreeNode root) {
         if (root == null) {

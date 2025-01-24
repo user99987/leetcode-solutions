@@ -24,17 +24,12 @@ package twopointers;
  * <p>
  * Constraints:
  * <p>
- * 1 <= s.length <= 5 * 104
+ * 1 <= s.length <= 5 * 10^4
  * 1 <= words.length <= 5000
  * 1 <= words[i].length <= 50
  * s and words[i] consist of only lowercase English letters.
  */
 public class NumberOfMatchingSubsequences {
-
-    public static void main(String[] args) {
-        String[] A = {"a", "bb", "acd", "ace"};
-        System.out.println(new NumberOfMatchingSubsequences().numMatchingSubseq("abcde", A));
-    }
 
     public int numMatchingSubseq(String S, String[] words) {
         int count = 0;

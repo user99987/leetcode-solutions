@@ -31,19 +31,6 @@ import java.util.Map;
  */
 public class AverageOfLevelsInBinaryTree {
 
-    public static void main(String[] args) throws Exception {
-        TreeNode node1 = new TreeNode(3);
-        TreeNode node2 = new TreeNode(9);
-        TreeNode node3 = new TreeNode(20);
-        node1.left = node2;
-        node1.right = node3;
-        TreeNode node4 = new TreeNode(15);
-        TreeNode node5 = new TreeNode(7);
-        node3.left = node4;
-        node3.right = node5;
-        System.out.println(new AverageOfLevelsInBinaryTree().averageOfLevels(node1));
-    }
-
     public List<Double> averageOfLevels(TreeNode root) {
         Map<Integer, Double[]> map = new HashMap<>();
         helper(root, map, 0);

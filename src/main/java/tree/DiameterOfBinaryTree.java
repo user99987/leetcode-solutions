@@ -34,15 +34,6 @@ public class DiameterOfBinaryTree {
 
     private int diameter;
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right = new TreeNode(3);
-        System.out.println(new DiameterOfBinaryTree().diameterOfBinaryTree(root));
-    }
-
     public int diameterOfBinaryTree(TreeNode root) {
         diameter = 0;
         diameterOfBinaryTreeUtil(root);

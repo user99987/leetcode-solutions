@@ -34,16 +34,6 @@ public class RecoverBinarySearchTree {
     private TreeNode first = null;
     private TreeNode second = null;
 
-    public static void main(String[] args) throws Exception {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(3);
-        root.left.left = new TreeNode(2);
-        new RecoverBinarySearchTree().recoverTree(root);
-        System.out.println(root.val);
-        System.out.println(root.left.val);
-        System.out.println(root.left.left.val);
-    }
-
     public void recoverTree(TreeNode root) {
         evalSwappedNodes(root);
         int temp = first.val;
