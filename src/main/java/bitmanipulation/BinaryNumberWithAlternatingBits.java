@@ -35,10 +35,6 @@ package bitmanipulation;
  */
 public class BinaryNumberWithAlternatingBits {
 
-    public static void main(String[] args) {
-        System.out.println(new BinaryNumberWithAlternatingBits().hasAlternatingBits(18));
-    }
-
     public boolean hasAlternatingBits(int n) {
         int prev = -1;
         while (n != 0) {

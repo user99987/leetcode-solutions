@@ -37,11 +37,6 @@ package binarysearch;
  */
 public class KokoEatingBananas {
 
-    public static void main(String[] args) {
-        int[] A = {312884470};
-        System.out.println(new KokoEatingBananas().minEatingSpeed(A, 968709470));
-    }
-
     public int minEatingSpeed(int[] piles, int h) {
         int maxP = piles[0];
         long sumP = 0L;

@@ -35,10 +35,6 @@ import java.util.List;
  */
 public class GrayCode {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new GrayCode().grayCode(3));
-    }
-
     public List<Integer> grayCode(int n) {
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i <= ((1 << n) - 1); i++) result.add(i ^ (i >> 1));

@@ -36,10 +36,6 @@ import java.util.List;
  */
 public class BinaryWatch {
 
-    public static void main(String[] args) {
-        System.out.println(new BinaryWatch().readBinaryWatch(1));
-    }
-
     public List<String> readBinaryWatch(int num) {
         int H = 11, M = 59;
         List<String> result = new ArrayList<>();

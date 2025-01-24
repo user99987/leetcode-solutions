@@ -23,6 +23,6 @@ public class ZumaGameTest {
 
     @Test
     public void testCase4() {
-        assertEquals(-1, new ZumaGame().findMinStep("BBWWRRYYRRWWBB", "Y"));
+        assertEquals(1, new ZumaGame().findMinStep("BBWWRRYYRRWWBB", "Y"));
     }
 }

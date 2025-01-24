@@ -1,7 +1,8 @@
 package backtracking;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Hard
@@ -71,74 +72,71 @@ import java.util.Map;
 public class ZumaGame {
 
     public int findMinStep(String board, String hand) {
-        return dfs(board, hand);
+        List<Character> boards = new ArrayList<>();
+        for (char c : board.toCharArray()) boards.add(c);
+        HashMap<Character, Integer> hm = new HashMap<>();
+        hm.put('B', 0);
+        hm.put('G', 0);
+        hm.put('R', 0);
+        hm.put('Y', 0);
+        hm.put('W', 0);
+        for (char c : hand.toCharArray()) hm.put(c, hm.get(c) + 1);
+        return find(boards, hm);
+
     }
 
-    private int dfs(String board, String hand) {
-        return findMinStepDp(board, hand, new HashMap<>());
-    }
-
-    private int findMinStepDp(String board, String hand, Map<String, Map<String, Integer>> dp) {
-        if (board.isEmpty()) {
-            return 0;
-        }
-        if (hand.isEmpty()) {
-            return -1;
-        }
-        if (dp.get(board) != null && dp.get(board).get(hand) != null) {
-            return dp.get(board).get(hand);
-        }
-        int min = -1;
-        for (int i = 0; i <= board.length(); i++) {
-            for (int j = 0; j < hand.length(); j++) {
-                if ((j == 0 || hand.charAt(j) != hand.charAt(j - 1))
-                        && (i == 0 || board.charAt(i - 1) != hand.charAt(j))
-                        && ((i < board.length() && board.charAt(i) == hand.charAt(j))
-                        || (i > 0
-                        && i < board.length()
-                        && board.charAt(i - 1) == board.charAt(i)
-                        && board.charAt(i) != hand.charAt(j)))) {
-
-                    StringBuilder newS = new StringBuilder(board);
-                    newS.insert(i, hand.charAt(j));
-                    int sR =
-                            findMinStepDp(
-                                    removeRepeated(newS.toString()),
-                                    hand.substring(0, j) + hand.substring(j + 1),
-                                    dp);
-                    if (sR != -1) {
-                        min = min == -1 ? sR + 1 : Integer.min(min, sR + 1);
+    public int find(List<Character> boards, HashMap<Character, Integer> hm) {
+        removeAdjacent(boards);
+        if (boards.isEmpty()) return 0;
+        if (isEmpty(hm)) return -1;
+        int cnt = 0;
+        int retVal = Integer.MAX_VALUE;
+        for (int i = 0; i < boards.size(); i++) {
+            char c = boards.get(i);
+            cnt++;
+            if (i == boards.size() - 1 || boards.get(i + 1) != c) {
+                int missing = 3 - cnt;
+                if (missing <= hm.get(c)) {
+                    hm.put(c, hm.get(c) - missing);
+                    List<Character> temp = new ArrayList<>(boards);
+                    if (i >= i - cnt + 1) {
+                        temp.subList(i - cnt + 1, i + 1).clear();
                     }
+                    int next = find(temp, hm);
+                    if (next != -1) retVal = Math.min(next + missing, retVal);
+                    hm.put(c, hm.get(c) + missing);
                 }
+                cnt = 0;
             }
         }
-        dp.putIfAbsent(board, new HashMap<>());
-        dp.get(board).put(hand, min);
-        return min;
+        if (retVal == Integer.MAX_VALUE) return -1;
+        else return retVal;
     }
 
-    private String removeRepeated(String original) {
-        int count = 1;
-        int i = 1;
-        while (i < original.length()) {
-            if (original.charAt(i) == original.charAt(i - 1)) {
-                count++;
-                i++;
-            } else {
-                if (count >= 3) {
-                    return removeRepeated(
-                            original.substring(0, i - count)
-                                    + original.substring(i));
-                } else {
-                    count = 1;
-                    i++;
+    public void removeAdjacent(List<Character> board) {
+        int cnt = 0;
+        boolean done = true;
+        for (int i = 0; i < board.size(); i++) {
+            char c = board.get(i);
+            cnt++;
+            if (i == board.size() - 1 || c != board.get(i + 1)) {
+                if (cnt >= 3) {
+                    if (i >= i - cnt + 1) {
+                        board.subList(i - cnt + 1, i + 1).clear();
+                    }
+                    done = false;
+                    break;
                 }
+                cnt = 0;
             }
         }
-        if (count >= 3) {
-            return removeRepeated(original.substring(0, original.length() - count));
-        } else {
-            return original;
+        if (!done) removeAdjacent(board);
+    }
+
+    public boolean isEmpty(HashMap<Character, Integer> hand) {
+        for (int i : hand.values()) {
+            if (i > 0) return false;
         }
+        return true;
     }
 }
