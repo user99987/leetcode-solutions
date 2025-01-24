@@ -15,19 +15,19 @@ package popular;
  * <p>
  * Example 1:
  * <p>
- * Input: haystack = “hello”, needle = “ll”
+ * Input: haystack = "hello", needle = "ll"
  * <p>
  * Output: 2
  * <p>
  * Example 2:
  * <p>
- * Input: haystack = “aaaaa”, needle = “bba”
+ * Input: haystack = "aaaaa", needle = "bba"
  * <p>
  * Output: -1
  * <p>
  * Example 3:
  * <p>
- * Input: haystack = “”, needle = “”
+ * Input: haystack = "", needle = ""
  * <p>
  * Output: 0
  * <p>

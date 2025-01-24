@@ -40,11 +40,6 @@ import java.util.LinkedList;
  */
 public class ConstrainedSubsequenceSum {
 
-    public static void main(String[] args) {
-        int[] A = {10, -2, -10, -5, 20};
-        System.out.println(new ConstrainedSubsequenceSum().constrainedSubsetSum(A, 2));
-    }
-
     public int constrainedSubsetSum(int[] nums, int k) {
         int n = nums.length;
         int res = Integer.MIN_VALUE;

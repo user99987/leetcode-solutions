@@ -16,19 +16,19 @@ import java.util.Set;
  * <p>
  * Example 1:
  * <p>
- * Input: beginWord = “hit”, endWord = “cog”, wordList = [“hot”,”dot”,”dog”,”lot”,”log”,”cog”]
+ * Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
  * <p>
  * Output: 5
  * <p>
- * Explanation: One shortest transformation sequence is “hit” -> “hot” -> “dot” -> “dog” -> cog”, which is 5 words long.
+ * Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
  * <p>
  * Example 2:
  * <p>
- * Input: beginWord = “hit”, endWord = “cog”, wordList = [“hot”,”dot”,”dog”,”lot”,”log”]
+ * Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
  * <p>
  * Output: 0
  * <p>
- * Explanation: The endWord “cog” is not in wordList, therefore there is no valid transformation sequence.
+ * Explanation: The endWord "cog" is not in wordList, therefore there is no valid transformation sequence.
  * <p>
  * Constraints:
  * <p>

@@ -12,15 +12,15 @@ package greedy;
  * <p>
  * Input: a = 1, b = 2
  * <p>
- * Output: “abb”
+ * Output: "abb"
  * <p>
- * Explanation: “abb”, “bab” and “bba” are all correct answers.
+ * Explanation: "abb", "bab" and "bba" are all correct answers.
  * <p>
  * Example 2:
  * <p>
  * Input: a = 4, b = 1
  * <p>
- * Output: “aabaa”
+ * Output: "aabaa"
  * <p>
  * Constraints:
  * <p>

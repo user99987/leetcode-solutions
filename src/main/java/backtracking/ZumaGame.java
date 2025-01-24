@@ -22,7 +22,7 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: board = “WRRBBW”, hand = “RB”
+ * Input: board = "WRRBBW", hand = "RB"
  * <p>
  * Output: -1
  * <p>
@@ -36,7 +36,7 @@ import java.util.List;
  * <p>
  * Example 2:
  * <p>
- * Input: board = “WWRRBBWW”, hand = “WRBRW”
+ * Input: board = "WWRRBBWW", hand = "WRBRW"
  * <p>
  * Output: 2
  * <p>
@@ -50,7 +50,7 @@ import java.util.List;
  * <p>
  * Example 3:
  * <p>
- * Input: board = “G”, hand = “GGGGG”
+ * Input: board = "G", hand = "GGGGG"
  * <p>
  * Output: 2
  * <p>

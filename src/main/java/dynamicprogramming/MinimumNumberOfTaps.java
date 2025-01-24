@@ -49,11 +49,6 @@ package dynamicprogramming;
  */
 public class MinimumNumberOfTaps {
 
-    public static void main(String[] args) {
-        int[] A = {0, 1, 2, 0, 0, 1, 1, 0};
-        System.out.println(new MinimumNumberOfTaps().minTaps(7, A));
-    }
-
     public int minTaps(int n, int[] ranges) {
         if (n == 0 || ranges.length == 0) {
             return n == 0 ? 0 : -1;

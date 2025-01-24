@@ -12,27 +12,27 @@ package dynamicprogramming;
  * <p>
  * Example 1:
  * <p>
- * Input: text = “ghiabcdefhelloadamhelloabcdefghi”
+ * Input: text = "ghiabcdefhelloadamhelloabcdefghi"
  * <p>
  * Output: 7
  * <p>
- * Explanation: We can split the string on “(ghi)(abcdef)(hello)(adam)(hello)(abcdef)(ghi)”.
+ * Explanation: We can split the string on "(ghi)(abcdef)(hello)(adam)(hello)(abcdef)(ghi)".
  * <p>
  * Example 2:
  * <p>
- * Input: text = “merchant”
+ * Input: text = "merchant"
  * <p>
  * Output: 1
  * <p>
- * Explanation: We can split the string on “(merchant)”.
+ * Explanation: We can split the string on "(merchant)".
  * <p>
  * Example 3:
  * <p>
- * Input: text = “antaprezatepzapreanta”
+ * Input: text = "antaprezatepzapreanta"
  * <p>
  * Output: 11
  * <p>
- * Explanation: We can split the string on “(a)(nt)(a)(pre)(za)(tpe)(za)(pre)(a)(nt)(a)”.
+ * Explanation: We can split the string on "(a)(nt)(a)(pre)(za)(tpe)(za)(pre)(a)(nt)(a)".
  * <p>
  * Constraints:
  * <p>
@@ -41,11 +41,6 @@ package dynamicprogramming;
  */
 public class LongestChunkedPalindromeDecomposition {
     private int[] DP;
-
-    public static void main(String[] args) {
-        System.out.println(
-                new LongestChunkedPalindromeDecomposition().longestDecomposition("merchant"));
-    }
 
     public int longestDecomposition(String text) {
         DP = new int[text.length()];

@@ -14,19 +14,19 @@ import java.util.Map;
  * <p>
  * Example 1:
  * <p>
- * Input: words = [“cat”,”bt”,”hat”,”tree”], chars = “atach”
+ * Input: words = ["cat","bt","hat","tree"], chars = "atach"
  * <p>
  * Output: 6
  * <p>
- * Explanation: The strings that can be formed are “cat” and “hat” so the answer is 3 + 3 = 6.
+ * Explanation: The strings that can be formed are "cat" and "hat" so the answer is 3 + 3 = 6.
  * <p>
  * Example 2:
  * <p>
- * Input: words = [“hello”,”world”,”leetcode”], chars = “welldonehoneyr”
+ * Input: words = ["hello","world","leetcode"], chars = "welldonehoneyr"
  * <p>
  * Output: 10
  * <p>
- * Explanation: The strings that can be formed are “hello” and “world” so the answer is 5 + 5 = 10.
+ * Explanation: The strings that can be formed are "hello" and "world" so the answer is 5 + 5 = 10.
  * <p>
  * Constraints:
  * <p>

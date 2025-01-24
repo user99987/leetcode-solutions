@@ -14,11 +14,11 @@ package dynamicprogramming;
  * <p>
  * Example 1:
  * <p>
- * Input: word = “CAKE”
+ * Input: word = "CAKE"
  * <p>
  * Output: 3
  * <p>
- * Explanation: Using two fingers, one optimal way to type “CAKE” is:
+ * Explanation: Using two fingers, one optimal way to type "CAKE" is:
  * <p>
  * Finger 1 on letter 'C' -> cost = 0
  * <p>
@@ -32,11 +32,11 @@ package dynamicprogramming;
  * <p>
  * Example 2:
  * <p>
- * Input: word = “HAPPY”
+ * Input: word = "HAPPY"
  * <p>
  * Output: 6
  * <p>
- * Explanation: Using two fingers, one optimal way to type “HAPPY” is:
+ * Explanation: Using two fingers, one optimal way to type "HAPPY" is:
  * <p>
  * Finger 1 on letter 'H' -> cost = 0
  * <p>
@@ -59,10 +59,6 @@ public class MinimumDistanceToTypeAWordUsingTwoFingers {
 
     private String word;
     private Integer[][][] dp;
-
-    public static void main(String[] args) {
-        System.out.println(new MinimumDistanceToTypeAWordUsingTwoFingers().minimumDistance("YEAR"));
-    }
 
     public int minimumDistance(String word) {
         this.word = word;

@@ -10,15 +10,15 @@ package twopointers;
  * For example, "ace" is a subsequence of "abcde".
  * Example 1:
  * <p>
- * Input: s = “abcde”, words = [“a”,”bb”,”acd”,”ace”]
+ * Input: s = "abcde", words = ["a","bb","acd","ace"]
  * <p>
  * Output: 3
  * <p>
- * Explanation: There are three strings in words that are a subsequence of s: “a”, “acd”, “ace”.
+ * Explanation: There are three strings in words that are a subsequence of s: "a", "acd", "ace".
  * <p>
  * Example 2:
  * <p>
- * Input: s = “dsahjpjauf”, words = [“ahjpjau”,”ja”,”ahbwzgqnuk”,”tnmlanowax”]
+ * Input: s = "dsahjpjauf", words = ["ahjpjau","ja","ahbwzgqnuk","tnmlanowax"]
  * <p>
  * Output: 2
  * <p>

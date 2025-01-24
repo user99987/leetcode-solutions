@@ -19,23 +19,23 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “PAYPALISHIRING”, numRows = 3
+ * Input: s = "PAYPALISHIRING", numRows = 3
  * <p>
- * Output: “PAHNAPLSIIGYIR”
+ * Output: "PAHNAPLSIIGYIR"
  * <p>
  * Example 2:
  * <p>
- * Input: s = “PAYPALISHIRING”, numRows = 4
+ * Input: s = "PAYPALISHIRING", numRows = 4
  * <p>
- * Output: “PINALSIGYAHRPI”
+ * Output: "PINALSIGYAHRPI"
  * <p>
  * Explanation: P I N A L S I G Y A H R P I
  * <p>
  * Example 3:
  * <p>
- * Input: s = “A”, numRows = 1
+ * Input: s = "A", numRows = 1
  * <p>
- * Output: “A”
+ * Output: "A"
  * <p>
  * Constraints:
  * <p>

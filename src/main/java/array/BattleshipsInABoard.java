@@ -9,13 +9,13 @@ package array;
  * <p>
  * Example 1:
  * <p>
- * Input: board = [[“X”,”.”,”.”,”X”],[”.”,”.”,”.”,”X”],[”.”,”.”,”.”,”X”]]
+ * Input: board = [["X",".",".","X"],[".",".",".","X"],[".",".",".","X"]]
  * <p>
  * Output: 2
  * <p>
  * Example 2:
  * <p>
- * Input: board = [[”.”]]
+ * Input: board = [["."]]
  * <p>
  * Output: 0
  * <p>

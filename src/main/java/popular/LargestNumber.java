@@ -14,25 +14,25 @@ import java.util.stream.Collectors;
  * <p>
  * Input: nums = [10,2]
  * <p>
- * Output: “210”
+ * Output: "210"
  * <p>
  * Example 2:
  * <p>
  * Input: nums = [3,30,34,5,9]
  * <p>
- * Output: “9534330”
+ * Output: "9534330"
  * <p>
  * Example 3:
  * <p>
  * Input: nums = [1]
  * <p>
- * Output: “1”
+ * Output: "1"
  * <p>
  * Example 4:
  * <p>
  * Input: nums = [10]
  * <p>
- * Output: “10”
+ * Output: "10"
  * <p>
  * Constraints:
  * <p>

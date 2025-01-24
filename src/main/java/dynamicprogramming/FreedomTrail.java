@@ -3,7 +3,7 @@ package dynamicprogramming;
 /**
  * Hard
  * <p>
- * In the video game Fallout 4, the quest “Road to Freedom” requires players to reach a metal dial called the “Freedom Trail Ring” and use the dial to spell a specific keyword to open the door.
+ * In the video game Fallout 4, the quest "Road to Freedom" requires players to reach a metal dial called the "Freedom Trail Ring" and use the dial to spell a specific keyword to open the door.
  * <p>
  * Given a string ring that represents the code engraved on the outer ring and another string key that represents the keyword that needs to be spelled, return the minimum number of steps to spell all the characters in the keyword.
  * <p>
@@ -17,15 +17,15 @@ package dynamicprogramming;
  * <p>
  * <p>
  * <p>
- * Input: ring = “godding”, key = “gd”
+ * Input: ring = "godding", key = "gd"
  * <p>
  * Output: 4
  * <p>
- * Explanation: For the first key character 'g', since it is already in place, we just need 1 step to spell this character. For the second key character 'd', we need to rotate the ring “godding” anticlockwise by two steps to make it become “ddinggo”. Also, we need 1 more step for spelling. So the final output is 4.
+ * Explanation: For the first key character 'g', since it is already in place, we just need 1 step to spell this character. For the second key character 'd', we need to rotate the ring "godding" anticlockwise by two steps to make it become "ddinggo". Also, we need 1 more step for spelling. So the final output is 4.
  * <p>
  * Example 2:
  * <p>
- * Input: ring = “godding”, key = “godding”
+ * Input: ring = "godding", key = "godding"
  * <p>
  * Output: 13
  * <p>
@@ -38,10 +38,6 @@ package dynamicprogramming;
 public class FreedomTrail {
 
     int[][] DP;
-
-    public static void main(String[] args) {
-        System.out.println(new FreedomTrail().findRotateSteps("godding", "gd"));
-    }
 
     public int findRotateSteps(String ring, String key) {
         DP = new int[ring.length()][key.length()];

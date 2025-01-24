@@ -55,12 +55,6 @@ package dynamicprogramming;
  */
 public class MinimumCostForTickets {
 
-    public static void main(String[] args) {
-        int[] days = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 30, 31};
-        int[] costs = {2, 7, 15};
-        System.out.println(new MinimumCostForTickets().mincostTickets(days, costs));
-    }
-
     public static int getNext(int[] days, int index, int goodUntil) {
         while (index < days.length && days[index] <= goodUntil) {
             index++;

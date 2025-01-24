@@ -10,13 +10,13 @@ package string;
  * For example, if s = "abcde", then it will be "bcdea" after one shift.
  * Example 1:
  * <p>
- * Input: s = “abcde”, goal = “cdeab”
+ * Input: s = "abcde", goal = "cdeab"
  * <p>
  * Output: true
  * <p>
  * Example 2:
  * <p>
- * Input: s = “abcde”, goal = “abced”
+ * Input: s = "abcde", goal = "abced"
  * <p>
  * Output: false
  * <p>

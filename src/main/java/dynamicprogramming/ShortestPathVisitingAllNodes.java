@@ -38,11 +38,6 @@ import java.util.Queue;
  */
 public class ShortestPathVisitingAllNodes {
 
-    public static void main(String[] args) {
-        int[][] graph = {{2, 3, 4, 8}, {8}, {0}, {0, 8}, {0, 5, 6}, {4, 7}, {4}, {5}, {0, 3, 1}};
-        System.out.println(new ShortestPathVisitingAllNodes().shortestPathLength(graph));
-    }
-
     public int shortestPathLength(int[][] graph) {
         int target = (1 << graph.length) - 1;
         Queue<int[]> q = new ArrayDeque<>();

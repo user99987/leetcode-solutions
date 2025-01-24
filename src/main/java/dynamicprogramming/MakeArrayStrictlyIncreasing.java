@@ -42,12 +42,6 @@ import java.util.Arrays;
  */
 public class MakeArrayStrictlyIncreasing {
 
-    public static void main(String[] args) {
-        int[] A = {1, 5, 3, 6, 7};
-        int[] B = {4, 3, 1};
-        System.out.println(new MakeArrayStrictlyIncreasing().makeArrayIncreasing(A, B));
-    }
-
     public int makeArrayIncreasing(int[] arr1, int[] arr2) {
         Arrays.sort(arr2);
         int start = 0;

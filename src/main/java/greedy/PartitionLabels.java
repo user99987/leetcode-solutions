@@ -12,7 +12,7 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “ababcbacadefegdehijhklij”
+ * Input: s = "ababcbacadefegdehijhklij"
  * <p>
  * Output: [9,7,8]
  * <p>
@@ -23,7 +23,7 @@ import java.util.List;
  * A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits s into less parts.
  * Example 2:
  * <p>
- * Input: s = “eccbbbbdec”
+ * Input: s = "eccbbbbdec"
  * <p>
  * Output: [10]
  * <p>

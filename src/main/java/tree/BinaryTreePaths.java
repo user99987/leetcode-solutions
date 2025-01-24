@@ -18,13 +18,13 @@ import java.util.List;
  * <p>
  * Input: root = [1,2,3,null,5]
  * <p>
- * Output: [“1->2->5”,”1->3”]
+ * Output: ["1->2->5","1->3"]
  * <p>
  * Example 2:
  * <p>
  * Input: root = [1]
  * <p>
- * Output: [“1”]
+ * Output: ["1"]
  * <p>
  * Constraints:
  * <p>

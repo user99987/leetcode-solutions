@@ -38,12 +38,6 @@ package dynamicprogramming;
 public class CoinChange {
     private int[][] DP;
 
-
-    public static void main(String[] args) throws Exception {
-        int[] coins = {1, 2, 5};
-        System.out.println(new CoinChange().coinChange(coins, 11));
-    }
-
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
         dp[0] = 1;

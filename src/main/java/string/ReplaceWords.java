@@ -17,15 +17,15 @@ import java.util.stream.Stream;
  * <p>
  * Example 1:
  * <p>
- * Input: dictionary = [“cat”,”bat”,”rat”], sentence = “the cattle was rattled by the battery”
+ * Input: dictionary = ["cat","bat","rat"], sentence = "the cattle was rattled by the battery"
  * <p>
- * Output: “the cat was rat by the bat”
+ * Output: "the cat was rat by the bat"
  * <p>
  * Example 2:
  * <p>
- * Input: dictionary = [“a”,”b”,”c”], sentence = “aadsfasf absbs bbab cadsfafs”
+ * Input: dictionary = ["a","b","c"], sentence = "aadsfasf absbs bbab cadsfafs"
  * <p>
- * Output: “a a b c”
+ * Output: "a a b c"
  * <p>
  * Constraints:
  * <p>

@@ -31,33 +31,32 @@ import java.util.Arrays;
  * <p>
  * 1 <= envelopes.length <= 5000
  * envelopes[i].length == 2
- * 1 <= wi, hi <= 104
+ * 1 <= wi, hi <= 10^4
  */
 public class RussianDollEnvelopes {
 
-    public static void main(String[] args) {
-        int[][] A = {{5, 4}, {6, 4}, {6, 7}, {2, 3}};
-        System.out.println(new RussianDollEnvelopes().maxEnvelopes(A));
-    }
-
     public int maxEnvelopes(int[][] envelopes) {
-        Arrays.sort(envelopes, (a, b) -> a[0] != b[0] ? a[0] - b[0] : b[1] - a[1]);
-        int[] tails = new int[envelopes.length];
-        int size = 0;
-        for (int[] enve : envelopes) {
-            int i = 0;
-            int j = size;
-            while (i != j) {
-                int mid = i + ((j - i) >> 1);
-                if (tails[mid] < enve[1]) {
-                    i = mid + 1;
-                } else {
-                    j = mid;
+        Arrays.sort(envelopes, (a, b) -> { return a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]; });
+        int n = envelopes.length;
+        int[] d = new int[n + 1];
+        d[1] = envelopes[0][1];
+        int size = 1;
+        for (int i = 1; i < n; ++i) {
+            int x = envelopes[i][1];
+            if (x > d[size]) {
+                d[++size] = x;
+            } else {
+                int left = 1, right = size;
+                while (left < right) {
+                    int mid = (left + right) >> 1;
+                    if (d[mid] >= x) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
                 }
-            }
-            tails[i] = enve[1];
-            if (i == size) {
-                size++;
+                int p = d[left] >= x ? left : 1;
+                d[p] = x;
             }
         }
         return size;

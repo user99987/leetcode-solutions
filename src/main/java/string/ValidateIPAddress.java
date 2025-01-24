@@ -12,29 +12,29 @@ package string;
  * 1 <= xi.length <= 4
  * xi is a hexadecimal string which may contain digits, lower-case English letter ('a' to 'f') and upper-case English letters ('A' to 'F').
  * Leading zeros are allowed in xi.
- * For example, “2001:0db8:85a3:0000:0000:8a2e:0370:7334" and “2001:db8:85a3:0:0:8A2E:0370:7334" are valid IPv6 addresses, while “2001:0db8:85a3::8A2E:037j:7334" and “02001:0db8:85a3:0000:0000:8a2e:0370:7334" are invalid IPv6 addresses.
+ * For example, "2001:0db8:85a3:0000:0000:8a2e:0370:7334" and "2001:db8:85a3:0:0:8A2E:0370:7334" are valid IPv6 addresses, while "2001:0db8:85a3::8A2E:037j:7334" and "02001:0db8:85a3:0000:0000:8a2e:0370:7334" are invalid IPv6 addresses.
  * <p>
  * Example 1:
  * <p>
- * Input: queryIP = “172.16.254.1”
+ * Input: queryIP = "172.16.254.1"
  * <p>
- * Output: “IPv4”
+ * Output: "IPv4"
  * <p>
- * Explanation: This is a valid IPv4 address, return “IPv4”.
+ * Explanation: This is a valid IPv4 address, return "IPv4".
  * <p>
  * Example 2:
  * <p>
- * Input: queryIP = “2001:0db8:85a3:0:0:8A2E:0370:7334”
+ * Input: queryIP = "2001:0db8:85a3:0:0:8A2E:0370:7334"
  * <p>
- * Output: “IPv6”
+ * Output: "IPv6"
  * <p>
- * Explanation: This is a valid IPv6 address, return “IPv6”.
+ * Explanation: This is a valid IPv6 address, return "IPv6".
  * <p>
  * Example 3:
  * <p>
- * Input: queryIP = “256.256.256.256”
+ * Input: queryIP = "256.256.256.256"
  * <p>
- * Output: “Neither”
+ * Output: "Neither"
  * <p>
  * Explanation: This is neither a IPv4 address nor a IPv6 address.
  * <p>

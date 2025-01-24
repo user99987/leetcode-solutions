@@ -37,9 +37,6 @@ package dynamicprogramming;
  * 0 <= cost[i] <= 999
  */
 public class MinCostClimbingStairs {
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MinCostClimbingStairs().minCostClimbingStairs(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}));
-    }
 
     public int minCostClimbingStairs(int[] cost) {
         for (int i = cost.length - 1; i >= 0; i--) {

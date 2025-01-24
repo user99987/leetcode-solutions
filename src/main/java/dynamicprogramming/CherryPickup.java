@@ -39,12 +39,6 @@ package dynamicprogramming;
  */
 public class CherryPickup {
 
-
-    public static void main(String[] args) throws Exception {
-        int[][] A = {{0, 1, -1}, {1, 0, -1}, {1, 1, 1}};
-        System.out.println(new CherryPickup().cherryPickup(A));
-    }
-
     public int cherryPickup(int[][] grid) {
         int[][][] dp = new int[grid.length][grid.length][grid.length];
         int ans = solve(0, 0, 0, grid, dp);

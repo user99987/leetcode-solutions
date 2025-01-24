@@ -20,17 +20,17 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: dominoes = “RR.L”
+ * Input: dominoes = "RR.L"
  * <p>
- * Output: “RR.L”
+ * Output: "RR.L"
  * <p>
  * Explanation: The first domino expends no additional force on the second domino.
  * <p>
  * Example 2:
  * <p>
- * Input: dominoes = “.L.R…LR..L..”
+ * Input: dominoes = ".L.R…LR..L.."
  * <p>
- * Output: “LL.RR.LLRRLL..”
+ * Output: "LL.RR.LLRRLL.."
  * <p>
  * Constraints:
  * <p>

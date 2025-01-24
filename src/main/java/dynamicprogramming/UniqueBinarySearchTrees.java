@@ -23,10 +23,6 @@ package dynamicprogramming;
  */
 public class UniqueBinarySearchTrees {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new UniqueBinarySearchTrees().numTrees(5));
-    }
-
     public int numTrees(int n) {
         int[] dp = new int[n + 1];
         dp[0] = 1;

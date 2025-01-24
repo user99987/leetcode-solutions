@@ -33,11 +33,6 @@ package dynamicprogramming;
  */
 public class BurstBalloons {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {3, 1, 5, 8};
-        System.out.println(new BurstBalloons().maxCoins(A));
-    }
-
     public int maxCoins(int[] nums) {
         if (nums.length == 0) {
             return 0;

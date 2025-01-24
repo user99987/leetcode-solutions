@@ -9,27 +9,27 @@ package popular;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “A man, a plan, a canal: Panama”
+ * Input: s = "A man, a plan, a canal: Panama"
  * <p>
  * Output: true
  * <p>
- * Explanation: “amanaplanacanalpanama” is a palindrome.
+ * Explanation: "amanaplanacanalpanama" is a palindrome.
  * <p>
  * Example 2:
  * <p>
- * Input: s = “race a car”
+ * Input: s = "race a car"
  * <p>
  * Output: false
  * <p>
- * Explanation: “raceacar” is not a palindrome.
+ * Explanation: "raceacar" is not a palindrome.
  * <p>
  * Example 3:
  * <p>
- * Input: s = “ “
+ * Input: s = " "
  * <p>
  * Output: true
  * <p>
- * Explanation: s is an empty string “” after removing non-alphanumeric characters. Since an empty string reads the same forward and backward, it is a palindrome.
+ * Explanation: s is an empty string "" after removing non-alphanumeric characters. Since an empty string reads the same forward and backward, it is a palindrome.
  * <p>
  * Constraints:
  * <p>

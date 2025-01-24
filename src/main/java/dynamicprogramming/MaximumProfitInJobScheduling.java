@@ -42,13 +42,6 @@ import java.util.Comparator;
  */
 public class MaximumProfitInJobScheduling {
 
-    public static void main(String[] args) {
-        int[] st = {4, 2, 4, 8, 2};
-        int[] et = {5, 5, 5, 10, 8};
-        int[] p = {1, 2, 8, 10, 4};
-        System.out.println(new MaximumProfitInJobScheduling().jobScheduling(st, et, p));
-    }
-
     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
         int n = startTime.length;
         int[][] time = new int[n][3];

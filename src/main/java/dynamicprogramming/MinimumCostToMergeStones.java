@@ -61,11 +61,6 @@ public class MinimumCostToMergeStones {
     private int[][] memo;
     private int[] prefixSum;
 
-    public static void main(String[] args) {
-        int[] A = {3, 5, 1, 2, 6};
-        System.out.println(new MinimumCostToMergeStones().mergeStones(A, 2));
-    }
-
     public int mergeStones(int[] stones, int k) {
         int n = stones.length;
         if ((n - 1) % (k - 1) != 0) {

@@ -7,15 +7,15 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “owoztneoer”
+ * Input: s = "owoztneoer"
  * <p>
- * Output: “012”
+ * Output: "012"
  * <p>
  * Example 2:
  * <p>
- * Input: s = “fviefuro”
+ * Input: s = "fviefuro"
  * <p>
- * Output: “45”
+ * Output: "45"
  * <p>
  * Constraints:
  * <p>

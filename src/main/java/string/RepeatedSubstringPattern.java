@@ -9,15 +9,15 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: a = “abcd”, b = “cdabcdab”
+ * Input: a = "abcd", b = "cdabcdab"
  * <p>
  * Output: 3
  * <p>
- * Explanation: We return 3 because by repeating a three times “abcdabcdabcd”, b is a substring of it.
+ * Explanation: We return 3 because by repeating a three times "abcdabcdabcd", b is a substring of it.
  * <p>
  * Example 2:
  * <p>
- * Input: a = “a”, b = “aa”
+ * Input: a = "a", b = "aa"
  * <p>
  * Output: 2
  * <p>

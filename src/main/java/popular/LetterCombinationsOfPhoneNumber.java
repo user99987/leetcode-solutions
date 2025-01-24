@@ -13,21 +13,21 @@ import java.util.Map;
  * <p>
  * Example 1:
  * <p>
- * Input: digits = “23”
+ * Input: digits = "23"
  * <p>
- * Output: [“ad”,”ae”,”af”,”bd”,”be”,”bf”,”cd”,”ce”,”cf”]
+ * Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
  * <p>
  * Example 2:
  * <p>
- * Input: digits = “”
+ * Input: digits = ""
  * <p>
  * Output: []
  * <p>
  * Example 3:
  * <p>
- * Input: digits = “2”
+ * Input: digits = "2"
  * <p>
- * Output: [“a”,”b”,”c”]
+ * Output: ["a","b","c"]
  * <p>
  * Constraints:
  * <p>

@@ -12,15 +12,15 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “a1b2”
+ * Input: s = "a1b2"
  * <p>
- * Output: [“a1b2”,”a1B2”,”A1b2”,”A1B2”]
+ * Output: ["a1b2","a1B2","A1b2","A1B2"]
  * <p>
  * Example 2:
  * <p>
- * Input: s = “3z4”
+ * Input: s = "3z4"
  * <p>
- * Output: [“3z4”,”3Z4”]
+ * Output: ["3z4","3Z4"]
  * <p>
  * Constraints:
  * <p>

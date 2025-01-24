@@ -14,19 +14,19 @@ import java.util.Map;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “egg”, t = “add”
+ * Input: s = "egg", t = "add"
  * <p>
  * Output: true
  * <p>
  * Example 2:
  * <p>
- * Input: s = “foo”, t = “bar”
+ * Input: s = "foo", t = "bar"
  * <p>
  * Output: false
  * <p>
  * Example 3:
  * <p>
- * Input: s = “paper”, t = “title”
+ * Input: s = "paper", t = "title"
  * <p>
  * Output: true
  * <p>

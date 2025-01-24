@@ -41,11 +41,6 @@ import java.util.Map;
  */
 public class ContinuousSubarraySum {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {1, 3, 6, 12, 7};
-        System.out.println(new ContinuousSubarraySum().checkSubarraySum(A, 6));
-    }
-
     public boolean checkSubarraySum(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
         int sum = 0;

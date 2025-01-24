@@ -17,15 +17,15 @@ package array;
  * No more moves can be played if the game is over.
  * Example 1:
  * <p>
- * Input: board = [“O “,” “,” “]
+ * Input: board = ["O "," "," "]
  * <p>
  * Output: false
  * <p>
- * Explanation: The first player always plays “X”.
+ * Explanation: The first player always plays "X".
  * <p>
  * Example 2:
  * <p>
- * Input: board = [“XOX”,” X “,” “]
+ * Input: board = ["XOX"," X "," "]
  * <p>
  * Output: false
  * <p>
@@ -33,7 +33,7 @@ package array;
  * <p>
  * Example 3:
  * <p>
- * Input: board = [“XOX”,”O O”,”XOX”]
+ * Input: board = ["XOX","O O","XOX"]
  * <p>
  * Output: true
  * <p>

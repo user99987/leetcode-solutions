@@ -17,25 +17,25 @@ package popular;
  * ...
  * Example 1:
  * <p>
- * Input: columnTitle = “A”
+ * Input: columnTitle = "A"
  * <p>
  * Output: 1
  * <p>
  * Example 2:
  * <p>
- * Input: columnTitle = “AB”
+ * Input: columnTitle = "AB"
  * <p>
  * Output: 28
  * <p>
  * Example 3:
  * <p>
- * Input: columnTitle = “ZY”
+ * Input: columnTitle = "ZY"
  * <p>
  * Output: 701
  * <p>
  * Example 4:
  * <p>
- * Input: columnTitle = “FXSHRXW”
+ * Input: columnTitle = "FXSHRXW"
  * <p>
  * Output: 2147483647
  * <p>

@@ -13,17 +13,17 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: board = [[“X”,”X”,”X”,”X”],[“X”,”O”,”O”,”X”],[“X”,”X”,”O”,”X”],[“X”,”O”,”X”,”X”]]
+ * Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
  * <p>
- * Output: [[“X”,”X”,”X”,”X”],[“X”,”X”,”X”,”X”],[“X”,”X”,”X”,”X”],[“X”,”O”,”X”,”X”]]
+ * Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
  * <p>
  * Explanation: Surrounded regions should not be on the border, which means that any 'O' on the border of the board are not flipped to 'X'. Any 'O' that is not on the border and it is not connected to an 'O' on the border will be flipped to 'X'. Two cells are connected if they are adjacent cells connected horizontally or vertically.
  * <p>
  * Example 2:
  * <p>
- * Input: board = [[“X”]]
+ * Input: board = [["X"]]
  * <p>
- * Output: [[“X”]]
+ * Output: [["X"]]
  * <p>
  * Constraints:
  * <p>

@@ -13,37 +13,37 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “the sky is blue”
+ * Input: s = "the sky is blue"
  * <p>
- * Output: “blue is sky the”
+ * Output: "blue is sky the"
  * <p>
  * Example 2:
  * <p>
- * Input: s = “ hello world “
+ * Input: s = " hello world "
  * <p>
- * Output: “world hello”
+ * Output: "world hello"
  * <p>
  * Explanation: Your reversed string should not contain leading or trailing spaces.
  * <p>
  * Example 3:
  * <p>
- * Input: s = “a good example”
+ * Input: s = "a good example"
  * <p>
- * Output: “example good a”
+ * Output: "example good a"
  * <p>
  * Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
  * <p>
  * Example 4:
  * <p>
- * Input: s = “ Bob Loves Alice “
+ * Input: s = " Bob Loves Alice "
  * <p>
- * Output: “Alice Loves Bob”
+ * Output: "Alice Loves Bob"
  * <p>
  * Example 5:
  * <p>
- * Input: s = “Alice does not even like bob”
+ * Input: s = "Alice does not even like bob"
  * <p>
- * Output: “bob like even not does Alice”
+ * Output: "bob like even not does Alice"
  * <p>
  * Constraints:
  * <p>

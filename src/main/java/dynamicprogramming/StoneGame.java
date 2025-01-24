@@ -44,11 +44,6 @@ package dynamicprogramming;
  */
 public class StoneGame {
 
-    public static void main(String[] args) {
-        int[] A = {5, 3, 4, 5};
-        System.out.println(new StoneGame().stoneGame(A));
-    }
-
     public boolean stoneGame(int[] piles) {
         int low = 0;
         int high = piles.length - 1;

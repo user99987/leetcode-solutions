@@ -7,19 +7,19 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “leetcode”
+ * Input: s = "leetcode"
  * <p>
  * Output: 0
  * <p>
  * Example 2:
  * <p>
- * Input: s = “loveleetcode”
+ * Input: s = "loveleetcode"
  * <p>
  * Output: 2
  * <p>
  * Example 3:
  * <p>
- * Input: s = “aabb”
+ * Input: s = "aabb"
  * <p>
  * Output: -1
  * <p>

@@ -11,19 +11,19 @@ package dynamicprogramming;
  * <p>
  * Example 1:
  * <p>
- * Input: strs = [“10”,”0001”,”111001”,”1”,”0”], m = 5, n = 3
+ * Input: strs = ["10","0001","111001","1","0"], m = 5, n = 3
  * <p>
  * Output: 4
  * <p>
- * Explanation: The largest subset with at most 5 0's and 3 1's is {“10”, “0001”, “1”, “0”}, so the answer is 4. Other valid but smaller subsets include {“0001”, “1”} and {“10”, “1”, “0”}. {“111001”} is an invalid subset because it contains 4 1's, greater than the maximum of 3.
+ * Explanation: The largest subset with at most 5 0's and 3 1's is {"10", "0001", "1", "0"}, so the answer is 4. Other valid but smaller subsets include {"0001", "1"} and {"10", "1", "0"}. {"111001"} is an invalid subset because it contains 4 1's, greater than the maximum of 3.
  * <p>
  * Example 2:
  * <p>
- * Input: strs = [“10”,”0”,”1”], m = 1, n = 1
+ * Input: strs = ["10","0","1"], m = 1, n = 1
  * <p>
  * Output: 2
  * <p>
- * Explanation: The largest subset is {“0”, “1”}, so the answer is 2.
+ * Explanation: The largest subset is {"0", "1"}, so the answer is 2.
  * <p>
  * Constraints:
  * <p>
@@ -33,10 +33,6 @@ package dynamicprogramming;
  * 1 <= m, n <= 100
  */
 public class OnesAndZeroes {
-    public static void main(String[] args) {
-        String[] str = {"10", "0", "1"};
-        System.out.println(new OnesAndZeroes().findMaxForm(str, 1, 1));
-    }
 
     public int findMaxForm(String[] strs, int m, int n) {
         int[][] dp = new int[m + 1][n + 1];

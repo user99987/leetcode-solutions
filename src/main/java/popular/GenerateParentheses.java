@@ -12,13 +12,13 @@ import java.util.List;
  * <p>
  * Input: n = 3
  * <p>
- * Output: [”((()))”,”(()())”,”(())()”,”()(())”,”()()()”]
+ * Output: ["((()))","(()())","(())()","()(())","()()()"]
  * <p>
  * Example 2:
  * <p>
  * Input: n = 1
  * <p>
- * Output: [”()”]
+ * Output: ["()"]
  * <p>
  * Constraints:
  * <p>

@@ -13,7 +13,7 @@ package dynamicprogramming;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “bccb”
+ * Input: s = "bccb"
  * <p>
  * Output: 6
  * <p>
@@ -21,7 +21,7 @@ package dynamicprogramming;
  * <p>
  * Example 2:
  * <p>
- * Input: s = “abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba”
+ * Input: s = "abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba"
  * <p>
  * Output: 104860361
  * <p>
@@ -33,13 +33,6 @@ package dynamicprogramming;
  * s[i] is either 'a', 'b', 'c', or 'd'.
  */
 public class CountDifferentPalindromicSubsequences {
-
-    public static void main(String[] args) {
-        System.out.println(
-                new CountDifferentPalindromicSubsequences()
-                        .countPalindromicSubsequences(
-                                "abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba"));
-    }
 
     public int countPalindromicSubsequences(String s) {
         int big = 1000000007;

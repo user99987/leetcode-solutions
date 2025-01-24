@@ -7,19 +7,19 @@ package dynamicprogramming;
  * <p>
  * Example 1:
  * <p>
- * Input: matrix = [[“1”,”0”,”1”,”0”,”0”],[“1”,”0”,”1”,”1”,”1”],[“1”,”1”,”1”,”1”,”1”],[“1”,”0”,”0”,”1”,”0”]]
+ * Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
  * <p>
  * Output: 4
  * <p>
  * Example 2:
  * <p>
- * Input: matrix = [[“0”,”1”],[“1”,”0”]]
+ * Input: matrix = [["0","1"],["1","0"]]
  * <p>
  * Output: 1
  * <p>
  * Example 3:
  * <p>
- * Input: matrix = [[“0”]]
+ * Input: matrix = [["0"]]
  * <p>
  * Output: 0
  * <p>
@@ -31,16 +31,6 @@ package dynamicprogramming;
  * matrix[i][j] is '0' or '1'.
  */
 public class MaximalSquare {
-
-    public static void main(String[] args) {
-        char[][] A = {
-                {'1', '0', '1', '0', '0'},
-                {'1', '0', '1', '1', '1'},
-                {'1', '1', '1', '1', '1'},
-                {'1', '0', '0', '1', '0'}
-        };
-        System.out.println(new MaximalSquare().maximalSquare(A));
-    }
 
     public int maximalSquare(char[][] matrix) {
         int m = matrix.length;

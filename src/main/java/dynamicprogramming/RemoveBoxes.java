@@ -43,11 +43,6 @@ public class RemoveBoxes {
 
     int[][][] dp;
 
-    public static void main(String[] args) {
-        int[] boxes = {3, 3, 3};
-        System.out.println(new RemoveBoxes().removeBoxes(boxes));
-    }
-
     public int removeBoxes(int[] boxes) {
         dp = new int[boxes.length][boxes.length][boxes.length + 1];
         return calculate(0, boxes.length - 1, 1, boxes);

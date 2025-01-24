@@ -16,25 +16,25 @@ import java.util.HashSet;
  * <p>
  * Example 1:
  * <p>
- * Input: stickers = [“with”,”example”,”science”], target = “thehat”
+ * Input: stickers = ["with","example","science"], target = "thehat"
  * <p>
  * Output: 3
  * <p>
  * Explanation:
  * <p>
- * We can use 2 “with” stickers, and 1 “example” sticker.
+ * We can use 2 "with" stickers, and 1 "example" sticker.
  * <p>
- * After cutting and rearrange the letters of those stickers, we can form the target “thehat”.
+ * After cutting and rearrange the letters of those stickers, we can form the target "thehat".
  * <p>
  * Also, this is the minimum number of stickers necessary to form the target string.
  * <p>
  * Example 2:
  * <p>
- * Input: stickers = [“notice”,”possible”], target = “basicbasic”
+ * Input: stickers = ["notice","possible"], target = "basicbasic"
  * <p>
  * Output: -1
  * <p>
- * Explanation: We cannot form the target “basicbasic” from cutting letters from the given stickers.
+ * Explanation: We cannot form the target "basicbasic" from cutting letters from the given stickers.
  * <p>
  * Constraints:
  * <p>
@@ -46,17 +46,11 @@ import java.util.HashSet;
  */
 public class StickersToSpellWord {
 
+    // For each character, save the sticker index which has this character
+    private final HashMap<Character, HashSet<Integer>> map = new HashMap<>();
+    private final HashMap<Integer, Integer> cache = new HashMap<>();
     // count the characters of every sticker
     private int[][] counts;
-    // For each character, save the sticker index which has this character
-    private HashMap<Character, HashSet<Integer>> map = new HashMap<>();
-    private HashMap<Integer, Integer> cache = new HashMap<>();
-
-    public static void main(String[] args) {
-        String[] stickers = {"bright", "neighbor", "capital"};
-
-        System.out.println(new StickersToSpellWord().minStickers(stickers, "originalchair"));
-    }
 
     public int minStickers(String[] stickers, String target) {
         counts = new int[stickers.length][26];

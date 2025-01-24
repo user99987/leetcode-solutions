@@ -13,19 +13,19 @@ import java.util.Arrays;
  * <p>
  * Input: digits = [8,1,9]
  * <p>
- * Output: “981”
+ * Output: "981"
  * <p>
  * Example 2:
  * <p>
  * Input: digits = [8,6,7,1,0]
  * <p>
- * Output: “8760”
+ * Output: "8760"
  * <p>
  * Example 3:
  * <p>
  * Input: digits = [1]
  * <p>
- * Output: “”
+ * Output: ""
  * <p>
  * Constraints:
  * <p>
@@ -33,11 +33,6 @@ import java.util.Arrays;
  * 0 <= digits[i] <= 9
  */
 public class LargestMultipleOfThree {
-
-    public static void main(String[] args) {
-        int[] A = {8, 4, 1, 7};
-        System.out.println(new LargestMultipleOfThree().largestMultipleOfThree(A));
-    }
 
     public String largestMultipleOfThree(int[] digits) {
         int sum = 0;

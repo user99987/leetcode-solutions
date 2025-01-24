@@ -7,17 +7,17 @@ package twopointers;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “abab”
+ * Input: s = "abab"
  * <p>
- * Output: “bab”
+ * Output: "bab"
  * <p>
- * Explanation: The substrings are [“a”, “ab”, “aba”, “abab”, “b”, “ba”, “bab”]. The lexicographically maximum substring is “bab”.
+ * Explanation: The substrings are ["a", "ab", "aba", "abab", "b", "ba", "bab"]. The lexicographically maximum substring is "bab".
  * <p>
  * Example 2:
  * <p>
- * Input: s = “leetcode”
+ * Input: s = "leetcode"
  * <p>
- * Output: “tcode”
+ * Output: "tcode"
  * <p>
  * Constraints:
  * <p>

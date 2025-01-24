@@ -16,37 +16,37 @@ package string;
  * Otherwise, return 0.
  * Example 1:
  * <p>
- * Input: version1 = “1.01”, version2 = “1.001”
+ * Input: version1 = "1.01", version2 = "1.001"
  * <p>
  * Output: 0
  * <p>
- * Explanation: Ignoring leading zeroes, both “01” and “001” represent the same integer “1”.
+ * Explanation: Ignoring leading zeroes, both "01" and "001" represent the same integer "1".
  * <p>
  * Example 2:
  * <p>
- * Input: version1 = “1.0”, version2 = “1.0.0”
+ * Input: version1 = "1.0", version2 = "1.0.0"
  * <p>
  * Output: 0
  * <p>
- * Explanation: version1 does not specify revision 2, which means it is treated as “0”.
+ * Explanation: version1 does not specify revision 2, which means it is treated as "0".
  * <p>
  * Example 3:
  * <p>
- * Input: version1 = “0.1”, version2 = “1.1”
+ * Input: version1 = "0.1", version2 = "1.1"
  * <p>
  * Output: -1
  * <p>
- * Explanation: version1's revision 0 is “0”, while version2's revision 0 is “1”. 0 < 1, so version1 < version2.
+ * Explanation: version1's revision 0 is "0", while version2's revision 0 is "1". 0 < 1, so version1 < version2.
  * <p>
  * Example 4:
  * <p>
- * Input: version1 = “1.0.1”, version2 = “1”
+ * Input: version1 = "1.0.1", version2 = "1"
  * <p>
  * Output: 1
  * <p>
  * Example 5:
  * <p>
- * Input: version1 = “7.5.2.4”, version2 = “7.5.3”
+ * Input: version1 = "7.5.2.4", version2 = "7.5.3"
  * <p>
  * Output: -1
  * <p>

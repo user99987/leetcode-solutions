@@ -12,21 +12,21 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “()())()”
+ * Input: s = "()())()"
  * <p>
- * Output: [”(())()”,”()()()”]
+ * Output: ["(())()","()()()"]
  * <p>
  * Example 2:
  * <p>
- * Input: s = “(a)())()”
+ * Input: s = "(a)())()"
  * <p>
- * Output: [“(a())()”,”(a)()()”]
+ * Output: ["(a())()","(a)()()"]
  * <p>
  * Example 3:
  * <p>
- * Input: s = “)(“
+ * Input: s = ")("
  * <p>
- * Output: [””]
+ * Output: [""]
  * <p>
  * Constraints:
  * <p>

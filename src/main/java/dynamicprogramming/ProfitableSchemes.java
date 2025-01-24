@@ -44,12 +44,6 @@ package dynamicprogramming;
  */
 public class ProfitableSchemes {
 
-    public static void main(String[] args) {
-        int[] group = {2, 3};
-        int[] profit = {2, 5};
-        System.out.println(new ProfitableSchemes().profitableSchemes(5, 2, group, profit));
-    }
-
     public int profitableSchemes(int n, int minProfit, int[] group, int[] profit) {
         long[][] dp = new long[n + 1][minProfit + 1];
         long modulus = 1000000007L;

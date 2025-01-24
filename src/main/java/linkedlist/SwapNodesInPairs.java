@@ -31,7 +31,7 @@ import utils.ListNode;
  * <p>
  * The number of nodes in the list is in the range [0, 100].
  * 0 <= Node.val <= 100
- * To solve the “Swap Nodes in Pairs” problem in Java with a Solution class, we can traverse the linked list while swapping pairs of nodes. Here are the steps:
+ * To solve the "Swap Nodes in Pairs" problem in Java with a Solution class, we can traverse the linked list while swapping pairs of nodes. Here are the steps:
  * <p>
  * Define a Solution class.
  * Define a method named swapPairs that takes the head of a linked list as input and returns the head of the modified list.

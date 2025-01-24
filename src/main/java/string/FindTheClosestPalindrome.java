@@ -9,15 +9,15 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: n = “123”
+ * Input: n = "123"
  * <p>
- * Output: “121”
+ * Output: "121"
  * <p>
  * Example 2:
  * <p>
- * Input: n = “1”
+ * Input: n = "1"
  * <p>
- * Output: “0”
+ * Output: "0"
  * <p>
  * Explanation: 0 and 2 are the closest palindromes but we return the smallest which is 0.
  * <p>

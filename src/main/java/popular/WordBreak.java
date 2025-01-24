@@ -15,23 +15,23 @@ import java.util.Set;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “leetcode”, wordDict = [“leet”,”code”]
+ * Input: s = "leetcode", wordDict = ["leet","code"]
  * <p>
  * Output: true
  * <p>
- * Explanation: Return true because “leetcode” can be segmented as “leet code”.
+ * Explanation: Return true because "leetcode" can be segmented as "leet code".
  * <p>
  * Example 2:
  * <p>
- * Input: s = “applepenapple”, wordDict = [“apple”,”pen”]
+ * Input: s = "applepenapple", wordDict = ["apple","pen"]
  * <p>
  * Output: true
  * <p>
- * Explanation: Return true because “applepenapple” can be segmented as “apple pen apple”. Note that you are allowed to reuse a dictionary word.
+ * Explanation: Return true because "applepenapple" can be segmented as "apple pen apple". Note that you are allowed to reuse a dictionary word.
  * <p>
  * Example 3:
  * <p>
- * Input: s = “catsandog”, wordDict = [“cats”,”dog”,”sand”,”and”,”cat”]
+ * Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
  * <p>
  * Output: false
  * <p>

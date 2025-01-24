@@ -5,24 +5,24 @@ import java.util.List;
 /**
  * Medium
  * <p>
- * Given a list of 24-hour clock time points in “HH:MM” format, return the minimum minutes difference between any two time-points in the list.
+ * Given a list of 24-hour clock time points in "HH:MM" format, return the minimum minutes difference between any two time-points in the list.
  * <p>
  * Example 1:
  * <p>
- * Input: timePoints = [“23:59”,”00:00”]
+ * Input: timePoints = ["23:59","00:00"]
  * <p>
  * Output: 1
  * <p>
  * Example 2:
  * <p>
- * Input: timePoints = [“00:00”,”23:59”,”00:00”]
+ * Input: timePoints = ["00:00","23:59","00:00"]
  * <p>
  * Output: 0
  * <p>
  * Constraints:
  * <p>
  * 2 <= timePoints <= 2 * 10^4
- * timePoints[i] is in the format “HH:MM”.
+ * timePoints[i] is in the format "HH:MM".
  */
 public class MinimumTimeDifference {
 

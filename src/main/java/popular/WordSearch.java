@@ -9,19 +9,19 @@ package popular;
  * <p>
  * Example 1:
  * <p>
- * Input: board = [[“A”,”B”,”C”,”E”],[“S”,”F”,”C”,”S”],[“A”,”D”,”E”,”E”]], word = “ABCCED”
+ * Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
  * <p>
  * Output: true
  * <p>
  * Example 2:
  * <p>
- * Input: board = [[“A”,”B”,”C”,”E”],[“S”,”F”,”C”,”S”],[“A”,”D”,”E”,”E”]], word = “SEE”
+ * Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
  * <p>
  * Output: true
  * <p>
  * Example 3:
  * <p>
- * Input: board = [[“A”,”B”,”C”,”E”],[“S”,”F”,”C”,”S”],[“A”,”D”,”E”,”E”]], word = “ABCB”
+ * Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
  * <p>
  * Output: false
  * <p>

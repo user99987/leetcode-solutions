@@ -1,8 +1,6 @@
 package dynamicprogramming;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Hard
@@ -17,19 +15,19 @@ import java.util.stream.Collectors;
  * <p>
  * Example 1:
  * <p>
- * Input: board = [“E23”,”2X2”,”12S”]
+ * Input: board = ["E23","2X2","12S"]
  * <p>
  * Output: [7,1]
  * <p>
  * Example 2:
  * <p>
- * Input: board = [“E12”,”1X1”,”21S”]
+ * Input: board = ["E12","1X1","21S"]
  * <p>
  * Output: [4,2]
  * <p>
  * Example 3:
  * <p>
- * Input: board = [“E11”,”XXX”,”11S”]
+ * Input: board = ["E11","XXX","11S"]
  * <p>
  * Output: [0,0]
  * <p>
@@ -40,13 +38,6 @@ import java.util.stream.Collectors;
 public class NumberOfPathsWithMaxScore {
 
     private static final int[][] DIRECTIONS = new int[][]{{1, 0}, {0, 1}, {1, 1}};
-
-    public static void main(String[] args) {
-        String[] board = {"E11", "XXX", "11S"};
-        List<String> input = Arrays.stream(board).collect(Collectors.toList());
-        int[] r = new NumberOfPathsWithMaxScore().pathsWithMaxScore(input);
-        System.out.println(r[0] + " " + r[1]);
-    }
 
     public int[] pathsWithMaxScore(List<String> board) {
         int rows = board.size();

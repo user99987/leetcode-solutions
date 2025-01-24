@@ -21,23 +21,23 @@ import java.util.List;
  * The input array words contains at least one word.
  * Example 1:
  * <p>
- * Input: words = [“This”, “is”, “an”, “example”, “of”, “text”, “justification.”], maxWidth = 16
+ * Input: words = ["This", "is", "an", "example", "of", "text", "justification."], maxWidth = 16
  * <p>
- * Output: [ “This is an”, “example of text”, “justification. “ ]
+ * Output: [ "This is an", "example of text", "justification. " ]
  * <p>
  * Example 2:
  * <p>
- * Input: words = [“What”,”must”,”be”,”acknowledgment”,”shall”,”be”], maxWidth = 16
+ * Input: words = ["What","must","be","acknowledgment","shall","be"], maxWidth = 16
  * <p>
- * Output: [ “What must be”, “acknowledgment “, “shall be “ ]
+ * Output: [ "What must be", "acknowledgment ", "shall be " ]
  * <p>
- * Explanation: Note that the last line is “shall be “ instead of “shall be”, because the last line must be left-justified instead of fully-justified. Note that the second line is also left-justified becase it contains only one word.
+ * Explanation: Note that the last line is "shall be " instead of "shall be", because the last line must be left-justified instead of fully-justified. Note that the second line is also left-justified becase it contains only one word.
  * <p>
  * Example 3:
  * <p>
- * Input: words = [“Science”,”is”,”what”,”we”,”understand”,”well”,”enough”,”to”,”explain”,”to”,”a”,”computer.”,”Art”,”is”,”everything”,”else”,”we”,”do”], maxWidth = 20
+ * Input: words = ["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"], maxWidth = 20
  * <p>
- * Output: [ “Science is what we”, “understand well”, “enough to explain to”, “a computer. Art is”, “everything else we”, “do “ ]
+ * Output: [ "Science is what we", "understand well", "enough to explain to", "a computer. Art is", "everything else we", "do " ]
  * <p>
  * Constraints:
  * <p>

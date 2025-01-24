@@ -9,31 +9,31 @@ import java.util.HashMap;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “abcabcbb”
+ * Input: s = "abcabcbb"
  * <p>
  * Output: 3
  * <p>
- * Explanation: The answer is “abc”, with the length of 3.
+ * Explanation: The answer is "abc", with the length of 3.
  * <p>
  * Example 2:
  * <p>
- * Input: s = “bbbbb”
+ * Input: s = "bbbbb"
  * <p>
  * Output: 1
  * <p>
- * Explanation: The answer is “b”, with the length of 1.
+ * Explanation: The answer is "b", with the length of 1.
  * <p>
  * Example 3:
  * <p>
- * Input: s = “pwwkew”
+ * Input: s = "pwwkew"
  * <p>
  * Output: 3
  * <p>
- * Explanation: The answer is “wke”, with the length of 3. Notice that the answer must be a substring, “pwke” is a subsequence and not a substring.
+ * Explanation: The answer is "wke", with the length of 3. Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
  * <p>
  * Example 4:
  * <p>
- * Input: s = “”
+ * Input: s = ""
  * <p>
  * Output: 0
  * <p>

@@ -42,10 +42,6 @@ package dynamicprogramming;
  */
 public class NumberOfDiceRollsWithTargetSum {
 
-    public static void main(String[] args) {
-        System.out.println(new NumberOfDiceRollsWithTargetSum().numRollsToTarget(3, 3, 3));
-    }
-
     public int numRollsToTarget(int d, int f, int target) {
         int[][] DP = new int[d + 1][target + 1];
         for (int i = 1; i <= Math.min(f, target); i++) {

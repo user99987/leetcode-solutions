@@ -32,10 +32,6 @@ public class OutOfBoundaryPaths {
 
     private final int[][] dRowCol = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-    public static void main(String[] args) {
-        System.out.println(new OutOfBoundaryPaths().findPaths(2, 2, 2, 0, 0));
-    }
-
     private int dfs(int m, int n, int remainingMoves, int currRow, int currCol, int[][][] cache) {
         if (currRow < 0 || currRow == m || currCol < 0 || currCol == n) {
             return 1;

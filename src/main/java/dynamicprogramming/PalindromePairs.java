@@ -11,23 +11,23 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: words = [“abcd”,”dcba”,”lls”,”s”,”sssll”]
+ * Input: words = ["abcd","dcba","lls","s","sssll"]
  * <p>
  * Output: [[0,1],[1,0],[3,2],[2,4]]
  * <p>
- * Explanation: The palindromes are [“dcbaabcd”,”abcddcba”,”slls”,”llssssll”]
+ * Explanation: The palindromes are ["dcbaabcd","abcddcba","slls","llssssll"]
  * <p>
  * Example 2:
  * <p>
- * Input: words = [“bat”,”tab”,”cat”]
+ * Input: words = ["bat","tab","cat"]
  * <p>
  * Output: [[0,1],[1,0]]
  * <p>
- * Explanation: The palindromes are [“battab”,”tabbat”]
+ * Explanation: The palindromes are ["battab","tabbat"]
  * <p>
  * Example 3:
  * <p>
- * Input: words = [“a”,””]
+ * Input: words = ["a",""]
  * <p>
  * Output: [[0,1],[1,0]]
  * <p>
@@ -38,13 +38,6 @@ import java.util.List;
  * words[i] consists of lower-case English letters.
  */
 public class PalindromePairs {
-
-
-    public static void main(String[] args) throws Exception {
-        String[] words = {"", "aa"};
-        List<List<Integer>> result = new PalindromePairs().palindromePairs(words);
-        result.stream().map(x -> (x.get(0) + " " + x.get(1))).forEach(System.out::println);
-    }
 
     public List<List<Integer>> palindromePairs(String[] words) {
         List<List<Integer>> res = new ArrayList<>();

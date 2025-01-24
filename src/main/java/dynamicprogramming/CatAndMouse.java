@@ -55,11 +55,6 @@ public class CatAndMouse {
     private static final int MOUSE = 0;
     private static final int CAT = 1;
 
-    public static void main(String[] args) {
-        int[][] graph = {{2, 5}, {3}, {0, 4, 5}, {1, 4, 5}, {2, 3}, {0, 2, 3}};
-        System.out.println(new CatAndMouse().catMouseGame(graph));
-    }
-
     public int catMouseGame(int[][] graph) {
         int n = graph.length;
         int[][][] states = new int[n][n][2];

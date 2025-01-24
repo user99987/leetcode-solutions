@@ -27,25 +27,25 @@ import java.util.Map;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “III”
+ * Input: s = "III"
  * <p>
  * Output: 3
  * <p>
  * Example 2:
  * <p>
- * Input: s = “IV”
+ * Input: s = "IV"
  * <p>
  * Output: 4
  * <p>
  * Example 3:
  * <p>
- * Input: s = “IX”
+ * Input: s = "IX"
  * <p>
  * Output: 9
  * <p>
  * Example 4:
  * <p>
- * Input: s = “LVIII”
+ * Input: s = "LVIII"
  * <p>
  * Output: 58
  * <p>
@@ -53,7 +53,7 @@ import java.util.Map;
  * <p>
  * Example 5:
  * <p>
- * Input: s = “MCMXCIV”
+ * Input: s = "MCMXCIV"
  * <p>
  * Output: 1994
  * <p>

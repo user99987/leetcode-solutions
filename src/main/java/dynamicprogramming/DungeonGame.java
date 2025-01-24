@@ -40,11 +40,6 @@ package dynamicprogramming;
  */
 public class DungeonGame {
 
-    public static void main(String[] args) throws Exception {
-        int[][] dungeon = {{200}};
-        System.out.println(new DungeonGame().calculateMinimumHP(dungeon));
-    }
-
     public int calculateMinimumHP(int[][] dungeon) {
         int m = dungeon.length;
         int n = dungeon[0].length;

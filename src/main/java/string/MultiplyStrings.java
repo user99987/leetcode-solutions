@@ -9,15 +9,15 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: num1 = “2”, num2 = “3”
+ * Input: num1 = "2", num2 = "3"
  * <p>
- * Output: “6”
+ * Output: "6"
  * <p>
  * Example 2:
  * <p>
- * Input: num1 = “123”, num2 = “456”
+ * Input: num1 = "123", num2 = "456"
  * <p>
- * Output: “56088”
+ * Output: "56088"
  * <p>
  * Constraints:
  * <p>

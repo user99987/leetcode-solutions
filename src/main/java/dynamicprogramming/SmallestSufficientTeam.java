@@ -1,7 +1,6 @@
 package dynamicprogramming;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,13 +19,13 @@ import java.util.Map;
  * <p>
  * Example 1:
  * <p>
- * Input: req_skills = [“java”,”nodejs”,”reactjs”], people = [[“java”],[“nodejs”],[“nodejs”,”reactjs”]]
+ * Input: req_skills = ["java","nodejs","reactjs"], people = [["java"],["nodejs"],["nodejs","reactjs"]]
  * <p>
  * Output: [0,2]
  * <p>
  * Example 2:
  * <p>
- * Input: req_skills = [“algorithms”,”math”,”java”,”reactjs”,”csharp”,”aws”], people = [[“algorithms”,”math”,”java”],[“algorithms”,”math”,”reactjs”],[“java”,”csharp”,”aws”],[“reactjs”,”csharp”],[“csharp”,”math”],[“aws”,”java”]]
+ * Input: req_skills = ["algorithms","math","java","reactjs","csharp","aws"], people = [["algorithms","math","java"],["algorithms","math","reactjs"],["java","csharp","aws"],["reactjs","csharp"],["csharp","math"],["aws","java"]]
  * <p>
  * Output: [1,2]
  * <p>
@@ -47,19 +46,6 @@ import java.util.Map;
 public class SmallestSufficientTeam {
 
     private List<Integer> ans = new ArrayList<>();
-
-    public static void main(String[] args) {
-        String[] req = {"java", "nodejs", "reactjs"};
-        List<List<String>> people = new ArrayList<>();
-        people.add(Arrays.asList("java"));
-        people.add(Arrays.asList("nodejs"));
-        people.add(Arrays.asList("nodejs", "reactjs"));
-        int[] R = new SmallestSufficientTeam().smallestSufficientTeam(req, people);
-        for (int r : R) {
-            System.out.print(r + " ");
-        }
-        System.out.println();
-    }
 
     public int[] smallestSufficientTeam(String[] skills, List<List<String>> people) {
         int n = skills.length;

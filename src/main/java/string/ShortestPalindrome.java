@@ -9,15 +9,15 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “aacecaaa”
+ * Input: s = "aacecaaa"
  * <p>
- * Output: “aaacecaaa”
+ * Output: "aaacecaaa"
  * <p>
  * Example 2:
  * <p>
- * Input: s = “abcd”
+ * Input: s = "abcd"
  * <p>
- * Output: “dcbabcd”
+ * Output: "dcbabcd"
  * <p>
  * Constraints:
  * <p>

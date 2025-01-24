@@ -9,15 +9,15 @@ package popular;
  * <p>
  * Example 1:
  * <p>
- * Input: strs = [“flower”,”flow”,”flight”]
+ * Input: strs = ["flower","flow","flight"]
  * <p>
- * Output: “fl”
+ * Output: "fl"
  * <p>
  * Example 2:
  * <p>
- * Input: strs = [“dog”,”racecar”,”car”]
+ * Input: strs = ["dog","racecar","car"]
  * <p>
- * Output: “”
+ * Output: ""
  * <p>
  * Explanation: There is no common prefix among the input strings.
  * <p>

@@ -19,21 +19,21 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: words = [“Hello”,”Alaska”,”Dad”,”Peace”]
+ * Input: words = ["Hello","Alaska","Dad","Peace"]
  * <p>
- * Output: [“Alaska”,”Dad”]
+ * Output: ["Alaska","Dad"]
  * <p>
  * Example 2:
  * <p>
- * Input: words = [“omk”]
+ * Input: words = ["omk"]
  * <p>
  * Output: []
  * <p>
  * Example 3:
  * <p>
- * Input: words = [“adsdf”,”sfd”]
+ * Input: words = ["adsdf","sfd"]
  * <p>
- * Output: [“adsdf”,”sfd”]
+ * Output: ["adsdf","sfd"]
  * <p>
  * Constraints:
  * <p>

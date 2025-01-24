@@ -15,7 +15,7 @@ import java.util.Stack;
  * <p>
  * Example 1:
  * <p>
- * Input: tokens = [“2”,”1”,”+”,”3”,”*”]
+ * Input: tokens = ["2","1","+","3","*"]
  * <p>
  * Output: 9
  * <p>
@@ -23,7 +23,7 @@ import java.util.Stack;
  * <p>
  * Example 2:
  * <p>
- * Input: tokens = [“4”,”13”,”5”,”/”,”+”]
+ * Input: tokens = ["4","13","5","/","+"]
  * <p>
  * Output: 6
  * <p>
@@ -31,7 +31,7 @@ import java.util.Stack;
  * <p>
  * Example 3:
  * <p>
- * Input: tokens = [“10”,”6”,”9”,”3”,”+”,”-11”,”*”,”/”,”*”,”17”,”+”,”5”,”+”]
+ * Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
  * <p>
  * Output: 22
  * <p>

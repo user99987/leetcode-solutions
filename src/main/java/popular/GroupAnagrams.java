@@ -14,21 +14,21 @@ import java.util.stream.Collectors;
  * <p>
  * Example 1:
  * <p>
- * Input: strs = [“eat”,”tea”,”tan”,”ate”,”nat”,”bat”]
+ * Input: strs = ["eat","tea","tan","ate","nat","bat"]
  * <p>
- * Output: [[“bat”],[“nat”,”tan”],[“ate”,”eat”,”tea”]]
+ * Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
  * <p>
  * Example 2:
  * <p>
- * Input: strs = [””]
+ * Input: strs = [""]
  * <p>
- * Output: [[””]]
+ * Output: [[""]]
  * <p>
  * Example 3:
  * <p>
- * Input: strs = [“a”]
+ * Input: strs = ["a"]
  * <p>
- * Output: [[“a”]]
+ * Output: [["a"]]
  * <p>
  * Constraints:
  * <p>

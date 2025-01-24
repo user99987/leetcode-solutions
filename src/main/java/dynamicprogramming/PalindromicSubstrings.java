@@ -11,19 +11,19 @@ package dynamicprogramming;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “abc”
+ * Input: s = "abc"
  * <p>
  * Output: 3
  * <p>
- * Explanation: Three palindromic strings: “a”, “b”, “c”.
+ * Explanation: Three palindromic strings: "a", "b", "c".
  * <p>
  * Example 2:
  * <p>
- * Input: s = “aaa”
+ * Input: s = "aaa"
  * <p>
  * Output: 6
  * <p>
- * Explanation: Six palindromic strings: “a”, “a”, “a”, “aa”, “aa”, “aaa”.
+ * Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
  * <p>
  * Constraints:
  * <p>
@@ -31,10 +31,6 @@ package dynamicprogramming;
  * s consists of lowercase English letters.
  */
 public class PalindromicSubstrings {
-
-    public static void main(String[] args) {
-        System.out.println(new PalindromicSubstrings().countSubstrings("aaa"));
-    }
 
     private void expand(char[] a, int l, int r, int[] res) {
         while (l >= 0 && r < a.length) {

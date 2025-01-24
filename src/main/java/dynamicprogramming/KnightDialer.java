@@ -65,10 +65,6 @@ public class KnightDialer {
         MEMO.add(new int[]{1, 1, 1, 1, 1, 0, 1, 1, 1, 1});
     }
 
-    public static void main(String[] args) {
-        System.out.println(new KnightDialer().knightDialer(2));
-    }
-
     public int knightDialer(int n) {
         if (n == 1) {
             return 10;

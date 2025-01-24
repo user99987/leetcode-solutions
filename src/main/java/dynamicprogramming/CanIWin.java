@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * Medium
  * <p>
- * In the “100 game” two players take turns adding, to a running total, any integer from 1 to 10. The player who first causes the running total to reach or exceed 100 wins.
+ * In the "100 game" two players take turns adding, to a running total, any integer from 1 to 10. The player who first causes the running total to reach or exceed 100 wins.
  * <p>
  * What if we change the game so that players cannot re-use integers?
  * <p>
@@ -51,10 +51,6 @@ import java.util.Map;
 public class CanIWin {
 
     private Map<Boolean, Map<Integer, Boolean>> DP;
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(new CanIWin().canIWin(5, 15));
-    }
 
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
         if (desiredTotal <= maxChoosableInteger) {

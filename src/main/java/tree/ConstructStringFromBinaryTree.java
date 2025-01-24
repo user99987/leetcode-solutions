@@ -15,9 +15,9 @@ import utils.TreeNode;
  * <p>
  * Input: root = [1,2,3,4]
  * <p>
- * Output: “1(2(4))(3)”
+ * Output: "1(2(4))(3)"
  * <p>
- * Explanation: Originally, it needs to be “1(2(4)())(3()())”, but you need to omit all the unnecessary empty parenthesis pairs. And it will be “1(2(4))(3)”
+ * Explanation: Originally, it needs to be "1(2(4)())(3()())", but you need to omit all the unnecessary empty parenthesis pairs. And it will be "1(2(4))(3)"
  * <p>
  * Example 2:
  * <p>
@@ -25,7 +25,7 @@ import utils.TreeNode;
  * <p>
  * Input: root = [1,2,3,null,4]
  * <p>
- * Output: “1(2()(4))(3)”
+ * Output: "1(2()(4))(3)"
  * <p>
  * Explanation: Almost the same as the first example, except we cannot omit the first parenthesis pair to break the one-to-one mapping relationship between the input and the output.
  * <p>

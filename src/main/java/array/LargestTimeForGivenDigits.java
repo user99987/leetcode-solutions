@@ -13,17 +13,17 @@ package array;
  * <p>
  * Input: arr = [1,2,3,4]
  * <p>
- * Output: “23:41”
+ * Output: "23:41"
  * <p>
- * Explanation: The valid 24-hour times are “12:34”, “12:43”, “13:24”, “13:42”, “14:23”, “14:32”, “21:34”, “21:43”, “23:14”, and “23:41”. Of these times, “23:41” is the latest.
+ * Explanation: The valid 24-hour times are "12:34", "12:43", "13:24", "13:42", "14:23", "14:32", "21:34", "21:43", "23:14", and "23:41". Of these times, "23:41" is the latest.
  * <p>
  * Example 2:
  * <p>
  * Input: arr = [5,5,5,5]
  * <p>
- * Output: “”
+ * Output: ""
  * <p>
- * Explanation: There are no valid 24-hour times as “55:55” is not valid.
+ * Explanation: There are no valid 24-hour times as "55:55" is not valid.
  * <p>
  * Constraints:
  * <p>

@@ -9,15 +9,15 @@ package string;
  * <p>
  * Example 1:
  * <p>
- * Input: s1 = “ab”, s2 = “eidbaooo”
+ * Input: s1 = "ab", s2 = "eidbaooo"
  * <p>
  * Output: true
  * <p>
- * Explanation: s2 contains one permutation of s1 (“ba”).
+ * Explanation: s2 contains one permutation of s1 ("ba").
  * <p>
  * Example 2:
  * <p>
- * Input: s1 = “ab”, s2 = “eidboaoo”
+ * Input: s1 = "ab", s2 = "eidboaoo"
  * <p>
  * Output: false
  * <p>

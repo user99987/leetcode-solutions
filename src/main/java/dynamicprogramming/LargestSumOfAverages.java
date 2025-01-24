@@ -37,11 +37,6 @@ package dynamicprogramming;
  */
 public class LargestSumOfAverages {
 
-    public static void main(String[] args) {
-        int[] A = {9, 1, 2, 3, 9};
-        System.out.println(new LargestSumOfAverages().largestSumOfAverages(A, 3));
-    }
-
     public double largestSumOfAverages(int[] nums, int k) {
         return helper(nums, k, 0, new Double[k + 1][nums.length]);
     }

@@ -17,19 +17,19 @@ import java.util.TreeSet;
  * <p>
  * Example 1:
  * <p>
- * Input: words = [“i”,”love”,”leetcode”,”i”,”love”,”coding”], k = 2
+ * Input: words = ["i","love","leetcode","i","love","coding"], k = 2
  * <p>
- * Output: [“i”,”love”]
+ * Output: ["i","love"]
  * <p>
- * Explanation: “i” and “love” are the two most frequent words. Note that “i” comes before “love” due to a lower alphabetical order.
+ * Explanation: "i" and "love" are the two most frequent words. Note that "i" comes before "love" due to a lower alphabetical order.
  * <p>
  * Example 2:
  * <p>
- * Input: words = [“the”,”day”,”is”,”sunny”,”the”,”the”,”the”,”sunny”,”is”,”is”], k = 4
+ * Input: words = ["the","day","is","sunny","the","the","the","sunny","is","is"], k = 4
  * <p>
- * Output: [“the”,”is”,”sunny”,”day”]
+ * Output: ["the","is","sunny","day"]
  * <p>
- * Explanation: “the”, “is”, “sunny” and “day” are the four most frequent words, with the number of occurrence being 4, 3, 2 and 1 respectively.
+ * Explanation: "the", "is", "sunny" and "day" are the four most frequent words, with the number of occurrence being 4, 3, 2 and 1 respectively.
  * <p>
  * Constraints:
  * <p>

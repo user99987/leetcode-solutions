@@ -11,7 +11,7 @@ package greedy;
  * <p>
  * Example 1:
  * <p>
- * Input: tasks = [“A”,”A”,”A”,”B”,”B”,”B”], n = 2
+ * Input: tasks = ["A","A","A","B","B","B"], n = 2
  * <p>
  * Output: 8
  * <p>
@@ -19,15 +19,15 @@ package greedy;
  * <p>
  * Example 2:
  * <p>
- * Input: tasks = [“A”,”A”,”A”,”B”,”B”,”B”], n = 0
+ * Input: tasks = ["A","A","A","B","B","B"], n = 0
  * <p>
  * Output: 6
  * <p>
- * Explanation: On this case any permutation of size 6 would work since n = 0. [“A”,”A”,”A”,”B”,”B”,”B”] [“A”,”B”,”A”,”B”,”A”,”B”] [“B”,”B”,”B”,”A”,”A”,”A”] … And so on.
+ * Explanation: On this case any permutation of size 6 would work since n = 0. ["A","A","A","B","B","B"] ["A","B","A","B","A","B"] ["B","B","B","A","A","A"] … And so on.
  * <p>
  * Example 3:
  * <p>
- * Input: tasks = [“A”,”A”,”A”,”A”,”A”,”A”,”B”,”C”,”D”,”E”,”F”,”G”], n = 2
+ * Input: tasks = ["A","A","A","A","A","A","B","C","D","E","F","G"], n = 2
  * <p>
  * Output: 16
  * <p>

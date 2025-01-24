@@ -11,21 +11,21 @@ import java.util.BitSet;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “abccccdd”
+ * Input: s = "abccccdd"
  * <p>
  * Output: 7
  * <p>
- * Explanation: One longest palindrome that can be built is “dccaccd”, whose length is 7.
+ * Explanation: One longest palindrome that can be built is "dccaccd", whose length is 7.
  * <p>
  * Example 2:
  * <p>
- * Input: s = “a”
+ * Input: s = "a"
  * <p>
  * Output: 1
  * <p>
  * Example 3:
  * <p>
- * Input: s = “bb”
+ * Input: s = "bb"
  * <p>
  * Output: 2
  * <p>

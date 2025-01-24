@@ -12,25 +12,25 @@ import java.util.List;
  * <p>
  * Example 1:
  * <p>
- * Input: num = “123”, target = 6
+ * Input: num = "123", target = 6
  * <p>
- * Output: [“1*2*3”,”1+2+3”]
+ * Output: ["1*2*3","1+2+3"]
  * <p>
- * Explanation: Both “1*2*3” and “1+2+3” evaluate to 6.
+ * Explanation: Both "1*2*3" and "1+2+3" evaluate to 6.
  * <p>
  * Example 2:
  * <p>
- * Input: num = “232”, target = 8
+ * Input: num = "232", target = 8
  * <p>
- * Output: [“2*3+2”,”2+3*2”]
+ * Output: ["2*3+2","2+3*2"]
  * <p>
- * Explanation: Both “2*3+2” and “2+3*2” evaluate to 8.
+ * Explanation: Both "2*3+2" and "2+3*2" evaluate to 8.
  * <p>
  * Example 3:
  * <p>
- * Input: num = “105”, target = 5
+ * Input: num = "105", target = 5
  * <p>
- * Output: [“1*0+5”,”10-5”]
+ * Output: ["1*0+5","10-5"]
  * <p>
  * Explanation:
  * <p>
@@ -38,9 +38,9 @@ import java.util.List;
  * Note that "1-05" is not a valid expression because the 5 has a leading zero.
  * Example 4:
  * <p>
- * Input: num = “00”, target = 0
+ * Input: num = "00", target = 0
  * <p>
- * Output: [“0*0”,”0+0”,”0-0”]
+ * Output: ["0*0","0+0","0-0"]
  * <p>
  * Explanation:
  * <p>
@@ -48,11 +48,11 @@ import java.util.List;
  * Note that "00" is not a valid expression because the 0 has a leading zero.
  * Example 5:
  * <p>
- * Input: num = “3456237490”, target = 9191
+ * Input: num = "3456237490", target = 9191
  * <p>
  * Output: []
  * <p>
- * Explanation: There are no expressions that can be created from “3456237490” to evaluate to 9191.
+ * Explanation: There are no expressions that can be created from "3456237490" to evaluate to 9191.
  * <p>
  * Constraints:
  * <p>

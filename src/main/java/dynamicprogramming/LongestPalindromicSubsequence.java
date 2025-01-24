@@ -9,19 +9,19 @@ package dynamicprogramming;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “bbbab”
+ * Input: s = "bbbab"
  * <p>
  * Output: 4
  * <p>
- * Explanation: One possible longest palindromic subsequence is “bbbb”.
+ * Explanation: One possible longest palindromic subsequence is "bbbb".
  * <p>
  * Example 2:
  * <p>
- * Input: s = “cbbd”
+ * Input: s = "cbbd"
  * <p>
  * Output: 2
  * <p>
- * Explanation: One possible longest palindromic subsequence is “bb”.
+ * Explanation: One possible longest palindromic subsequence is "bb".
  * <p>
  * Constraints:
  * <p>
@@ -29,10 +29,6 @@ package dynamicprogramming;
  * s consists only of lowercase English letters.
  */
 public class LongestPalindromicSubsequence {
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(new LongestPalindromicSubsequence().longestPalindromeSubseq("bbbab"));
-    }
 
     public int longestPalindromeSubseq(String s) {
         int[][] dp = new int[s.length() + 1][s.length() + 1];

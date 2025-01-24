@@ -11,15 +11,15 @@ package popular;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “aa”, p = “a”
+ * Input: s = "aa", p = "a"
  * <p>
  * Output: false
  * <p>
- * Explanation: “a” does not match the entire string “aa”.
+ * Explanation: "a" does not match the entire string "aa".
  * <p>
  * Example 2:
  * <p>
- * Input: s = “aa”, p = “*”
+ * Input: s = "aa", p = "*"
  * <p>
  * Output: true
  * <p>
@@ -27,7 +27,7 @@ package popular;
  * <p>
  * Example 3:
  * <p>
- * Input: s = “cb”, p = “?a”
+ * Input: s = "cb", p = "?a"
  * <p>
  * Output: false
  * <p>
@@ -35,15 +35,15 @@ package popular;
  * <p>
  * Example 4:
  * <p>
- * Input: s = “adceb”, p = “*a*b”
+ * Input: s = "adceb", p = "*a*b"
  * <p>
  * Output: true
  * <p>
- * Explanation: The first '*' matches the empty sequence, while the second '*' matches the substring “dce”.
+ * Explanation: The first '*' matches the empty sequence, while the second '*' matches the substring "dce".
  * <p>
  * Example 5:
  * <p>
- * Input: s = “acdcb”, p = “a*c?b”
+ * Input: s = "acdcb", p = "a*c?b"
  * <p>
  * Output: false
  * <p>

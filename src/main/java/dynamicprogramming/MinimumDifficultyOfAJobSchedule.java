@@ -49,11 +49,6 @@ package dynamicprogramming;
  */
 public class MinimumDifficultyOfAJobSchedule {
 
-    public static void main(String[] args) {
-        int[] A = {11, 111, 22, 222, 33, 333, 44, 444};
-        System.out.println(new MinimumDifficultyOfAJobSchedule().minDifficulty(A, 6));
-    }
-
     public int minDifficulty(int[] jobDifficulty, int d) {
         int totalJobs = jobDifficulty.length;
         if (totalJobs < d) {

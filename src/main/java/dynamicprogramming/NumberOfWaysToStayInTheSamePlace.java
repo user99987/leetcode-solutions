@@ -46,16 +46,12 @@ import java.util.Arrays;
  * Constraints:
  * <p>
  * 1 <= steps <= 500
- * 1 <= arrLen <= 106
+ * 1 <= arrLen <= 10^6
  */
 public class NumberOfWaysToStayInTheSamePlace {
 
     private static final int MOD = (int) (1e9 + 7);
     int[][] DP;
-
-    public static void main(String[] args) {
-        System.out.println(new NumberOfWaysToStayInTheSamePlace().numWays(500, 1000000));
-    }
 
     public int numWays(int steps, int arrLen) {
         int colLimit = Math.min(arrLen, steps);

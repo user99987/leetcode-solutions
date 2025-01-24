@@ -17,19 +17,19 @@ package dynamicprogramming;
  * <p>
  * <p>
  * <p>
- * Input: s1 = “aabcc”, s2 = “dbbca”, s3 = “aadbbcbcac”
+ * Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
  * <p>
  * Output: true
  * <p>
  * Example 2:
  * <p>
- * Input: s1 = “aabcc”, s2 = “dbbca”, s3 = “aadbbbaccc”
+ * Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
  * <p>
  * Output: false
  * <p>
  * Example 3:
  * <p>
- * Input: s1 = “”, s2 = “”, s3 = “”
+ * Input: s1 = "", s2 = "", s3 = ""
  * <p>
  * Output: true
  * <p>
@@ -40,10 +40,6 @@ package dynamicprogramming;
  * s1, s2, and s3 consist of lowercase English letters.
  */
 public class InterleavingString {
-
-    public static void main(String[] args) {
-        System.out.println(new InterleavingString().isInterleave("aabcc", "aabcc", "aabcaabccc"));
-    }
 
     public boolean isInterleave(String s1, String s2, String s3) {
         boolean[][] DP = new boolean[s1.length() + 1][s2.length() + 1];

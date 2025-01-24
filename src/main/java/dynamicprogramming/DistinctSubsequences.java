@@ -13,19 +13,19 @@ import java.util.Arrays;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “rabbbit”, t = “rabbit”
+ * Input: s = "rabbbit", t = "rabbit"
  * <p>
  * Output: 3
  * <p>
- * Explanation: As shown below, there are 3 ways you can generate “rabbit” from S. **rabb**b**it** **ra**b**bbit** **rab**b**bit**
+ * Explanation: As shown below, there are 3 ways you can generate "rabbit" from S. **rabb**b**it** **ra**b**bbit** **rab**b**bit**
  * <p>
  * Example 2:
  * <p>
- * Input: s = “babgbag”, t = “bag”
+ * Input: s = "babgbag", t = "bag"
  * <p>
  * Output: 5
  * <p>
- * Explanation: As shown below, there are 5 ways you can generate “bag” from S. **ba**b**g**bag **ba**bgba**g** **b**abgb**ag** ba**b**gb**ag** babg**bag**
+ * Explanation: As shown below, there are 5 ways you can generate "bag" from S. **ba**b**g**bag **ba**bgba**g** **b**abgb**ag** ba**b**gb**ag** babg**bag**
  * <p>
  * Constraints:
  * <p>
@@ -34,10 +34,6 @@ import java.util.Arrays;
  */
 public class DistinctSubsequences {
     int[][] DP;
-
-    public static void main(String[] args) {
-        System.out.println(new DistinctSubsequences().numDistinct("babgbag", "bag"));
-    }
 
     public int numDistinct(String s, String t) {
         DP = new int[s.length()][t.length()];

@@ -9,7 +9,7 @@ package dynamicprogramming;
  * <p>
  * Example 1:
  * <p>
- * Input: s = “1000”, k = 10000
+ * Input: s = "1000", k = 10000
  * <p>
  * Output: 1
  * <p>
@@ -17,7 +17,7 @@ package dynamicprogramming;
  * <p>
  * Example 2:
  * <p>
- * Input: s = “1000”, k = 10
+ * Input: s = "1000", k = 10
  * <p>
  * Output: 0
  * <p>
@@ -25,7 +25,7 @@ package dynamicprogramming;
  * <p>
  * Example 3:
  * <p>
- * Input: s = “1317”, k = 2000
+ * Input: s = "1317", k = 2000
  * <p>
  * Output: 8
  * <p>
@@ -38,10 +38,6 @@ package dynamicprogramming;
  * 1 <= k <= 10^9
  */
 public class RestoreTheArray {
-
-    public static void main(String[] args) {
-        System.out.println(new RestoreTheArray().numberOfArrays("19284738192", 90));
-    }
 
     public int numberOfArrays(String s, int k) {
         int kMod = 1000000007;

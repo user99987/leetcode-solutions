@@ -19,7 +19,7 @@ package dynamicprogramming;
  * <p>
  * Output: 5
  * <p>
- * Explanation: All possible strings are: “a”, “e”, “i” , “o” and “u”.
+ * Explanation: All possible strings are: "a", "e", "i" , "o" and "u".
  * <p>
  * Example 2:
  * <p>
@@ -27,7 +27,7 @@ package dynamicprogramming;
  * <p>
  * Output: 10
  * <p>
- * Explanation: All possible strings are: “ae”, “ea”, “ei”, “ia”, “ie”, “io”, “iu”, “oi”, “ou” and “ua”.
+ * Explanation: All possible strings are: "ae", "ea", "ei", "ia", "ie", "io", "iu", "oi", "ou" and "ua".
  * <p>
  * Example 3:
  * <p>
@@ -40,9 +40,6 @@ package dynamicprogramming;
  * 1 <= n <= 2 * 10^4
  */
 public class CountVowelsPermutation {
-    public static void main(String[] args) {
-        System.out.println(new CountVowelsPermutation().countVowelPermutation(5));
-    }
 
     public int countVowelPermutation(int n) {
         int mod = (int) 1e9 + 7;

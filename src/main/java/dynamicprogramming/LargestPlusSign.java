@@ -38,12 +38,6 @@ package dynamicprogramming;
  */
 public class LargestPlusSign {
 
-
-    public static void main(String[] args) throws Exception {
-        int[][] M = {{4, 2}};
-        System.out.println(new LargestPlusSign().orderOfLargestPlusSign(5, M));
-    }
-
     public int orderOfLargestPlusSign(int n, int[][] mines) {
         boolean[][] mat = new boolean[n][n];
         for (int[] pos : mines) {

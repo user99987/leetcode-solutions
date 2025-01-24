@@ -21,7 +21,7 @@ import java.util.Map;
  * <p>
  * Input: score = [5,4,3,2,1]
  * <p>
- * Output: [“Gold Medal”,”Silver Medal”,”Bronze Medal”,”4”,”5”]
+ * Output: ["Gold Medal","Silver Medal","Bronze Medal","4","5"]
  * <p>
  * Explanation: The placements are [1st, 2nd, 3rd, 4th, 5th].
  * <p>
@@ -29,7 +29,7 @@ import java.util.Map;
  * <p>
  * Input: score = [10,3,8,9,4]
  * <p>
- * Output: [“Gold Medal”,”5”,”Bronze Medal”,”Silver Medal”,”4”]
+ * Output: ["Gold Medal","5","Bronze Medal","Silver Medal","4"]
  * <p>
  * Explanation: The placements are [1st, 5th, 3rd, 2nd, 4th].
  * <p>

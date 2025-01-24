@@ -33,15 +33,10 @@ package dynamicprogramming;
  * Constraints:
  * <p>
  * 1 <= nums.length <= 1000
- * 0 <= nums[i] <= 106
+ * 0 <= nums[i] <= 10^6
  * 1 <= m <= min(50, nums.length)
  */
 public class SplitArrayLargestSum {
-
-    public static void main(String[] args) throws Exception {
-        int[] A = {7, 2, 5, 10, 8};
-        System.out.println(new SplitArrayLargestSum().splitArray(A, 2));
-    }
 
     public int splitArray(int[] nums, int m) {
         int[][] dp = new int[m][nums.length];

@@ -34,11 +34,6 @@ package dynamicprogramming;
  */
 public class LongestIncreasingSubsequence {
 
-    public static void main(String[] args) throws Exception {
-        int[] nums = {9, 8, 7, 6};
-        System.out.println(new LongestIncreasingSubsequence().lengthOfLIS(nums));
-    }
-
     public int lengthOfLIS(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;

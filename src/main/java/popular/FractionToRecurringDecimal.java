@@ -18,31 +18,31 @@ import java.util.Map;
  * <p>
  * Input: numerator = 1, denominator = 2
  * <p>
- * Output: “0.5”
+ * Output: "0.5"
  * <p>
  * Example 2:
  * <p>
  * Input: numerator = 2, denominator = 1
  * <p>
- * Output: “2”
+ * Output: "2"
  * <p>
  * Example 3:
  * <p>
  * Input: numerator = 2, denominator = 3
  * <p>
- * Output: “0.(6)”
+ * Output: "0.(6)"
  * <p>
  * Example 4:
  * <p>
  * Input: numerator = 4, denominator = 333
  * <p>
- * Output: “0.(012)”
+ * Output: "0.(012)"
  * <p>
  * Example 5:
  * <p>
  * Input: numerator = 1, denominator = 5
  * <p>
- * Output: “0.2”
+ * Output: "0.2"
  * <p>
  * Constraints:
  * <p>

@@ -19,7 +19,7 @@ package popular;
  * Do not ignore any characters other than the leading whitespace or the rest of the string after the digits.
  * Example 1:
  * <p>
- * Input: s = “42”
+ * Input: s = "42"
  * <p>
  * Output: 42
  * <p>
@@ -35,7 +35,7 @@ package popular;
  * <p>
  * Example 2:
  * <p>
- * Input: s = “ -42”
+ * Input: s = " -42"
  * <p>
  * Output: -42
  * <p>
@@ -52,7 +52,7 @@ package popular;
  * <p>
  * Example 3:
  * <p>
- * Input: s = “4193 with words”
+ * Input: s = "4193 with words"
  * <p>
  * Output: 4193
  * <p>
@@ -69,7 +69,7 @@ package popular;
  * <p>
  * Example 4:
  * <p>
- * Input: s = “words and 987”
+ * Input: s = "words and 987"
  * <p>
  * Output: 0
  * <p>
@@ -86,7 +86,7 @@ package popular;
  * <p>
  * Example 5:
  * <p>
- * Input: s = “-91283472332”
+ * Input: s = "-91283472332"
  * <p>
  * Output: -2147483648
  * <p>

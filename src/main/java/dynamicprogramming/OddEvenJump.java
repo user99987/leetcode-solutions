@@ -91,11 +91,6 @@ public class OddEvenJump {
 
     private int[] valToPos;
 
-    public static void main(String[] args) {
-        int[] A = {10, 13, 12, 14, 15};
-        System.out.println(new OddEvenJump().oddEvenJumps(A));
-    }
-
     public int oddEvenJumps(int[] arr) {
         int size = arr.length;
         boolean[] odd = new boolean[size];
