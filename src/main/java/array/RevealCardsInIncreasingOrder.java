@@ -58,12 +58,6 @@ import java.util.Arrays;
  */
 public class RevealCardsInIncreasingOrder {
 
-    public static void main(String[] args) {
-        int[] A = {17, 13, 11, 2, 3, 5, 7};
-        int[] R = new RevealCardsInIncreasingOrder().deckRevealedIncreasing(A);
-        System.out.println(Arrays.toString(R));
-    }
-
     public int[] deckRevealedIncreasing(int[] deck) {
         Arrays.sort(deck);
         int n = deck.length;

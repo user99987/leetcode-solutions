@@ -45,11 +45,6 @@ package array;
  */
 public class ValidTicTacToeState {
 
-    public static void main(String[] args) {
-        String[] board = {"XOX", "O O", "XOX"};
-        System.out.println(new ValidTicTacToeState().validTicTacToe(board));
-    }
-
     public boolean validTicTacToe(String[] board) {
         boolean xWon = hasWon(board, 'X');
         boolean oWon = hasWon(board, 'O');

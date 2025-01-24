@@ -54,16 +54,6 @@ import java.util.Arrays;
  */
 public class InsertInterval {
 
-    public static void main(String[] args) throws Exception {
-        int[][] intervals = {
-                {1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}
-        };
-        intervals = new InsertInterval().insert(intervals, new int[]{4, 8});
-        for (int[] interval : intervals) {
-            System.out.println(Arrays.toString(interval));
-        }
-    }
-
     public int[][] insert(int[][] intervals, int[] newInterval) {
         int n = intervals.length;
         int l = 0;

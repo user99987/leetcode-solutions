@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Medium
  * <p>
- * Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0’s, and return the matrix.
+ * Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's, and return the matrix.
  * <p>
  * You must do it in place.
  * <p>

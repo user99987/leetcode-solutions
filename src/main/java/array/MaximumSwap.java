@@ -29,10 +29,6 @@ package array;
  */
 public class MaximumSwap {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MaximumSwap().maximumSwap(2736));
-    }
-
     public int maximumSwap(int num) {
         char[] chars = String.valueOf(num).toCharArray();
         for (int i = 0; i < chars.length; i++) {

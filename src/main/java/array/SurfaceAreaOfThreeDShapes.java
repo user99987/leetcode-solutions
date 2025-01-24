@@ -37,11 +37,6 @@ package array;
  */
 public class SurfaceAreaOfThreeDShapes {
 
-    public static void main(String[] args) {
-        int[][] A = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
-        System.out.println(new SurfaceAreaOfThreeDShapes().surfaceArea(A));
-    }
-
     public int surfaceArea(int[][] grid) {
         int surfaceArea = 0;
         for (int i = 0; i < grid.length; i++) {

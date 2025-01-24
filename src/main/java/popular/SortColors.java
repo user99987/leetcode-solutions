@@ -7,7 +7,7 @@ package popular;
  * <p>
  * We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
  * <p>
- * You must solve this problem without using the library’s sort function.
+ * You must solve this problem without using the library's sort function.
  * <p>
  * Example 1:
  * <p>

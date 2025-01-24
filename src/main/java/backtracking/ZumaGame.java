@@ -27,9 +27,9 @@ import java.util.Map;
  * <p>
  * Explanation: It is impossible to clear all the balls. The best you can do is:
  * <p>
- * Insert ‘R’ so the board becomes WRRRBBW. WRRRBBW -> WBBW.
+ * Insert 'R' so the board becomes WRRRBBW. WRRRBBW -> WBBW.
  * <p>
- * Insert ‘B’ so the board becomes WBBBW. WBBBW -> WW.
+ * Insert 'B' so the board becomes WBBBW. WBBBW -> WW.
  * <p>
  * There are still balls remaining on the board, and you are out of balls to insert.
  * <p>
@@ -41,9 +41,9 @@ import java.util.Map;
  * <p>
  * Explanation: To make the board empty:
  * <p>
- * Insert ‘R’ so the board becomes WWRRRBBWW. WWRRRBBWW -> WWBBWW.
+ * Insert 'R' so the board becomes WWRRRBBWW. WWRRRBBWW -> WWBBWW.
  * <p>
- * Insert ‘B’ so the board becomes WWBBBWW. WWBBBWW -> WWWW -> empty.
+ * Insert 'B' so the board becomes WWBBBWW. WWBBBWW -> WWWW -> empty.
  * <p>
  * 2 balls from your hand were needed to clear the board.
  * <p>
@@ -55,9 +55,9 @@ import java.util.Map;
  * <p>
  * Explanation: To make the board empty:
  * <p>
- * Insert ‘G’ so the board becomes GG.
+ * Insert 'G' so the board becomes GG.
  * <p>
- * Insert ‘G’ so the board becomes GGG. GGG -> empty.
+ * Insert 'G' so the board becomes GGG. GGG -> empty.
  * <p>
  * 2 balls from your hand were needed to clear the board.
  * <p>
@@ -69,10 +69,6 @@ import java.util.Map;
  * The initial row of balls on the board will not have any groups of three or more consecutive balls of the same color.
  */
 public class ZumaGame {
-
-    public static void main(String[] args) {
-        System.out.println(new ZumaGame().findMinStep("BBWWRRYYRRWWBB", "Y"));
-    }
 
     public int findMinStep(String board, String hand) {
         return dfs(board, hand);

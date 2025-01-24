@@ -10,8 +10,8 @@ import utils.TreeNode;
  * <p>
  * A valid BST is defined as follows:
  * <p>
- * The left subtree of a node contains only nodes with keys less than the node’s key.
- * The right subtree of a node contains only nodes with keys greater than the node’s key.
+ * The left subtree of a node contains only nodes with keys less than the node's key.
+ * The right subtree of a node contains only nodes with keys greater than the node's key.
  * Both the left and right subtrees must also be binary search trees.
  * Example 1:
  * <p>
@@ -25,7 +25,7 @@ import utils.TreeNode;
  * <p>
  * Output: false
  * <p>
- * Explanation: The root node’s value is 5 but its right child’s value is 4.
+ * Explanation: The root node's value is 5 but its right child's value is 4.
  * <p>
  * Constraints:
  * <p>

@@ -5,7 +5,7 @@ package popular;
  * <p>
  * A message containing letters from A-Z can be encoded into numbers using the following mapping:
  * <p>
- * ‘A’ -> “1” ‘B’ -> “2” … ‘Z’ -> “26”
+ * 'A' -> “1” 'B' -> “2” … 'Z' -> “26”
  * <p>
  * To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways). For example, "11106" can be mapped into:
  * <p>
@@ -39,7 +39,7 @@ package popular;
  * <p>
  * Output: 0
  * <p>
- * Explanation: There is no character that is mapped to a number starting with 0. The only valid mappings with 0 are ‘J’ -> “10” and ‘T’ -> “20”, neither of which start with 0. Hence, there are no valid ways to decode this since all digits need to be mapped.
+ * Explanation: There is no character that is mapped to a number starting with 0. The only valid mappings with 0 are 'J' -> “10” and 'T' -> “20”, neither of which start with 0. Hence, there are no valid ways to decode this since all digits need to be mapped.
  * <p>
  * Example 4:
  * <p>

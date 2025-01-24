@@ -34,13 +34,13 @@ import utils.ListNode;
  * The number of nodes in each linked list is in the range [1, 100].
  * 0 <= Node.val <= 9
  * It is guaranteed that the list represents a number that does not have leading zeros.
- * To solve the Add Two Numbers problem in Java using a Solution class, we’ll follow these steps:
+ * To solve the Add Two Numbers problem in Java using a Solution class, we'll follow these steps:
  * <p>
  * Define a ListNode class to represent nodes in a linked list.
  * Define a Solution class with a method named addTwoNumbers.
  * Inside the addTwoNumbers method, traverse both input linked lists simultaneously:
  * Keep track of a carry variable to handle cases where the sum of two digits exceeds 9.
- * Calculate the sum of the current nodes’ values along with the carry.
+ * Calculate the sum of the current nodes' values along with the carry.
  * Update the carry for the next iteration.
  * Create a new node with the sum % 10 and attach it to the result linked list.
  * Move to the next nodes in both input lists.

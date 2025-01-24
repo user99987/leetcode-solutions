@@ -17,7 +17,7 @@ package dynamicprogramming;
  * <p>
  * Output: 6
  * <p>
- * Explanation: The 6 different non-empty palindromic subsequences are ‘b’, ‘c’, ‘bb’, ‘cc’, ‘bcb’, ‘bccb’. Note that ‘bcb’ is counted only once, even though it occurs twice.
+ * Explanation: The 6 different non-empty palindromic subsequences are 'b', 'c', 'bb', 'cc', 'bcb', 'bccb'. Note that 'bcb' is counted only once, even though it occurs twice.
  * <p>
  * Example 2:
  * <p>

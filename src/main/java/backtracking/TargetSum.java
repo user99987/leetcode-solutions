@@ -39,11 +39,6 @@ package backtracking;
  */
 public class TargetSum {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {1, 1, 1, 1, 1};
-        System.out.println(new TargetSum().findTargetSumWays(A, 3));
-    }
-
     public int findTargetSumWays(int[] nums, int target) {
         int totalSum = 0;
         int n = nums.length;

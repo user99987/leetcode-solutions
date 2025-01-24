@@ -33,7 +33,7 @@ import java.util.Arrays;
  * <p>
  * Output: -1
  * <p>
- * Explanation: After any merge operation, there are 2 piles left, and we can’t merge anymore. So the task is impossible.
+ * Explanation: After any merge operation, there are 2 piles left, and we can't merge anymore. So the task is impossible.
  * <p>
  * Example 3:
  * <p>

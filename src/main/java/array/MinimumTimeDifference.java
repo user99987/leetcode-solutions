@@ -1,6 +1,5 @@
 package array;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,11 +25,6 @@ import java.util.List;
  * timePoints[i] is in the format “HH:MM”.
  */
 public class MinimumTimeDifference {
-
-    public static void main(String[] args) {
-        List<String> list = Arrays.asList("00:00", "23:59", "00:00");
-        System.out.println(new MinimumTimeDifference().findMinDifference(list));
-    }
 
     public int findMinDifference(List<String> timePoints) {
         List<Integer> timeInMinutes =

@@ -27,7 +27,7 @@ package array;
  * <p>
  * Output: 1
  * <p>
- * Explanation: The first distinct maximum is 3. The second distinct maximum is 2 (both 2’s are counted together since they have the same value). The third distinct maximum is 1.
+ * Explanation: The first distinct maximum is 3. The second distinct maximum is 2 (both 2's are counted together since they have the same value). The third distinct maximum is 1.
  * <p>
  * Constraints:
  * <p>
@@ -35,11 +35,6 @@ package array;
  * -2^31 <= nums[i] <= 2^31 - 1
  */
 public class ThirdMaximumNumber {
-
-    public static void main(String[] args) throws Exception {
-        int[] a = {1, 2};
-        System.out.println(new ThirdMaximumNumber().thirdMax(a));
-    }
 
     public int thirdMax(int[] nums) {
         long max1 = Long.MIN_VALUE;

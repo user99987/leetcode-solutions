@@ -5,7 +5,7 @@ package greedy;
  * <p>
  * You are given an m x n binary matrix grid.
  * <p>
- * A move consists of choosing any row or column and toggling each value in that row or column (i.e., changing all 0’s to 1’s, and all 1’s to 0’s).
+ * A move consists of choosing any row or column and toggling each value in that row or column (i.e., changing all 0's to 1's, and all 1's to 0's).
  * <p>
  * Every row of the matrix is interpreted as a binary number, and the score of the matrix is the sum of these numbers.
  * <p>

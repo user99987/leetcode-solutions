@@ -40,10 +40,6 @@ package array;
  */
 public class ChampagneTower {
 
-    public static void main(String[] args) {
-        System.out.println(new ChampagneTower().champagneTower(4, 2, 1));
-    }
-
     public double champagneTower(int poured, int queryRow, int queryGlass) {
         int curRow = 0;
         // first row

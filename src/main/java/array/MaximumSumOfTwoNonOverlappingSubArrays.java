@@ -42,11 +42,6 @@ package array;
  */
 public class MaximumSumOfTwoNonOverlappingSubArrays {
 
-    public static void main(String[] args) {
-        int[] A = {2, 1, 5, 6, 0, 9, 5, 0, 3, 8};
-        System.out.println(new MaximumSumOfTwoNonOverlappingSubArrays().maxSumTwoNoOverlap(A, 4, 3));
-    }
-
     public int maxSumTwoNoOverlap(int[] nums, int f, int s) {
         int sum = 0;
         int n = nums.length;

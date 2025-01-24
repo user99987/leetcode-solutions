@@ -29,11 +29,6 @@ package array;
  */
 public class SubArraysWithBoundedMaximum {
 
-    public static void main(String[] args) {
-        int[] A = {2, 1, 4, 3};
-        System.out.println(new SubArraysWithBoundedMaximum().numSubarrayBoundedMax(A, 2, 3));
-    }
-
     public int numSubarrayBoundedMax(int[] nums, int left, int right) {
         int i = 0;
         int j = 0;

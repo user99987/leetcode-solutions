@@ -23,7 +23,7 @@ package popular;
  * <p>
  * Output: true
  * <p>
- * Explanation: ‘*’ matches any sequence.
+ * Explanation: '*' matches any sequence.
  * <p>
  * Example 3:
  * <p>
@@ -31,7 +31,7 @@ package popular;
  * <p>
  * Output: false
  * <p>
- * Explanation: ‘?’ matches ‘c’, but the second letter is ‘a’, which does not match ‘b’.
+ * Explanation: '?' matches 'c', but the second letter is 'a', which does not match 'b'.
  * <p>
  * Example 4:
  * <p>
@@ -39,7 +39,7 @@ package popular;
  * <p>
  * Output: true
  * <p>
- * Explanation: The first ‘*’ matches the empty sequence, while the second ‘*’ matches the substring “dce”.
+ * Explanation: The first '*' matches the empty sequence, while the second '*' matches the substring “dce”.
  * <p>
  * Example 5:
  * <p>

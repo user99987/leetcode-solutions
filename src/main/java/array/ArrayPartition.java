@@ -31,10 +31,6 @@ import java.util.Arrays;
  * -104 <= nums[i] <= 104
  */
 public class ArrayPartition {
-    public static void main(String[] args) {
-        int[] A = {1, 2, 3, 4};
-        System.out.println(new ArrayPartition().arrayPairSum(A));
-    }
 
     public int arrayPairSum(int[] nums) {
         Arrays.sort(nums);

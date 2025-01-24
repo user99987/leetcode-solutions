@@ -43,11 +43,6 @@ package array;
  */
 public class FruitIntoBaskets {
 
-    public static void main(String[] args) {
-        int[] trees = {1, 0, 3, 4, 3};
-        System.out.println(new FruitIntoBaskets().totalFruit(trees));
-    }
-
     public int totalFruit(int[] fruits) {
         int end = 1;
         int basket1 = fruits[0];

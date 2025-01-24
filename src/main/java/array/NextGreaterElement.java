@@ -1,6 +1,5 @@
 package array;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,13 +52,6 @@ import java.util.Map;
  * All the integers of nums1 also appear in nums2.
  */
 public class NextGreaterElement {
-
-    public static void main(String[] args) throws Exception {
-        int[] A = {4, 1, 2};
-        int[] B = {1, 3, 4, 2};
-        int[] result = new NextGreaterElement().nextGreaterElement(A, B);
-        System.out.println(Arrays.toString(result));
-    }
 
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         Map<Integer, Integer> indexMap = new HashMap<>();

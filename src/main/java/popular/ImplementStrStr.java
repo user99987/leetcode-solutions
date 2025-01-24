@@ -11,7 +11,7 @@ package popular;
  * <p>
  * What should we return when needle is an empty string? This is a great question to ask during an interview.
  * <p>
- * For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C’s strstr() and Java’s indexOf().
+ * For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
  * <p>
  * Example 1:
  * <p>

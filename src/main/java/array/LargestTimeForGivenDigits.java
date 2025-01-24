@@ -32,11 +32,6 @@ package array;
  */
 public class LargestTimeForGivenDigits {
 
-    public static void main(String[] args) {
-        int[] A = {1, 2, 3, 4};
-        System.out.println(new LargestTimeForGivenDigits().largestTimeFromDigits(A));
-    }
-
     public String largestTimeFromDigits(int[] A) {
         int max = -1;
         String result = "";

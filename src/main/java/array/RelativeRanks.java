@@ -11,10 +11,10 @@ import java.util.Map;
  * <p>
  * The athletes are placed based on their scores, where the 1st place athlete has the highest score, the 2nd place athlete has the 2nd highest score, and so on. The placement of each athlete determines their rank:
  * <p>
- * The 1st place athlete’s rank is "Gold Medal".
- * The 2nd place athlete’s rank is "Silver Medal".
- * The 3rd place athlete’s rank is "Bronze Medal".
- * For the 4th place to the nth place athlete, their rank is their placement number (i.e., the xth place athlete’s rank is "x").
+ * The 1st place athlete's rank is "Gold Medal".
+ * The 2nd place athlete's rank is "Silver Medal".
+ * The 3rd place athlete's rank is "Bronze Medal".
+ * For the 4th place to the nth place athlete, their rank is their placement number (i.e., the xth place athlete's rank is "x").
  * Return an array answer of size n where answer[i] is the rank of the ith athlete.
  * <p>
  * Example 1:
@@ -41,14 +41,6 @@ import java.util.Map;
  * All the values in score are unique.
  */
 public class RelativeRanks {
-
-    public static void main(String[] args) throws Exception {
-        int[] A = {5, 4, 3, 2, 1};
-        String[] S = new RelativeRanks().findRelativeRanks(A);
-        for (String i : S) {
-            System.out.println(i);
-        }
-    }
 
     public String[] findRelativeRanks(int[] nums) {
         int[] tmp = new int[nums.length];

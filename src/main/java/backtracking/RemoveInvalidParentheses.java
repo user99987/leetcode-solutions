@@ -36,11 +36,6 @@ import java.util.List;
  */
 public class RemoveInvalidParentheses {
 
-    public static void main(String[] args) throws Exception {
-        List<String> result = new RemoveInvalidParentheses().removeInvalidParentheses("())())");
-        result.forEach(System.out::println);
-    }
-
     public List<String> removeInvalidParentheses(String s) {
         List<String> res = new ArrayList<>();
         // reversed+inverted
@@ -49,9 +44,6 @@ public class RemoveInvalidParentheses {
         return res;
     }
 
-    // BASIC IDEA: find prefix w/ extra ")".
-    // THEN use for loop to delete ")"s inside prefix, making recursive calls on the ENTIRE STRING
-    // b/c you don't know where the next ")" will be deleted.
     private void dfs(String s, int deletionSearch, int stackSearch, List<String> res, boolean ri) {
         // functions imilarly to LC20. Valid Parenthesis, -1 for ")" and +1 for "("
         int stack = 0;

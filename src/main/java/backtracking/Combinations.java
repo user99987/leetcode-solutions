@@ -29,11 +29,6 @@ import java.util.List;
  */
 public class Combinations {
 
-    public static void main(String[] args) throws Exception {
-        List<List<Integer>> result = new Combinations().combine(4, 2);
-        System.out.println(result);
-    }
-
     public List<List<Integer>> combine(int n, int k) {
         int[] subArr = new int[k];
         List<List<Integer>> result = new ArrayList<>();

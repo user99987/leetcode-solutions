@@ -23,7 +23,7 @@ package popular;
  * <p>
  * Output: true
  * <p>
- * Explanation: ‘*’ means zero or more of the preceding element, ‘a’. Therefore, by repeating ‘a’ once, it becomes “aa”.
+ * Explanation: '*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes “aa”.
  * <p>
  * Example 3:
  * <p>

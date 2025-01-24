@@ -30,11 +30,6 @@ package array;
  */
 public class MinimumMovesToEqualArray {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {1, 2, 3};
-        System.out.println(new MinimumMovesToEqualArray().minMoves(A));
-    }
-
     public int minMoves(int[] nums) {
         int min = nums[0];
         int sum = nums[0];

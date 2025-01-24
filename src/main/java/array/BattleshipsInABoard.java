@@ -28,11 +28,6 @@ package array;
  */
 public class BattleshipsInABoard {
 
-    public static void main(String[] args) throws Exception {
-        char[][] board = {{'X', '.', '.', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}};
-        System.out.println(new BattleshipsInABoard().countBattleships(board));
-    }
-
     public int countBattleships(char[][] board) {
         if (board == null || board.length == 0) {
             return 0;

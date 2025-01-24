@@ -38,11 +38,6 @@ import java.util.Arrays;
  */
 public class IncreasingTripletSubsequence {
 
-    public static void main(String[] args) throws Exception {
-        int[] A = {1, 2, 3, 4, 5};
-        System.out.println(new IncreasingTripletSubsequence().increasingTriplet(A));
-    }
-
     public boolean increasingTriplet(int[] nums) {
         int[] A = new int[3];
         Arrays.fill(A, Integer.MAX_VALUE);

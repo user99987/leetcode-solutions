@@ -6,9 +6,9 @@ import java.util.List;
 /**
  * Easy
  * <p>
- * Given an integer numRows, return the first numRows of Pascal’s triangle.
+ * Given an integer numRows, return the first numRows of Pascal's triangle.
  * <p>
- * In Pascal’s triangle, each number is the sum of the two numbers directly above it as shown:
+ * In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
  * <p>
  * Example 1:
  * <p>

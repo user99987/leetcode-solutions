@@ -33,7 +33,7 @@ import java.util.Arrays;
  * <p>
  * Output: -1
  * <p>
- * Explanation: You can’t make arr1 strictly increasing.
+ * Explanation: You can't make arr1 strictly increasing.
  * <p>
  * Constraints:
  * <p>

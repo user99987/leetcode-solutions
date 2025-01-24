@@ -29,10 +29,6 @@ import java.util.List;
  */
 public class LetterCasePermutation {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new LetterCasePermutation().letterCasePermutation("a1b2"));
-    }
-
     public List<String> letterCasePermutation(String S) {
         List<String> result = new ArrayList<>();
         backtrack(S, result, 0, "");

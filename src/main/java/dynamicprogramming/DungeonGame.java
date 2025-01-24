@@ -7,11 +7,11 @@ package dynamicprogramming;
  * <p>
  * The knight has an initial health point represented by a positive integer. If at any point his health point drops to 0 or below, he dies immediately.
  * <p>
- * Some of the rooms are guarded by demons (represented by negative integers), so the knight loses health upon entering these rooms; other rooms are either empty (represented as 0) or contain magic orbs that increase the knight’s health (represented by positive integers).
+ * Some of the rooms are guarded by demons (represented by negative integers), so the knight loses health upon entering these rooms; other rooms are either empty (represented as 0) or contain magic orbs that increase the knight's health (represented by positive integers).
  * <p>
  * To reach the princess as quickly as possible, the knight decides to move only rightward or downward in each step.
  * <p>
- * Return the knight’s minimum initial health so that he can rescue the princess.
+ * Return the knight's minimum initial health so that he can rescue the princess.
  * <p>
  * Note that any room can contain threats or power-ups, even the first room the knight enters and the bottom-right room where the princess is imprisoned.
  * <p>

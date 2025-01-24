@@ -7,7 +7,7 @@ package popular;
  * <p>
  * Given an integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
  * <p>
- * You may imagine that nums[-1] = nums[n] = -∞.
+ * You may imagine that nums[-1] = nums[n] = -infinity.
  * <p>
  * You must write an algorithm that runs in O(log n) time.
  * <p>

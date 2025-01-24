@@ -52,13 +52,6 @@ import java.util.List;
  */
 public class CombinationSum {
 
-    public static void main(String[] args) throws Exception {
-        int[] candidates = {2, 3, 6, 7};
-
-        List<List<Integer>> result = new CombinationSum().combinationSum(candidates, 7);
-        System.out.println(result);
-    }
-
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(candidates); // Sort the candidates to ensure duplicates are grouped together

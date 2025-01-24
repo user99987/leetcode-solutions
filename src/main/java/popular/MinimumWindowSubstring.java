@@ -18,7 +18,7 @@ import java.util.Map;
  * <p>
  * Output: “BANC”
  * <p>
- * Explanation: The minimum window substring “BANC” includes ‘A’, ‘B’, and ‘C’ from string t.
+ * Explanation: The minimum window substring “BANC” includes 'A', 'B', and 'C' from string t.
  * <p>
  * Example 2:
  * <p>
@@ -34,7 +34,7 @@ import java.util.Map;
  * <p>
  * Output: “”
  * <p>
- * Explanation: Both ‘a’s from t must be included in the window. Since the largest window of s only has one ‘a’, return empty string.
+ * Explanation: Both 'a's from t must be included in the window. Since the largest window of s only has one 'a', return empty string.
  * <p>
  * Constraints:
  * <p>

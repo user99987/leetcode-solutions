@@ -20,13 +20,13 @@ package dynamicprogramming;
  * <p>
  * Explanation: Using two fingers, one optimal way to type “CAKE” is:
  * <p>
- * Finger 1 on letter ‘C’ -> cost = 0
+ * Finger 1 on letter 'C' -> cost = 0
  * <p>
- * Finger 1 on letter ‘A’ -> cost = Distance from letter ‘C’ to letter ‘A’ = 2
+ * Finger 1 on letter 'A' -> cost = Distance from letter 'C' to letter 'A' = 2
  * <p>
- * Finger 2 on letter ‘K’ -> cost = 0
+ * Finger 2 on letter 'K' -> cost = 0
  * <p>
- * Finger 2 on letter ‘E’ -> cost = Distance from letter ‘K’ to letter ‘E’ = 1
+ * Finger 2 on letter 'E' -> cost = Distance from letter 'K' to letter 'E' = 1
  * <p>
  * Total distance = 3
  * <p>
@@ -38,15 +38,15 @@ package dynamicprogramming;
  * <p>
  * Explanation: Using two fingers, one optimal way to type “HAPPY” is:
  * <p>
- * Finger 1 on letter ‘H’ -> cost = 0
+ * Finger 1 on letter 'H' -> cost = 0
  * <p>
- * Finger 1 on letter ‘A’ -> cost = Distance from letter ‘H’ to letter ‘A’ = 2
+ * Finger 1 on letter 'A' -> cost = Distance from letter 'H' to letter 'A' = 2
  * <p>
- * Finger 2 on letter ‘P’ -> cost = 0
+ * Finger 2 on letter 'P' -> cost = 0
  * <p>
- * Finger 2 on letter ‘P’ -> cost = Distance from letter ‘P’ to letter ‘P’ = 0
+ * Finger 2 on letter 'P' -> cost = Distance from letter 'P' to letter 'P' = 0
  * <p>
- * Finger 1 on letter ‘Y’ -> cost = Distance from letter ‘A’ to letter ‘Y’ = 4
+ * Finger 1 on letter 'Y' -> cost = Distance from letter 'A' to letter 'Y' = 4
  * <p>
  * Total distance = 6
  * <p>

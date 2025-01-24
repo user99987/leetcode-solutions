@@ -39,10 +39,6 @@ package array;
  */
 public class LargestNumberAtLeastTwice {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new LargestNumberAtLeastTwice().dominantIndex(new int[]{1, 2, 3, 4}));
-    }
-
     public int dominantIndex(int[] nums) {
         int index = 0, max = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {

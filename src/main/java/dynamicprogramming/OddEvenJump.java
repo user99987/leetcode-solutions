@@ -60,11 +60,11 @@ import java.util.Arrays;
  * <p>
  * [arr[3], arr[4]] that is greater than or equal to arr[2].
  * <p>
- * We can’t jump from i = 3 to i = 4, so the starting index i = 0 is not good.
+ * We can't jump from i = 3 to i = 4, so the starting index i = 0 is not good.
  * <p>
  * In a similar manner, we can deduce that: From starting index i = 1, we jump to i = 4, so we reach the end.
  * <p>
- * From starting index i = 2, we jump to i = 3, and then we can’t jump anymore.
+ * From starting index i = 2, we jump to i = 3, and then we can't jump anymore.
  * <p>
  * From starting index i = 3, we jump to i = 4, so we reach the end.
  * <p>

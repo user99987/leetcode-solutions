@@ -46,11 +46,6 @@ package array;
  */
 public class MissingNumber {
 
-    public static void main(String[] args) throws Exception {
-        int[] nums = {0};
-        System.out.println(new MissingNumber().missingNumber(nums));
-    }
-
     public int missingNumber(int[] nums) {
         int a = nums.length;
         for (int i = 0; i < nums.length; i++) {
