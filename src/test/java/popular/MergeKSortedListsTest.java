@@ -12,9 +12,9 @@ public class MergeKSortedListsTest {
     @Test
     public void testCase1() {
         ListNode[] lists = new ListNode[]{
-                ListNode.createList(new int[]{1, 4, 5}),
-                ListNode.createList(new int[]{1, 3, 4}),
-                ListNode.createList(new int[]{2, 6})
+                ListNode.create(new int[]{1, 4, 5}),
+                ListNode.create(new int[]{1, 3, 4}),
+                ListNode.create(new int[]{2, 6})
         };
         ListNode result = new MergeKSortedLists().mergeKLists(lists);
         assertArrayEquals(new int[]{1, 1, 2, 3, 4, 4, 5, 6}, ListNode.toArray(result));

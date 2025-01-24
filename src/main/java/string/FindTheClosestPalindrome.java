@@ -30,10 +30,6 @@ package string;
  */
 public class FindTheClosestPalindrome {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new FindTheClosestPalindrome().nearestPalindromic("123"));
-    }
-
     public String nearestPalindromic(String n) {
         if (n.length() == 1) return String.valueOf(Integer.parseInt(n) - 1);
         String p1, p2;

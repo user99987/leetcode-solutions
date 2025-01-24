@@ -36,11 +36,6 @@ import java.util.BitSet;
  */
 public class LongestPalindrome {
 
-    public static void main(String[] args) {
-        int result = new LongestPalindrome().longestPalindrome("abccccdd");
-        System.out.println(result);
-    }
-
     public int longestPalindrome(String s) {
         BitSet set = new BitSet(60);
         for (char c : s.toCharArray()) {

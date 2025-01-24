@@ -53,10 +53,6 @@ package string;
  */
 public class ReverseWordsInAString {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new ReverseWordsInAString().reverseWords(" Bob Loves Alice "));
-    }
-
     public String reverseWords(String s) {
         StringBuilder sb = new StringBuilder();
         int i = s.length() - 1;

@@ -40,12 +40,6 @@ import java.util.TreeSet;
  */
 public class TopKFrequentWords {
 
-    public static void main(String[] args) throws Exception {
-        String[] words = {"i", "love", "leetcode", "i", "love", "coding"};
-        List<String> sorted = new TopKFrequentWords().topKFrequent(words, 2);
-        sorted.forEach(System.out::println);
-    }
-
     public List<String> topKFrequent(String[] words, int k) {
         Map<String, Integer> map = new HashMap<>();
         for (String word : words) {

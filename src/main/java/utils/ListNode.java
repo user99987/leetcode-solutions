@@ -28,7 +28,7 @@ public class ListNode {
         return list.stream().mapToInt(i -> i).toArray();
     }
 
-    public static ListNode createList(int[] values) {
+    public static ListNode create(int[] values) {
         if (values == null || values.length == 0) {
             return null;
         }

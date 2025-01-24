@@ -43,10 +43,6 @@ import java.util.List;
  */
 public class KeyboardRow {
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(new KeyboardRow().findWords(new String[]{"Hello", "Alaska", "Dad", "Peace"})));
-    }
-
     private boolean check(String str, String word) {
         for (char ch : word.toCharArray()) {
             if (str.indexOf(ch) < 0) {

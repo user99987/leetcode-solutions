@@ -48,20 +48,6 @@ import utils.ListNode;
  */
 public class SwapNodesInPairs {
 
-    public static void main(String[] args) throws Exception {
-        ListNode node = new ListNode(1);
-        node.next = new ListNode(2);
-        node.next.next = new ListNode(3);
-        node.next.next.next = new ListNode(4);
-        node.next.next.next.next = new ListNode(5);
-        node.next.next.next.next.next = new ListNode(6);
-        ListNode head = new SwapNodesInPairs().swapPairs(node);
-        while (head != null) {
-            System.out.println(head.val);
-            head = head.next;
-        }
-    }
-
     public ListNode swapPairs(ListNode head) {
         // Create a dummy node and point its next to the head
         ListNode dummy = new ListNode(0);

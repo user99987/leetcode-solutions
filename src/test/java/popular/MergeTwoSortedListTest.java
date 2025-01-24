@@ -10,8 +10,8 @@ public class MergeTwoSortedListTest {
 
     @Test
     public void testCase1() {
-        ListNode l1 = ListNode.createList(new int[]{1, 2, 4});
-        ListNode l2 = ListNode.createList(new int[]{1, 3, 4});
+        ListNode l1 = ListNode.create(new int[]{1, 2, 4});
+        ListNode l2 = ListNode.create(new int[]{1, 3, 4});
         ListNode result = new MergeTwoSortedList().mergeTwoLists(l1, l2);
         assertArrayEquals(new int[]{1, 1, 2, 3, 4, 4}, ListNode.toArray(result));
     }

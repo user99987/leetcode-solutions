@@ -40,10 +40,6 @@ package string;
  */
 public class PushDominoes {
 
-    public static void main(String[] args) {
-        System.out.println(new PushDominoes().pushDominoes(".L.RLR..L.."));
-    }
-
     public String pushDominoes(String dominoes) {
         int R = -1, L = -1;
         char[] A = dominoes.toCharArray();

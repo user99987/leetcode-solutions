@@ -27,10 +27,6 @@ package string;
  */
 public class MultiplyStrings {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MultiplyStrings().multiply("123", "456"));
-    }
-
     private int[] getIntArray(String s) {
         char[] chars = s.toCharArray();
         int[] arr = new int[chars.length];

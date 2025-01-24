@@ -32,15 +32,11 @@ import java.util.Map;
  * <p>
  * Constraints:
  * <p>
- * 1 <= s.length <= 5 * 104
+ * 1 <= s.length <= 5 * 10^4
  * t.length == s.length
  * s and t consist of any valid ascii character.
  */
 public class IsomorphicStrings {
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(new IsomorphicStrings().isIsomorphic("egg", "add"));
-    }
 
     public boolean isIsomorphic(String s, String t) {
         if (s.length() != t.length()) return false;

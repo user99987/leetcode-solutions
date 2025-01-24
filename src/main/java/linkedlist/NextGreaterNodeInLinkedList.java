@@ -28,17 +28,10 @@ import java.util.Arrays;
  * Constraints:
  * <p>
  * The number of nodes in the list is n.
- * 1 <= n <= 104
- * 1 <= Node.val <= 109
+ * 1 <= n <= 10^4
+ * 1 <= Node.val <= 10^9
  */
 public class NextGreaterNodeInLinkedList {
-
-    public static void main(String[] args) {
-        ListNode node = new ListNode(2);
-        node.next = new ListNode(1);
-        node.next.next = new ListNode(5);
-        System.out.println(Arrays.toString(new NextGreaterNodeInLinkedList().nextLargerNodes(node)));
-    }
 
     public int[] nextLargerNodes(ListNode head) {
         int len = length(head);

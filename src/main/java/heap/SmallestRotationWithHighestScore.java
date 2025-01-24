@@ -35,15 +35,10 @@ package heap;
  * So we will choose the smallest k, which is 0.
  * Constraints:
  * <p>
- * 1 <= nums.length <= 105
+ * 1 <= nums.length <= 10^5
  * 0 <= nums[i] < nums.length
  */
 public class SmallestRotationWithHighestScore {
-
-    public static void main(String[] args) {
-        int[] A = {2, 3, 1, 4, 0};
-        System.out.println(new SmallestRotationWithHighestScore().bestRotation(A));
-    }
 
     public int bestRotation(int[] nums) {
         int n = nums.length;

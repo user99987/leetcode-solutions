@@ -35,10 +35,6 @@ import java.util.Deque;
  */
 public class MinimumAddToMakeParenthesesValid {
 
-    public static void main(String[] args) {
-        System.out.println(new MinimumAddToMakeParenthesesValid().minAddToMakeValid("())"));
-    }
-
     public int minAddToMakeValid(String s) {
         Deque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {

@@ -37,11 +37,6 @@ import java.util.Arrays;
  */
 public class Candy {
 
-    public static void main(String[] args) throws Exception {
-        int[] ratings = {29, 51, 87, 87, 72, 12};
-        System.out.println(new Candy().candy(ratings));
-    }
-
     public int candy(int[] ratings) {
         int[] candies = new int[ratings.length];
         Arrays.fill(candies, 1);

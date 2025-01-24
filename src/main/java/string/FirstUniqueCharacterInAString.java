@@ -25,14 +25,10 @@ package string;
  * <p>
  * Constraints:
  * <p>
- * 1 <= s.length <= 105
+ * 1 <= s.length <= 10^5
  * s consists of only lowercase English letters.
  */
 public class FirstUniqueCharacterInAString {
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(new FirstUniqueCharacterInAString().firstUniqChar("loveleetcode"));
-    }
 
     public int firstUniqChar(String s) {
         int ans = Integer.MAX_VALUE;

@@ -56,18 +56,6 @@ import utils.ListNode;
  */
 public class DeleteNode {
 
-    public static void main(String[] args) {
-        ListNode node = new ListNode(1);
-        node.next = new ListNode(2);
-        node.next.next = new ListNode(3);
-        node.next.next.next = new ListNode(4);
-        new DeleteNode().deleteNode(node.next.next);
-        while (node != null) {
-            System.out.println(node.val);
-            node = node.next;
-        }
-    }
-
     public void deleteNode(ListNode node) {
         while (node.next.next != null) {
             node.val = node.next.val;

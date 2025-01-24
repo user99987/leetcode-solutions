@@ -57,12 +57,6 @@ import java.util.LinkedList;
  */
 public class SlidingWindowMaximum {
 
-    public static void main(String[] args) throws Exception {
-        int[] a = {1, 3, 1, 2, 0, 5};
-        int[] result = new SlidingWindowMaximum().maxSlidingWindow(a, 3);
-        for (int i : result) System.out.print(i + " ");
-    }
-
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
         int[] res = new int[n - k + 1];

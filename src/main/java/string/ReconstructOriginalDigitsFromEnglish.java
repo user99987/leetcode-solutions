@@ -25,10 +25,6 @@ package string;
  */
 public class ReconstructOriginalDigitsFromEnglish {
 
-    public static void main(String[] args) {
-        System.out.println(new ReconstructOriginalDigitsFromEnglish().originalDigits("owoztneoer"));
-    }
-
     public String originalDigits(String s) {
         int[] count = new int[26];
         int[] digits = new int[10];

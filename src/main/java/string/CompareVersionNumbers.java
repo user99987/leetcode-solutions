@@ -59,10 +59,6 @@ package string;
  */
 public class CompareVersionNumbers {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new CompareVersionNumbers().compareVersion("1.0.0", "1.0"));
-    }
-
     public int compareVersion(String version1, String version2) {
         // acquire first number
         int numA = 0;

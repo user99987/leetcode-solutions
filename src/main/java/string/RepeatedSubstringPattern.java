@@ -28,10 +28,6 @@ package string;
  */
 public class RepeatedSubstringPattern {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new RepeatedSubstringPattern().repeatedStringMatch("abcd", "cdabcdab"));
-    }
-
     public int repeatedStringMatch(String a, String b) {
         char[] existsChar = new char[127];
         for (char chA : a.toCharArray()) {

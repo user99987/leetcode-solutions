@@ -36,12 +36,6 @@ import java.util.Map;
  */
 public class FindWordsThatCanBeFormedbyCharacters {
 
-    public static void main(String[] args) {
-        String[] A = {"cat", "bt", "hat", "tree"};
-        String chars = "atach";
-        System.out.println(new FindWordsThatCanBeFormedbyCharacters().countCharacters(A, chars));
-    }
-
     public int countCharacters(String[] words, String chars) {
         int length = 0;
         Map<Character, Integer> map = new HashMap<>();

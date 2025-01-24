@@ -57,10 +57,6 @@ import java.util.StringTokenizer;
  */
 public class SimplifyPath {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new SimplifyPath().simplifyPath("/a/./b/../../c/"));
-    }
-
     public String simplifyPath(String path) {
         if (path == null || path.isEmpty()) return "/";
         StringTokenizer st = new StringTokenizer(path, "/");

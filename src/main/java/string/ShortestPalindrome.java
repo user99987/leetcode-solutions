@@ -21,14 +21,10 @@ package string;
  * <p>
  * Constraints:
  * <p>
- * 0 <= s.length <= 5 * 104
+ * 0 <= s.length <= 5 * 10^4
  * s consists of lowercase English letters only.
  */
 public class ShortestPalindrome {
-
-    public static void main(String[] args) throws Exception {
-        System.out.println(new ShortestPalindrome().shortestPalindrome("aacecaaa"));
-    }
 
     public String shortestPalindrome(String s) {
         int i;

@@ -31,15 +31,6 @@ import java.util.Map;
  */
 public class DistantBarcodes {
 
-    public static void main(String[] args) {
-        int[] barcode = {1, 1, 1, 2, 2, 2};
-        int[] result = new DistantBarcodes().rearrangeBarcodes(barcode);
-        for (int i : result) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-    }
-
     public int[] rearrangeBarcodes(int[] barcodes) {
         Map<Integer, Integer> cnt = new HashMap<>();
         for (int i : barcodes) {

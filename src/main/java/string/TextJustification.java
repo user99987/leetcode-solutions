@@ -49,10 +49,6 @@ import java.util.List;
  */
 public class TextJustification {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new TextJustification().fullJustify(new String[]{"What", "must", "be", "acknowledgment", "shall", "be"}, 16));
-    }
-
     public List<String> fullJustify(String[] words, int maxWidth) {
         // Trying to gauge the number of lines so the ArrayList doesn't need to resize
         List<String> output = new ArrayList<>((words.length + 1) / (1 + maxWidth / 7));

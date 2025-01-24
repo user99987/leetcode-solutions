@@ -41,12 +41,6 @@ import java.util.stream.Stream;
  */
 public class ReplaceWords {
 
-    public static void main(String[] args) {
-        List<String> words = Arrays.asList("cat", "bat", "rat");
-        String sentence = "the cattle was rattled by the battery";
-        System.out.println(new ReplaceWords().replaceWords(words, sentence));
-    }
-
     public String replaceWords(List<String> dict, String sentence) {
         Trie root = new Trie();
         dict.forEach(root::insert);

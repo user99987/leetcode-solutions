@@ -28,10 +28,6 @@ package string;
  */
 public class PermutationInString {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new PermutationInString().checkInclusion("ab", "eidboaoo"));
-    }
-
     public boolean checkInclusion(String s1, String s2) {
         int n = s1.length();
         int m = s2.length();

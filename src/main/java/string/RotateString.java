@@ -27,10 +27,6 @@ package string;
  */
 public class RotateString {
 
-    public static void main(String[] args) {
-        System.out.println(new RotateString().rotateString("abcde", "cdeab"));
-    }
-
     public boolean rotateString(String A, String B) {
         if (A.length() == 1 || A.isEmpty() || B.length() == 1 || B.isEmpty()) {
             return A.equals(B);

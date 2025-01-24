@@ -21,17 +21,10 @@ import utils.ListNode;
  * <p>
  * Constraints:
  * <p>
- * The number of nodes in the list is in the range [1, 105].
+ * The number of nodes in the list is in the range [1, 10^5].
  * 0 <= Node.val <= 9
  */
 public class PalindromeList {
-
-    public static void main(String[] args) throws Exception {
-        ListNode node = new ListNode(1);
-        node.next = new ListNode(2);
-        ;
-        System.out.println(new PalindromeList().isPalindrome(node));
-    }
 
     public boolean isPalindrome(ListNode head) {
         int len = 0;

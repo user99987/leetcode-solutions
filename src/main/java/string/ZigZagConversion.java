@@ -45,10 +45,6 @@ import java.util.List;
  */
 public class ZigZagConversion {
 
-    public static void main(String[] args) {
-        System.out.println(new ZigZagConversion().convert("PAYPALISHIRING", 3));
-    }
-
     public String convert(String s, int numRows) {
         if (s == null || s.length() <= numRows || numRows == 1) return s;
         List<String> list = new ArrayList<>();

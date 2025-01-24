@@ -44,11 +44,6 @@ package string;
  */
 public class ValidateIPAddress {
 
-    public static void main(String[] args) {
-        System.out.println(
-                new ValidateIPAddress().validIPAddress("2001:0db8:85a3:0:0:8A2E:0370:7334"));
-    }
-
     public String validIPAddress(String IP) {
         if (IP.contains(".")) {
             if (IP.endsWith(".") || IP.startsWith(".")) return "Neither";

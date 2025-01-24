@@ -45,20 +45,6 @@ import java.util.Objects;
  */
 public class SplitLinkedListInParts {
 
-    public static void main(String[] args) {
-        ListNode root = new ListNode(1);
-        root.next = new ListNode(2);
-        root.next.next = new ListNode(3);
-        ListNode[] result = new SplitLinkedListInParts().splitListToParts(root, 5);
-        for (ListNode node : result) {
-            if (node != null) {
-                System.out.println(node.val);
-            } else {
-                System.out.println("null");
-            }
-        }
-    }
-
     public ListNode[] splitListToParts(ListNode head, int k) {
         int len = getLength(head);
         int aveSize = len / k;

@@ -31,10 +31,6 @@ package string;
  */
 public class MonotoneIncreasingDigits {
 
-    public static void main(String[] args) throws Exception {
-        System.out.println(new MonotoneIncreasingDigits().monotoneIncreasingDigits(10));
-    }
-
     public int monotoneIncreasingDigits(int n) {
         for (int i = 10; n / i > 0; i *= 10) {
             int digit = (n / i) % 10;
