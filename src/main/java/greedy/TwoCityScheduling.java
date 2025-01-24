@@ -47,10 +47,6 @@ import java.util.Arrays;
  * 1 <= aCosti, bCosti <= 1000
  */
 public class TwoCityScheduling {
-    public static void main(String[] args) {
-        int[][] A = {{10, 20}, {30, 200}, {400, 50}, {30, 20}};
-        System.out.println(new TwoCityScheduling().twoCitySchedCost(A));
-    }
 
     public int twoCitySchedCost(int[][] costs) {
         Arrays.sort(costs, (a, b) -> (a[0] - a[1] - (b[0] - b[1])));

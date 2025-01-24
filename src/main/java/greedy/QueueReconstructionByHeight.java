@@ -35,19 +35,11 @@ import java.util.List;
  * Constraints:
  * <p>
  * 1 <= people.length <= 2000
- * 0 <= hi <= 106
+ * 0 <= hi <= 10^6
  * 0 <= ki < people.length
  * It is guaranteed that the queue can be reconstructed.
  */
 public class QueueReconstructionByHeight {
-
-    public static void main(String[] args) throws Exception {
-        int[][] A = {{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}};
-        int[][] r = new QueueReconstructionByHeight().reconstructQueue(A);
-        for (int[] i : r) {
-            System.out.println(i[0] + " " + i[1]);
-        }
-    }
 
     public int[][] reconstructQueue(int[][] people) {
         Arrays.sort(people, (a, b) -> a[0] != b[0] ? -a[0] + b[0] : a[1] - b[1]);

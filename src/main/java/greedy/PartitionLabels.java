@@ -34,10 +34,6 @@ import java.util.List;
  */
 public class PartitionLabels {
 
-    public static void main(String[] args) {
-        System.out.println(new PartitionLabels().partitionLabels("ababcbacadefegdehijhklij"));
-    }
-
     public List<Integer> partitionLabels(String s) {
         char[] letters = s.toCharArray();
         List<Integer> result = new ArrayList<>();

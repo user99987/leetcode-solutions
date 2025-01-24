@@ -52,13 +52,6 @@ import java.util.PriorityQueue;
 
 public class IPO {
 
-
-    public static void main(String[] args) {
-        int[] P = {1, 2, 3};
-        int[] C = {1, 1, 2};
-        System.out.println(new IPO().findMaximizedCapital(1, 0, P, C));
-    }
-
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
         PriorityQueue<int[]> minCapital =
                 new PriorityQueue<>(Comparator.comparingInt((int[] a) -> a[1]));

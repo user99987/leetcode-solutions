@@ -29,10 +29,6 @@ package greedy;
  */
 public class StringWithout3A3B {
 
-    public static void main(String[] args) {
-        System.out.println(new StringWithout3A3B().strWithout3a3b(4, 1));
-    }
-
     public String strWithout3a3b(int a, int b) {
         String first = a > b ? "a" : "b";
         String second = first.equals("a") ? "b" : "a";

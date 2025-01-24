@@ -41,12 +41,6 @@ package greedy;
  */
 public class TaskScheduler {
 
-
-    public static void main(String[] args) {
-        char[] tasks = {'A', 'A', 'A', 'B', 'B', 'B'};
-        System.out.println(new TaskScheduler().leastInterval(tasks, 2));
-    }
-
     public int leastInterval(char[] tasks, int n) {
         if (n <= 0) {
             return tasks.length;

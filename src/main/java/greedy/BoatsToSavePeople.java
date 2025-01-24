@@ -40,11 +40,6 @@ import java.util.Arrays;
  */
 public class BoatsToSavePeople {
 
-    public static void main(String[] args) {
-        int[] A = {3, 5, 3, 4};
-        System.out.println(new BoatsToSavePeople().numRescueBoats(A, 8));
-    }
-
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
         int i = 0;

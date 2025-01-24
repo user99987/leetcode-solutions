@@ -34,11 +34,6 @@ package greedy;
  */
 public class ScoreAfterFlippingMatrix {
 
-    public static void main(String[] args) {
-        int[][] A = {{1, 0}, {1, 0}, {1, 0}, {1, 1}};
-        System.out.println(new ScoreAfterFlippingMatrix().matrixScore(A));
-    }
-
     public int matrixScore(int[][] A) {
         for (int[] a : A) {
             int temp1 = makeNum(a);
