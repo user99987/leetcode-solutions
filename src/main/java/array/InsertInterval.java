@@ -1,6 +1,7 @@
 package array;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Medium
@@ -55,25 +56,28 @@ import java.util.Arrays;
 public class InsertInterval {
 
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        int n = intervals.length;
-        int l = 0;
-        int r = n - 1;
-        while (l < n && newInterval[0] > intervals[l][1]) {
-            l++;
+        List<int[]> result = new ArrayList<>();
+        int i = 0;
+
+        while (i < intervals.length && intervals[i][1] < newInterval[0]) {
+            result.add(intervals[i]);
+            i++;
         }
-        while (r >= 0 && newInterval[1] < intervals[r][0]) {
-            r--;
+
+        while (i < intervals.length && intervals[i][0] <= newInterval[1]) {
+            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+            newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+            i++;
         }
-        int[][] res = new int[l + n - r][2];
-        for (int i = 0; i < l; i++) {
-            res[i] = Arrays.copyOf(intervals[i], intervals[i].length);
+
+        result.add(newInterval);
+
+        while (i < intervals.length) {
+            result.add(intervals[i]);
+            i++;
         }
-        res[l][0] = Math.min(newInterval[0], l == n ? newInterval[0] : intervals[l][0]);
-        res[l][1] = Math.max(newInterval[1], r == -1 ? newInterval[1] : intervals[r][1]);
-        for (int i = l + 1, j = r + 1; j < n; i++, j++) {
-            res[i] = intervals[j];
-        }
-        return res;
+
+        return result.toArray(new int[result.size()][]);
     }
 
 }

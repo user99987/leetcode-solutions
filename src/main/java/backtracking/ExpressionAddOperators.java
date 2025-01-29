@@ -64,39 +64,26 @@ public class ExpressionAddOperators {
 
     public List<String> addOperators(String num, int target) {
         List<String> result = new ArrayList<>();
-        backTrack("", result, 0, num, target, 0L, 0L);
+        backtrack(result, num, target, 0, 0, 0, "");
         return result;
     }
 
-    private void backTrack(
-            String exp, List<String> list, int curr, String num, int target, long total, long prod) {
-        if (curr == num.length()) {
-            if (total == target) {
-                list.add(exp);
+    private void backtrack(List<String> result, String num, int target, int index, long eval, long multed, String path) {
+        if (index == num.length()) {
+            if (eval == target) {
+                result.add(path);
             }
-        } else {
-            for (int i = curr, l = num.length(); i < l; i++) {
-                String newNum = num.substring(curr, i + 1);
-                if (newNum.length() > 1 && newNum.startsWith("0")) {
-                    break;
-                }
-                long newNumL = Long.parseLong(newNum);
-                if (curr == 0) {
-                    backTrack(newNum, list, i + 1, num, target, newNumL, newNumL);
-                } else {
-                    backTrack(exp + "+" + newNum, list, i + 1, num, target, total + newNumL, newNumL);
-
-                    backTrack(exp + "-" + newNum, list, i + 1, num, target, total - newNumL, newNumL * -1L);
-
-                    backTrack(
-                            exp + "*" + newNum,
-                            list,
-                            i + 1,
-                            num,
-                            target,
-                            (total - prod + (prod * newNumL)),
-                            prod * newNumL);
-                }
+            return;
+        }
+        for (int i = index; i < num.length(); i++) {
+            if (i != index && num.charAt(index) == '0') break;
+            long curr = Long.parseLong(num.substring(index, i + 1));
+            if (index == 0) {
+                backtrack(result, num, target, i + 1, curr, curr, path + curr);
+            } else {
+                backtrack(result, num, target, i + 1, eval + curr, curr, path + "+" + curr);
+                backtrack(result, num, target, i + 1, eval - curr, -curr, path + "-" + curr);
+                backtrack(result, num, target, i + 1, eval - multed + multed * curr, multed * curr, path + "*" + curr);
             }
         }
     }

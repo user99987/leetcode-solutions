@@ -30,25 +30,22 @@ package array;
 public class MaximumSwap {
 
     public int maximumSwap(int num) {
-        char[] chars = String.valueOf(num).toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            int j = chars.length - 1;
-            int indx = i;
-            char c = chars[i];
-            while (j > i) {
-                if (chars[j] > c) {
-                    c = chars[j];
-                    indx = j;
-                }
-                j--;
+        char[] digits = Integer.toString(num).toCharArray();
+
+        for (int i = 0; i < digits.length; i++) {
+            int maxIndex = i;
+            for (int j = digits.length - 1; j > i; j--) {
+                if (digits[j] > digits[maxIndex]) maxIndex = j;
             }
-            if (indx != i) {
-                char temp = chars[i];
-                chars[i] = chars[indx];
-                chars[indx] = temp;
-                return Integer.parseInt(String.valueOf(chars));
+
+            if (maxIndex != i) {
+                char temp = digits[i];
+                digits[i] = digits[maxIndex];
+                digits[maxIndex] = temp;
+                return Integer.parseInt(new String(digits));
             }
         }
+
         return num;
     }
 }

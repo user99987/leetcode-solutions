@@ -44,35 +44,30 @@ package array;
 public class FruitIntoBaskets {
 
     public int totalFruit(int[] fruits) {
-        int end = 1;
-        int basket1 = fruits[0];
-        int basket2 = -1;
-        int secondFruitIndex = -1;
-        int maxTotal = 1;
-        int counter = 1;
-        while (end < fruits.length) {
-            if (fruits[end - 1] != fruits[end]) {
-                if (basket2 == -1) {
-                    basket2 = fruits[end];
-                    secondFruitIndex = end;
-                    counter++;
-                } else if (fruits[end] == basket1) {
-                    basket1 = basket2;
-                    basket2 = fruits[end];
-                    secondFruitIndex = end;
-                    counter++;
-                } else {
-                    counter = end - secondFruitIndex + 1;
-                    basket1 = basket2;
-                    basket2 = fruits[end];
-                    secondFruitIndex = end;
-                }
+        int lastFruit = -1;
+        int secondLastFruit = -1;
+        int lastFruitCount = 0;
+        int currentMax = 0;
+        int maxTotal = 0;
+
+        for (int fruit : fruits) {
+            if (fruit == lastFruit || fruit == secondLastFruit) {
+                currentMax++;
             } else {
-                counter++;
+                currentMax = lastFruitCount + 1;
             }
-            end++;
-            maxTotal = Math.max(maxTotal, counter);
+
+            if (fruit == lastFruit) {
+                lastFruitCount++;
+            } else {
+                secondLastFruit = lastFruit;
+                lastFruit = fruit;
+                lastFruitCount = 1;
+            }
+
+            maxTotal = Math.max(maxTotal, currentMax);
         }
+
         return maxTotal;
     }
 

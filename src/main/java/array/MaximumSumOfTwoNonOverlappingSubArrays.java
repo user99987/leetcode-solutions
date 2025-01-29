@@ -42,43 +42,35 @@ package array;
  */
 public class MaximumSumOfTwoNonOverlappingSubArrays {
 
-    public int maxSumTwoNoOverlap(int[] nums, int f, int s) {
+    public int maxSumTwoNoOverlap(int[] nums, int firstLen, int secondLen) {
+        int[] prefixMax = new int[nums.length];
+        int[] suffixMax = new int[nums.length];
         int sum = 0;
-        int n = nums.length;
-        int[] pref = new int[n];
-        int[] suff = new int[n];
-        for (int i = 0; i < n; i++) {
+
+        for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
-            if (i < f - 1) {
-                continue;
-            }
-            pref[i] = Math.max(i > 0 ? pref[i - 1] : 0, sum);
-            sum -= nums[i + 1 - f];
+            if (i >= firstLen) sum -= nums[i - firstLen];
+            if (i >= firstLen - 1) prefixMax[i] = Math.max(prefixMax[Math.max(i - 1, 0)], sum);
         }
+
         sum = 0;
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = nums.length - 1; i >= 0; i--) {
             sum += nums[i];
-            if (i > n - f) {
-                continue;
-            }
-            suff[i] = Math.max(i < n - 1 ? suff[i + 1] : 0, sum);
-            sum -= nums[i + f - 1];
+            if (i <= nums.length - firstLen - 1) sum -= nums[i + firstLen];
+            if (i <= nums.length - firstLen) suffixMax[i] = Math.max(suffixMax[Math.min(i + 1, nums.length - 1)], sum);
         }
+
+        int maxSum = 0;
         sum = 0;
-        for (int i = 0; i < s - 1; i++) {
+        for (int i = 0; i < secondLen - 1; i++) sum += nums[i];
+
+        for (int i = secondLen - 1; i < nums.length; i++) {
             sum += nums[i];
+            if (i >= secondLen) maxSum = Math.max(maxSum, prefixMax[i - secondLen] + sum);
+            if (i < nums.length - 1) maxSum = Math.max(maxSum, suffixMax[i + 1] + sum);
+            sum -= nums[i - secondLen + 1];
         }
-        int ans = Integer.MIN_VALUE;
-        for (int i = s - 1; i < n; i++) {
-            sum += nums[i];
-            if (i >= s) {
-                ans = Math.max(ans, pref[i - s] + sum);
-            }
-            if (i < n - 1) {
-                ans = Math.max(ans, suff[i + 1] + sum);
-            }
-            sum -= nums[i + 1 - s];
-        }
-        return ans;
+
+        return maxSum;
     }
 }

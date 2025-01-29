@@ -48,39 +48,27 @@ public class ValidTicTacToeState {
     public boolean validTicTacToe(String[] board) {
         boolean xWon = hasWon(board, 'X');
         boolean oWon = hasWon(board, 'O');
-        int xcount = 0, ocount = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (board[i].charAt(j) == 'X') {
-                    xcount++;
-                } else if (board[i].charAt(j) == 'O') {
-                    ocount++;
-                }
+        int xCount = 0, oCount = 0;
+
+        for (String row : board) {
+            for (char c : row.toCharArray()) {
+                if (c == 'X') xCount++;
+                else if (c == 'O') oCount++;
             }
         }
+
+        if (oCount > xCount || xCount > oCount + 1) return false;
         if (xWon && oWon) return false;
-        if (xWon) {
-            return ((xcount - 1 == ocount));
-        } else if (oWon) {
-            return ((xcount == ocount));
-        } else {
-            return (xcount == ocount || xcount - 1 == ocount);
-        }
+        if (xWon && xCount == oCount) return false;
+        return !oWon || xCount <= oCount;
     }
 
     private boolean hasWon(String[] board, char c) {
-        boolean diagonal =
-                ((board[0].charAt(0) == c && board[1].charAt(1) == c && board[2].charAt(2) == c)
-                        || (board[0].charAt(2) == c && board[1].charAt(1) == c && board[2].charAt(0) == c));
-        if (diagonal) return true;
         for (int i = 0; i < 3; i++) {
-            if (board[i].charAt(0) == c && board[i].charAt(1) == c && board[i].charAt(2) == c)
-                return true;
+            if (board[i].charAt(0) == c && board[i].charAt(1) == c && board[i].charAt(2) == c) return true;
+            if (board[0].charAt(i) == c && board[1].charAt(i) == c && board[2].charAt(i) == c) return true;
         }
-        for (int i = 0; i < 3; i++) {
-            if (board[0].charAt(i) == c && board[1].charAt(i) == c && board[2].charAt(i) == c)
-                return true;
-        }
-        return false;
+        return (board[0].charAt(0) == c && board[1].charAt(1) == c && board[2].charAt(2) == c) ||
+                (board[0].charAt(2) == c && board[1].charAt(1) == c && board[2].charAt(0) == c);
     }
 }

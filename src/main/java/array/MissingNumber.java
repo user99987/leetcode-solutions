@@ -11,15 +11,11 @@ package array;
  * <p>
  * Output: 2
  * <p>
- * Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
- * <p>
  * Example 2:
  * <p>
  * Input: nums = [0,1]
  * <p>
  * Output: 2
- * <p>
- * Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
  * <p>
  * Example 3:
  * <p>
@@ -27,31 +23,27 @@ package array;
  * <p>
  * Output: 8
  * <p>
- * Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
- * <p>
  * Example 4:
  * <p>
  * Input: nums = [0]
  * <p>
  * Output: 1
  * <p>
- * Explanation: n = 1 since there is 1 number, so all numbers are in the range [0,1]. 1 is the missing number in the range since it does not appear in nums.
- * <p>
  * Constraints:
  * <p>
  * n == nums.length
- * 1 <= n <= 104
+ * 1 <= n <= 10^4
  * 0 <= nums[i] <= n
  * All the numbers of nums are unique.
  */
 public class MissingNumber {
 
     public int missingNumber(int[] nums) {
-        int a = nums.length;
+        int result = nums.length;
         for (int i = 0; i < nums.length; i++) {
-            a ^= i;
-            a ^= nums[i];
+            result ^= i;
+            result ^= nums[i];
         }
-        return a;
+        return result;
     }
 }

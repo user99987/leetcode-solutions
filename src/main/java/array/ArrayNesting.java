@@ -41,23 +41,26 @@ package array;
 public class ArrayNesting {
 
     public int arrayNesting(int[] nums) {
-        int index;
-        int value;
         int maxLen = 0;
-        int len;
+
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != -1) {
-                index = i;
-                len = 0;
-                while (nums[index] != -1) {
-                    value = nums[index];
-                    nums[index] = -1;
-                    index = value;
-                    len++;
-                }
-                maxLen = Math.max(len, maxLen);
+            if (nums[i] == -1) {
+                continue;
             }
+
+            int currentIndex = i;
+            int currentLength = 0;
+
+            while (nums[currentIndex] != -1) {
+                int nextIndex = nums[currentIndex];
+                nums[currentIndex] = -1;
+                currentIndex = nextIndex;
+                currentLength++;
+            }
+
+            maxLen = Math.max(maxLen, currentLength);
         }
+
         return maxLen;
     }
 

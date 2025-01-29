@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 /**
  * Medium
  * <p>
@@ -39,17 +37,19 @@ import java.util.Arrays;
 public class IncreasingTripletSubsequence {
 
     public boolean increasingTriplet(int[] nums) {
-        int[] A = new int[3];
-        Arrays.fill(A, Integer.MAX_VALUE);
+        int first = Integer.MAX_VALUE;
+        int second = Integer.MAX_VALUE;
+
         for (int num : nums) {
-            if (num < A[0]) {
-                A[0] = num;
-            } else if (num < A[1] && num > A[0]) {
-                A[1] = num;
-            } else if (num < A[2] && num > A[1]) {
+            if (num <= first) {
+                first = num;
+            } else if (num <= second) {
+                second = num;
+            } else {
                 return true;
             }
         }
+
         return false;
     }
 }

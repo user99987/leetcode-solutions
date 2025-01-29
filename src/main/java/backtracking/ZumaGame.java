@@ -3,6 +3,7 @@ package backtracking;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Hard
@@ -72,71 +73,42 @@ import java.util.List;
 public class ZumaGame {
 
     public int findMinStep(String board, String hand) {
-        List<Character> boards = new ArrayList<>();
-        for (char c : board.toCharArray()) boards.add(c);
-        HashMap<Character, Integer> hm = new HashMap<>();
-        hm.put('B', 0);
-        hm.put('G', 0);
-        hm.put('R', 0);
-        hm.put('Y', 0);
-        hm.put('W', 0);
-        for (char c : hand.toCharArray()) hm.put(c, hm.get(c) + 1);
-        return find(boards, hm);
-
+        Map<Character, Integer> handMap = new HashMap<>();
+        for (char c : hand.toCharArray()) {
+            handMap.put(c, handMap.getOrDefault(c, 0) + 1);
+        }
+        return backtrack(board, handMap);
     }
 
-    public int find(List<Character> boards, HashMap<Character, Integer> hm) {
-        removeAdjacent(boards);
-        if (boards.isEmpty()) return 0;
-        if (isEmpty(hm)) return -1;
-        int cnt = 0;
-        int retVal = Integer.MAX_VALUE;
-        for (int i = 0; i < boards.size(); i++) {
-            char c = boards.get(i);
-            cnt++;
-            if (i == boards.size() - 1 || boards.get(i + 1) != c) {
-                int missing = 3 - cnt;
-                if (missing <= hm.get(c)) {
-                    hm.put(c, hm.get(c) - missing);
-                    List<Character> temp = new ArrayList<>(boards);
-                    if (i >= i - cnt + 1) {
-                        temp.subList(i - cnt + 1, i + 1).clear();
-                    }
-                    int next = find(temp, hm);
-                    if (next != -1) retVal = Math.min(next + missing, retVal);
-                    hm.put(c, hm.get(c) + missing);
+    private int backtrack(String board, Map<Character, Integer> handMap) {
+        if (board.isEmpty()) {
+            return 0;
+        }
+        if (handMap.values().stream().allMatch(count -> count == 0)) {
+            return -1;
+        }
+        int minSteps = Integer.MAX_VALUE;
+        for (int i = 0; i < board.length(); i++) {
+            char c = board.charAt(i);
+            if (handMap.getOrDefault(c, 0) > 0) {
+                handMap.put(c, handMap.get(c) - 1);
+                String newBoard = removeConsecutive(board.substring(0, i) + c + board.substring(i));
+                int nextSteps = backtrack(newBoard, handMap);
+                if (nextSteps != -1) {
+                    minSteps = Math.min(minSteps, nextSteps + 1);
                 }
-                cnt = 0;
+                handMap.put(c, handMap.get(c) + 1);
             }
         }
-        if (retVal == Integer.MAX_VALUE) return -1;
-        else return retVal;
+        return minSteps == Integer.MAX_VALUE ? -1 : minSteps;
     }
 
-    public void removeAdjacent(List<Character> board) {
-        int cnt = 0;
-        boolean done = true;
-        for (int i = 0; i < board.size(); i++) {
-            char c = board.get(i);
-            cnt++;
-            if (i == board.size() - 1 || c != board.get(i + 1)) {
-                if (cnt >= 3) {
-                    if (i >= i - cnt + 1) {
-                        board.subList(i - cnt + 1, i + 1).clear();
-                    }
-                    done = false;
-                    break;
-                }
-                cnt = 0;
-            }
-        }
-        if (!done) removeAdjacent(board);
-    }
-
-    public boolean isEmpty(HashMap<Character, Integer> hand) {
-        for (int i : hand.values()) {
-            if (i > 0) return false;
-        }
-        return true;
+    private String removeConsecutive(String board) {
+        String prev;
+        do {
+            prev = board;
+            board = board.replaceAll("(.)\\1{2,}", "");
+        } while (!board.equals(prev));
+        return board;
     }
 }

@@ -29,21 +29,16 @@ import java.util.Map;
 public class SubarraySumEqualsK {
 
     public int subarraySum(int[] nums, int k) {
-        int tempSum = 0;
-        int ret = 0;
-        Map<Integer, Integer> sumCount = new HashMap<>();
-        sumCount.put(0, 1);
-        for (int i : nums) {
-            tempSum += i;
-            if (sumCount.containsKey(tempSum - k)) {
-                ret += sumCount.get(tempSum - k);
-            }
-            if (sumCount.get(tempSum) != null) {
-                sumCount.put(tempSum, sumCount.get(tempSum) + 1);
-            } else {
-                sumCount.put(tempSum, 1);
-            }
+        int count = 0, sum = 0;
+        Map<Integer, Integer> prefixSum = new HashMap<>();
+        prefixSum.put(0, 1);
+
+        for (int num : nums) {
+            sum += num;
+            count += prefixSum.getOrDefault(sum - k, 0);
+            prefixSum.put(sum, prefixSum.getOrDefault(sum, 0) + 1);
         }
-        return ret;
+
+        return count;
     }
 }

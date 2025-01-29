@@ -1,6 +1,8 @@
 package array;
 
 import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * Medium
@@ -61,16 +63,19 @@ public class RevealCardsInIncreasingOrder {
     public int[] deckRevealedIncreasing(int[] deck) {
         Arrays.sort(deck);
         int n = deck.length;
-        int[] result = new int[n * 2];
-        int idx = result.length - 1;
-        int lastIdx = result.length - 1;
-        int i = n - 1;
-        while (idx >= 0 && i >= 0) {
-            if (i != (n - 1)) {
-                result[idx--] = result[lastIdx--];
-            }
-            result[idx--] = deck[i--];
+        Deque<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            queue.add(i);
         }
-        return Arrays.copyOfRange(result, idx + 1, lastIdx + 1);
+
+        int[] result = new int[n];
+        for (int card : deck) {
+            result[queue.poll()] = card;
+            if (!queue.isEmpty()) {
+                queue.add(queue.poll());
+            }
+        }
+
+        return result;
     }
 }

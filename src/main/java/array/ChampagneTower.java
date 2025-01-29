@@ -17,7 +17,7 @@ package array;
  * <p>
  * Output: 0.00000
  * <p>
- * Explanation: We poured 1 cup of champange to the top glass of the tower (which is indexed as (0, 0)). There will be no excess liquid so all the glasses under the top glass will remain empty.
+ * Explanation: We poured 1 cup of champagne to the top glass of the tower (which is indexed as (0, 0)). There will be no excess liquid so all the glasses under the top glass will remain empty.
  * <p>
  * Example 2:
  * <p>
@@ -25,7 +25,7 @@ package array;
  * <p>
  * Output: 0.50000
  * <p>
- * Explanation: We poured 2 cups of champange to the top glass of the tower (which is indexed as (0, 0)). There is one cup of excess liquid. The glass indexed as (1, 0) and the glass indexed as (1, 1) will share the excess liquid equally, and each will get half cup of champange.
+ * Explanation: We poured 2 cups of champagne to the top glass of the tower (which is indexed as (0, 0)). There is one cup of excess liquid. The glass indexed as (1, 0) and the glass indexed as (1, 1) will share the excess liquid equally, and each will get half cup of champange.
  * <p>
  * Example 3:
  * <p>
@@ -41,33 +41,22 @@ package array;
 public class ChampagneTower {
 
     public double champagneTower(int poured, int queryRow, int queryGlass) {
-        int curRow = 0;
-        // first row
-        double[] cur = new double[]{poured};
-        // second row
-        double[] next = new double[2];
-        boolean spilled;
-        do {
-            spilled = false;
-            for (int i = 0; i < cur.length; i++) {
-                // spilling, put the excess into the next row.
-                if (cur[i] > 1) {
-                    double spilledAmount = cur[i] - 1;
-                    cur[i] = 1;
-                    next[i] += spilledAmount / 2;
-                    next[i + 1] = spilledAmount / 2;
-                    spilled = true;
+        double[] currentRow = new double[]{poured};
+
+        for (int row = 0; row < queryRow; row++) {
+            double[] nextRow = new double[row + 2];
+
+            for (int glass = 0; glass < currentRow.length; glass++) {
+                double overflow = currentRow[glass] - 1;
+                if (overflow > 0) {
+                    nextRow[glass] += overflow / 2;
+                    nextRow[glass + 1] += overflow / 2;
                 }
             }
-            // got to the desired row, return the glass amount
-            if (curRow == queryRow) {
-                return cur[queryGlass];
-            }
-            cur = next;
-            curRow++;
-            next = new double[curRow + 2];
-        } while (spilled);
-        // spill did not happen to the desired row
-        return 0;
+
+            currentRow = nextRow;
+        }
+
+        return Math.min(1.0, currentRow[queryGlass]);
     }
 }

@@ -30,22 +30,20 @@ import java.util.List;
 public class Combinations {
 
     public List<List<Integer>> combine(int n, int k) {
-        int[] subArr = new int[k];
         List<List<Integer>> result = new ArrayList<>();
-        getNext(0, 0, n, k, subArr, result);
+        backtrack(1, n, k, new ArrayList<>(), result);
         return result;
     }
 
-    private void getNext(int i, int count, int n, int k, int[] subArr, List<List<Integer>> result) {
+    private void backtrack(int start, int n, int k, List<Integer> current, List<List<Integer>> result) {
         if (k == 0) {
-            List<Integer> subList = new ArrayList<>();
-            for (int a : subArr) subList.add(a);
-            result.add(subList);
-        } else {
-            for (int j = i + 1; j <= n; j++) {
-                subArr[count] = j;
-                getNext(j, count + 1, n, k - 1, subArr, result);
-            }
+            result.add(new ArrayList<>(current));
+            return;
+        }
+        for (int i = start; i <= n; i++) {
+            current.add(i);
+            backtrack(i + 1, n, k - 1, current, result);
+            current.remove(current.size() - 1);
         }
     }
 }

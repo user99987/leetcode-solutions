@@ -29,26 +29,22 @@ import java.util.List;
  */
 public class LetterCasePermutation {
 
-    public List<String> letterCasePermutation(String S) {
+    public List<String> letterCasePermutation(String s) {
         List<String> result = new ArrayList<>();
-        backtrack(S, result, 0, "");
+        backtrack(s.toCharArray(), 0, result);
         return result;
     }
 
-    private void backtrack(String s, List<String> result, int i, String r) {
-        if (i == s.length()) {
-            result.add(r);
-        } else {
-            if (Character.isAlphabetic(s.charAt(i))) {
-                backtrack(s, result, i + 1, r + s.charAt(i));
-                if (Character.isLowerCase(s.charAt(i))) {
-                    backtrack(s, result, i + 1, r + Character.toUpperCase(s.charAt(i)));
-                } else {
-                    backtrack(s, result, i + 1, r + Character.toLowerCase(s.charAt(i)));
-                }
-            } else {
-                backtrack(s, result, i + 1, r + s.charAt(i));
-            }
+    private void backtrack(char[] s, int index, List<String> result) {
+        if (index == s.length) {
+            result.add(new String(s));
+            return;
+        }
+        backtrack(s, index + 1, result);
+        if (Character.isLetter(s[index])) {
+            s[index] ^= 32;
+            backtrack(s, index + 1, result);
+            s[index] ^= 32;
         }
     }
 }

@@ -37,15 +37,13 @@ public class RelativeSortArray {
         for (int b : arr2) {
             while (map[b] != 0) {
                 map[b]--;
-                arr1[i] = b;
-                i++;
+                arr1[i++] = b;
             }
         }
         for (int j = 0; j < map.length; j++) {
             while (map[j] != 0) {
-                arr1[i] = j;
+                arr1[i++] = j;
                 map[j]--;
-                i++;
             }
         }
         return arr1;

@@ -1,6 +1,8 @@
 package array;
 
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 /**
@@ -20,29 +22,11 @@ import java.util.Map;
  * <p>
  * Output: [-1,3,-1]
  * <p>
- * Explanation:
- * <p>
- * The next greater element for each value of nums1 is as follows:
- * <p>
- * 4 is underlined in nums2 = [1,3,4,2]. There is no next greater element, so the answer is -1.
- * <p>
- * 1 is underlined in nums2 = [1,3,4,2]. The next greater element is 3.
- * <p>
- * 2 is underlined in nums2 = [1,3,4,2]. There is no next greater element, so the answer is -1.
- * <p>
  * Example 2:
  * <p>
  * Input: nums1 = [2,4], nums2 = [1,2,3,4]
  * <p>
  * Output: [3,-1]
- * <p>
- * Explanation:
- * <p>
- * The next greater element for each value of nums1 is as follows:
- * <p>
- * 2 is underlined in nums2 = [1,2,3,4]. The next greater element is 3.
- * <p>
- * 4 is underlined in nums2 = [1,2,3,4]. There is no next greater element, so the answer is -1.
  * <p>
  * Constraints:
  * <p>
@@ -54,30 +38,20 @@ import java.util.Map;
 public class NextGreaterElement {
 
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        Map<Integer, Integer> indexMap = new HashMap<>();
-        for (int i = 0; i < nums2.length; i++) {
-            indexMap.put(nums2[i], i);
-        }
-        for (int i = 0; i < nums1.length; i++) {
-            int num = nums1[i];
-            int index = indexMap.get(num);
-            if (index == nums2.length - 1) {
-                nums1[i] = -1;
-            } else {
-                boolean found = false;
-                while (index < nums2.length) {
-                    if (nums2[index] > num) {
-                        nums1[i] = nums2[index];
-                        found = true;
-                        break;
-                    }
-                    index++;
-                }
-                if (!found) {
-                    nums1[i] = -1;
-                }
+        Map<Integer, Integer> nextGreaterMap = new HashMap<>();
+        Deque<Integer> stack = new LinkedList<>();
+
+        for (int num : nums2) {
+            while (!stack.isEmpty() && stack.peek() < num) {
+                nextGreaterMap.put(stack.pop(), num);
             }
+            stack.push(num);
         }
-        return nums1;
+
+        int[] result = new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            result[i] = nextGreaterMap.getOrDefault(nums1[i], -1);
+        }
+        return result;
     }
 }

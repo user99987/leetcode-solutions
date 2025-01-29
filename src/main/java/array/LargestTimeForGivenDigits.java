@@ -32,28 +32,31 @@ package array;
  */
 public class LargestTimeForGivenDigits {
 
-    public String largestTimeFromDigits(int[] A) {
-        int max = -1;
+    public String largestTimeFromDigits(int[] digits) {
+        int maxTime = -1;
         String result = "";
-        for (int i = 0; i < A.length; i++) {
-            if (A[i] > 2) continue;
-            for (int j = 0; j < A.length; j++) {
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 if (j == i) continue;
-                if (A[i] == 2 && A[j] > 3) continue;
-                for (int k = 0; k < A.length; k++) {
+                for (int k = 0; k < 4; k++) {
                     if (k == i || k == j) continue;
-                    if (A[k] > 5) continue;
-                    for (int l = 0; l < A.length; l++) {
+                    for (int l = 0; l < 4; l++) {
                         if (l == i || l == j || l == k) continue;
-                        int value = ((A[i] * 10 + A[j]) * 60) + A[k] * 10 + A[l];
-                        if (value > max) {
-                            max = value;
-                            result = A[i] + "" + A[j] + ":" + A[k] + A[l];
+
+                        int hours = digits[i] * 10 + digits[j];
+                        int minutes = digits[k] * 10 + digits[l];
+                        int total = hours * 60 + minutes;
+
+                        if (hours < 24 && minutes < 60 && total > maxTime) {
+                            maxTime = total;
+                            result = String.format("%02d:%02d", hours, minutes);
                         }
                     }
                 }
             }
         }
-        return result;
+
+        return maxTime == -1 ? "" : result;
     }
 }

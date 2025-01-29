@@ -40,19 +40,15 @@ package array;
 public class LargestNumberAtLeastTwice {
 
     public int dominantIndex(int[] nums) {
-        int index = 0, max = Integer.MIN_VALUE;
+        int maxIndex = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > max) {
-                max = nums[i];
-                index = i;
-            }
+            if (nums[i] > nums[maxIndex]) maxIndex = i;
         }
+
         for (int i = 0; i < nums.length; i++) {
-            if (i == index) continue;
-            if (((long) nums[i] * 2) > max) {
-                return -1;
-            }
+            if (i != maxIndex && nums[i] * 2 > nums[maxIndex]) return -1;
         }
-        return index;
+
+        return maxIndex;
     }
 }

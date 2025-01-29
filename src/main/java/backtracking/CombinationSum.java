@@ -54,21 +54,20 @@ public class CombinationSum {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(candidates); // Sort the candidates to ensure duplicates are grouped together
-        backtrack(result, new ArrayList<>(), candidates, target, 0);
+        Arrays.sort(candidates);
+        backtrack(candidates, target, 0, new ArrayList<>(), result);
         return result;
     }
 
-    private void backtrack(List<List<Integer>> result, List<Integer> combination, int[] candidates, int target, int start) {
+    private void backtrack(int[] candidates, int target, int start, List<Integer> combination, List<List<Integer>> result) {
         if (target == 0) {
             result.add(new ArrayList<>(combination));
             return;
         }
-
         for (int i = start; i < candidates.length && candidates[i] <= target; i++) {
             combination.add(candidates[i]);
-            backtrack(result, combination, candidates, target - candidates[i], i); // Use the same candidate again
-            combination.remove(combination.size() - 1); // Backtrack by removing the last candidate
+            backtrack(candidates, target - candidates[i], i, combination, result);
+            combination.remove(combination.size() - 1);
         }
     }
 }

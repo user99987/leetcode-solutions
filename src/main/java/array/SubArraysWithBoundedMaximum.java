@@ -30,23 +30,20 @@ package array;
 public class SubArraysWithBoundedMaximum {
 
     public int numSubarrayBoundedMax(int[] nums, int left, int right) {
-        int i = 0;
-        int j = 0;
-        int count = 0;
-        int tempSum = 0;
-        while (j < nums.length) {
-            if (nums[j] > right) {
-                tempSum = 0;
-                i = ++j;
-            } else if (nums[j] < left) {
-                count += tempSum;
-                j++;
+        int count = 0, tempCount = 0, start = 0;
+
+        for (int end = 0; end < nums.length; end++) {
+            if (nums[end] > right) {
+                tempCount = 0;
+                start = end + 1;
+            } else if (nums[end] >= left) {
+                tempCount = end - start + 1;
+                count += tempCount;
             } else {
-                tempSum = j - i + 1;
-                count += tempSum;
-                j++;
+                count += tempCount;
             }
         }
+
         return count;
     }
 }

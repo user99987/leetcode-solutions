@@ -32,11 +32,13 @@ public class MinimumMovesToEqualArray {
 
     public int minMoves(int[] nums) {
         int min = nums[0];
-        int sum = nums[0];
-        for (int i = 1; i <= nums.length - 1; i++) {
-            sum += nums[i];
-            min = Math.min(min, nums[i]);
+        int sum = 0;
+
+        for (int num : nums) {
+            min = Math.min(min, num);
+            sum += num;
         }
-        return sum - (min * nums.length);
+
+        return sum - min * nums.length;
     }
 }

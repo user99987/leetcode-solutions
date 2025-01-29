@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FirstBadVersionTest extends FirstBadVersion {
+public class FirstBadVersionTest {
 
     @Test
     public void testCase1() {

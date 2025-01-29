@@ -23,22 +23,28 @@ package array;
  * <p>
  * Constraints:
  * <p>
- * 2 <= nums.length <= 105
+ * 2 <= nums.length <= 10^5
  * -30 <= nums[i] <= 30
  * The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
  */
 public class ProductOfArrayExceptSelf {
 
     public int[] productExceptSelf(int[] nums) {
-        int[] result = new int[nums.length];
-        for (int i = 0, temp = 1, l = nums.length; i < l; i++) {
-            result[i] = temp;
-            temp *= nums[i];
+        int n = nums.length;
+        int[] result = new int[n];
+
+        int leftProduct = 1;
+        for (int i = 0; i < n; i++) {
+            result[i] = leftProduct;
+            leftProduct *= nums[i];
         }
-        for (int i = nums.length - 1, temp = 1; i >= 0; i--) {
-            result[i] = result[i] * temp;
-            temp *= nums[i];
+
+        int rightProduct = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] *= rightProduct;
+            rightProduct *= nums[i];
         }
+
         return result;
     }
 }
