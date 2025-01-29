@@ -1,5 +1,6 @@
 package heap;
 
+import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -51,34 +52,33 @@ import java.util.LinkedList;
  * <p>
  * Constraints:
  * <p>
- * 1 <= nums.length <= 105
- * -104 <= nums[i] <= 104
+ * 1 <= nums.length <= 10^5
+ * -104 <= nums[i] <= 10^4
  * 1 <= k <= nums.length
  */
 public class SlidingWindowMaximum {
 
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
-        int[] res = new int[n - k + 1];
-        int x = 0;
-        LinkedList<Integer> dq = new LinkedList<>();
-        int i = 0;
-        int j = 0;
-        while (j < nums.length) {
-            while (!dq.isEmpty() && dq.peekLast() < nums[j]) {
-                dq.pollLast();
+        int[] result = new int[n - k + 1];
+        Deque<Integer> deque = new LinkedList<>();
+
+        for (int j = 0; j < n; j++) {
+            while (!deque.isEmpty() && deque.peekFirst() < j - k + 1) {
+                deque.pollFirst();
             }
-            dq.addLast(nums[j]);
-            if (j - i + 1 == k) {
-                res[x] = dq.peekFirst();
-                ++x;
-                if (dq.peekFirst() == nums[i]) {
-                    dq.pollFirst();
-                }
-                ++i;
+
+            while (!deque.isEmpty() && nums[deque.peekLast()] < nums[j]) {
+                deque.pollLast();
             }
-            ++j;
+
+            deque.offerLast(j);
+
+            if (j >= k - 1) {
+                result[j - k + 1] = nums[deque.peekFirst()];
+            }
         }
-        return res;
+
+        return result;
     }
 }

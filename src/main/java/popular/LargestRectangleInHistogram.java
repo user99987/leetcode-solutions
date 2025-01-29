@@ -1,6 +1,7 @@
 package popular;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * Hard
@@ -29,7 +30,7 @@ import java.util.Stack;
 public class LargestRectangleInHistogram {
 
     public int largestRectangleArea(int[] heights) {
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new LinkedList<>();
         int maxArea = 0;
         stack.push(-1);
         for (int i = 0; i < heights.length; i++) {

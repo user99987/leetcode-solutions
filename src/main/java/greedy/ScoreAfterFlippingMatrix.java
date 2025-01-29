@@ -34,57 +34,17 @@ package greedy;
  */
 public class ScoreAfterFlippingMatrix {
 
-    public int matrixScore(int[][] A) {
-        for (int[] a : A) {
-            int temp1 = makeNum(a);
-            flip(a);
-            int temp2 = makeNum(a);
-            if (temp1 > temp2) {
-                // revert
-                flip(a);
-            }
-        }
-        for (int i = 0; i < A[0].length; i++) {
+    public int matrixScore(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int score = (1 << (n - 1)) * m;
+
+        for (int j = 1; j < n; j++) {
             int count = 0;
-            for (int[] ints : A) {
-                if (ints[i] == 1) {
-                    count++;
-                }
+            for (int[] ints : grid) {
+                count += ints[0] == ints[j] ? 1 : 0;
             }
-            if (count < (A.length - count)) {
-                for (int j = 0; j < A.length; j++) {
-                    if (A[j][i] == 0) {
-                        A[j][i] = 1;
-                    } else {
-                        A[j][i] = 0;
-                    }
-                }
-            }
+            score += Math.max(count, m - count) * (1 << (n - 1 - j));
         }
-        int sum = 0;
-        for (int[] a : A) {
-            sum += makeNum(a);
-        }
-        return sum;
-    }
-
-    private int makeNum(int[] a) {
-        int n = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] == 1) {
-                n |= (1 << (a.length - i - 1));
-            }
-        }
-        return n;
-    }
-
-    private void flip(int[] A) {
-        for (int i = 0; i < A.length; i++) {
-            if (A[i] == 1) {
-                A[i] = 0;
-            } else {
-                A[i] = 1;
-            }
-        }
+        return score;
     }
 }

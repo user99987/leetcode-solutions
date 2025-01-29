@@ -1,6 +1,7 @@
 package popular;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * Easy
@@ -49,7 +50,7 @@ import java.util.Stack;
 public class ValidParentheses {
 
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> stack = new LinkedList<>();
 
         for (char c : s.toCharArray()) {
             if (c == '(' || c == '{' || c == '[') {

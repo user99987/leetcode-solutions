@@ -42,15 +42,20 @@ public class SmallestRotationWithHighestScore {
 
     public int bestRotation(int[] nums) {
         int n = nums.length;
-        int res = 0;
         int[] change = new int[n];
+        int maxIndex = 0;
+
         for (int i = 0; i < n; i++) {
             change[(i - nums[i] + 1 + n) % n]--;
         }
+
         for (int i = 1; i < n; i++) {
             change[i] += change[i - 1] + 1;
-            res = change[i] > change[res] ? i : res;
+            if (change[i] > change[maxIndex]) {
+                maxIndex = i;
+            }
         }
-        return res;
+
+        return maxIndex;
     }
 }

@@ -42,21 +42,14 @@ public class BoatsToSavePeople {
 
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
-        int i = 0;
-        int j = people.length - 1;
-        int boats = 0;
-        while (i < j) {
-            if (people[i] + people[j] <= limit) {
-                boats++;
-                i++;
-                j--;
-            } else if (people[i] + people[j] > limit) {
-                boats++;
-                j--;
+        int left = 0, right = people.length - 1, boats = 0;
+
+        while (left <= right) {
+            if (people[left] + people[right] <= limit) {
+                left++;
             }
-        }
-        if (i == j) {
-            return boats + 1;
+            right--;
+            boats++;
         }
         return boats;
     }

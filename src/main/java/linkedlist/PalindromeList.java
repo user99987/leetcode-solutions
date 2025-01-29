@@ -27,35 +27,31 @@ import utils.ListNode;
 public class PalindromeList {
 
     public boolean isPalindrome(ListNode head) {
-        int len = 0;
-        ListNode right = head;
-        // Culculate the length
-        while (right != null) {
-            right = right.next;
-            len++;
+        if (head == null || head.next == null) {
+            return true;
         }
-        // Reverse the right half of the list
-        len = len / 2;
-        right = head;
-        for (int i = 0; i < len; i++) {
-            right = right.next;
+
+        ListNode slow = head, fast = head, prev = null;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            ListNode next = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = next;
         }
-        ListNode prev = null;
-        while (right != null) {
-            ListNode next = right.next;
-            right.next = prev;
-            prev = right;
-            right = next;
+
+        if (fast != null) {
+            slow = slow.next;
         }
-        // Compare left half and right half
-        for (int i = 0; i < len; i++) {
-            if (prev != null && head.val == prev.val) {
-                head = head.next;
-                prev = prev.next;
-            } else {
+
+        while (prev != null) {
+            if (prev.val != slow.val) {
                 return false;
             }
+            prev = prev.next;
+            slow = slow.next;
         }
+
         return true;
     }
 

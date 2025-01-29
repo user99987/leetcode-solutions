@@ -1,12 +1,11 @@
 package heap;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.PriorityQueue;
 
 /**
  * Medium
@@ -41,25 +40,28 @@ import java.util.TreeSet;
 public class TopKFrequentWords {
 
     public List<String> topKFrequent(String[] words, int k) {
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> frequencyMap = new HashMap<>();
         for (String word : words) {
-            map.put(word, map.getOrDefault(word, 0) + 1);
+            frequencyMap.put(word, frequencyMap.getOrDefault(word, 0) + 1);
         }
-        SortedSet<Map.Entry<String, Integer>> sortedset =
-                new TreeSet<>(
-                        (e1, e2) -> {
-                            if (e1.getValue().intValue() != e2.getValue().intValue()) {
-                                return e2.getValue() - e1.getValue();
-                            } else {
-                                return e1.getKey().compareToIgnoreCase(e2.getKey());
-                            }
-                        });
-        sortedset.addAll(map.entrySet());
+
+        PriorityQueue<String> minHeap = new PriorityQueue<>((a, b) -> {
+            int freqCompare = frequencyMap.get(a) - frequencyMap.get(b);
+            return freqCompare != 0 ? freqCompare : b.compareTo(a);
+        });
+
+        for (String word : frequencyMap.keySet()) {
+            minHeap.offer(word);
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+
         List<String> result = new ArrayList<>();
-        Iterator<Map.Entry<String, Integer>> iterator = sortedset.iterator();
-        while (iterator.hasNext() && k-- > 0) {
-            result.add(iterator.next().getKey());
+        while (!minHeap.isEmpty()) {
+            result.add(minHeap.poll());
         }
+        Collections.reverse(result);
         return result;
     }
 }

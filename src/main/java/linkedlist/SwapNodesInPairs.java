@@ -49,25 +49,17 @@ import utils.ListNode;
 public class SwapNodesInPairs {
 
     public ListNode swapPairs(ListNode head) {
-        // Create a dummy node and point its next to the head
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-
-        // Initialize pointers
         ListNode prev = dummy;
-        ListNode first, second;
 
-        // Swap pairs of nodes
         while (prev.next != null && prev.next.next != null) {
-            first = prev.next;
-            second = first.next;
+            ListNode first = prev.next;
+            ListNode second = first.next;
 
-            // Swap nodes
             prev.next = second;
             first.next = second.next;
             second.next = first;
-
-            // Move prev to the next pair of nodes
             prev = first;
         }
 

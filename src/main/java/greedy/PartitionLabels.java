@@ -35,24 +35,20 @@ import java.util.List;
 public class PartitionLabels {
 
     public List<Integer> partitionLabels(String s) {
-        char[] letters = s.toCharArray();
+        int[] lastPosition = new int[26];
         List<Integer> result = new ArrayList<>();
-        int[] position = new int[26];
-        for (int i = 0; i < letters.length; i++) {
-            position[letters[i] - 'a'] = i;
+
+        for (int i = 0; i < s.length(); i++) {
+            lastPosition[s.charAt(i) - 'a'] = i;
         }
-        int i = 0;
-        int prev = -1;
-        int max = 0;
-        while (i < letters.length) {
-            if (position[letters[i] - 'a'] > max) {
-                max = position[letters[i] - 'a'];
-            }
-            if (i == max) {
+
+        int maxEnd = 0, prev = -1;
+        for (int i = 0; i < s.length(); i++) {
+            maxEnd = Math.max(maxEnd, lastPosition[s.charAt(i) - 'a']);
+            if (i == maxEnd) {
                 result.add(i - prev);
                 prev = i;
             }
-            i++;
         }
         return result;
     }

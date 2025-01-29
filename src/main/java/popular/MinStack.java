@@ -1,6 +1,7 @@
 package popular;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * Easy
@@ -29,7 +30,7 @@ import java.util.Stack;
  * At most 3 * 104 calls will be made to push, pop, top, and getMin.
  */
 public class MinStack {
-    private final Stack<Node> stack = new Stack<>();
+    private final Deque<Node> stack = new LinkedList<>();
 
     public void push(int x) {
         Node node;
@@ -47,14 +48,16 @@ public class MinStack {
     }
 
     public int top() {
+        assert stack.peek() != null;
         return stack.peek().value;
     }
 
     public int getMin() {
+        assert stack.peek() != null;
         return stack.peek().min;
     }
 
-    class Node {
+    static class Node {
         int value, min;
 
         Node(int value, int min) {

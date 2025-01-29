@@ -1,9 +1,8 @@
 package heap;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 /**
  * Medium
@@ -32,25 +31,30 @@ import java.util.Map;
 public class DistantBarcodes {
 
     public int[] rearrangeBarcodes(int[] barcodes) {
-        Map<Integer, Integer> cnt = new HashMap<>();
-        for (int i : barcodes) {
-            cnt.put(i, cnt.getOrDefault(i, 0) + 1);
+        Map<Integer, Integer> countMap = new HashMap<>();
+        for (int barcode : barcodes) {
+            countMap.put(barcode, countMap.getOrDefault(barcode, 0) + 1);
         }
-        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(cnt.entrySet());
-        list.sort(Map.Entry.<Integer, Integer>comparingByValue().reversed());
-        int l = barcodes.length;
-        int i = 0;
-        int[] res = new int[l];
-        for (Map.Entry<Integer, Integer> e : list) {
-            int time = e.getValue();
-            while (time-- > 0) {
-                res[i] = e.getKey();
-                i += 2;
-                if (i >= barcodes.length) {
-                    i = 1;
+
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a, b) -> b[1] - a[1]);
+        for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
+            maxHeap.offer(new int[]{entry.getKey(), entry.getValue()});
+        }
+
+        int[] result = new int[barcodes.length];
+        int index = 0;
+
+        while (!maxHeap.isEmpty()) {
+            int[] first = maxHeap.poll();
+            for (int i = 0; i < first[1]; i++) {
+                if (index >= barcodes.length) {
+                    index = 1;
                 }
+                result[index] = first[0];
+                index += 2;
             }
         }
-        return res;
+
+        return result;
     }
 }

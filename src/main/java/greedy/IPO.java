@@ -53,25 +53,23 @@ import java.util.PriorityQueue;
 public class IPO {
 
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
-        PriorityQueue<int[]> minCapital =
-                new PriorityQueue<>(Comparator.comparingInt((int[] a) -> a[1]));
-        PriorityQueue<int[]> maxProfit = new PriorityQueue<>((int[] a, int[] b) -> b[0] - a[0]);
+        PriorityQueue<int[]> minCapital = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+        PriorityQueue<Integer> maxProfit = new PriorityQueue<>(Comparator.reverseOrder());
+
         for (int i = 0; i < profits.length; i++) {
-            if (w >= capital[i]) {
-                maxProfit.offer(new int[]{profits[i], capital[i]});
-            } else {
-                minCapital.offer(new int[]{profits[i], capital[i]});
-            }
+            minCapital.offer(new int[]{profits[i], capital[i]});
         }
-        int count = 0;
-        while (count < k && !maxProfit.isEmpty()) {
-            int[] temp = maxProfit.poll();
-            w += temp[0];
-            count += 1;
+
+        for (int i = 0; i < k; i++) {
             while (!minCapital.isEmpty() && minCapital.peek()[1] <= w) {
-                maxProfit.offer(minCapital.poll());
+                maxProfit.offer(minCapital.poll()[0]);
             }
+            if (maxProfit.isEmpty()) {
+                break;
+            }
+            w += maxProfit.poll();
         }
+
         return w;
     }
 }

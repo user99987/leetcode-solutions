@@ -39,18 +39,15 @@ import java.util.Comparator;
 public class MaximumLengthOfPairChain {
 
     public int findLongestChain(int[][] pairs) {
-        if (pairs.length == 1) {
-            return 1;
-        }
         Arrays.sort(pairs, Comparator.comparingInt(a -> a[1]));
-        int min = pairs[0][1];
-        int max = 1;
-        for (int i = 1; i < pairs.length; i++) {
-            if (pairs[i][0] > min) {
-                max++;
-                min = pairs[i][1];
+        int count = 0, end = Integer.MIN_VALUE;
+
+        for (int[] pair : pairs) {
+            if (pair[0] > end) {
+                count++;
+                end = pair[1];
             }
         }
-        return max;
+        return count;
     }
 }

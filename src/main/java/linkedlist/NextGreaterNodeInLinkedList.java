@@ -2,6 +2,10 @@ package linkedlist;
 
 import utils.ListNode;
 
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * Medium
  * <p>
@@ -32,54 +36,23 @@ import utils.ListNode;
 public class NextGreaterNodeInLinkedList {
 
     public int[] nextLargerNodes(ListNode head) {
-        int len = length(head);
-        int i = 0;
-        int[] arr = new int[len];
-        int[] idx = new int[len];
+        ArrayList<Integer> values = new ArrayList<>();
         while (head != null) {
-            arr[i] = head.val;
+            values.add(head.val);
             head = head.next;
-            i++;
         }
-        hlp(arr, idx, 0);
-        i = 0;
-        while (i < idx.length) {
-            int j = idx[i];
-            if (j != -1) {
-                arr[i] = arr[j];
-            } else {
-                arr[i] = 0;
+
+        int[] result = new int[values.size()];
+        Deque<Integer> stack = new LinkedList<>();
+
+        for (int i = 0; i < values.size(); i++) {
+            while (!stack.isEmpty() && values.get(stack.peek()) < values.get(i)) {
+                result[stack.pop()] = values.get(i);
             }
-            i++;
+            stack.push(i);
         }
-        arr[i - 1] = 0;
-        return arr;
-    }
 
-    private void hlp(int[] arr, int[] idx, int i) {
-        if (i == arr.length - 1) {
-            idx[i] = -1;
-            return;
-        }
-        hlp(arr, idx, i + 1);
-        int j = i + 1;
-        while (j != -1 && arr[i] >= arr[j]) {
-            j = idx[j];
-        }
-        if ((j != -1) && arr[i] >= arr[j]) {
-            idx[i] = -1;
-        } else {
-            idx[i] = j;
-        }
-    }
-
-    private int length(ListNode head) {
-        int len = 0;
-        while (head != null) {
-            head = head.next;
-            len++;
-        }
-        return len;
+        return result;
     }
 
 }

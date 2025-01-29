@@ -42,23 +42,25 @@ package greedy;
 public class TaskScheduler {
 
     public int leastInterval(char[] tasks, int n) {
-        if (n <= 0) {
+        if (n == 0) {
             return tasks.length;
         }
-        int[] counters = new int[26];
-        int maxCount = 0;
+
+        int[] frequency = new int[26];
+        int maxFreq = 0, maxCount = 0;
+
         for (char task : tasks) {
-            int idx = task - 'A';
-            counters[idx]++;
-            maxCount = Math.max(maxCount, counters[idx]);
-        }
-        int maxNum = 0;
-        for (int counter : counters) {
-            if (counter == maxCount) {
-                maxNum++;
+            int index = task - 'A';
+            frequency[index]++;
+            if (frequency[index] > maxFreq) {
+                maxFreq = frequency[index];
+                maxCount = 1;
+            } else if (frequency[index] == maxFreq) {
+                maxCount++;
             }
         }
-        return Math.max(tasks.length, (maxCount - 1) * (n + 1) + maxNum);
+
+        return Math.max(tasks.length, (maxFreq - 1) * (n + 1) + maxCount);
     }
 
 }

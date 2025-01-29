@@ -47,14 +47,15 @@ public class ReducingDishes {
 
     public int maxSatisfaction(int[] satisfaction) {
         Arrays.sort(satisfaction);
-        int ans = 0, s = 0;
-        for (int i = satisfaction.length - 1; i >= 0; --i) {
-            s += satisfaction[i];
-            if (s <= 0) {
+        int totalSatisfaction = 0, cumulativeSum = 0;
+
+        for (int i = satisfaction.length - 1; i >= 0; i--) {
+            cumulativeSum += satisfaction[i];
+            if (cumulativeSum <= 0) {
                 break;
             }
-            ans += s;
+            totalSatisfaction += cumulativeSum;
         }
-        return ans;
+        return totalSatisfaction;
     }
 }

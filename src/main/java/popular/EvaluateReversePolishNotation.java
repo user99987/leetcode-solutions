@@ -1,6 +1,7 @@
 package popular;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 /**
  * Medium
@@ -52,7 +53,7 @@ import java.util.Stack;
 public class EvaluateReversePolishNotation {
 
     public int evalRPN(String[] tokens) {
-        Stack<Integer> st = new Stack<>();
+        Deque<Integer> st = new LinkedList<>();
         for (String token : tokens) {
             if (!Character.isDigit(token.charAt(token.length() - 1))) {
                 st.push(eval(st.pop(), st.pop(), token));

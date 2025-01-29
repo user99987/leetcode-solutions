@@ -30,31 +30,25 @@ package greedy;
 public class StringWithout3A3B {
 
     public String strWithout3a3b(int a, int b) {
-        String first = a > b ? "a" : "b";
-        String second = first.equals("a") ? "b" : "a";
-        int firstLen = Math.max(a, b);
-        int secondLen = Math.min(a, b);
-        StringBuilder ans = new StringBuilder();
-        // Case 1 : A and B count are unequal.
-        while (firstLen > 0 && secondLen > 0 && firstLen != secondLen) {
-            ans.append(first);
-            ans.append(first);
-            firstLen = firstLen - 2;
-            ans.append(second);
-            secondLen--;
+        StringBuilder result = new StringBuilder();
+        char first = a >= b ? 'a' : 'b';
+        char second = first == 'a' ? 'b' : 'a';
+        int firstCount = Math.max(a, b), secondCount = Math.min(a, b);
+
+        while (firstCount > 0 || secondCount > 0) {
+            if (firstCount > secondCount) {
+                result.append(first);
+                firstCount--;
+                if (firstCount > secondCount) {
+                    result.append(first);
+                    firstCount--;
+                }
+            }
+            if (secondCount > 0) {
+                result.append(second);
+                secondCount--;
+            }
         }
-        // Case 2: A and B count are equal
-        while (firstLen > 0 && secondLen > 0) {
-            ans.append(first);
-            ans.append(second);
-            firstLen--;
-            secondLen--;
-        }
-        // left over, just append
-        while (firstLen > 0) {
-            ans.append(first);
-            firstLen--;
-        }
-        return ans.toString();
+        return result.toString();
     }
 }

@@ -1,6 +1,7 @@
 package greedy;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Medium
@@ -49,15 +50,12 @@ import java.util.Arrays;
 public class TwoCityScheduling {
 
     public int twoCitySchedCost(int[][] costs) {
-        Arrays.sort(costs, (a, b) -> (a[0] - a[1] - (b[0] - b[1])));
-        int cost = 0;
-        for (int i = 0; i < costs.length; i++) {
-            if (i < costs.length / 2) {
-                cost += costs[i][0];
-            } else {
-                cost += costs[i][1];
-            }
+        Arrays.sort(costs, Comparator.comparingInt(a -> (a[0] - a[1])));
+        int totalCost = 0, n = costs.length / 2;
+
+        for (int i = 0; i < n; i++) {
+            totalCost += costs[i][0] + costs[i + n][1];
         }
-        return cost;
+        return totalCost;
     }
 }
