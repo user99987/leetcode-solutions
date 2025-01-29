@@ -32,99 +32,47 @@ public class LRUCache {
 
     private final int capacity;
     private final Map<Integer, LruCacheNode> cacheMap = new HashMap<>();
-    // insert here
-    private LruCacheNode head;
-    // remove here
-    private LruCacheNode tail;
+    private LruCacheNode head, tail;
 
     public LRUCache(int cap) {
         capacity = cap;
     }
 
     public int get(int key) {
-        LruCacheNode val = cacheMap.get(key);
-        if (val == null) {
-            return -1;
-        }
+        var val = cacheMap.get(key);
+        if (val == null) return -1;
         moveToHead(val);
         return val.value;
     }
 
-    /*
-     * Scenarios :
-     * 1. Value key is already present.
-     *          update
-     *          move node to head
-     * 2. cache is not full
-     *          cache is empty (create node and assign head and tail)
-     *          cache is partially empty (add node to head and update head pointer)
-     * 3. cache is full
-     *          remove node at tail, update head, tail pointers
-     *          Recursively call put
-     *
-     *
-     * move node to head Scenarios
-     * 1. node is at head
-     * 2. node is at tail
-     * 3. node is in middle
-     *
-     */
     public void put(int key, int value) {
-        LruCacheNode valNode = cacheMap.get(key);
+        var valNode = cacheMap.get(key);
         if (valNode != null) {
             valNode.value = value;
             moveToHead(valNode);
+            return;
+        }
+        if (cacheMap.size() == capacity) {
+            cacheMap.remove(tail.key);
+            tail = tail.prev;
+            if (tail != null) tail.next = null;
+        }
+        var node = new LruCacheNode(key, value);
+        cacheMap.put(key, node);
+        if (head == null) {
+            head = tail = node;
         } else {
-            if (cacheMap.size() < capacity) {
-                if (cacheMap.isEmpty()) {
-                    LruCacheNode node = new LruCacheNode(key, value);
-                    cacheMap.put(key, node);
-                    head = node;
-                    tail = node;
-                } else {
-                    LruCacheNode node = new LruCacheNode(key, value);
-                    cacheMap.put(key, node);
-                    node.next = head;
-                    head.prev = node;
-                    head = node;
-                }
-            } else {
-                // remove from tail
-                LruCacheNode last = tail;
-                tail = last.prev;
-                if (tail != null) {
-                    tail.next = null;
-                }
-                cacheMap.remove(last.key);
-                if (cacheMap.isEmpty()) {
-                    head = null;
-                }
-                // Call recursively
-                put(key, value);
-            }
+            node.next = head;
+            head.prev = node;
+            head = node;
         }
     }
 
-    /*
-     * check for 3 conditions
-     * 1. node is already at head
-     * 2. Node is tail node
-     * 3. Node in middle node
-     */
     private void moveToHead(LruCacheNode node) {
-        if (node == head) {
-            return;
-        }
-        if (node == tail) {
-            tail = node.prev;
-        }
-        // node is not head, it should have some valid prev node
-        LruCacheNode prev = node.prev;
-        LruCacheNode next = node.next;
-        prev.next = next;
-        if (next != null) {
-            next.prev = prev;
-        }
+        if (node == head) return;
+        if (node == tail) tail = node.prev;
+        if (node.prev != null) node.prev.next = node.next;
+        if (node.next != null) node.next.prev = node.prev;
         node.prev = null;
         node.next = head;
         head.prev = node;
@@ -132,10 +80,8 @@ public class LRUCache {
     }
 
     private static class LruCacheNode {
-        int key;
-        int value;
-        LruCacheNode prev;
-        LruCacheNode next;
+        int key, value;
+        LruCacheNode prev, next;
 
         public LruCacheNode(int k, int v) {
             key = k;

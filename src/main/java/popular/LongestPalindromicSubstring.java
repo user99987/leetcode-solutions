@@ -1,5 +1,8 @@
 package popular;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
+
 /**
  * Medium
  * <p>
@@ -38,27 +41,19 @@ public class LongestPalindromicSubstring {
 
     public String longestPalindrome(String s) {
         int n = s.length();
+        AtomicInteger maxLength = new AtomicInteger(1);
+        AtomicInteger start = new AtomicInteger();
 
-        // All substrings of length 1 are palindromes
-        int maxLen = 1, start = 0;
-
-        // Nested loop to mark start and end index
-        for (int i = 0; i < n; i++) {
-            for (int j = i; j < n; j++) {
-
-                // Check if the current substring is
-                // a palindrome
-                if (checkPal(s, i, j) && (j - i + 1) > maxLen) {
-                    start = i;
-                    maxLen = j - i + 1;
-                }
+        IntStream.range(0, n).forEach(i -> IntStream.range(i, n).forEach(j -> {
+            if (checkPalindrome(s, i, j) && (j - i + 1) > maxLength.get()) {
+                start.set(i);
+                maxLength.set(j - i + 1);
             }
-        }
-
-        return s.substring(start, start + maxLen);
+        }));
+        return s.substring(start.get(), start.get() + maxLength.get());
     }
 
-    private boolean checkPal(String s, int low, int high) {
+    private boolean checkPalindrome(String s, int low, int high) {
         while (low < high) {
             if (s.charAt(low) != s.charAt(high))
                 return false;

@@ -3,10 +3,9 @@ package popular;
 import utils.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * Given the root of a binary tree, return the zigzag level order traversal of its nodes' values. (i.e., from left to right, then right to left for the next level and alternate between).
@@ -36,33 +35,28 @@ import java.util.Queue;
  */
 public class BinaryTreeZigzagLevelOrderTraversal {
 
+
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        List<List<Integer>> ans = new ArrayList<>();
-        if (root == null) {
-            return ans;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> levels = new ArrayList<>();
+        if (root == null) return levels;
+
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
         boolean leftToRight = true;
-        queue.add(root);
+
         while (!queue.isEmpty()) {
+            List<Integer> level = new ArrayList<>();
             int size = queue.size();
-            List<Integer> temp = new ArrayList<>();
             while (size-- > 0) {
-                TreeNode removed = queue.remove();
-                temp.add(removed.val);
-                if (removed.left != null) {
-                    queue.add(removed.left);
-                }
-                if (removed.right != null) {
-                    queue.add(removed.right);
-                }
+                TreeNode node = queue.poll();
+                if (leftToRight) level.add(node.val);
+                else level.add(0, node.val);
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
             }
-            if (!leftToRight) {
-                Collections.reverse(temp);
-            }
-            ans.add(temp);
+            levels.add(level);
             leftToRight = !leftToRight;
         }
-        return ans;
+        return levels;
     }
 }

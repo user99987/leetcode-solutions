@@ -1,5 +1,7 @@
 package popular;
 
+import java.util.stream.IntStream;
+
 /**
  * Easy
  * <p>
@@ -42,13 +44,10 @@ public class ImplementStrStr {
         if (needle.isEmpty()) {
             return 0;
         }
-        int m = haystack.length();
         int n = needle.length();
-        for (int start = 0; start < m - n + 1; start++) {
-            if (haystack.substring(start, start + n).equals(needle)) {
-                return start;
-            }
-        }
-        return -1;
+        return IntStream.rangeClosed(0, haystack.length() - n)
+                .filter(i -> haystack.startsWith(needle, i))
+                .findFirst()
+                .orElse(-1);
     }
 }

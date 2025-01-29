@@ -41,21 +41,7 @@ import utils.TreeNode;
  */
 public class MaximumDepthOfBinaryTree {
 
-    private static TreeNode build(int[] nums, int start, int end) {
-        if (start > end) {
-            return null;
-        }
-        int mid = (start + end) / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        root.left = build(nums, start, mid - 1);
-        root.right = build(nums, mid + 1, end);
-        return root;
-    }
-
     public int maxDepth(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+        return root == null ? 0 : 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 }

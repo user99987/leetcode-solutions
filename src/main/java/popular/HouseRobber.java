@@ -1,5 +1,7 @@
 package popular;
 
+import java.util.stream.IntStream;
+
 /**
  * Medium
  * <p>
@@ -35,12 +37,10 @@ package popular;
 public class HouseRobber {
 
     public int rob(int[] nums) {
-        int n = nums.length;
-        int[] dp = new int[n + 1];
+        int[] dp = new int[nums.length + 1];
         dp[1] = nums[0];
-        for (int i = 1; i < n; i++) {
-            dp[i + 1] = Math.max(dp[i], dp[i - 1] + nums[i]);
-        }
-        return dp[n];
+        IntStream.range(1, nums.length)
+                .forEach(i -> dp[i + 1] = Math.max(dp[i], dp[i - 1] + nums[i]));
+        return dp[nums.length];
     }
 }

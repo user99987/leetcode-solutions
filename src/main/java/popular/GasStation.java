@@ -48,16 +48,16 @@ package popular;
 public class GasStation {
 
     public int canCompleteCircuit(int[] gas, int[] cost) {
-        int debt = 0, sum = 0, start = 0;
+        int total = 0, tank = 0, start = 0;
         for (int i = 0; i < gas.length; i++) {
-            sum += gas[i] - cost[i];
-            if (sum < 0) {
-                debt += sum;
-                sum = 0;
+            int balance = gas[i] - cost[i];
+            tank += balance;
+            total += balance;
+            if (tank < 0) {
+                tank = 0;
                 start = i + 1;
             }
         }
-        debt += sum;
-        return debt >= 0 ? start : -1;
+        return total >= 0 ? start : -1;
     }
 }

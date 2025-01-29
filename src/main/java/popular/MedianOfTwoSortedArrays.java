@@ -53,11 +53,8 @@ package popular;
 public class MedianOfTwoSortedArrays {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length;
-        int n = nums2.length;
-        int totalLength = m + n;
-        int left = (totalLength + 1) / 2;
-        int right = (totalLength + 2) / 2;
+        int m = nums1.length, n = nums2.length, total = m + n;
+        int left = (total + 1) / 2, right = (total + 2) / 2;
         return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
     }
 
@@ -69,11 +66,7 @@ public class MedianOfTwoSortedArrays {
         int midVal1 = (i + k / 2 - 1 < nums1.length) ? nums1[i + k / 2 - 1] : Integer.MAX_VALUE;
         int midVal2 = (j + k / 2 - 1 < nums2.length) ? nums2[j + k / 2 - 1] : Integer.MAX_VALUE;
 
-        if (midVal1 < midVal2) {
-            return findKth(nums1, i + k / 2, nums2, j, k - k / 2);
-        } else {
-            return findKth(nums1, i, nums2, j + k / 2, k - k / 2);
-        }
+        return midVal1 < midVal2 ? findKth(nums1, i + k / 2, nums2, j, k - k / 2)
+                : findKth(nums1, i, nums2, j + k / 2, k - k / 2);
     }
-
 }

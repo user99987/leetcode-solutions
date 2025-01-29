@@ -51,26 +51,22 @@ import java.util.Map;
  */
 public class FractionToRecurringDecimal {
 
-    String fractionToDecimal(int numerator, int denominator) {
+    public String fractionToDecimal(int numerator, int denominator) {
         if (numerator == 0) {
             return "0";
         }
         StringBuilder sb = new StringBuilder();
-        // negative case
-        if (numerator > 0 && denominator < 0 || numerator < 0 && denominator > 0) {
+        if ((numerator > 0) != (denominator > 0)) {
             sb.append("-");
         }
-        long x = Math.abs(Long.valueOf(numerator));
-        long y = Math.abs(Long.valueOf(denominator));
-        sb.append(x / y);
-        long remainder = x % y;
+        long num = Math.abs((long) numerator);
+        long den = Math.abs((long) denominator);
+        sb.append(num / den);
+        long remainder = num % den;
         if (remainder == 0) {
             return sb.toString();
         }
-        // decimal case
         sb.append(".");
-        // store the remainder in a Hashmap because in the case of recurring decimal, the remainder
-        // repeats as dividend.
         Map<Long, Integer> map = new HashMap<>();
         while (remainder != 0) {
             if (map.containsKey(remainder)) {
@@ -78,11 +74,10 @@ public class FractionToRecurringDecimal {
                 sb.append(")");
                 break;
             }
-            // store the remainder and the index of it's occurence in the String
             map.put(remainder, sb.length());
             remainder *= 10;
-            sb.append(remainder / y);
-            remainder %= y;
+            sb.append(remainder / den);
+            remainder %= den;
         }
         return sb.toString();
     }

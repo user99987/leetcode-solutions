@@ -53,6 +53,7 @@ public class BinaryTreeInorderTraversal {
         List<Integer> inorder = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
         TreeNode curr = root;
+
         while (curr != null || !stack.isEmpty()) {
             while (curr != null) {
                 stack.push(curr);
@@ -62,6 +63,7 @@ public class BinaryTreeInorderTraversal {
             inorder.add(curr.val);
             curr = curr.right;
         }
+
         return inorder;
     }
 }

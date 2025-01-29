@@ -1,6 +1,7 @@
 package popular;
 
 import java.util.HashMap;
+import java.util.stream.IntStream;
 
 /**
  * Medium
@@ -45,26 +46,16 @@ import java.util.HashMap;
 public class LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring(String s) {
-        // Initialize variables
-        int start = 0;
-        int maxLen = 0;
-        HashMap<Character, Integer> map = new HashMap<>();
-
-        // Iterate through the string
-        for (int end = 0; end < s.length(); end++) {
-            char ch = s.charAt(end);
-            // If the character exists in the hashmap and its index is greater than or equal to the start index
-            if (map.containsKey(ch) && map.get(ch) >= start) {
-                // Update the start index to the index after the last occurrence of the character
-                start = map.get(ch) + 1;
+        var map = new HashMap<Character, Integer>();
+        var start = new int[]{0};
+        return IntStream.range(0, s.length()).map(end -> {
+            var ch = s.charAt(end);
+            if (map.containsKey(ch) && map.get(ch) >= start[0]) {
+                start[0] = map.get(ch) + 1;
             }
-            // Update the maximum length if necessary
-            maxLen = Math.max(maxLen, end - start + 1);
-            // Update the index of the current character in the hashmap
             map.put(ch, end);
-        }
-
-        return maxLen;
+            return end - start[0] + 1;
+        }).max().orElse(0);
     }
 
 }

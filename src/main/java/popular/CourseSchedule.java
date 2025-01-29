@@ -36,10 +36,6 @@ import java.util.ArrayList;
  */
 public class CourseSchedule {
 
-    private static final int WHITE = 0;
-    private static final int GRAY = 1;
-    private static final int BLACK = 2;
-
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         var adj = new ArrayList[numCourses];
         for (int i = 0; i < numCourses; i++) {
@@ -48,26 +44,28 @@ public class CourseSchedule {
         for (int[] pre : prerequisites) {
             adj[pre[1]].add(pre[0]);
         }
-        int[] colors = new int[numCourses];
+        boolean[] visited = new boolean[numCourses];
+        boolean[] inRecStack = new boolean[numCourses];
         for (int i = 0; i < numCourses; i++) {
-            if (colors[i] == WHITE && !adj[i].isEmpty() && hasCycle(adj, i, colors)) {
+            if (!visited[i] && hasCycle(adj, i, visited, inRecStack)) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean hasCycle(ArrayList<Integer>[] adj, int node, int[] colors) {
-        colors[node] = GRAY;
+    private boolean hasCycle(ArrayList<Integer>[] adj, int node, boolean[] visited, boolean[] inRecStack) {
+        visited[node] = true;
+        inRecStack[node] = true;
         for (int nei : adj[node]) {
-            if (colors[nei] == GRAY) {
+            if (!visited[nei] && hasCycle(adj, nei, visited, inRecStack)) {
                 return true;
             }
-            if (colors[nei] == WHITE && hasCycle(adj, nei, colors)) {
+            if (inRecStack[nei]) {
                 return true;
             }
         }
-        colors[node] = BLACK;
+        inRecStack[node] = false;
         return false;
     }
 }

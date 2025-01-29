@@ -30,11 +30,13 @@ package popular;
 public class ClimbingStairs {
 
     public int climbStairs(int n) {
-        if (n == 0 || n == 1) return 1;
-        int[] A = new int[n + 1];
-        A[n] = 1;
-        A[n - 1] = 1;
-        for (int i = n - 2; i >= 0; i--) A[i] = A[i + 1] + A[i + 2];
-        return A[0];
+        if (n <= 2) return n;
+        int prev1 = 1, prev2 = 2;
+        for (int i = 3; i <= n; i++) {
+            int curr = prev1 + prev2;
+            prev1 = prev2;
+            prev2 = curr;
+        }
+        return prev2;
     }
 }

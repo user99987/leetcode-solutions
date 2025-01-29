@@ -30,17 +30,17 @@ import java.util.LinkedList;
 public class LargestRectangleInHistogram {
 
     public int largestRectangleArea(int[] heights) {
-        Deque<Integer> stack = new LinkedList<>();
+        Deque<Integer> deque = new LinkedList<>();
         int maxArea = 0;
-        stack.push(-1);
+        deque.push(-1);
         for (int i = 0; i < heights.length; i++) {
-            while (stack.peek() != -1 && heights[stack.peek()] >= heights[i]) {
-                maxArea = Math.max(maxArea, heights[stack.pop()] * (i - stack.peek() - 1));
+            while (deque.peek() != -1 && heights[deque.peek()] >= heights[i]) {
+                maxArea = Math.max(maxArea, heights[deque.pop()] * (i - deque.peek() - 1));
             }
-            stack.push(i);
+            deque.push(i);
         }
-        while (stack.peek() != -1) {
-            maxArea = Math.max(maxArea, heights[stack.pop()] * (heights.length - stack.peek() - 1));
+        while (deque.peek() != -1) {
+            maxArea = Math.max(maxArea, heights[deque.pop()] * (heights.length - deque.peek() - 1));
         }
         return maxArea;
     }

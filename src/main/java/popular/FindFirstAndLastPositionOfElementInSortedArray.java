@@ -37,39 +37,26 @@ package popular;
 public class FindFirstAndLastPositionOfElementInSortedArray {
 
     public int[] searchRange(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
-        int firstOccurrence = -1;
-        int lastOccurrence = -1;
+        return new int[]{findBound(nums, target, true), findBound(nums, target, false)};
+    }
 
-        // Find first occurrence
+    private int findBound(int[] nums, int target, boolean isFirst) {
+        int left = 0, right = nums.length - 1, bound = -1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) {
-                firstOccurrence = mid;
-                right = mid - 1;
+                bound = mid;
+                if (isFirst) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
             } else if (target < nums[mid]) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
-
-        // Find last occurrence
-        left = 0;
-        right = nums.length - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                lastOccurrence = mid;
-                left = mid + 1;
-            } else if (target < nums[mid]) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
-        }
-
-        return new int[]{firstOccurrence, lastOccurrence};
+        return bound;
     }
 }

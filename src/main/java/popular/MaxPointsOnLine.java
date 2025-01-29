@@ -29,6 +29,7 @@ import java.util.Map;
  */
 public class MaxPointsOnLine {
 
+
     public int maxPoints(int[][] points) {
         int max = 0;
         for (int i = 0; i < points.length - 1; i++) {
@@ -43,14 +44,8 @@ public class MaxPointsOnLine {
     }
 
     private double calculateSlope(int[] p1, int[] p2) {
-        double y = (p2[1] - p1[1]) * 1.0;
-        double x = (p2[0] - p1[0]) * 1.0;
-        if (x == 0) {
-            return Double.NaN;
-        }
-        if (y == 0) {
-            return 0.0;
-        }
-        return ((double) y * 1.0) / x;
+        double y = (p2[1] - p1[1]);
+        double x = (p2[0] - p1[0]);
+        return x == 0 ? Double.POSITIVE_INFINITY : y == 0 ? 0.0 : y / x;
     }
 }

@@ -33,19 +33,15 @@ import utils.TreeNode;
  */
 public class ConstructBinarySearchTreeFromPreorderTraversal {
 
-    private int i = 0;
-
     public TreeNode bstFromPreorder(int[] preorder) {
-        return bstFromPreorder(preorder, Integer.MAX_VALUE);
+        return build(preorder, new int[]{0}, Integer.MAX_VALUE);
     }
 
-    private TreeNode bstFromPreorder(int[] preorder, int bound) {
-        if (i == preorder.length || preorder[i] > bound) {
-            return null;
-        }
-        TreeNode root = new TreeNode(preorder[i++]);
-        root.left = bstFromPreorder(preorder, root.val);
-        root.right = bstFromPreorder(preorder, bound);
-        return root;
+    private TreeNode build(int[] preorder, int[] index, int bound) {
+        if (index[0] == preorder.length || preorder[index[0]] > bound) return null;
+        TreeNode node = new TreeNode(preorder[index[0]++]);
+        node.left = build(preorder, index, node.val);
+        node.right = build(preorder, index, bound);
+        return node;
     }
 }

@@ -36,18 +36,15 @@ package popular;
 public class FindPeakElement {
 
     public int findPeakElement(int[] nums) {
-        int start = 0;
-        int end = nums.length - 1;
-        while (start < end) {
-            // This is done because start and end might be big numbers, so it might exceed the
-            // integer limit.
-            int mid = start + ((end - start) / 2);
-            if (nums[mid + 1] > nums[mid]) {
-                start = mid + 1;
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < nums[mid + 1]) {
+                left = mid + 1;
             } else {
-                end = mid;
+                right = mid;
             }
         }
-        return start;
+        return left;
     }
 }

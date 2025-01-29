@@ -33,17 +33,14 @@ package popular;
 public class BestTimeToBuyAndSellStocks {
 
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length <= 1) return 0; // Check for empty array or single element
+        int minPrice = prices[0];
+        int maxProfit = 0;
 
-        int minPrice = prices[0]; // Initialize minPrice to the first price
-        int maxProfit = 0; // Initialize maxProfit to 0
-
-        // Iterate through the prices array
         for (int i = 1; i < prices.length; i++) {
-            minPrice = Math.min(minPrice, prices[i]); // Update minPrice
-            maxProfit = Math.max(maxProfit, prices[i] - minPrice); // Update maxProfit
+            minPrice = Math.min(minPrice, prices[i]);
+            maxProfit = Math.max(maxProfit, prices[i] - minPrice);
         }
 
-        return maxProfit; // Return the maximum profit
+        return maxProfit;
     }
 }

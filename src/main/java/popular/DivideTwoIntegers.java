@@ -48,29 +48,23 @@ package popular;
 public class DivideTwoIntegers {
 
     public int divide(int dividend, int divisor) {
-        boolean isNegative = dividend > 0 && divisor < 0 || dividend < 0 && divisor > 0;
-        long ans = 0;
-        long divide = Math.abs((long) dividend);
+        boolean isNegative = (dividend > 0) != (divisor > 0);
+        long dividendAbs = Math.abs((long) dividend);
         long divisorAbs = Math.abs((long) divisor);
-        while (divide >= divisorAbs) {
-            long temp = divisorAbs;
-            long cnt = 1;
-            while (divide >= temp) {
-                divide -= temp;
-                ans += cnt;
-                cnt <<= 1;
+        long result = 0;
+
+        while (dividendAbs >= divisorAbs) {
+            long temp = divisorAbs, count = 1;
+            while (dividendAbs >= (temp << 1)) {
                 temp <<= 1;
+                count <<= 1;
             }
+            dividendAbs -= temp;
+            result += count;
         }
-        if (isNegative) {
-            ans = -ans;
-        }
-        int intMin = -(1 << 31);
-        int intMax = (1 << 31) - 1;
-        if (ans < intMin || ans > intMax) {
-            ans = intMax;
-        }
-        return (int) ans;
+
+        result = isNegative ? -result : result;
+        return (int) Math.min(Math.max(result, Integer.MIN_VALUE), Integer.MAX_VALUE);
     }
 
 }

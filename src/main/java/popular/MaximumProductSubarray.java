@@ -27,28 +27,20 @@ package popular;
  * <p>
  * Constraints:
  * <p>
- * 1 <= nums.length <= 2 * 104
+ * 1 <= nums.length <= 2 * 10^4
  * -10 <= nums[i] <= 10
  * The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
  */
 public class MaximumProductSubarray {
 
     public int maxProduct(int[] nums) {
-        int overAllMaxProd = Integer.MIN_VALUE;
-        int n = nums.length;
-        int start = 1;
-        int end = 1;
-        for (int i = 0; i < n; i++) {
-            if (start == 0) {
-                start = 1;
-            }
-            if (end == 0) {
-                end = 1;
-            }
-            start = start * nums[i];
-            end = end * nums[n - i - 1];
-            overAllMaxProd = Math.max(overAllMaxProd, Math.max(start, end));
+        int maxProd = nums[0], minProd = nums[0], result = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            int temp = maxProd;
+            maxProd = Math.max(nums[i], Math.max(maxProd * nums[i], minProd * nums[i]));
+            minProd = Math.min(nums[i], Math.min(temp * nums[i], minProd * nums[i]));
+            result = Math.max(result, maxProd);
         }
-        return overAllMaxProd;
+        return result;
     }
 }

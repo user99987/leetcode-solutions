@@ -31,30 +31,24 @@ package popular;
  * -2^31 <= nums[i] <= 2^31 - 1
  */
 public class FirstMissingPositive {
-    private int L;
-
     public int firstMissingPositive(int[] nums) {
-        L = nums.length;
-        for (int i = 0; i < L; i++) {
-            if (nums[i] > 0 && nums[i] <= L && nums[i] != i + 1) {
-                int v = nums[i];
-                nums[i] = -1;
-                replace(v, nums);
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            while (nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
+                swap(nums, i, nums[i] - 1);
             }
         }
-
-        for (int i = 0; i < L; i++) {
-            if (nums[i] != i + 1) return i + 1;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != i + 1) {
+                return i + 1;
+            }
         }
-
-        return L + 1;
+        return n + 1;
     }
 
-    private void replace(int i, int[] nums) {
-        if (i > 0 && i <= L && i != nums[i - 1]) {
-            int v = nums[i - 1];
-            nums[i - 1] = i;
-            replace(v, nums);
-        }
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }

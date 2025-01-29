@@ -1,6 +1,7 @@
 package popular;
 
 import java.util.HashSet;
+import java.util.stream.IntStream;
 
 /**
  * Medium
@@ -31,26 +32,19 @@ import java.util.HashSet;
 public class LongestConsecutiveSequence {
 
     public int longestConsecutive(int[] nums) {
-        HashSet<Integer> numSet = new HashSet<>();
-        for (int num : nums) {
-            numSet.add(num); // Add all numbers to HashSet
-        }
-
-        int maxLength = 0;
-        for (int num : nums) {
-            if (!numSet.contains(num - 1)) { // Check if num - 1 exists in numSet
-                int currentNum = num;
-                int currentLength = 1;
-
-                while (numSet.contains(currentNum + 1)) { // Increment currentNum until it does not exist in numSet
-                    currentNum++;
-                    currentLength++;
-                }
-
-                maxLength = Math.max(maxLength, currentLength); // Update maximum length
-            }
-        }
-
-        return maxLength; // Return the maximum length of the consecutive sequence
+        var numSet = new HashSet<>();
+        IntStream.of(nums).forEach(numSet::add);
+        return IntStream.of(nums)
+                .filter(num -> !numSet.contains(num - 1))
+                .map(num -> {
+                    int length = 1;
+                    while (numSet.contains(num + 1)) {
+                        num++;
+                        length++;
+                    }
+                    return length;
+                })
+                .max()
+                .orElse(0);
     }
 }
