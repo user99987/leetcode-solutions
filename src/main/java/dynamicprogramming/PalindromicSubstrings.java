@@ -32,25 +32,25 @@ package dynamicprogramming;
  */
 public class PalindromicSubstrings {
 
-    private void expand(char[] a, int l, int r, int[] res) {
-        while (l >= 0 && r < a.length) {
-            if (a[l] != a[r]) {
-                return;
-            } else {
-                res[0]++;
-                l--;
-                r++;
-            }
+    public int countSubstrings(String s) {
+        int count = 0;
+        char[] chars = s.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+            count += expandAroundCenter(chars, i, i);
+            count += expandAroundCenter(chars, i, i + 1);
         }
+
+        return count;
     }
 
-    public int countSubstrings(String s) {
-        char[] a = s.toCharArray();
-        int[] res = {0};
-        for (int i = 0; i < a.length; i++) {
-            expand(a, i, i, res);
-            expand(a, i, i + 1, res);
+    private int expandAroundCenter(char[] chars, int left, int right) {
+        int count = 0;
+        while (left >= 0 && right < chars.length && chars[left] == chars[right]) {
+            count++;
+            left--;
+            right++;
         }
-        return res[0];
+        return count;
     }
 }

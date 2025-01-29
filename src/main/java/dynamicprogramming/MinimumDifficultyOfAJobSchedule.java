@@ -50,30 +50,26 @@ package dynamicprogramming;
 public class MinimumDifficultyOfAJobSchedule {
 
     public int minDifficulty(int[] jobDifficulty, int d) {
-        int totalJobs = jobDifficulty.length;
-        if (totalJobs < d) {
-            return -1;
+        int n = jobDifficulty.length;
+        if (n < d) return -1;
+
+        int[][] dp = new int[d + 1][n + 1];
+        for (int i = 0; i <= d; i++) {
+            for (int j = 0; j <= n; j++) {
+                dp[i][j] = Integer.MAX_VALUE / 2;
+            }
         }
-        int maxJobsOneDay = totalJobs - d + 1;
-        int[] map = new int[totalJobs];
-        int maxDiff = Integer.MIN_VALUE;
-        for (int k = totalJobs - 1; k > totalJobs - 1 - maxJobsOneDay; k--) {
-            maxDiff = Math.max(maxDiff, jobDifficulty[k]);
-            map[k] = maxDiff;
-        }
-        for (int day = d - 1; day > 0; day--) {
-            int maxEndIndex = (totalJobs - 1) - (d - day);
-            int maxStartIndex = maxEndIndex - maxJobsOneDay + 1;
-            for (int startIndex = maxStartIndex; startIndex <= maxEndIndex; startIndex++) {
-                map[startIndex] = Integer.MAX_VALUE;
-                int maxDiffOfTheDay = Integer.MIN_VALUE;
-                for (int endIndex = startIndex; endIndex <= maxEndIndex; endIndex++) {
-                    maxDiffOfTheDay = Math.max(maxDiffOfTheDay, jobDifficulty[endIndex]);
-                    int totalDiff = maxDiffOfTheDay + map[endIndex + 1];
-                    map[startIndex] = Math.min(map[startIndex], totalDiff);
+        dp[0][0] = 0;
+
+        for (int day = 1; day <= d; day++) {
+            for (int end = day; end <= n; end++) {
+                int maxJob = 0;
+                for (int start = end - 1; start >= day - 1; start--) {
+                    maxJob = Math.max(maxJob, jobDifficulty[start]);
+                    dp[day][end] = Math.min(dp[day][end], dp[day - 1][start] + maxJob);
                 }
             }
         }
-        return map[0];
+        return dp[d][n];
     }
 }

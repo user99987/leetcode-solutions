@@ -40,55 +40,55 @@ import java.util.List;
 public class PalindromePairs {
 
     public List<List<Integer>> palindromePairs(String[] words) {
-        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<>();
         TrieNode root = new TrieNode();
+
         for (int i = 0; i < words.length; i++) {
             addWord(root, words[i], i);
         }
+
         for (int i = 0; i < words.length; i++) {
-            search(words, i, root, res);
+            search(words, i, root, result);
         }
-        return res;
+
+        return result;
     }
 
     private void addWord(TrieNode root, String word, int index) {
         for (int i = word.length() - 1; i >= 0; i--) {
-            int j = word.charAt(i) - 'a';
-            if (root.next[j] == null) {
-                root.next[j] = new TrieNode();
+            int ch = word.charAt(i) - 'a';
+            if (root.children[ch] == null) {
+                root.children[ch] = new TrieNode();
             }
             if (isPalindrome(word, 0, i)) {
-                root.list.add(index);
+                root.palindromeList.add(index);
             }
-            root = root.next[j];
+            root = root.children[ch];
         }
-        root.list.add(index);
-        root.index = index;
+        root.palindromeList.add(index);
+        root.wordIndex = index;
     }
 
-    private void search(String[] words, int i, TrieNode root, List<List<Integer>> res) {
+    private void search(String[] words, int i, TrieNode root, List<List<Integer>> result) {
         for (int j = 0; j < words[i].length(); j++) {
-            if (root.index >= 0
-                    && root.index != i
-                    && isPalindrome(words[i], j, words[i].length() - 1)) {
-                res.add(Arrays.asList(i, root.index));
+            if (root.wordIndex >= 0 && root.wordIndex != i && isPalindrome(words[i], j, words[i].length() - 1)) {
+                result.add(Arrays.asList(i, root.wordIndex));
             }
-            root = root.next[words[i].charAt(j) - 'a'];
+            root = root.children[words[i].charAt(j) - 'a'];
             if (root == null) {
                 return;
             }
         }
-        for (int j : root.list) {
-            if (i == j) {
-                continue;
+        for (int j : root.palindromeList) {
+            if (i != j) {
+                result.add(Arrays.asList(i, j));
             }
-            res.add(Arrays.asList(i, j));
         }
     }
 
-    private boolean isPalindrome(String word, int i, int j) {
-        while (i < j) {
-            if (word.charAt(i++) != word.charAt(j--)) {
+    private boolean isPalindrome(String word, int left, int right) {
+        while (left < right) {
+            if (word.charAt(left++) != word.charAt(right--)) {
                 return false;
             }
         }
@@ -96,14 +96,15 @@ public class PalindromePairs {
     }
 
     private static class TrieNode {
-        TrieNode[] next;
-        int index;
-        List<Integer> list;
+        TrieNode[] children;
+        int wordIndex;
+        List<Integer> palindromeList;
 
         TrieNode() {
-            next = new TrieNode[26];
-            index = -1;
-            list = new ArrayList<>();
+            children = new TrieNode[26];
+            wordIndex = -1;
+            palindromeList = new ArrayList<>();
         }
     }
 }
+

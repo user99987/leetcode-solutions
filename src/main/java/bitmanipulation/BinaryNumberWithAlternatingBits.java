@@ -37,13 +37,13 @@ public class BinaryNumberWithAlternatingBits {
 
     public boolean hasAlternatingBits(int n) {
         int prev = -1;
-        while (n != 0) {
-            int v = n & 1;
-            n = n >> 1;
-            if (prev == v) {
+        while (n > 0) {
+            int current = n & 1;
+            if (current == prev) {
                 return false;
             }
-            prev = v;
+            prev = current;
+            n >>= 1;
         }
         return true;
     }

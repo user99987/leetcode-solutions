@@ -63,39 +63,34 @@ public class MinimumDistanceToTypeAWordUsingTwoFingers {
     public int minimumDistance(String word) {
         this.word = word;
         dp = new Integer[27][27][word.length()];
-        return find(null, null, 0);
+        return calculateDistance(null, null, 0);
     }
 
-    private int find(Character f1, Character f2, int index) {
+    private int calculateDistance(Character f1, Character f2, int index) {
         if (index == word.length()) {
             return 0;
         }
 
-        Integer result = dp[f1 == null ? 0 : f1 - 'A' + 1][f2 == null ? 0 : f2 - 'A' + 1][index];
-        if (result != null) {
-            return result;
+        int f1Index = (f1 == null) ? 0 : f1 - 'A' + 1;
+        int f2Index = (f2 == null) ? 0 : f2 - 'A' + 1;
+
+        if (dp[f1Index][f2Index][index] != null) {
+            return dp[f1Index][f2Index][index];
         }
 
-        char ic = word.charAt(index);
+        char currentChar = word.charAt(index);
+        int moveCost = getDistance(f1, currentChar) + calculateDistance(currentChar, f2, index + 1);
+        moveCost = Math.min(moveCost, getDistance(f2, currentChar) + calculateDistance(f1, currentChar, index + 1));
 
-        int move = move(f1, ic) + find(ic, f2, index + 1);
-
-        move = Math.min(move, move(f2, ic) + find(f1, ic, index + 1));
-
-        dp[f1 == null ? 0 : f1 - 'A' + 1][f2 == null ? 0 : f2 - 'A' + 1][index] = move;
-        return move;
+        return dp[f1Index][f2Index][index] = moveCost;
     }
 
-    private int move(Character c1, Character c2) {
+    private int getDistance(Character c1, Character c2) {
         if (c1 == null) {
             return 0;
         }
-
-        int c1x = (c1 - 'A') % 6;
-        int c1y = (c1 - 'A') / 6;
-        int c2x = (c2 - 'A') % 6;
-        int c2y = (c2 - 'A') / 6;
-
-        return Math.abs(c1x - c2x) + Math.abs(c1y - c2y);
+        int x1 = (c1 - 'A') % 6, y1 = (c1 - 'A') / 6;
+        int x2 = (c2 - 'A') % 6, y2 = (c2 - 'A') / 6;
+        return Math.abs(x1 - x2) + Math.abs(y1 - y2);
     }
 }

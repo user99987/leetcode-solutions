@@ -30,37 +30,35 @@ import java.util.Arrays;
  */
 public class OutOfBoundaryPaths {
 
-    private final int[][] dRowCol = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    private static final int MOD = 1_000_000_007;
+    private static final int[][] DIRECTIONS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-    private int dfs(int m, int n, int remainingMoves, int currRow, int currCol, int[][][] cache) {
-        if (currRow < 0 || currRow == m || currCol < 0 || currCol == n) {
+    public int findPaths(int m, int n, int maxMoves, int startRow, int startCol) {
+        int[][][] dp = new int[m][n][maxMoves + 1];
+        for (int[][] layer : dp) {
+            for (int[] row : layer) {
+                Arrays.fill(row, -1);
+            }
+        }
+        return dfs(m, n, maxMoves, startRow, startCol, dp);
+    }
+
+    private int dfs(int m, int n, int remainingMoves, int row, int col, int[][][] dp) {
+        if (row < 0 || row >= m || col < 0 || col >= n) {
             return 1;
         }
         if (remainingMoves == 0) {
             return 0;
         }
-
-        if (cache[currRow][currCol][remainingMoves] == -1) {
-            int paths = 0;
-            for (int i = 0; i < 4; i++) {
-                int newRow = currRow + dRowCol[i][0];
-                int newCol = currCol + dRowCol[i][1];
-                int m1 = 1000000007;
-                paths = (paths + dfs(m, n, remainingMoves - 1, newRow, newCol, cache)) % m1;
-            }
-            cache[currRow][currCol][remainingMoves] = paths;
-        }
-        return cache[currRow][currCol][remainingMoves];
-    }
-
-    public int findPaths(int m, int n, int maxMoves, int startRow, int startCol) {
-        int[][][] cache = new int[m][n][maxMoves + 1];
-        for (int[][] c1 : cache) {
-            for (int[] c2 : c1) {
-                Arrays.fill(c2, -1);
-            }
+        if (dp[row][col][remainingMoves] != -1) {
+            return dp[row][col][remainingMoves];
         }
 
-        return dfs(m, n, maxMoves, startRow, startCol, cache);
+        int paths = 0;
+        for (int[] dir : DIRECTIONS) {
+            paths = (paths + dfs(m, n, remainingMoves - 1, row + dir[0], col + dir[1], dp)) % MOD;
+        }
+
+        return dp[row][col][remainingMoves] = paths;
     }
 }

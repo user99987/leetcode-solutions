@@ -42,19 +42,22 @@ package dynamicprogramming;
  */
 public class NumberOfDiceRollsWithTargetSum {
 
-    public int numRollsToTarget(int d, int f, int target) {
-        int[][] DP = new int[d + 1][target + 1];
-        for (int i = 1; i <= Math.min(f, target); i++) {
-            DP[1][i] = 1;
+    private static final int MOD = 1_000_000_007;
+
+    public int numRollsToTarget(int n, int k, int target) {
+        int[][] dp = new int[n + 1][target + 1];
+
+        for (int i = 1; i <= Math.min(k, target); i++) {
+            dp[1][i] = 1;
         }
-        for (int i = 2; i <= d; i++) {
-            for (int j = 1; j <= target; j++) {
-                for (int k = 1; k <= Math.min(f, j); k++) {
-                    int MOD = 1000000007;
-                    DP[i][j] = (DP[i - 1][j - k]) == 0 ? DP[i][j] : ((DP[i][j] + (DP[i - 1][j - k])) % MOD);
+
+        for (int dice = 2; dice <= n; dice++) {
+            for (int sum = 1; sum <= target; sum++) {
+                for (int face = 1; face <= Math.min(k, sum); face++) {
+                    dp[dice][sum] = (dp[dice][sum] + dp[dice - 1][sum - face]) % MOD;
                 }
             }
         }
-        return DP[d][target];
+        return dp[n][target];
     }
 }

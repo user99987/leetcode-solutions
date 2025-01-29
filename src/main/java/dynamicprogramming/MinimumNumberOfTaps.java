@@ -50,30 +50,23 @@ package dynamicprogramming;
 public class MinimumNumberOfTaps {
 
     public int minTaps(int n, int[] ranges) {
-        if (n == 0 || ranges.length == 0) {
-            return n == 0 ? 0 : -1;
-        }
-        int[] dp = new int[n + 1];
+        int[] maxReach = new int[n + 1];
 
-        int nxtLargest = 0;
-        int current = 0;
-        int amount = 0;
-        for (int i = 0; i < ranges.length; i++) {
-            if (ranges[i] > 0) {
-                int ind = Math.max(0, i - ranges[i]);
-                dp[ind] = Math.max(dp[ind], i + ranges[i]);
-            }
-        }
         for (int i = 0; i <= n; i++) {
-            nxtLargest = Math.max(nxtLargest, dp[i]);
-            if (i == current && i < n) {
-                current = nxtLargest;
-                amount++;
-            }
-            if (current < i) {
-                return -1;
-            }
+            int left = Math.max(0, i - ranges[i]);
+            int right = Math.min(n, i + ranges[i]);
+            maxReach[left] = Math.max(maxReach[left], right);
         }
-        return amount;
+
+        int taps = 0, currEnd = 0, farthest = 0;
+        for (int i = 0; i <= n; i++) {
+            if (i > farthest) return -1;
+            if (i > currEnd) {
+                taps++;
+                currEnd = farthest;
+            }
+            farthest = Math.max(farthest, maxReach[i]);
+        }
+        return taps;
     }
 }

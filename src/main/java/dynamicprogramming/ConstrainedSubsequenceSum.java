@@ -1,5 +1,6 @@
 package dynamicprogramming;
 
+import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -40,28 +41,23 @@ import java.util.LinkedList;
  */
 public class ConstrainedSubsequenceSum {
 
+
     public int constrainedSubsetSum(int[] nums, int k) {
-        int n = nums.length;
-        int res = Integer.MIN_VALUE;
-        LinkedList<int[]> mono = new LinkedList<>();
+        int n = nums.length, maxSum = Integer.MIN_VALUE;
+        Deque<int[]> deque = new LinkedList<>();
 
         for (int i = 0; i < n; i++) {
-            int take = nums[i];
+            if (!deque.isEmpty() && i - deque.peekFirst()[0] > k) {
+                deque.pollFirst();
+            }
+            int current = nums[i] + (deque.isEmpty() ? 0 : Math.max(0, deque.peekFirst()[1]));
+            maxSum = Math.max(maxSum, current);
 
-            while (!mono.isEmpty() && i - mono.getFirst()[0] > k) {
-                mono.removeFirst();
+            while (!deque.isEmpty() && deque.peekLast()[1] <= current) {
+                deque.pollLast();
             }
-            if (!mono.isEmpty()) {
-                int mx = Math.max(0, mono.getFirst()[1]);
-                take += mx;
-            }
-            while (!mono.isEmpty() && take > mono.getLast()[1]) {
-                mono.removeLast();
-            }
-
-            mono.add(new int[]{i, take});
-            res = Math.max(res, take);
+            deque.offerLast(new int[]{i, current});
         }
-        return res;
+        return maxSum;
     }
 }

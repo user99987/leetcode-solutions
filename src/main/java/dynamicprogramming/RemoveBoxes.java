@@ -41,27 +41,36 @@ package dynamicprogramming;
  */
 public class RemoveBoxes {
 
-    int[][][] dp;
+    private int[][][] dp;
 
     public int removeBoxes(int[] boxes) {
-        dp = new int[boxes.length][boxes.length][boxes.length + 1];
-        return calculate(0, boxes.length - 1, 1, boxes);
+        int n = boxes.length;
+        dp = new int[n][n][n + 1];
+        return calculate(0, n - 1, 0, boxes);
     }
 
-    int calculate(int l, int r, int n, int[] boxes) {
-        if (l > r) return 0;
-        else {
-            if (dp[l][r][n] != 0) return dp[l][r][n];
-            dp[l][r][n] = (n * n) + calculate(l + 1, r, 1, boxes);
-            for (int i = l + 1; i <= r; i++) {
-                int center = 0, next = 0;
-                if (boxes[l] == boxes[i]) {
-                    center = calculate(l + 1, i - 1, 1, boxes);
-                    next = calculate(i, r, n + 1, boxes);
-                }
-                dp[l][r][n] = Math.max(dp[l][r][n], center + next);
+    private int calculate(int left, int right, int count, int[] boxes) {
+        if (left > right) {
+            return 0;
+        }
+        if (dp[left][right][count] != 0) {
+            return dp[left][right][count];
+        }
+
+        while (left < right && boxes[left] == boxes[left + 1]) {
+            left++;
+            count++;
+        }
+
+        int maxPoints = (count + 1) * (count + 1) + calculate(left + 1, right, 0, boxes);
+
+        for (int mid = left + 1; mid <= right; mid++) {
+            if (boxes[left] == boxes[mid]) {
+                maxPoints = Math.max(maxPoints,
+                        calculate(left + 1, mid - 1, 0, boxes) + calculate(mid, right, count + 1, boxes));
             }
         }
-        return dp[l][r][n];
+
+        return dp[left][right][count] = maxPoints;
     }
 }

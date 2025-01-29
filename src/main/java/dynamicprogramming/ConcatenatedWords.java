@@ -1,7 +1,7 @@
 package dynamicprogramming;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -37,29 +37,32 @@ import java.util.Set;
 public class ConcatenatedWords {
 
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
-        Set<String> dictionary = new HashSet<>();
-        Collections.addAll(dictionary, words);
+        Set<String> dictionary = new HashSet<>(Arrays.asList(words));
         List<String> result = new ArrayList<>();
-        for (String w : words) {
-            if (!w.isEmpty() && concatenatedWordsPossible(w, dictionary)) result.add(w);
+
+        for (String word : words) {
+            if (!word.isEmpty() && canForm(word, dictionary)) {
+                result.add(word);
+            }
         }
         return result;
     }
 
-    private boolean concatenatedWordsPossible(String word, Set<String> dictionary) {
-        boolean[] D = new boolean[word.length() + 1];
-        D[word.length()] = true;
-        dictionary.remove(word); // remove current word from dictionary temporarily
-        for (int i = word.length() - 1; i >= 0; i--) {
-            for (int j = i, l = word.length(); j < l; j++) {
-                String subStr = word.substring(i, j + 1);
-                if (dictionary.contains(subStr) && D[j + 1]) {
-                    D[i] = true;
+    private boolean canForm(String word, Set<String> dictionary) {
+        dictionary.remove(word);
+        int n = word.length();
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (dp[j] && dictionary.contains(word.substring(j, i))) {
+                    dp[i] = true;
                     break;
                 }
             }
         }
-        dictionary.add(word); // restore deleted word
-        return D[0];
+        dictionary.add(word);
+        return dp[n];
     }
 }

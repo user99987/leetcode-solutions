@@ -33,29 +33,17 @@ package dynamicprogramming;
 public class MaximalSquare {
 
     public int maximalSquare(char[][] matrix) {
-        int m = matrix.length;
-        if (m == 0) {
-            return 0;
-        }
-        int n = matrix[0].length;
-        if (n == 0) {
-            return 0;
-        }
+        int m = matrix.length, n = matrix[0].length, maxSide = 0;
         int[][] dp = new int[m + 1][n + 1];
-        int max = 0;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (matrix[i][j] == '1') {
-                    // 1 + minimum from cell above, cell to the left, cell diagonal upper-left
-                    int next = 1 + Math.min(dp[i][j], Math.min(dp[i + 1][j], dp[i][j + 1]));
-                    // keep track of the maximum value seen
-                    if (next > max) {
-                        max = next;
-                    }
-                    dp[i + 1][j + 1] = next;
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (matrix[i - 1][j - 1] == '1') {
+                    dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;
+                    maxSide = Math.max(maxSide, dp[i][j]);
                 }
             }
         }
-        return max * max;
+        return maxSide * maxSide;
     }
 }

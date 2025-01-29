@@ -41,25 +41,24 @@ package dynamicprogramming;
  */
 public class CountVowelsPermutation {
 
+    private static final int MOD = 1_000_000_007;
+
     public int countVowelPermutation(int n) {
-        int mod = (int) 1e9 + 7;
-        int prevA = 1;
-        int prevE = 1;
-        int prevI = 1;
-        int prevO = 1;
-        int prevU = 1;
-        while (n-- > 1) {
-            int a = ((prevE + prevI) % mod + prevU) % mod;
-            int e = (prevA + prevI) % mod;
-            int i = (prevE + prevO) % mod;
-            int o = prevI;
-            int u = (prevI + prevO) % mod;
-            prevA = a;
-            prevE = e;
-            prevI = i;
-            prevO = o;
-            prevU = u;
+        long a = 1, e = 1, i = 1, o = 1, u = 1;
+
+        for (int j = 1; j < n; j++) {
+            long newA = (e + i + u) % MOD;
+            long newE = (a + i) % MOD;
+            long newI = (e + o) % MOD;
+            long newO = i % MOD;
+            long newU = (i + o) % MOD;
+
+            a = newA;
+            e = newE;
+            i = newI;
+            o = newO;
+            u = newU;
         }
-        return ((((prevA + prevE) % mod + prevI) % mod + prevO) % mod + prevU) % mod;
+        return (int) ((a + e + i + o + u) % MOD);
     }
 }

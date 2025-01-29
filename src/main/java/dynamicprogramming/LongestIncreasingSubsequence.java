@@ -39,16 +39,12 @@ public class LongestIncreasingSubsequence {
             return 0;
         }
         int[] dp = new int[nums.length + 1];
-        // prefill the dp table
         for (int i = 1; i < dp.length; i++) {
             dp[i] = Integer.MAX_VALUE;
         }
-        int left = 1;
-        int right = 1;
+        int left = 1, right = 1;
         for (int curr : nums) {
-            int start = left;
-            int end = right;
-            // binary search, find the one that is lower than curr
+            int start = left, end = right;
             while (start + 1 < end) {
                 int mid = start + (end - start) / 2;
                 if (dp[mid] > curr) {
@@ -57,7 +53,6 @@ public class LongestIncreasingSubsequence {
                     start = mid;
                 }
             }
-            // update our dp table
             if (dp[start] > curr) {
                 dp[start] = curr;
             } else if (curr > dp[start] && curr < dp[end]) {

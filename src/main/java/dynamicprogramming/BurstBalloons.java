@@ -34,28 +34,24 @@ package dynamicprogramming;
 public class BurstBalloons {
 
     public int maxCoins(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
-        }
-        int[][] dp = new int[nums.length][nums.length];
-        return balloonBurstDp(nums, dp);
-    }
+        int n = nums.length;
+        int[][] dp = new int[n][n];
 
-    private int balloonBurstDp(int[] nums, int[][] dp) {
-        for (int gap = 0; gap < nums.length; gap++) {
-            for (int si = 0, ei = gap; ei < nums.length; si++, ei++) {
-                int l = (si - 1 == -1) ? 1 : nums[si - 1];
-                int r = (ei + 1 == nums.length) ? 1 : nums[ei + 1];
-                int maxAns = (int) -1e7;
-                for (int cut = si; cut <= ei; cut++) {
-                    int leftAns = si == cut ? 0 : dp[si][cut - 1];
-                    int rightAns = ei == cut ? 0 : dp[cut + 1][ei];
-                    int myAns = leftAns + l * nums[cut] * r + rightAns;
-                    maxAns = Math.max(maxAns, myAns);
+        for (int gap = 0; gap < n; gap++) {
+            for (int left = 0, right = gap; right < n; left++, right++) {
+                int maxCoins = 0;
+                int leftVal = (left == 0) ? 1 : nums[left - 1];
+                int rightVal = (right == n - 1) ? 1 : nums[right + 1];
+
+                for (int i = left; i <= right; i++) {
+                    int coins = (i == left ? 0 : dp[left][i - 1])
+                            + leftVal * nums[i] * rightVal
+                            + (i == right ? 0 : dp[i + 1][right]);
+                    maxCoins = Math.max(maxCoins, coins);
                 }
-                dp[si][ei] = maxAns;
+                dp[left][right] = maxCoins;
             }
         }
-        return dp[0][nums.length - 1];
+        return dp[0][n - 1];
     }
 }

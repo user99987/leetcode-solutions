@@ -1,5 +1,7 @@
 package dynamicprogramming;
 
+import java.util.PriorityQueue;
+
 /**
  * Hard
  * <p>
@@ -54,23 +56,19 @@ package dynamicprogramming;
  */
 public class MinimumNumberOfRefuelingStops {
 
+
     public int minRefuelStops(int target, int startFuel, int[][] stations) {
-        long[] dp = new long[stations.length + 1];
-        dp[0] = startFuel;
-        for (int i = 0; i < stations.length; i++) {
-            int d = stations[i][0];
-            int f = stations[i][1];
-            for (int j = i; j >= 0; j--) {
-                if (dp[j] >= d) {
-                    dp[j + 1] = Math.max(dp[j + 1], dp[j] + f);
-                }
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        int fuel = startFuel, stops = 0, index = 0;
+
+        while (fuel < target) {
+            while (index < stations.length && stations[index][0] <= fuel) {
+                pq.offer(stations[index++][1]);
             }
+            if (pq.isEmpty()) return -1;
+            fuel += pq.poll();
+            stops++;
         }
-        for (int i = 0; i < dp.length; i++) {
-            if (dp[i] >= target) {
-                return i;
-            }
-        }
-        return -1;
+        return stops;
     }
 }

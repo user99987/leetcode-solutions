@@ -37,30 +37,25 @@ package dynamicprogramming;
  */
 public class FreedomTrail {
 
-    int[][] DP;
+    private int[][] dp;
 
     public int findRotateSteps(String ring, String key) {
-        DP = new int[ring.length()][key.length()];
-        return dp(0, ring, key, 0) + key.length();
+        dp = new int[ring.length()][key.length()];
+        return calculateSteps(0, 0, ring, key) + key.length();
     }
 
-    private int dp(int i, String ring, String key, int k) {
-        if (k == key.length()) return 0;
-        else {
-            if (DP[i][k] != 0) return DP[i][k];
-            char c = key.charAt(k);
-            int min = Integer.MAX_VALUE;
-            for (int j = 0; j < ring.length(); j++) {
-                if (ring.charAt(j) == c) {
-                    min =
-                            Math.min(
-                                    min,
-                                    Math.min(Math.abs(i - j), ring.length() - Math.abs(i - j))
-                                            + dp(j, ring, key, k + 1));
-                }
+    private int calculateSteps(int i, int j, String ring, String key) {
+        if (j == key.length()) return 0;
+        if (dp[i][j] != 0) return dp[i][j];
+
+        char target = key.charAt(j);
+        int minSteps = Integer.MAX_VALUE;
+        for (int k = 0; k < ring.length(); k++) {
+            if (ring.charAt(k) == target) {
+                int steps = Math.min(Math.abs(i - k), ring.length() - Math.abs(i - k));
+                minSteps = Math.min(minSteps, steps + calculateSteps(k, j + 1, ring, key));
             }
-            DP[i][k] = min;
-            return min;
         }
+        return dp[i][j] = minSteps;
     }
 }

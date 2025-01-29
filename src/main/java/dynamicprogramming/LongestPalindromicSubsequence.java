@@ -31,16 +31,19 @@ package dynamicprogramming;
 public class LongestPalindromicSubsequence {
 
     public int longestPalindromeSubseq(String s) {
-        int[][] dp = new int[s.length() + 1][s.length() + 1];
-        String sI = new StringBuilder(s).reverse().toString();
-        for (int i = 1, l = s.length(); i <= l; i++)
-            for (int j = 1; j <= l; j++) {
-                dp[i][j] =
-                        (s.charAt(i - 1) == sI.charAt(j - 1))
-                                ? dp[i - 1][j - 1] + 1
-                                : Math.max(dp[i - 1][j], dp[i][j - 1]);
-            }
+        int n = s.length();
+        int[][] dp = new int[n][n];
 
-        return dp[s.length()][s.length()];
+        for (int i = n - 1; i >= 0; i--) {
+            dp[i][i] = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = dp[i + 1][j - 1] + 2;
+                } else {
+                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[0][n - 1];
     }
 }

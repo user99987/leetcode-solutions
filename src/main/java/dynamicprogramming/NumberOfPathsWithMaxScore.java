@@ -38,6 +38,7 @@ import java.util.List;
 public class NumberOfPathsWithMaxScore {
 
     private static final int[][] DIRECTIONS = new int[][]{{1, 0}, {0, 1}, {1, 1}};
+    private static final int MOD = 1_000_000_007;
 
     public int[] pathsWithMaxScore(List<String> board) {
         int rows = board.size();
@@ -61,7 +62,7 @@ public class NumberOfPathsWithMaxScore {
                                 maxScore = dp[nextR][nextC][0] + currentScore;
                                 paths = dp[nextR][nextC][1];
                             } else if (dp[nextR][nextC][0] + currentScore == maxScore) {
-                                paths = (paths + dp[nextR][nextC][1]) % 1000000007;
+                                paths = (paths + dp[nextR][nextC][1]) % MOD;
                             }
                         }
                     }

@@ -39,10 +39,9 @@ package dynamicprogramming;
 public class MinCostClimbingStairs {
 
     public int minCostClimbingStairs(int[] cost) {
-        for (int i = cost.length - 1; i >= 0; i--) {
-            if (i + 1 < cost.length && i + 2 < cost.length) {
-                cost[i] = Math.min(cost[i] + cost[i + 1], cost[i] + cost[i + 2]);
-            }
+        int n = cost.length;
+        for (int i = n - 3; i >= 0; i--) {
+            cost[i] += Math.min(cost[i + 1], cost[i + 2]);
         }
         return Math.min(cost[0], cost[1]);
     }

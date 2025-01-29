@@ -66,10 +66,8 @@ public class KnightDialer {
     }
 
     public int knightDialer(int n) {
-        if (n == 1) {
-            return 10;
-        }
-        int mod = 1000_000_007;
+        if (n == 1) return 10;
+        int mod = 1_000_000_007;
         while (MEMO.size() < n) {
             int[] cur = MEMO.get(MEMO.size() - 1);
             int[] next = new int[10];

@@ -46,67 +46,67 @@ import java.util.HashSet;
  */
 public class StickersToSpellWord {
 
-    // For each character, save the sticker index which has this character
-    private final HashMap<Character, HashSet<Integer>> map = new HashMap<>();
-    private final HashMap<Integer, Integer> cache = new HashMap<>();
-    // count the characters of every sticker
-    private int[][] counts;
+    private final HashMap<Character, HashSet<Integer>> charToStickers = new HashMap<>();
+    private final HashMap<Integer, Integer> memo = new HashMap<>();
+    private int[][] stickerCounts;
 
     public int minStickers(String[] stickers, String target) {
-        counts = new int[stickers.length][26];
+        int n = stickers.length;
+        stickerCounts = new int[n][26];
+
         for (int i = 0; i < 26; i++) {
-            map.put((char) ('a' + i), new HashSet<>());
+            charToStickers.put((char) ('a' + i), new HashSet<>());
         }
-        for (int i = 0; i < stickers.length; i++) {
+
+        for (int i = 0; i < n; i++) {
             for (char c : stickers[i].toCharArray()) {
-                counts[i][c - 'a']++;
-                map.get(c).add(i);
+                stickerCounts[i][c - 'a']++;
+                charToStickers.get(c).add(i);
             }
         }
-        int res = dp(0, target);
-        if (res > target.length()) {
-            return -1;
-        }
-        return res;
+
+        int result = findMinStickers(0, target);
+        return result > target.length() ? -1 : result;
     }
 
-    private int dp(int bits, String target) {
-        int len = target.length();
-        if (bits == (1 << len) - 1) {
-            // all bits are 1
+    private int findMinStickers(int bitmask, String target) {
+        int targetLength = target.length();
+        if (bitmask == (1 << targetLength) - 1) {
             return 0;
         }
-        if (cache.containsKey(bits)) {
-            return cache.get(bits);
+        if (memo.containsKey(bitmask)) {
+            return memo.get(bitmask);
         }
+
         int index = 0;
-        // find the first bit which is 0
-        for (int i = 0; i < len; i++) {
-            if ((bits & (1 << i)) == 0) {
+        for (int i = 0; i < targetLength; i++) {
+            if ((bitmask & (1 << i)) == 0) {
                 index = i;
                 break;
             }
         }
-        // In worst case, each character use 1 sticker. So, len + 1 means impossible
-        int res = len + 1;
-        for (int key : map.get(target.charAt(index))) {
-            int[] count = counts[key].clone();
-            int mask = bits;
-            for (int i = index; i < len; i++) {
-                if ((mask & (1 << i)) != 0) {
-                    // this bit has already been 1
+
+        int minStickers = targetLength + 1;
+        for (int stickerIndex : charToStickers.get(target.charAt(index))) {
+            int[] count = stickerCounts[stickerIndex].clone();
+            int newBitmask = bitmask;
+
+            for (int i = index; i < targetLength; i++) {
+                if ((newBitmask & (1 << i)) != 0) {
                     continue;
                 }
                 char c = target.charAt(i);
                 if (count[c - 'a'] > 0) {
                     count[c - 'a']--;
-                    mask |= (1 << i);
+                    newBitmask |= (1 << i);
                 }
             }
-            int val = dp(mask, target) + 1;
-            res = Math.min(res, val);
+
+            int stickersUsed = findMinStickers(newBitmask, target) + 1;
+            minStickers = Math.min(minStickers, stickersUsed);
         }
-        cache.put(bits, res);
-        return res;
+
+        memo.put(bitmask, minStickers);
+        return minStickers;
     }
 }

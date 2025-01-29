@@ -50,28 +50,34 @@ import java.util.Arrays;
  */
 public class NumberOfWaysToStayInTheSamePlace {
 
-    private static final int MOD = (int) (1e9 + 7);
-    int[][] DP;
+    private static final int MOD = 1_000_000_007;
+    private int[][] dp;
 
     public int numWays(int steps, int arrLen) {
-        int colLimit = Math.min(arrLen, steps);
-        DP = new int[colLimit + 1][steps + 1];
-        for (int i = 0; i <= colLimit; i++) {
-            Arrays.fill(DP[i], -1);
+        int maxPos = Math.min(arrLen - 1, steps / 2);
+        dp = new int[steps + 1][maxPos + 1];
+        for (int[] row : dp) {
+            Arrays.fill(row, -1);
         }
-        DP[0][0] = 1;
-        return (int) dp(0, steps, arrLen);
+        return findWays(steps, 0, maxPos);
     }
 
-    private long dp(int i, int n, int A) {
-        if (i < 0 || i >= A) return 0;
-        else if (n < 0) return 0;
-        if (DP[i][n] != -1) return DP[i][n];
-        DP[i][n] =
-                (int)
-                        (((((dp(i, n - 1, A) % MOD) + (dp(i - 1, n - 1, A) % MOD)) % MOD)
-                                + (dp(i + 1, n - 1, A) % MOD))
-                                % MOD);
-        return DP[i][n];
+    private int findWays(int remainingSteps, int position, int maxPos) {
+        if (remainingSteps == 0) {
+            return position == 0 ? 1 : 0;
+        }
+        if (dp[remainingSteps][position] != -1) {
+            return dp[remainingSteps][position];
+        }
+
+        int ways = findWays(remainingSteps - 1, position, maxPos);
+        if (position > 0) {
+            ways = (ways + findWays(remainingSteps - 1, position - 1, maxPos)) % MOD;
+        }
+        if (position < maxPos) {
+            ways = (ways + findWays(remainingSteps - 1, position + 1, maxPos)) % MOD;
+        }
+
+        return dp[remainingSteps][position] = ways;
     }
 }

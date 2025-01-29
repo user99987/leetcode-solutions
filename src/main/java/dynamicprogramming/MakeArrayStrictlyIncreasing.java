@@ -50,8 +50,7 @@ public class MakeArrayStrictlyIncreasing {
                 arr2[++start] = arr2[i];
             }
         }
-        int l2 = start + 1;
-        int[] dp = new int[l2 + 2];
+        int[] dp = new int[start + 3];
         for (int i = 0; i < arr1.length; i++) {
             int noChange = dp[dp.length - 1];
             if (i > 0 && (arr1[i - 1] >= arr1[i])) {
@@ -76,12 +75,12 @@ public class MakeArrayStrictlyIncreasing {
             dp[0] = -1;
             dp[dp.length - 1] = noChange;
         }
-        int res = -1;
+        int result = -1;
         for (int num : dp) {
             if (num != -1) {
-                res = res == -1 ? num : Math.min(res, num);
+                result = result == -1 ? num : Math.min(result, num);
             }
         }
-        return res;
+        return result;
     }
 }

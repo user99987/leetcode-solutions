@@ -44,23 +44,25 @@ package dynamicprogramming;
  */
 public class ProfitableSchemes {
 
+    private static final int MOD = 1_000_000_007;
+
     public int profitableSchemes(int n, int minProfit, int[] group, int[] profit) {
-        long[][] dp = new long[n + 1][minProfit + 1];
-        long modulus = 1000000007L;
-        for (int i = 0; i < dp.length; i++) {
-            dp[i][0] = 1;
-        }
+        int[][] dp = new int[n + 1][minProfit + 1];
+        dp[0][0] = 1;
+
         for (int i = 0; i < group.length; i++) {
-            int currWorker = group[i];
-            int currProfit = profit[i];
-            for (int j = dp.length - 1; j >= currWorker; j--) {
-                for (int k = dp[j].length - 1; k >= 0; k--) {
-                    dp[j][k] =
-                            (dp[j][k] + dp[j - currWorker][Math.max((k - currProfit), 0)])
-                                    % modulus;
+            int members = group[i], gain = profit[i];
+            for (int people = n; people >= members; people--) {
+                for (int p = minProfit; p >= 0; p--) {
+                    dp[people][p] = (dp[people][p] + dp[people - members][Math.max(0, p - gain)]) % MOD;
                 }
             }
         }
-        return (int) dp[n][minProfit];
+
+        int totalWays = 0;
+        for (int people = 0; people <= n; people++) {
+            totalWays = (totalWays + dp[people][minProfit]) % MOD;
+        }
+        return totalWays;
     }
 }

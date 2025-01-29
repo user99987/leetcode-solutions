@@ -23,24 +23,21 @@ package bitmanipulation;
  * <p>
  * Constraints:
  * <p>
- * 1 <= nums.length <= 104
- * 0 <= nums[i] <= 109
+ * 1 <= nums.length <= 10^4
+ * 0 <= nums[i] <= 10^9
  * The answer for the given input will fit in a 32-bit integer.
  */
 public class TotalHammingDistance {
 
     public int totalHammingDistance(int[] nums) {
-        int sum = 0;
+        int total = 0, n = nums.length;
         for (int i = 0; i < 32; i++) {
-            int numOfOnes = 0;
-            int p = (1 << i);
+            int countOnes = 0;
             for (int num : nums) {
-                if ((num & p) > 0) {
-                    numOfOnes++;
-                }
+                countOnes += (num >> i) & 1;
             }
-            sum += ((nums.length - numOfOnes) * numOfOnes);
+            total += countOnes * (n - countOnes);
         }
-        return sum;
+        return total;
     }
 }

@@ -38,18 +38,18 @@ package binarysearch;
 public class KokoEatingBananas {
 
     public int minEatingSpeed(int[] piles, int h) {
-        int maxP = piles[0];
-        long sumP = 0L;
+        int maxP = 0;
+        long sumP = 0;
         for (int pile : piles) {
             maxP = Math.max(maxP, pile);
             sumP += pile;
         }
-        // binary search
+
         int low = (int) ((sumP - 1) / h + 1);
         int high = maxP;
         while (low < high) {
             int mid = low + (high - low) / 2;
-            if (isPossible(piles, mid, h)) {
+            if (canFinish(piles, mid, h)) {
                 high = mid;
             } else {
                 low = mid + 1;
@@ -58,11 +58,11 @@ public class KokoEatingBananas {
         return low;
     }
 
-    private boolean isPossible(int[] piles, int k, int h) {
-        int sum = 0;
+    private boolean canFinish(int[] piles, int speed, int h) {
+        int totalHours = 0;
         for (int pile : piles) {
-            sum += (pile - 1) / k + 1;
+            totalHours += (pile + speed - 1) / speed;
         }
-        return sum <= h;
+        return totalHours <= h;
     }
 }

@@ -1,7 +1,6 @@
 package dynamicprogramming;
 
 import java.util.ArrayDeque;
-import java.util.Objects;
 import java.util.Queue;
 
 /**
@@ -39,32 +38,35 @@ import java.util.Queue;
 public class ShortestPathVisitingAllNodes {
 
     public int shortestPathLength(int[][] graph) {
-        int target = (1 << graph.length) - 1;
-        Queue<int[]> q = new ArrayDeque<>();
-        for (int i = 0; i < graph.length; ++i) {
-            q.offer(new int[]{i, 1 << i});
+        int n = graph.length, targetState = (1 << n) - 1;
+        Queue<int[]> queue = new ArrayDeque<>();
+        boolean[][] visited = new boolean[n][targetState + 1];
+
+        for (int i = 0; i < n; i++) {
+            queue.offer(new int[]{i, 1 << i});
+            visited[i][1 << i] = true;
         }
+
         int steps = 0;
-        boolean[][] visited = new boolean[graph.length][target + 1];
-        while (!q.isEmpty()) {
-            int size = q.size();
-            for (int i = 0; i < size; ++i) {
-                int[] curr = q.poll();
-                int currNode = Objects.requireNonNull(curr)[0];
-                int currState = curr[1];
-                if (currState == target) {
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                int[] curr = queue.poll();
+                int node = curr[0], state = curr[1];
+
+                if (state == targetState) {
                     return steps;
                 }
-                for (int n : graph[currNode]) {
-                    int newState = currState | 1 << n;
-                    if (visited[n][newState]) {
-                        continue;
+
+                for (int neighbor : graph[node]) {
+                    int nextState = state | (1 << neighbor);
+                    if (!visited[neighbor][nextState]) {
+                        visited[neighbor][nextState] = true;
+                        queue.offer(new int[]{neighbor, nextState});
                     }
-                    visited[n][newState] = true;
-                    q.offer(new int[]{n, newState});
                 }
             }
-            ++steps;
+            steps++;
         }
         return -1;
     }

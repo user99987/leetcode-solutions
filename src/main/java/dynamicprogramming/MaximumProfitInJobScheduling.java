@@ -44,31 +44,37 @@ public class MaximumProfitInJobScheduling {
 
     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
         int n = startTime.length;
-        int[][] time = new int[n][3];
+        int[][] jobs = new int[n][3];
+
         for (int i = 0; i < n; i++) {
-            time[i][0] = startTime[i];
-            time[i][1] = endTime[i];
-            time[i][2] = profit[i];
+            jobs[i] = new int[]{startTime[i], endTime[i], profit[i]};
         }
-        Arrays.sort(time, Comparator.comparingInt(a -> a[1]));
-        int[][] maxP = new int[n][2];
-        int lastPos = -1;
-        int currProfit;
-        for (int i = 0; i < n; i++) {
-            currProfit = time[i][2];
-            for (int j = lastPos; j >= 0; j--) {
-                if (maxP[j][1] <= time[i][0]) {
-                    currProfit += maxP[j][0];
-                    break;
-                }
-            }
-            if (lastPos == -1 || currProfit > maxP[lastPos][0]) {
-                lastPos++;
-                maxP[lastPos][0] = currProfit;
-                maxP[lastPos][1] = time[i][1];
+        Arrays.sort(jobs, Comparator.comparingInt(a -> a[1]));
+
+        int[] dp = new int[n];
+        dp[0] = jobs[0][2];
+
+        for (int i = 1; i < n; i++) {
+            int include = jobs[i][2];
+            int l = binarySearch(jobs, i);
+            if (l != -1) include += dp[l];
+            dp[i] = Math.max(dp[i - 1], include);
+        }
+        return dp[n - 1];
+    }
+
+    private int binarySearch(int[][] jobs, int index) {
+        int left = 0, right = index - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (jobs[mid][1] <= jobs[index][0]) {
+                if (jobs[mid + 1][1] <= jobs[index][0]) left = mid + 1;
+                else return mid;
+            } else {
+                right = mid - 1;
             }
         }
-        return maxP[lastPos][0];
+        return -1;
     }
 
 }

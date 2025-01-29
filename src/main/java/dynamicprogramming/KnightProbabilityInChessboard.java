@@ -38,7 +38,7 @@ package dynamicprogramming;
 public class KnightProbabilityInChessboard {
 
     private final int[][] directions =
-            new int[][]{{-2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, -1}, {2, 1}, {1, -2}, {-1, -2}};
+            {{-2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, -1}, {2, 1}, {1, -2}, {-1, -2}};
     private double[][][] probabilityGiven;
 
     public double knightProbability(int n, int k, int row, int column) {
@@ -47,23 +47,19 @@ public class KnightProbabilityInChessboard {
     }
 
     private double probability(int row, int column, int k, int n) {
-        if (k == 0) {
-            return 1.0;
-        } else if (probabilityGiven[row][column][k] != 0) {
-            return probabilityGiven[row][column][k];
-        } else {
-            double p = 0d;
-            for (int[] dir : directions) {
-                if (isValid(row + dir[0], column + dir[1], n)) {
-                    p += probability(row + dir[0], column + dir[1], k - 1, n);
-                }
+        if (k == 0) return 1.0;
+        if (probabilityGiven[row][column][k] != 0) return probabilityGiven[row][column][k];
+
+        double p = 0;
+        for (int[] dir : directions) {
+            if (isValid(row + dir[0], column + dir[1], n)) {
+                p += probability(row + dir[0], column + dir[1], k - 1, n);
             }
-            probabilityGiven[row][column][k] = p / 8.0;
-            return probabilityGiven[row][column][k];
         }
+        return probabilityGiven[row][column][k] = p / 8.0;
     }
 
     private boolean isValid(int row, int column, int n) {
-        return (row >= 0 && row < n && column >= 0 && column < n);
+        return row >= 0 && row < n && column >= 0 && column < n;
     }
 }
