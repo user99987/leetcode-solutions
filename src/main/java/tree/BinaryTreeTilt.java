@@ -58,7 +58,7 @@ public class BinaryTreeTilt {
         int ls = sumTilt(root.left);
         int rs = sumTilt(root.right);
         sum += Math.abs(ls - rs);
-        return ls + rs + root.val;
+        return ls + rs + root.value;
     }
 
     public int findTilt(TreeNode root) {

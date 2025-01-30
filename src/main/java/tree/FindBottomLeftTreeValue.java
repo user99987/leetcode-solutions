@@ -37,7 +37,7 @@ public class FindBottomLeftTreeValue {
     private void inorder(TreeNode node, int level) {
         if (node != null) {
             if (level > max) {
-                result = node.val;
+                result = node.value;
                 max = level;
             }
             inorder(node.left, level + 1);

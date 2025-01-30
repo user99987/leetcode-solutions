@@ -41,7 +41,7 @@ public class FindLargestValueInEachTreeRow {
                 int size = queue.size();
                 for (int i = 0; i < size; i++) {
                     TreeNode curr = queue.poll();
-                    max = Math.max(max, curr.val);
+                    max = Math.max(max, curr.value);
                     if (curr.left != null) {
                         queue.offer(curr.left);
                     }

@@ -1,5 +1,6 @@
 package binarysearch;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -47,7 +48,7 @@ public class SwimInRisingWater {
 
     public int swimInWater(int[][] grid) {
         int n = grid.length;
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[2] - b[2]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[2]));
         boolean[][] visited = new boolean[n][n];
 
         pq.offer(new int[]{0, 0, grid[0][0]});

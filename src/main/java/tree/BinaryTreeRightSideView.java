@@ -35,7 +35,7 @@ import java.util.List;
  */
 public class BinaryTreeRightSideView {
 
-    List<Integer> list = new ArrayList<>();
+    final List<Integer> list = new ArrayList<>();
     private int maxHeight = Integer.MIN_VALUE;
 
     public List<Integer> rightSideView(TreeNode root) {
@@ -47,7 +47,7 @@ public class BinaryTreeRightSideView {
     private void dfs(TreeNode node, int height) {
         if (node != null) {
             if (height > maxHeight) {
-                list.add(node.val);
+                list.add(node.value);
                 maxHeight = height;
             }
             dfs(node.right, height + 1);

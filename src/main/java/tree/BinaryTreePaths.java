@@ -42,10 +42,10 @@ public class BinaryTreePaths {
     private void inorder(TreeNode node, List<String> list, String path) {
         if (node != null) {
             if (node.left == null && node.right == null) {
-                list.add(path + node.val);
+                list.add(path + node.value);
             } else {
-                inorder(node.left, list, path + node.val + "->");
-                inorder(node.right, list, path + node.val + "->");
+                inorder(node.left, list, path + node.value + "->");
+                inorder(node.right, list, path + node.value + "->");
             }
         }
     }

@@ -48,7 +48,7 @@ public class AverageOfLevelsInBinaryTree {
         }
         Double[] pair = map.containsKey(level) ? map.get(level) : new Double[]{0.0, 0.0};
         pair[0] += 1;
-        pair[1] += root.val;
+        pair[1] += root.value;
         map.put(level, pair);
         helper(root.left, map, level + 1);
         helper(root.right, map, level + 1);

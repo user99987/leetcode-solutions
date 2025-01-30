@@ -11,16 +11,16 @@ class ConvertSortedArrayToBinarySearchTreeTest {
     void testCase1() {
         TreeNode node = new ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(new int[]{-10, -3, 0, 5, 9});
         assertThat(node).isNotNull();
-        assertThat(node.val).isEqualTo(0);
+        assertThat(node.value).isEqualTo(0);
         assertThat(node.left).isNotNull();
-        assertThat(node.left.val).isEqualTo(-10);
+        assertThat(node.left.value).isEqualTo(-10);
         assertThat(node.left.left).isNull();
         assertThat(node.left.right).isNotNull();
-        assertThat(node.left.right.val).isEqualTo(-3);
+        assertThat(node.left.right.value).isEqualTo(-3);
         assertThat(node.right).isNotNull();
-        assertThat(node.right.val).isEqualTo(5);
+        assertThat(node.right.value).isEqualTo(5);
         assertThat(node.right.right).isNotNull();
-        assertThat(node.right.right.val).isEqualTo(9);
+        assertThat(node.right.right.value).isEqualTo(9);
         assertThat(node.right.left).isNull();
     }
 
@@ -28,10 +28,10 @@ class ConvertSortedArrayToBinarySearchTreeTest {
     void testCase2() {
         TreeNode node = new ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(new int[]{1, 3});
         assertThat(node).isNotNull();
-        assertThat(node.val).isEqualTo(1);
+        assertThat(node.value).isEqualTo(1);
         assertThat(node.left).isNull();
         assertThat(node.right).isNotNull();
-        assertThat(node.right.val).isEqualTo(3);
+        assertThat(node.right.value).isEqualTo(3);
     }
 
 }

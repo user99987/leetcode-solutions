@@ -60,7 +60,7 @@ public class MostFrequentSubtreeSum {
         }
         int left = fun(node.left, hm);
         int right = fun(node.right, hm);
-        int sum = node.val + left + right;
+        int sum = node.value + left + right;
         if (hm.containsKey(sum)) {
             hm.put(sum, hm.get(sum) + 1);
         } else {

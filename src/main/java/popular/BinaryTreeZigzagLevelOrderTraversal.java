@@ -49,8 +49,8 @@ public class BinaryTreeZigzagLevelOrderTraversal {
             int size = queue.size();
             while (size-- > 0) {
                 TreeNode node = queue.poll();
-                if (leftToRight) level.add(node.val);
-                else level.add(0, node.val);
+                if (leftToRight) level.add(node.value);
+                else level.add(0, node.value);
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
             }

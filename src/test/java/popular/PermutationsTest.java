@@ -36,8 +36,8 @@ public class PermutationsTest {
     @Test
     public void testCase3() {
         List<List<Integer>> result = new Permutations().permute(new int[]{1});
-        List<List<Integer>> expected = Arrays.asList(
-                Arrays.asList(1)
+        List<List<Integer>> expected = List.of(
+                List.of(1)
         );
         assertEquals(expected, result);
     }

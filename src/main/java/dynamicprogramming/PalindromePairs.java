@@ -96,9 +96,9 @@ public class PalindromePairs {
     }
 
     private static class TrieNode {
-        TrieNode[] children;
+        final TrieNode[] children;
+        final List<Integer> palindromeList;
         int wordIndex;
-        List<Integer> palindromeList;
 
         TrieNode() {
             children = new TrieNode[26];

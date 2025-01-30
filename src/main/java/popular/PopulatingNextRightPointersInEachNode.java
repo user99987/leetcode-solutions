@@ -40,13 +40,13 @@ public class PopulatingNextRightPointersInEachNode {
         if (root == null) return null;
         Node levelStart = root;
         while (levelStart.left != null) {
-            Node cur = levelStart;
-            while (cur != null) {
-                cur.left.next = cur.right;
-                if (cur.next != null) {
-                    cur.right.next = cur.next.left;
+            Node current = levelStart;
+            while (current != null) {
+                current.left.next = current.right;
+                if (current.next != null) {
+                    current.right.next = current.next.left;
                 }
-                cur = cur.next;
+                current = current.next;
             }
             levelStart = levelStart.left;
         }
@@ -54,7 +54,7 @@ public class PopulatingNextRightPointersInEachNode {
     }
 
     public static class Node {
-        public int val;
+        final public int val;
         public Node left;
         public Node right;
         public Node next;

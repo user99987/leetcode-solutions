@@ -2,6 +2,7 @@ package popular;
 
 import utils.ListNode;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -43,7 +44,7 @@ import java.util.PriorityQueue;
 public class MergeKSortedLists {
 
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> minHeap = new PriorityQueue<>((a, b) -> Integer.compare(a.val, b.val));
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a.value));
         for (ListNode node : lists) {
             if (node != null) {
                 minHeap.add(node);

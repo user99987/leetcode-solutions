@@ -60,7 +60,7 @@ public class BinaryTreeInorderTraversal {
                 curr = curr.left;
             }
             curr = stack.pop();
-            inorder.add(curr.val);
+            inorder.add(curr.value);
             curr = curr.right;
         }
 

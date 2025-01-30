@@ -32,6 +32,6 @@ public class MergeKSortedListsTest {
         ListNode[] lists = new ListNode[]{new ListNode()};
         ListNode result = new MergeKSortedLists().mergeKLists(lists);
         assertNull(result.next);
-        assertEquals(0, result.val);
+        assertEquals(0, result.value);
     }
 }

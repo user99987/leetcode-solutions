@@ -17,7 +17,7 @@ public class LowestCommonAncestorBSTTest {
         queue.offer(root);
         while (!queue.isEmpty()) {
             TreeNode current = queue.poll();
-            if (current.val == val) return current;
+            if (current.value == val) return current;
             if (current.left != null) queue.offer(current.left);
             if (current.right != null) queue.offer(current.right);
         }
@@ -31,7 +31,7 @@ public class LowestCommonAncestorBSTTest {
         TreeNode q = findNode(root, 1);
         TreeNode actual = new LowestCommonAncestorBST().lowestCommonAncestor(root, p, q);
         assertNotNull(actual);
-        assertEquals(3, actual.val);
+        assertEquals(3, actual.value);
     }
 
     @Test
@@ -41,6 +41,6 @@ public class LowestCommonAncestorBSTTest {
         TreeNode q = findNode(root, 2);
         TreeNode actual = new LowestCommonAncestorBST().lowestCommonAncestor(root, p, q);
         assertNotNull(actual);
-        assertEquals(1, actual.val);
+        assertEquals(1, actual.value);
     }
 }

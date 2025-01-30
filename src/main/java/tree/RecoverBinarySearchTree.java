@@ -36,9 +36,9 @@ public class RecoverBinarySearchTree {
 
     public void recoverTree(TreeNode root) {
         evalSwappedNodes(root);
-        int temp = first.val;
-        first.val = second.val;
-        second.val = temp;
+        int temp = first.value;
+        first.value = second.value;
+        second.value = temp;
     }
 
     private void evalSwappedNodes(TreeNode curr) {
@@ -46,7 +46,7 @@ public class RecoverBinarySearchTree {
             return;
         }
         evalSwappedNodes(curr.left);
-        if (prev != null && prev.val > curr.val) {
+        if (prev != null && prev.value > curr.value) {
             if (first == null) {
                 first = prev;
             }

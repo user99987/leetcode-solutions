@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.Queue;
 
 public class TreeNode {
-    public int val;
+    public int value;
     public TreeNode left;
     public TreeNode right;
 
-    public TreeNode(int val) {
-        this.val = val;
+    public TreeNode(int value) {
+        this.value = value;
     }
 
-    public TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
+    public TreeNode(int value, TreeNode left, TreeNode right) {
+        this.value = value;
         this.left = left;
         this.right = right;
     }
@@ -29,14 +29,12 @@ public class TreeNode {
         while (index < values.length) {
             TreeNode current = queue.poll();
             if (current != null) {
-                // Left child
                 Integer leftVal = values[index++];
                 if (leftVal != null) {
                     current.left = new TreeNode(leftVal);
                 }
                 queue.offer(current.left);
 
-                // Right child
                 if (index < values.length) {
                     Integer rightVal = values[index++];
                     if (rightVal != null) {
@@ -57,7 +55,7 @@ public class TreeNode {
         while (!queue.isEmpty()) {
             TreeNode current = queue.poll();
             if (current != null) {
-                result.add(current.val);
+                result.add(current.value);
                 queue.offer(current.left);
                 queue.offer(current.right);
             }

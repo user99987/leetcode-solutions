@@ -29,14 +29,13 @@ public class MoveZeroes {
     public void moveZeroes(int[] nums) {
         int i = 0;
         for (int j = 0, l = nums.length; j < l; ) {
-            if (nums[j] == 0) j++;
-            else {
+            if (nums[j] != 0) {
                 int temp = nums[i];
                 nums[i] = nums[j];
                 nums[j] = temp;
                 i++;
-                j++;
             }
+            j++;
         }
         while (i < nums.length) nums[i++] = 0;
     }

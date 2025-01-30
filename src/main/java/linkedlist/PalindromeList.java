@@ -45,7 +45,7 @@ public class PalindromeList {
         }
 
         while (prev != null) {
-            if (prev.val != slow.val) {
+            if (prev.value != slow.value) {
                 return false;
             }
             prev = prev.next;

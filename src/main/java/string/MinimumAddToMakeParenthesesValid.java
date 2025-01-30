@@ -1,8 +1,5 @@
 package string;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 /**
  * Medium
  * <p>

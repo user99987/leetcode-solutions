@@ -33,6 +33,6 @@ public class SymmetricTree {
     private boolean isMirror(TreeNode left, TreeNode right) {
         return left == null || right == null
                 ? left == right
-                : left.val == right.val && isMirror(left.left, right.right) && isMirror(left.right, right.left);
+                : left.value == right.value && isMirror(left.left, right.right) && isMirror(left.right, right.left);
     }
 }

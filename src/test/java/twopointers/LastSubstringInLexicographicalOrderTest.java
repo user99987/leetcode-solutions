@@ -1,7 +1,6 @@
-package tree;
+package twopointers;
 
 import org.junit.jupiter.api.Test;
-import twopointers.LastSubstringInLexicographicalOrder;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

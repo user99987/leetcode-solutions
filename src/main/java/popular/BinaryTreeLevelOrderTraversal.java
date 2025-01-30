@@ -50,7 +50,7 @@ public class BinaryTreeLevelOrderTraversal {
             while (size-- > 0) {
                 TreeNode node = queue.poll();
                 assert node != null;
-                level.add(node.val);
+                level.add(node.value);
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
             }

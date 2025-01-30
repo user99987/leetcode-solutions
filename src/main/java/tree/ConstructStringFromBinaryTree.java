@@ -49,7 +49,7 @@ public class ConstructStringFromBinaryTree {
         if (root == null) {
             return;
         }
-        sb.append(root.val);
+        sb.append(root.value);
         if (root.left != null) {
             sb.append("(");
             preorder(root.left, sb);

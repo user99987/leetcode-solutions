@@ -38,7 +38,7 @@ public class NextGreaterNodeInLinkedList {
     public int[] nextLargerNodes(ListNode head) {
         ArrayList<Integer> values = new ArrayList<>();
         while (head != null) {
-            values.add(head.val);
+            values.add(head.value);
             head = head.next;
         }
 

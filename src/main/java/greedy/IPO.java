@@ -1,4 +1,8 @@
 package greedy;
+
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * Hard
  * <p>
@@ -46,9 +50,6 @@ package greedy;
  * 0 <= profits[i] <= 10^4
  * 0 <= capital[i] <= 10^9
  */
-
-import java.util.Comparator;
-import java.util.PriorityQueue;
 
 public class IPO {
 

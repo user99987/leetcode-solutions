@@ -4,25 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListNode {
-    public int val;
+    public int value;
     public ListNode next;
 
     public ListNode() {
     }
 
-    public ListNode(int val) {
-        this.val = val;
+    public ListNode(int value) {
+        this.value = value;
     }
 
-    public ListNode(int val, ListNode next) {
-        this.val = val;
+    public ListNode(int value, ListNode next) {
+        this.value = value;
         this.next = next;
     }
 
     public static int[] toArray(ListNode node) {
         List<Integer> list = new ArrayList<>();
         while (node != null) {
-            list.add(node.val);
+            list.add(node.value);
             node = node.next;
         }
         return list.stream().mapToInt(i -> i).toArray();
@@ -41,10 +41,4 @@ public class ListNode {
         return head;
     }
 
-    public static void printList(ListNode head) {
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
-        }
-    }
 }

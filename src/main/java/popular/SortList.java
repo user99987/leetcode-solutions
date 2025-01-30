@@ -41,7 +41,7 @@ public class SortList {
         if (head == null) return null;
         List<ListNode> nodeList = new ArrayList<>();
         for (ListNode current = head; current != null; current = current.next) nodeList.add(current);
-        nodeList.sort(Comparator.comparingInt(node -> node.val));
+        nodeList.sort(Comparator.comparingInt(node -> node.value));
         for (int i = 0; i < nodeList.size() - 1; i++) nodeList.get(i).next = nodeList.get(i + 1);
         nodeList.get(nodeList.size() - 1).next = null;
         return nodeList.get(0);

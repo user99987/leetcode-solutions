@@ -40,7 +40,7 @@ public class ConstructBinarySearchTreeFromPreorderTraversal {
     private TreeNode build(int[] preorder, int[] index, int bound) {
         if (index[0] == preorder.length || preorder[index[0]] > bound) return null;
         TreeNode node = new TreeNode(preorder[index[0]++]);
-        node.left = build(preorder, index, node.val);
+        node.left = build(preorder, index, node.value);
         node.right = build(preorder, index, bound);
         return node;
     }

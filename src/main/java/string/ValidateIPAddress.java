@@ -74,9 +74,7 @@ public class ValidateIPAddress {
                     if (part.length() > 4) return "Neither";
                     else {
                         for (char c : part.toCharArray()) {
-                            if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
-                                // ignore
-                            } else {
+                            if ((c < '0' || c > '9') && (c < 'a' || c > 'f') && (c < 'A' || c > 'F')) {
                                 return "Neither";
                             }
                         }

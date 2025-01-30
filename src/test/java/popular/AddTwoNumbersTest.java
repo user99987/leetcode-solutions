@@ -14,11 +14,11 @@ class AddTwoNumbersTest {
         ListNode result = new AddTwoNumbers().addTwoNumbers(node1, node2);
 
         assertThat(result).isNotNull();
-        assertThat(result.val).isEqualTo(7);
+        assertThat(result.value).isEqualTo(7);
         assertThat(result.next).isNotNull();
-        assertThat(result.next.val).isEqualTo(0);
+        assertThat(result.next.value).isEqualTo(0);
         assertThat(result.next.next).isNotNull();
-        assertThat(result.next.next.val).isEqualTo(8);
+        assertThat(result.next.next.value).isEqualTo(8);
     }
 
     @Test
@@ -28,7 +28,7 @@ class AddTwoNumbersTest {
         ListNode result = new AddTwoNumbers().addTwoNumbers(node1, node2);
 
         assertThat(result).isNotNull();
-        assertThat(result.val).isEqualTo(0);
+        assertThat(result.value).isEqualTo(0);
         assertThat(result.next).isNull();
     }
 
@@ -39,20 +39,20 @@ class AddTwoNumbersTest {
         ListNode result = new AddTwoNumbers().addTwoNumbers(node1, node2);
 
         assertThat(result).isNotNull();
-        assertThat(result.val).isEqualTo(8);
+        assertThat(result.value).isEqualTo(8);
         assertThat(result.next).isNotNull();
-        assertThat(result.next.val).isEqualTo(9);
+        assertThat(result.next.value).isEqualTo(9);
         assertThat(result.next.next).isNotNull();
-        assertThat(result.next.next.val).isEqualTo(9);
+        assertThat(result.next.next.value).isEqualTo(9);
         assertThat(result.next.next.next).isNotNull();
-        assertThat(result.next.next.next.val).isEqualTo(9);
+        assertThat(result.next.next.next.value).isEqualTo(9);
         assertThat(result.next.next.next.next).isNotNull();
-        assertThat(result.next.next.next.next.val).isEqualTo(0);
+        assertThat(result.next.next.next.next.value).isEqualTo(0);
         assertThat(result.next.next.next.next.next).isNotNull();
-        assertThat(result.next.next.next.next.next.val).isEqualTo(0);
+        assertThat(result.next.next.next.next.next.value).isEqualTo(0);
         assertThat(result.next.next.next.next.next.next).isNotNull();
-        assertThat(result.next.next.next.next.next.next.val).isEqualTo(0);
+        assertThat(result.next.next.next.next.next.next.value).isEqualTo(0);
         assertThat(result.next.next.next.next.next.next.next).isNotNull();
-        assertThat(result.next.next.next.next.next.next.next.val).isEqualTo(1);
+        assertThat(result.next.next.next.next.next.next.next.value).isEqualTo(1);
     }
 }

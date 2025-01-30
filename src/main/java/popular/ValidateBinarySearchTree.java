@@ -39,8 +39,8 @@ public class ValidateBinarySearchTree {
     }
 
     private boolean isValidBSTHelper(TreeNode node, long max, long min) {
-        return node == null || (node.val < max && node.val > min &&
-                isValidBSTHelper(node.left, node.val, min) &&
-                isValidBSTHelper(node.right, max, node.val));
+        return node == null || (node.value < max && node.value > min &&
+                isValidBSTHelper(node.left, node.value, min) &&
+                isValidBSTHelper(node.right, max, node.value));
     }
 }

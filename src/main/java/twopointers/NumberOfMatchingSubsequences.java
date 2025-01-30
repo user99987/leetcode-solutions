@@ -33,8 +33,7 @@ public class NumberOfMatchingSubsequences {
 
     public int numMatchingSubseq(String S, String[] words) {
         int count = 0;
-        for (int i = 0; i < words.length; i++) {
-            String w = words[i];
+        for (String w : words) {
             if (isSubsequence(S, w)) {
                 count++;
             }

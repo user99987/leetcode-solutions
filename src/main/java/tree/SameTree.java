@@ -40,6 +40,6 @@ public class SameTree {
         }
         boolean b1 = isSameTree(p.left, q.left);
         boolean b2 = isSameTree(p.right, q.right);
-        return p.val == q.val && b1 && b2;
+        return p.value == q.value && b1 && b2;
     }
 }

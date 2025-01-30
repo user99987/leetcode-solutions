@@ -2,6 +2,7 @@ package popular;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ import java.util.List;
 public class MergeIntervals {
 
     public int[][] merge(int[][] intervals) {
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
         return Arrays.stream(intervals)
                 .collect(ArrayList<int[]>::new, (merged, interval) -> {
                     if (merged.isEmpty() || interval[0] > merged.get(merged.size() - 1)[1]) {

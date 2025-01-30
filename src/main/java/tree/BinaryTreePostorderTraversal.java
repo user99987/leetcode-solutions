@@ -53,7 +53,7 @@ public class BinaryTreePostorderTraversal {
         }
         List<Integer> res = postorderTraversal(root.left);
         res.addAll(postorderTraversal(root.right));
-        res.add(root.val);
+        res.add(root.value);
         return res;
     }
 

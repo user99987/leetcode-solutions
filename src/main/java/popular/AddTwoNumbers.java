@@ -56,11 +56,11 @@ public class AddTwoNumbers {
 
         while (l1 != null || l2 != null || carry > 0) {
             if (l1 != null) {
-                carry += l1.val;
+                carry += l1.value;
                 l1 = l1.next;
             }
             if (l2 != null) {
-                carry += l2.val;
+                carry += l2.value;
                 l2 = l2.next;
             }
             current.next = new ListNode(carry % 10);

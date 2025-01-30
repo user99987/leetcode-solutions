@@ -50,7 +50,7 @@ public class SubtreeOfAnotherTree {
         if (root == null) {
             return true;
         }
-        if (root.val != subRoot.val) {
+        if (root.value != subRoot.value) {
             return false;
         }
         return traverse(root.left, subRoot.left) && traverse(root.right, subRoot.right);

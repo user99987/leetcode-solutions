@@ -36,7 +36,7 @@ public class SumOfLeftLeaves {
         if (node != null) {
             if (node.left == null && node.right == null) {
                 if (isLeft) {
-                    return node.val;
+                    return node.value;
                 } else return 0;
             }
             return inorder(node.left, true) + inorder(node.right, false);

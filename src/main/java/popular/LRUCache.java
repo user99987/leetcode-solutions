@@ -80,7 +80,8 @@ public class LRUCache {
     }
 
     private static class LruCacheNode {
-        int key, value;
+        final int key;
+        int value;
         LruCacheNode prev, next;
 
         public LruCacheNode(int k, int v) {
