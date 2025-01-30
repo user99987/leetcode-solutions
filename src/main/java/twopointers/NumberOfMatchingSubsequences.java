@@ -1,5 +1,7 @@
 package twopointers;
 
+import java.util.Arrays;
+
 /**
  * Medium
  * <p>
@@ -31,30 +33,12 @@ package twopointers;
  */
 public class NumberOfMatchingSubsequences {
 
-    public int numMatchingSubseq(String S, String[] words) {
-        int count = 0;
-        for (String w : words) {
-            if (isSubsequence(S, w)) {
-                count++;
-            }
-        }
-        return count;
+    public int numMatchingSubseq(String s, String[] words) {
+        return (int) Arrays.stream(words).filter(word -> isSubsequence(s, word)).count();
     }
 
-    private boolean isSubsequence(String S, String P) {
-        int i = 0, j = 0;
-        if (P.length() > S.length()) return false;
-        for (; ; ) {
-            if (j >= P.length()) return true;
-            else if (i >= S.length()) return false;
-            else {
-                if (S.charAt(i) == P.charAt(j)) {
-                    i++;
-                    j++;
-                } else {
-                    i++;
-                }
-            }
-        }
+    private boolean isSubsequence(String s, String word) {
+        final int[] index = {-1};
+        return word.chars().allMatch(c -> (index[0] = s.indexOf(c, index[0] + 1)) != -1);
     }
 }

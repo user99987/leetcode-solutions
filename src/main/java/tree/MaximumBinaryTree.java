@@ -2,6 +2,8 @@ package tree;
 
 import utils.TreeNode;
 
+import java.util.stream.IntStream;
+
 /**
  * Medium
  * <p>
@@ -53,27 +55,17 @@ import utils.TreeNode;
 public class MaximumBinaryTree {
 
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return mbt(nums, 0, nums.length - 1);
+        return buildTree(nums, 0, nums.length - 1);
     }
 
-    private TreeNode mbt(int[] nums, int l, int r) {
-        if (l > r || l >= nums.length || r < 0) {
-            return null;
-        }
-        if (l == r) {
-            return new TreeNode(nums[r]);
-        }
-        int max = Integer.MIN_VALUE;
-        int maxidx = 0;
-        for (int i = l; i <= r; i++) {
-            if (nums[i] > max) {
-                max = nums[i];
-                maxidx = i;
-            }
-        }
-        TreeNode root = new TreeNode(max);
-        root.left = (mbt(nums, l, maxidx - 1));
-        root.right = (mbt(nums, maxidx + 1, r));
+    private TreeNode buildTree(int[] nums, int left, int right) {
+        if (left > right) return null;
+        int maxIndex = IntStream.rangeClosed(left, right)
+                .reduce((a, b) -> nums[a] > nums[b] ? a : b)
+                .orElse(left);
+        TreeNode root = new TreeNode(nums[maxIndex]);
+        root.left = buildTree(nums, left, maxIndex - 1);
+        root.right = buildTree(nums, maxIndex + 1, right);
         return root;
     }
 

@@ -36,32 +36,11 @@ import utils.TreeNode;
  */
 public class ConstructStringFromBinaryTree {
 
-    public String tree2str(TreeNode t) {
-        if (t == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        preorder(t, sb);
-        return sb.toString();
-    }
-
-    private void preorder(TreeNode root, StringBuilder sb) {
-        if (root == null) {
-            return;
-        }
-        sb.append(root.value);
-        if (root.left != null) {
-            sb.append("(");
-            preorder(root.left, sb);
-            sb.append(")");
-        }
-        if (root.right != null) {
-            if (root.left == null) {
-                sb.append("()");
-            }
-            sb.append("(");
-            preorder(root.right, sb);
-            sb.append(")");
-        }
+    public String tree2str(TreeNode root) {
+        if (root == null) return "";
+        String left = tree2str(root.left);
+        String right = tree2str(root.right);
+        return right.isEmpty() ? (left.isEmpty() ? root.value + "" : root.value + "(" + left + ")")
+                : root.value + "(" + left + ")(" + right + ")";
     }
 }

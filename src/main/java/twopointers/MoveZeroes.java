@@ -1,5 +1,7 @@
 package twopointers;
 
+import java.util.stream.IntStream;
+
 /**
  * Easy
  * <p>
@@ -27,16 +29,15 @@ package twopointers;
 public class MoveZeroes {
 
     public void moveZeroes(int[] nums) {
-        int i = 0;
-        for (int j = 0, l = nums.length; j < l; ) {
-            if (nums[j] != 0) {
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-                i++;
-            }
-            j++;
-        }
-        while (i < nums.length) nums[i++] = 0;
+        int index = IntStream.range(0, nums.length)
+                .filter(i -> nums[i] != 0)
+                .reduce(0, (i, j) -> {
+                    int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                    return i + 1;
+                });
+
+        IntStream.range(index, nums.length).forEach(i -> nums[i] = 0);
     }
 }

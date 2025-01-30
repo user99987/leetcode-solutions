@@ -4,6 +4,7 @@ import utils.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Easy
@@ -48,13 +49,14 @@ import java.util.List;
 public class BinaryTreePostorderTraversal {
 
     public List<Integer> postorderTraversal(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        List<Integer> res = postorderTraversal(root.left);
-        res.addAll(postorderTraversal(root.right));
-        res.add(root.value);
-        return res;
+        return root == null ? new ArrayList<>() :
+                Stream.concat(
+                        Stream.concat(
+                                postorderTraversal(root.left).stream(),
+                                postorderTraversal(root.right).stream()
+                        ),
+                        Stream.of(root.value)
+                ).toList();
     }
 
 }

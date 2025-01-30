@@ -1,5 +1,8 @@
 package twopointers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Hard
  * <p>
@@ -33,27 +36,21 @@ package twopointers;
  */
 public class SubarraysWithKDifferentIntegers {
 
-    public int subarraysWithKDistinct(int[] A, int K) {
-        return calculate(A, K) - calculate(A, K - 1);
+    public int subarraysWithKDistinct(int[] nums, int k) {
+        return atMostKDistinct(nums, k) - atMostKDistinct(nums, k - 1);
     }
 
-    private int calculate(int[] A, int K) {
-        int count = 0;
-        int[] frequency = new int[A.length + 1];
-        int currCount = 0;
-        for (int i = 0, j = 0; i < A.length; i++) {
-            frequency[A[i]]++;
-            if (frequency[A[i]] == 1) {
-                currCount++;
+    private int atMostKDistinct(int[] nums, int k) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        int left = 0, count = 0;
+
+        for (int right = 0; right < nums.length; right++) {
+            countMap.merge(nums[right], 1, Integer::sum);
+            while (countMap.size() > k) {
+                countMap.compute(nums[left], (key, val) -> val == 1 ? null : val - 1);
+                left++;
             }
-            while (currCount > K) {
-                frequency[A[j]]--;
-                if (frequency[A[j]] == 0) {
-                    currCount--;
-                }
-                j++;
-            }
-            count += (i - j + 1);
+            count += right - left + 1;
         }
         return count;
     }

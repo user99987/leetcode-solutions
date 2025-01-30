@@ -1,5 +1,7 @@
 package twopointers;
 
+import java.util.Arrays;
+
 /**
  * Easy
  * <p>
@@ -44,15 +46,8 @@ package twopointers;
 public class SmallestRange {
 
     public int smallestRange(int[] nums, int k) {
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for (int num : nums) {
-            min = Math.min(min, num);
-            max = Math.max(max, num);
-        }
-        if (min + k >= max - k) {
-            return 0;
-        }
-        return (max - k) - (min + k);
+        int min = Arrays.stream(nums).min().orElse(0);
+        int max = Arrays.stream(nums).max().orElse(0);
+        return Math.max(0, (max - k) - (min + k));
     }
 }

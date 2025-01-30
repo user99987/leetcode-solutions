@@ -49,22 +49,20 @@ import utils.TreeNode;
  */
 public class BinaryTreeTilt {
 
-    int sum = 0;
-
-    private int sumTilt(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        int ls = sumTilt(root.left);
-        int rs = sumTilt(root.right);
-        sum += Math.abs(ls - rs);
-        return ls + rs + root.value;
-    }
+    private int totalTilt = 0;
 
     public int findTilt(TreeNode root) {
-        sum = 0;
-        sumTilt(root);
-        return sum;
+        totalTilt = 0;
+        calculateSum(root);
+        return totalTilt;
+    }
+
+    private int calculateSum(TreeNode node) {
+        if (node == null) return 0;
+        int leftSum = calculateSum(node.left);
+        int rightSum = calculateSum(node.right);
+        totalTilt += Math.abs(leftSum - rightSum);
+        return leftSum + rightSum + node.value;
     }
 
 }

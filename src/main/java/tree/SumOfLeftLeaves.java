@@ -2,6 +2,8 @@ package tree;
 
 import utils.TreeNode;
 
+import java.util.stream.IntStream;
+
 /**
  * Easy
  * <p>
@@ -28,20 +30,16 @@ import utils.TreeNode;
  */
 public class SumOfLeftLeaves {
 
+
     public int sumOfLeftLeaves(TreeNode root) {
-        return inorder(root, false);
+        return root == null ? 0 : IntStream.of(
+                        isLeaf(root.left) ? root.left.value : sumOfLeftLeaves(root.left),
+                        sumOfLeftLeaves(root.right))
+                .sum();
     }
 
-    private int inorder(TreeNode node, boolean isLeft) {
-        if (node != null) {
-            if (node.left == null && node.right == null) {
-                if (isLeft) {
-                    return node.value;
-                } else return 0;
-            }
-            return inorder(node.left, true) + inorder(node.right, false);
-        }
-        return 0;
+    private boolean isLeaf(TreeNode node) {
+        return node != null && node.left == null && node.right == null;
     }
 
 }

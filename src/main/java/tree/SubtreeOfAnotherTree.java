@@ -2,6 +2,8 @@ package tree;
 
 import utils.TreeNode;
 
+import java.util.stream.Stream;
+
 /**
  * Easy
  * <p>
@@ -30,29 +32,14 @@ import utils.TreeNode;
  */
 public class SubtreeOfAnotherTree {
 
+
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        if (root == null) {
-            return false;
-        }
-        if (traverse(root, subRoot)) {
-            return true;
-        }
-        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+        return root != null && (isSameTree(root, subRoot) ||
+                Stream.of(root.left, root.right).anyMatch(node -> isSubtree(node, subRoot)));
     }
 
-    private boolean traverse(TreeNode root, TreeNode subRoot) {
-        if (root == null && subRoot != null) {
-            return false;
-        }
-        if (root != null && subRoot == null) {
-            return false;
-        }
-        if (root == null) {
-            return true;
-        }
-        if (root.value != subRoot.value) {
-            return false;
-        }
-        return traverse(root.left, subRoot.left) && traverse(root.right, subRoot.right);
+    private boolean isSameTree(TreeNode root, TreeNode subRoot) {
+        return root == subRoot || (root != null && subRoot != null && root.value == subRoot.value &&
+                isSameTree(root.left, subRoot.left) && isSameTree(root.right, subRoot.right));
     }
 }

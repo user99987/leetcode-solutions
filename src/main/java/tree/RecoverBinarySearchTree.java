@@ -2,6 +2,9 @@ package tree;
 
 import utils.TreeNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Medium
  * <p>
@@ -30,29 +33,29 @@ import utils.TreeNode;
  */
 public class RecoverBinarySearchTree {
 
-    private TreeNode prev = null;
-    private TreeNode first = null;
-    private TreeNode second = null;
-
     public void recoverTree(TreeNode root) {
-        evalSwappedNodes(root);
+        List<TreeNode> nodes = new ArrayList<>();
+        inorder(root, nodes);
+        TreeNode first = null, second = null;
+
+        for (int i = 0; i < nodes.size() - 1; i++) {
+            if (nodes.get(i).value > nodes.get(i + 1).value) {
+                if (first == null) first = nodes.get(i);
+                second = nodes.get(i + 1);
+            }
+        }
+
+        assert first != null;
         int temp = first.value;
         first.value = second.value;
         second.value = temp;
     }
 
-    private void evalSwappedNodes(TreeNode curr) {
-        if (curr == null) {
-            return;
+    private void inorder(TreeNode node, List<TreeNode> nodes) {
+        if (node != null) {
+            inorder(node.left, nodes);
+            nodes.add(node);
+            inorder(node.right, nodes);
         }
-        evalSwappedNodes(curr.left);
-        if (prev != null && prev.value > curr.value) {
-            if (first == null) {
-                first = prev;
-            }
-            second = curr;
-        }
-        prev = curr;
-        evalSwappedNodes(curr.right);
     }
 }

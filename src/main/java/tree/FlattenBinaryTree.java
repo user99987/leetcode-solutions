@@ -2,6 +2,9 @@ package tree;
 
 import utils.TreeNode;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * Medium
  * <p>
@@ -35,37 +38,17 @@ import utils.TreeNode;
 public class FlattenBinaryTree {
 
     public void flatten(TreeNode root) {
-        if (root == null) return; // Check for empty tree
-        flattenTree(root); // Flatten the tree
-    }
+        if (root == null) return;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
 
-    // Recursive helper method to flatten the tree
-    private void flattenTree(TreeNode node) {
-        if (node == null) return;
-
-        // Flatten left subtree
-        flattenTree(node.left);
-
-        // Flatten right subtree
-        flattenTree(node.right);
-
-        // Save right subtree
-        TreeNode rightSubtree = node.right;
-
-        // Attach left subtree to the right of the current node
-        node.right = node.left;
-
-        // Set left child to null
-        node.left = null;
-
-        // Move to the rightmost node of the flattened left subtree
-        TreeNode current = node;
-        while (current.right != null) {
-            current = current.right;
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node.right != null) stack.push(node.right);
+            if (node.left != null) stack.push(node.left);
+            node.right = stack.peek();
+            node.left = null;
         }
-
-        // Attach the saved right subtree to the right of the rightmost node
-        current.right = rightSubtree;
     }
 
 }

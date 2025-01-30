@@ -60,7 +60,6 @@ public class TreeNode {
                 queue.offer(current.right);
             }
         }
-        // Remove trailing nulls
         int i = result.size() - 1;
         while (i >= 0 && result.get(i) == null) i--;
         return result.subList(0, i + 1);

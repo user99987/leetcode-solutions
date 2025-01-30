@@ -1,7 +1,10 @@
 package string;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Hard
@@ -50,73 +53,38 @@ import java.util.List;
 public class TextJustification {
 
     public List<String> fullJustify(String[] words, int maxWidth) {
-        // Trying to gauge the number of lines so the ArrayList doesn't need to resize
-        List<String> output = new ArrayList<>((words.length + 1) / (1 + maxWidth / 7));
-        // Setting StringBuilder capacity also
-        StringBuilder sb = new StringBuilder(maxWidth);
-        int lineTotal = 0;
-        int numWordsOnLine = 0;
-        int startWord = 0;
-        // looping until the 2nd last word, since we're checking words[i + 1] for
-        // overflows
-        for (int i = 0; i < words.length - 1; i++) {
-            lineTotal += words[i].length();
-            // tracking line length + #words
-            numWordsOnLine++;
-            // checking if the next word causes an overflow
-            if (lineTotal + numWordsOnLine + words[i + 1].length() > maxWidth) {
-                // if only one word fits on the line...
-                if (numWordsOnLine == 1) {
-                    // append word
-                    sb.append(words[i]);
-                    // pad right with spaces
-                    while (lineTotal++ < maxWidth) {
-                        sb.append(' ');
-                    }
-                } else {
-                    // # of extra spaces
-                    int extraSp = (maxWidth - lineTotal) % (numWordsOnLine - 1);
+        List<String> result = new ArrayList<>();
+        int index = 0;
 
-                    // Creating the line
-                    for (int j = startWord; j < (startWord + numWordsOnLine - 1); j++) {
-                        // appending the word
-                        sb.append(words[j]);
-                        if (extraSp-- > 0) {
-                            // appending an extra space, if required
-                            sb.append(' ');
-                        }
-                        // appending the rest of the required spaces
-                        sb.append(" ".repeat(Math.max(0, (maxWidth - lineTotal) / (numWordsOnLine - 1))));
-                    }
-                    // appending the last word of the line
-                    sb.append(words[startWord + numWordsOnLine - 1]);
+        while (index < words.length) {
+            int count = words[index].length();
+            int last = index + 1;
+
+            while (last < words.length && count + words[last].length() + (last - index) <= maxWidth) {
+                count += words[last].length();
+                last++;
+            }
+
+            int spaces = last - index - 1;
+            StringBuilder sb = new StringBuilder(maxWidth);
+
+            if (last == words.length || spaces == 0) {
+                sb.append(Arrays.stream(words, index, last)
+                        .collect(Collectors.joining(" ")));
+                while (sb.length() < maxWidth) {
+                    sb.append(' ');
                 }
-                // adding to output list
-                output.add(sb.toString());
-                // reset everything for next line
-                // keeping track of the first word for next line
-                startWord = i + 1;
-                // resetting these to 0 for processing next line
-                numWordsOnLine = lineTotal = 0;
-                // need a new StringBuilder for the next line
-                sb = new StringBuilder(maxWidth);
+            } else {
+                int spaceSize = (maxWidth - count) / spaces;
+                int extraSpaces = (maxWidth - count) % spaces;
+
+                int finalIndex = index;
+                IntStream.range(index, last - 1).forEach(i -> sb.append(words[i]).append(" ".repeat(spaceSize + (i - finalIndex < extraSpaces ? 1 : 0))));
+                sb.append(words[last - 1]);
             }
+            result.add(sb.toString());
+            index = last;
         }
-        // handling the final line (no justification, right padded with spaces)
-        lineTotal = 0;
-        for (int i = startWord; i < words.length; i++) {
-            lineTotal += words[i].length();
-            sb.append(words[i]);
-            if (lineTotal++ < maxWidth) {
-                sb.append(' ');
-            }
-        }
-        // padding right side with spaces
-        while (lineTotal++ < maxWidth) {
-            sb.append(' ');
-        }
-        // add the final line to output list
-        output.add(sb.toString());
-        return output;
+        return result;
     }
 }

@@ -2,6 +2,9 @@ package tree;
 
 import utils.TreeNode;
 
+import java.util.Objects;
+import java.util.stream.Stream;
+
 /**
  * Easy
  * <p>
@@ -35,11 +38,9 @@ import utils.TreeNode;
 public class SameTree {
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        if (p == null || q == null) {
-            return p == null && q == null;
-        }
-        boolean b1 = isSameTree(p.left, q.left);
-        boolean b2 = isSameTree(p.right, q.right);
-        return p.value == q.value && b1 && b2;
+        return Stream.of(p, q)
+                .allMatch(Objects::isNull) ||
+                (p != null && q != null && p.value == q.value &&
+                        isSameTree(p.left, q.left) && isSameTree(p.right, q.right));
     }
 }

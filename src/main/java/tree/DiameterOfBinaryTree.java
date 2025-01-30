@@ -36,17 +36,15 @@ public class DiameterOfBinaryTree {
 
     public int diameterOfBinaryTree(TreeNode root) {
         diameter = 0;
-        diameterOfBinaryTreeUtil(root);
+        depth(root);
         return diameter;
     }
 
-    private int diameterOfBinaryTreeUtil(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        int leftLength = root.left != null ? 1 + diameterOfBinaryTreeUtil(root.left) : 0;
-        int rightLength = root.right != null ? 1 + diameterOfBinaryTreeUtil(root.right) : 0;
-        diameter = Math.max(diameter, leftLength + rightLength);
-        return Math.max(leftLength, rightLength);
+    private int depth(TreeNode node) {
+        if (node == null) return 0;
+        int left = depth(node.left);
+        int right = depth(node.right);
+        diameter = Math.max(diameter, left + right);
+        return Math.max(left, right) + 1;
     }
 }

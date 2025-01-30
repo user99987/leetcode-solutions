@@ -3,9 +3,8 @@ package tree;
 import utils.TreeNode;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Easy
@@ -32,26 +31,19 @@ import java.util.Map;
 public class AverageOfLevelsInBinaryTree {
 
     public List<Double> averageOfLevels(TreeNode root) {
-        Map<Integer, Double[]> map = new HashMap<>();
-        helper(root, map, 0);
-        List<Double> result = new ArrayList<>();
-        for (Double[] pair : map.values()) {
-            double avg = pair[1] / pair[0];
-            result.add(avg);
-        }
-        return result;
+        List<List<Integer>> levels = new ArrayList<>();
+        traverse(root, 0, levels);
+        return levels.stream()
+                .map(level -> level.stream().collect(Collectors.averagingDouble(Integer::doubleValue)))
+                .collect(Collectors.toList());
     }
 
-    private void helper(TreeNode root, Map<Integer, Double[]> map, int level) {
-        if (root == null) {
-            return;
-        }
-        Double[] pair = map.containsKey(level) ? map.get(level) : new Double[]{0.0, 0.0};
-        pair[0] += 1;
-        pair[1] += root.value;
-        map.put(level, pair);
-        helper(root.left, map, level + 1);
-        helper(root.right, map, level + 1);
+    private void traverse(TreeNode node, int depth, List<List<Integer>> levels) {
+        if (node == null) return;
+        if (levels.size() == depth) levels.add(new ArrayList<>());
+        levels.get(depth).add(node.value);
+        traverse(node.left, depth + 1, levels);
+        traverse(node.right, depth + 1, levels);
     }
 
 }

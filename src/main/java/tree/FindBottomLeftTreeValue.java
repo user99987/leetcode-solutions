@@ -27,21 +27,20 @@ import utils.TreeNode;
  */
 public class FindBottomLeftTreeValue {
 
-    private int max = 0, result;
+    private int maxDepth = 0, leftMostValue;
 
     public int findBottomLeftValue(TreeNode root) {
-        inorder(root, 1);
-        return result;
+        dfs(root, 1);
+        return leftMostValue;
     }
 
-    private void inorder(TreeNode node, int level) {
-        if (node != null) {
-            if (level > max) {
-                result = node.value;
-                max = level;
-            }
-            inorder(node.left, level + 1);
-            inorder(node.right, level + 1);
+    private void dfs(TreeNode node, int depth) {
+        if (node == null) return;
+        if (depth > maxDepth) {
+            maxDepth = depth;
+            leftMostValue = node.value;
         }
+        dfs(node.left, depth + 1);
+        dfs(node.right, depth + 1);
     }
 }

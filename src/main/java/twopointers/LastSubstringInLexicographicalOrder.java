@@ -31,11 +31,11 @@ public class LastSubstringInLexicographicalOrder {
         int j = 1;
         int k = 0;
         int n = s.length();
-        char[] ca = s.toCharArray();
+        char[] array = s.toCharArray();
         while (j + k < n) {
-            if (ca[i + k] == ca[j + k]) {
+            if (array[i + k] == array[j + k]) {
                 k++;
-            } else if (ca[i + k] > ca[j + k]) {
+            } else if (array[i + k] > array[j + k]) {
                 j = j + k + 1;
                 k = 0;
             } else {

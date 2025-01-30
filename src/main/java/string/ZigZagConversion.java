@@ -1,8 +1,7 @@
 package string;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Medium
@@ -46,36 +45,22 @@ import java.util.List;
 public class ZigZagConversion {
 
     public String convert(String s, int numRows) {
-        if (s == null || s.length() <= numRows || numRows == 1) return s;
-        List<String> list = new ArrayList<>();
-        char[] A = new char[numRows];
-        int direction = 1; // 1 indicates forward, 0 indicates backwards
-        int n = 1;
-        A[0] = s.charAt(0);
-        for (int j = 1; j < numRows; ) {
-            if (n >= s.length()) break;
-            A[j] = s.charAt(n++);
-            if (j == numRows - 1) {
-                list.add(String.valueOf(A));
-                A = new char[numRows];
-                Arrays.fill(A, ' ');
-                direction = 0;
-            } else if (j == 0) {
-                list.add(String.valueOf(A));
-                A = new char[numRows];
-                Arrays.fill(A, ' ');
-                direction = 1;
-            }
-            j = direction == 1 ? j + 1 : j - 1;
+        if (numRows == 1 || s.length() <= numRows) return s;
+
+        StringBuilder[] rows = IntStream.range(0, numRows)
+                .mapToObj(i -> new StringBuilder())
+                .toArray(StringBuilder[]::new);
+
+        int row = 0, step = 1;
+        for (char c : s.toCharArray()) {
+            rows[row].append(c);
+            if (row == 0) step = 1;
+            else if (row == numRows - 1) step = -1;
+            row += step;
         }
-        if (!String.valueOf(A).trim().isEmpty()) list.add(String.valueOf(A));
-        char[] arr = new char[s.length()];
-        int k = 0;
-        for (int j = 0; j < numRows; j++) {
-            for (String aList : list) {
-                if (aList.charAt(j) != ' ') arr[k++] = aList.charAt(j);
-            }
-        }
-        return new String(arr).trim();
+
+        return IntStream.range(0, numRows)
+                .mapToObj(i -> rows[i].toString())
+                .collect(Collectors.joining());
     }
 }

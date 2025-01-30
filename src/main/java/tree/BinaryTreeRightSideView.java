@@ -35,24 +35,20 @@ import java.util.List;
  */
 public class BinaryTreeRightSideView {
 
-    final List<Integer> list = new ArrayList<>();
-    private int maxHeight = Integer.MIN_VALUE;
-
     public List<Integer> rightSideView(TreeNode root) {
-        if (root == null) return list;
-        dfs(root, 0);
-        return list;
+        List<Integer> result = new ArrayList<>();
+        dfs(root, 0, new int[]{-1}, result);
+        return result;
     }
 
-    private void dfs(TreeNode node, int height) {
-        if (node != null) {
-            if (height > maxHeight) {
-                list.add(node.value);
-                maxHeight = height;
-            }
-            dfs(node.right, height + 1);
-            dfs(node.left, height + 1);
+    private void dfs(TreeNode node, int depth, int[] maxDepth, List<Integer> result) {
+        if (node == null) return;
+        if (depth > maxDepth[0]) {
+            result.add(node.value);
+            maxDepth[0] = depth;
         }
+        dfs(node.right, depth + 1, maxDepth, result);
+        dfs(node.left, depth + 1, maxDepth, result);
     }
 
 }

@@ -2,8 +2,8 @@ package tree;
 
 import utils.TreeNode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,39 +33,20 @@ import java.util.Map;
 public class MostFrequentSubtreeSum {
 
     public int[] findFrequentTreeSum(TreeNode root) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        HashMap<Integer, Integer> hm = new HashMap<>();
-        fun(root, hm);
-        int maxvalue = Integer.MIN_VALUE;
-        for (Map.Entry<Integer, Integer> map : hm.entrySet()) {
-            if (map.getValue() > maxvalue) {
-                maxvalue = map.getValue();
-            }
-        }
-        for (Map.Entry<Integer, Integer> map : hm.entrySet()) {
-            if (map.getValue() == maxvalue) {
-                arr.add(map.getKey());
-            }
-        }
-        int[] newArr = new int[arr.size()];
-        for (int i = 0; i < arr.size(); i++) {
-            newArr[i] = arr.get(i);
-        }
-        return newArr;
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        computeSum(root, freqMap);
+        int maxFreq = freqMap.values().stream().max(Integer::compare).orElse(0);
+        List<Integer> result = freqMap.entrySet().stream()
+                .filter(e -> e.getValue() == maxFreq)
+                .map(Map.Entry::getKey)
+                .toList();
+        return result.stream().mapToInt(i -> i).toArray();
     }
 
-    private int fun(TreeNode node, HashMap<Integer, Integer> hm) {
-        if (node == null) {
-            return 0;
-        }
-        int left = fun(node.left, hm);
-        int right = fun(node.right, hm);
-        int sum = node.value + left + right;
-        if (hm.containsKey(sum)) {
-            hm.put(sum, hm.get(sum) + 1);
-        } else {
-            hm.put(sum, 0);
-        }
+    private int computeSum(TreeNode node, Map<Integer, Integer> freqMap) {
+        if (node == null) return 0;
+        int sum = node.value + computeSum(node.left, freqMap) + computeSum(node.right, freqMap);
+        freqMap.merge(sum, 1, Integer::sum);
         return sum;
     }
 }

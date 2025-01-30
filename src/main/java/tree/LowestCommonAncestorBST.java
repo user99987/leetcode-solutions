@@ -42,13 +42,10 @@ import utils.TreeNode;
 public class LowestCommonAncestorBST {
 
     TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) return null;
-
-        if (p.value == root.value || q.value == root.value) return root;
-        else if ((p.value < root.value && q.value > root.value) || (q.value < root.value && p.value > root.value))
-            return root;
-        else if (p.value < root.value) return lowestCommonAncestor(root.left, p, q);
-        else return lowestCommonAncestor(root.right, p, q);
+        if (root == null || root.value == p.value || root.value == q.value) return root;
+        if (p.value < root.value && q.value < root.value) return lowestCommonAncestor(root.left, p, q);
+        if (p.value > root.value && q.value > root.value) return lowestCommonAncestor(root.right, p, q);
+        return root;
     }
 
 }

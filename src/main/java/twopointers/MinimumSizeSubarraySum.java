@@ -33,30 +33,15 @@ package twopointers;
  */
 public class MinimumSizeSubarraySum {
 
-    public int minSubArrayLen(int s, int[] nums) {
-        int sum = 0, count = 0, min = Integer.MAX_VALUE;
-        for (int i = 0, j = 0; j < nums.length; ) {
-            if (nums[j] >= s) {
-                return 1;
-            } else {
-                sum += nums[j];
-                count++;
-                if (sum >= s) {
-                    min = Math.min(min, count);
-                    while (j > i) {
-                        sum -= nums[i];
-                        count--;
-                        i++;
-                        if (sum < s) break;
-                        min = Math.min(min, count);
-                    }
-                }
+    public int minSubArrayLen(int target, int[] nums) {
+        int sum = 0, min = Integer.MAX_VALUE, left = 0;
+        for (int right = 0; right < nums.length; right++) {
+            sum += nums[right];
+            while (sum >= target) {
+                min = Math.min(min, right - left + 1);
+                sum -= nums[left++];
             }
-            j++;
         }
-        if (min == Integer.MAX_VALUE) {
-            return 0;
-        }
-        return min;
+        return min == Integer.MAX_VALUE ? 0 : min;
     }
 }
