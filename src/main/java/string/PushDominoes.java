@@ -1,5 +1,7 @@
 package string;
 
+import java.util.stream.IntStream;
+
 /**
  * Medium
  * <p>
@@ -47,30 +49,19 @@ public class PushDominoes {
             if (A[i] == 'L') {
                 if (R > L) {
                     int d = (i - R);
-                    int st;
-                    st = R + d / 2;
-                    if ((d % 2) == 0) {
-                        A[st] = '.';
-                    }
-                    for (int j = st + 1; j < i; j++) {
-                        A[j] = 'L';
-                    }
+                    int st = R + d / 2;
+                    if ((d % 2) == 0) A[st] = '.';
+                    IntStream.range(st + 1, i).forEach(j -> A[j] = 'L');
                 } else {
-                    for (int j = (L == -1 ? 0 : L); j < i; j++) {
-                        A[j] = 'L';
-                    }
+                    IntStream.range(L == -1 ? 0 : L, i).forEach(j -> A[j] = 'L');
                 }
                 L = i;
-            } else {
-                if (A[i] == 'R') {
-                    R = i;
-                } else {
-                    if (R > L) {
-                        A[i] = 'R';
-                    }
-                }
+            } else if (A[i] == 'R') {
+                R = i;
+            } else if (R > L) {
+                A[i] = 'R';
             }
         }
-        return String.valueOf(A);
+        return new String(A);
     }
 }

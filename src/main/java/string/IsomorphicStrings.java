@@ -2,6 +2,7 @@ package string;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 /**
  * Easy
@@ -40,19 +41,22 @@ public class IsomorphicStrings {
 
     public boolean isIsomorphic(String s, String t) {
         if (s.length() != t.length()) return false;
-        Map<Character, Character> first = new HashMap<>();
-        Map<Character, Character> second = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (first.containsKey(c)) {
-                char secondC = first.get(c);
-                if (t.charAt(i) != secondC) return false;
-            } else {
-                first.put(c, t.charAt(i));
-                if (second.containsKey(t.charAt(i))) return false;
-                second.put(t.charAt(i), c);
+
+        Map<Character, Character> forwardMap = new HashMap<>();
+        Map<Character, Character> reverseMap = new HashMap<>();
+
+        return IntStream.range(0, s.length()).allMatch(i -> {
+            char source = s.charAt(i);
+            char target = t.charAt(i);
+
+            if (forwardMap.getOrDefault(source, target) != target ||
+                    reverseMap.getOrDefault(target, source) != source) {
+                return false;
             }
-        }
-        return true;
+
+            forwardMap.put(source, target);
+            reverseMap.put(target, source);
+            return true;
+        });
     }
 }

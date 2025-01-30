@@ -29,49 +29,14 @@ package string;
 public class RepeatedSubstringPattern {
 
     public int repeatedStringMatch(String a, String b) {
-        char[] existsChar = new char[127];
-        for (char chA : a.toCharArray()) {
-            existsChar[chA] = 1;
-        }
-        for (char chB : b.toCharArray()) {
-            if (existsChar[chB] < 1) {
-                return -1;
-            }
-        }
+        if (b.chars().anyMatch(ch -> a.indexOf(ch) == -1)) return -1;
 
-        int lenB = b.length() - 1;
         StringBuilder sb = new StringBuilder(a);
-        int lenSbA = sb.length() - 1;
         int repeatCount = 1;
-        while (lenSbA < lenB) {
+        while (sb.length() < b.length()) {
             sb.append(a);
             repeatCount++;
-            lenSbA = sb.length() - 1;
         }
-        if (!isFound(sb, b)) {
-            sb.append(a);
-            repeatCount++;
-            return !isFound(sb, b) ? -1 : repeatCount;
-        }
-        return repeatCount;
-    }
-
-    private boolean isFound(StringBuilder a, String b) {
-        for (int i = 0; i < a.length(); i++) {
-            int k = i;
-            int m = 0;
-            while (k < a.length() && m < b.length()) {
-                if (a.charAt(k) != b.charAt(m)) {
-                    break;
-                } else {
-                    k++;
-                    m++;
-                }
-            }
-            if (m == b.length()) {
-                return true;
-            }
-        }
-        return false;
+        return sb.toString().contains(b) ? repeatCount : sb.append(a).toString().contains(b) ? repeatCount + 1 : -1;
     }
 }

@@ -1,8 +1,9 @@
 package string;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Easy
@@ -42,25 +43,21 @@ import java.util.List;
  */
 public class KeyboardRow {
 
-    private boolean check(String str, String word) {
-        for (char ch : word.toCharArray()) {
-            if (str.indexOf(ch) < 0) {
-                return false;
-            }
-        }
-        return true;
-    }
+    private static final Set<Character> ROW1 = "qwertyuiop".chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
+    private static final Set<Character> ROW2 = "asdfghjkl".chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
+    private static final Set<Character> ROW3 = "zxcvbnm".chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
 
     public String[] findWords(String[] words) {
-        List<String> arr = new ArrayList<>();
-        for (String word : words) {
-            String w = word.toLowerCase();
-            if (check("qwertyuiop", w) || check("asdfghjkl", w) || check("zxcvbnm", w)) {
-                arr.add(word);
-            }
-        }
-        String[] ans = new String[arr.size()];
-        ans = arr.toArray(ans);
-        return ans;
+        return Arrays.stream(words)
+                .filter(word -> {
+                    String lowerWord = word.toLowerCase();
+                    Set<Character> row = getRow(lowerWord.charAt(0));
+                    return lowerWord.chars().allMatch(c -> row.contains((char) c));
+                })
+                .toArray(String[]::new);
+    }
+
+    private Set<Character> getRow(char ch) {
+        return ROW1.contains(ch) ? ROW1 : ROW2.contains(ch) ? ROW2 : ROW3;
     }
 }

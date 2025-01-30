@@ -1,6 +1,7 @@
 package string;
 
-import java.util.BitSet;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Easy
@@ -37,13 +38,14 @@ import java.util.BitSet;
 public class LongestPalindrome {
 
     public int longestPalindrome(String s) {
-        BitSet set = new BitSet(60);
-        for (char c : s.toCharArray()) {
-            set.flip(c - 'A');
-        }
-        if (set.isEmpty()) {
-            return s.length();
-        }
-        return s.length() - set.cardinality() + 1;
+        int oddCount = Integer.parseInt(String.valueOf(s.chars()
+                .boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .values()
+                .stream()
+                .filter(count -> count % 2 == 1)
+                .count()));
+
+        return s.length() - (oddCount > 0 ? oddCount - 1 : 0);
     }
 }

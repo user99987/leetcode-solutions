@@ -3,6 +3,7 @@ package string;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -43,31 +44,22 @@ public class ReplaceWords {
     public String replaceWords(List<String> dict, String sentence) {
         Trie root = new Trie();
         dict.forEach(root::insert);
-        String[] words = sentence.split(" ");
-        StringBuilder result = new StringBuilder();
-        Stream.of(words)
-                .map(
-                        w -> {
-                            String s = root.find(w);
-                            return s.isEmpty() ? w.concat(" ") : s.concat(" ");
-                        })
-                .forEach(result::append);
-        return result.toString().trim();
+        return sentence.lines()
+                .flatMap(line -> Stream.of(line.split(" ")))
+                .map(word -> {
+                    String replacement = root.find(word);
+                    return replacement.isEmpty() ? word : replacement;
+                })
+                .collect(Collectors.joining(" "));
     }
 
     static class Trie {
         private final Map<Character, Trie> map;
 
-        /**
-         * Initialize your data structure here.
-         */
         public Trie() {
             map = new HashMap<>();
         }
 
-        /**
-         * Inserts a word into the trie.
-         */
         public void insert(String word) {
             if (word != null) {
                 add(0, word, word.length());
@@ -83,20 +75,17 @@ public class ReplaceWords {
                 char c = word.charAt(i);
                 Trie subTrie = map.computeIfAbsent(c, k -> new Trie());
                 subTrie.add(i + 1, word, length);
-            } else map.put(null, new Trie()); // use null to indicate end of string
+            } else map.put(null, new Trie());
         }
 
         private String search(Trie curr, String s, int i, StringBuilder sb) {
             if (s.length() == i) return sb.toString();
-            else {
-                Trie subTrie = curr.map.get(s.charAt(i));
-                if (subTrie == null) {
-                    return curr.map.containsKey(null) ? sb.toString() : "";
-                } else {
-                    sb.append(s.charAt(i));
-                    if (subTrie.map.containsKey(null)) return sb.toString();
-                    return search(subTrie, s, i + 1, sb);
-                }
+            Trie subTrie = curr.map.get(s.charAt(i));
+            if (subTrie == null) {
+                return curr.map.containsKey(null) ? sb.toString() : "";
+            } else {
+                sb.append(s.charAt(i));
+                return subTrie.map.containsKey(null) ? sb.toString() : search(subTrie, s, i + 1, sb);
             }
         }
     }

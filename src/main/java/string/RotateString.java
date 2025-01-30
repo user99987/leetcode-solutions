@@ -23,21 +23,11 @@ package string;
  * Constraints:
  * <p>
  * 1 <= s.length, goal.length <= 100
- * s and goal consist of lowercase English letters.28/03
+ * s and goal consist of lowercase English letters.
  */
 public class RotateString {
 
-    public boolean rotateString(String A, String B) {
-        if (A.length() == 1 || A.isEmpty() || B.length() == 1 || B.isEmpty()) {
-            return A.equals(B);
-        } else if (A.length() != B.length()) {
-            return false;
-        }
-        for (int i = 0, l = A.length(); i < l; i++) {
-            char s = A.charAt(0);
-            A = A.substring(1) + s;
-            if (A.equals(B)) return true;
-        }
-        return false;
+    public boolean rotateString(String a, String b) {
+        return a.length() == b.length() && (a + a).contains(b);
     }
 }

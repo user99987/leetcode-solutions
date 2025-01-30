@@ -1,7 +1,12 @@
 package string;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Easy
@@ -34,32 +39,25 @@ import java.util.Map;
  * 1 <= words[i].length, chars.length <= 100
  * words[i] and chars consist of lowercase English letters.
  */
-public class FindWordsThatCanBeFormedbyCharacters {
+public class FindWordsThatCanBeFormedByCharacters {
 
     public int countCharacters(String[] words, String chars) {
-        int length = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        for (char c : chars.toCharArray()) {
-            int count = map.getOrDefault(c, 0);
-            map.put(c, count + 1);
-        }
-        for (String word : words) {
-            if (canForm(word, map)) {
-                length += word.length();
-            }
-        }
-        return length;
+        Map<Character, Long> charMap = chars.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        return Arrays.stream(words)
+                .filter(word -> canForm(word, charMap))
+                .mapToInt(String::length)
+                .sum();
     }
 
-    private boolean canForm(String word, final Map<Character, Integer> map) {
-        Map<Character, Integer> tmp = new HashMap<>(map);
-        for (Character c : word.toCharArray()) {
-            if (tmp.containsKey(c) && tmp.get(c) > 0) {
-                tmp.compute(c, (k, count) -> count - 1);
-            } else {
-                return false;
-            }
-        }
-        return true;
+    private boolean canForm(String word, Map<Character, Long> charMap) {
+        Map<Character, Long> wordMap = word.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        return wordMap.entrySet().stream()
+                .allMatch(entry -> charMap.getOrDefault(entry.getKey(), 0L) >= entry.getValue());
     }
 }

@@ -32,15 +32,18 @@ package string;
 public class MonotoneIncreasingDigits {
 
     public int monotoneIncreasingDigits(int n) {
-        for (int i = 10; n / i > 0; i *= 10) {
-            int digit = (n / i) % 10;
-            int endnum = n % i;
-            int firstendnum = endnum * 10 / i;
-            if (digit > firstendnum) {
-                n -= endnum + 1;
+        char[] digits = String.valueOf(n).toCharArray();
+        int marker = digits.length;
+        for (int i = digits.length - 1; i > 0; i--) {
+            if (digits[i] < digits[i - 1]) {
+                digits[i - 1]--;
+                marker = i;
             }
         }
-        return n;
+        for (int i = marker; i < digits.length; i++) {
+            digits[i] = '9';
+        }
+        return Integer.parseInt(new String(digits));
     }
 
 }

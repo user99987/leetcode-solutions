@@ -36,18 +36,16 @@ import java.util.Deque;
 public class MinimumAddToMakeParenthesesValid {
 
     public int minAddToMakeValid(String s) {
-        Deque<Character> stack = new ArrayDeque<>();
+        int open = 0, close = 0;
         for (char c : s.toCharArray()) {
-            if (c == ')') {
-                if (!stack.isEmpty() && stack.peek() == '(') {
-                    stack.pop();
-                } else {
-                    stack.push(c);
-                }
+            if (c == '(') {
+                open++;
+            } else if (open > 0) {
+                open--;
             } else {
-                stack.push(c);
+                close++;
             }
         }
-        return stack.size();
+        return open + close;
     }
 }

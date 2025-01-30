@@ -1,5 +1,8 @@
 package string;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 /**
  * Medium
  * <p>
@@ -54,21 +57,10 @@ package string;
 public class ReverseWordsInAString {
 
     public String reverseWords(String s) {
-        StringBuilder sb = new StringBuilder();
-        int i = s.length() - 1;
-        while (i >= 0) {
-            if (s.charAt(i) == ' ') {
-                i--;
-                continue;
-            }
-            int start = s.lastIndexOf(' ', i);
-            sb.append(' ');
-            sb.append(s, start + 1, i + 1);
-            i = start - 1;
-        }
-        if (!sb.isEmpty()) {
-            sb.deleteCharAt(0);
-        }
-        return sb.toString();
+        return Arrays.stream(s.trim().split("\\s+"))
+                .collect(Collectors.collectingAndThen(Collectors.toList(), list -> {
+                    java.util.Collections.reverse(list);
+                    return String.join(" ", list);
+                }));
     }
 }

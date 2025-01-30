@@ -1,8 +1,8 @@
 package string;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
-import java.util.StringTokenizer;
 
 /**
  * Medium
@@ -58,22 +58,20 @@ import java.util.StringTokenizer;
 public class SimplifyPath {
 
     public String simplifyPath(String path) {
-        if (path == null || path.isEmpty()) return "/";
-        StringTokenizer st = new StringTokenizer(path, "/");
-        Deque<String> dQueue = new ArrayDeque<>();
-        while (st.hasMoreTokens()) {
-            String token = st.nextToken();
-            if (token.trim().equals("..")) {
-                if (!dQueue.isEmpty()) dQueue.pop();
-            } else if (token.trim().equals(".")) {
-                // ignore
-            } else dQueue.push(token);
-        }
-        if (dQueue.isEmpty()) return "/";
-        StringBuilder finalStr = new StringBuilder();
-        while (!dQueue.isEmpty()) {
-            finalStr.append("/").append(dQueue.removeLast());
-        }
-        return finalStr.toString();
+        Deque<String> deque = new ArrayDeque<>();
+        Arrays.stream(path.split("/"))
+                .filter(token -> !token.isEmpty() && !token.equals("."))
+                .forEach(token -> {
+                    if (token.equals("..")) {
+                        if (!deque.isEmpty()) deque.pop();
+                    } else {
+                        deque.push(token);
+                    }
+                });
+
+        StringBuilder builder = new StringBuilder();
+        deque.descendingIterator().forEachRemaining(s -> builder.append(s).append("/"));
+        String result = builder.toString();
+        return "/" + (!result.isBlank() ? builder.replace(result.lastIndexOf("/"), result.lastIndexOf("/") + 1, "") : "");
     }
 }

@@ -1,5 +1,7 @@
 package string;
 
+import java.util.stream.IntStream;
+
 /**
  * Medium
  * <p>
@@ -27,53 +29,25 @@ package string;
  */
 public class MultiplyStrings {
 
-    private int[] getIntArray(String s) {
-        char[] chars = s.toCharArray();
-        int[] arr = new int[chars.length];
-        for (int i = 0; i < chars.length; i++) {
-            arr[i] = chars[i] - '0';
-        }
-        return arr;
-    }
-
-    private String convertToStr(int[] res, int i) {
-        char[] chars = new char[res.length - i];
-        int k = 0;
-        for (; i < res.length; i++) {
-            chars[k] = (char) (res[i] + '0');
-            k++;
-        }
-        return new String(chars);
-    }
-
     public String multiply(String num1, String num2) {
-        int[] arr1 = getIntArray(num1);
-        int[] arr2 = getIntArray(num2);
-        int[] res = new int[arr1.length + arr2.length];
-        int index = arr1.length + arr2.length - 1;
-        for (int i = arr2.length - 1; i >= 0; i--) {
-            int k = index--;
-            for (int j = arr1.length - 1; j >= 0; j--) {
-                res[k] += arr2[i] * arr1[j];
-                k--;
-            }
-        }
-        index = arr1.length + arr2.length - 1;
-        int carry = 0;
-        for (int i = index; i >= 0; i--) {
-            int temp = res[i] + carry;
-            res[i] = temp % 10;
-            carry = temp / 10;
-        }
-        int i = 0;
-        while (i < res.length && res[i] == 0) {
-            i++;
-        }
+        if (num1.equals("0") || num2.equals("0")) return "0";
 
-        if (i > index) {
-            return "0";
-        } else {
-            return convertToStr(res, i);
-        }
+        int len1 = num1.length(), len2 = num2.length();
+        int[] result = new int[len1 + len2];
+
+        IntStream.range(0, len1).forEach(i ->
+                IntStream.range(0, len2).forEach(j -> {
+                    int product = (num1.charAt(len1 - 1 - i) - '0') * (num2.charAt(len2 - 1 - j) - '0');
+                    int sum = product + result[len1 + len2 - 1 - (i + j)];
+
+                    result[len1 + len2 - 1 - (i + j)] = sum % 10;
+                    result[len1 + len2 - 2 - (i + j)] += sum / 10;
+                })
+        );
+
+        return IntStream.of(result)
+                .dropWhile(digit -> digit == 0)
+                .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append)
+                .toString();
     }
 }
