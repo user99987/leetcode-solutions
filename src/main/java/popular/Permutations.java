@@ -2,6 +2,7 @@ package popular;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * Medium
@@ -46,13 +47,11 @@ public class Permutations {
             return;
         }
 
-        for (int num : nums) {
-            if (!current.contains(num)) {
-                current.add(num);
-                permuteHelper(nums, current, result);
-                current.remove(current.size() - 1);
-            }
-        }
+        IntStream.of(nums).filter(num -> !current.contains(num)).forEach(num -> {
+            current.add(num);
+            permuteHelper(nums, current, result);
+            current.remove(current.size() - 1);
+        });
     }
 
 }

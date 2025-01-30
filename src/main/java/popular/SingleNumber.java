@@ -1,5 +1,7 @@
 package popular;
 
+import java.util.stream.IntStream;
+
 /**
  * Easy
  * <p>
@@ -34,13 +36,6 @@ package popular;
 public class SingleNumber {
 
     public int singleNumber(int[] nums) {
-        int singleNumber = 0; // Initialize variable to store result
-
-        // Perform bitwise XOR operation on all elements in the array
-        for (int num : nums) {
-            singleNumber ^= num;
-        }
-
-        return singleNumber; // Return the single number
+        return IntStream.of(nums).reduce(0, (a, b) -> a ^ b);
     }
 }

@@ -2,6 +2,8 @@ package popular;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Easy
@@ -30,18 +32,12 @@ public class PascalsTriangle {
 
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> output = new ArrayList<>();
-        for (int i = 0; i < numRows; i++) {
-            List<Integer> currRow = new ArrayList<>();
-            for (int j = 0; j <= i; j++) {
-                if (j == 0 || j == i || i <= 1) {
-                    currRow.add(1);
-                } else {
-                    int currCell = output.get(i - 1).get(j - 1) + output.get(i - 1).get(j);
-                    currRow.add(currCell);
-                }
-            }
+        IntStream.range(0, numRows).forEach(i -> {
+            List<Integer> currRow = IntStream.rangeClosed(0, i)
+                    .mapToObj(j -> (j == 0 || j == i) ? 1 : output.get(i - 1).get(j - 1) + output.get(i - 1).get(j))
+                    .collect(Collectors.toList());
             output.add(currRow);
-        }
+        });
         return output;
     }
 }

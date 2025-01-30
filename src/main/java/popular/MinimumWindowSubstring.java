@@ -46,51 +46,34 @@ import java.util.Map;
 public class MinimumWindowSubstring {
 
     public String minWindow(String s, String t) {
-        Map<Character, Integer> tFreqMap = new HashMap<>();
-        Map<Character, Integer> sFreqMap = new HashMap<>();
+        Map<Character, Integer> tFreq = new HashMap<>();
+        t.chars().forEach(c -> tFreq.merge((char) c, 1, Integer::sum));
 
-        // Initialize tFreqMap with character frequencies from string t
-        for (char ch : t.toCharArray()) {
-            tFreqMap.put(ch, tFreqMap.getOrDefault(ch, 0) + 1);
-        }
+        Map<Character, Integer> sFreq = new HashMap<>();
+        int left = 0, minLength = Integer.MAX_VALUE, minStart = 0, matched = 0;
 
-        int left = 0;
-        int right = 0;
-        int minLength = Integer.MAX_VALUE;
-        int minStart = 0;
+        for (int right = 0; right < s.length(); right++) {
+            char ch = s.charAt(right);
+            sFreq.merge(ch, 1, Integer::sum);
+            if (tFreq.containsKey(ch) && sFreq.get(ch).equals(tFreq.get(ch))) {
+                matched++;
+            }
 
-        while (right < s.length()) {
-            char rightChar = s.charAt(right);
-            sFreqMap.put(rightChar, sFreqMap.getOrDefault(rightChar, 0) + 1);
-            right++;
-
-            // Check if the current window contains all characters from t
-            while (containsAllChars(sFreqMap, tFreqMap)) {
-                // Update the minimum window length
-                if (right - left < minLength) {
-                    minLength = right - left;
+            while (matched == tFreq.size()) {
+                if (right - left + 1 < minLength) {
+                    minLength = right - left + 1;
                     minStart = left;
                 }
-
-                char leftChar = s.charAt(left);
-                sFreqMap.put(leftChar, sFreqMap.get(leftChar) - 1);
-                left++;
+                char leftChar = s.charAt(left++);
+                if (tFreq.containsKey(leftChar) && sFreq.get(leftChar).equals(tFreq.get(leftChar))) {
+                    matched--;
+                }
+                sFreq.merge(leftChar, -1, Integer::sum);
+                sFreq.remove(leftChar, 0);
             }
         }
 
         return minLength == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLength);
-    }
-
-    // Helper method to check if sFreqMap contains all characters from tFreqMap
-    private boolean containsAllChars(Map<Character, Integer> sFreqMap, Map<Character, Integer> tFreqMap) {
-        for (Map.Entry<Character, Integer> entry : tFreqMap.entrySet()) {
-            char ch = entry.getKey();
-            int count = entry.getValue();
-            if (sFreqMap.getOrDefault(ch, 0) < count) {
-                return false;
-            }
-        }
-        return true;
     }
 
 }

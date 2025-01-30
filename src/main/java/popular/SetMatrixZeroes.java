@@ -1,7 +1,6 @@
 package popular;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.stream.IntStream;
 
 /**
  * Medium
@@ -32,29 +31,25 @@ import java.util.Set;
 public class SetMatrixZeroes {
 
     public void setZeroes(int[][] matrix) {
-        Set<Integer> row = new HashSet<>();
-        Set<Integer> col = new HashSet<>();
-        int m = matrix.length;
-        int n = matrix[0].length;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (matrix[i][j] == 0) {
-                    row.add(i);
-                    col.add(j);
-                }
-            }
-        }
+        int m = matrix.length, n = matrix[0].length;
+        boolean firstRowZero = IntStream.range(0, n).anyMatch(j -> matrix[0][j] == 0);
+        boolean firstColZero = IntStream.range(0, m).anyMatch(i -> matrix[i][0] == 0);
 
-        for (int r : row) {
-            for (int j = 0; j < n; j++) {
-                matrix[r][j] = 0;
-            }
-        }
+        IntStream.range(1, m).forEach(i ->
+                IntStream.range(1, n).filter(j -> matrix[i][j] == 0)
+                        .forEach(j -> {
+                            matrix[i][0] = 0;
+                            matrix[0][j] = 0;
+                        })
+        );
 
-        for (int c : col) {
-            for (int i = 0; i < m; i++) {
-                matrix[i][c] = 0;
-            }
-        }
+        IntStream.range(1, m).filter(i -> matrix[i][0] == 0)
+                .forEach(i -> IntStream.range(1, n).forEach(j -> matrix[i][j] = 0));
+
+        IntStream.range(1, n).filter(j -> matrix[0][j] == 0)
+                .forEach(j -> IntStream.range(1, m).forEach(i -> matrix[i][j] = 0));
+
+        if (firstRowZero) IntStream.range(0, n).forEach(j -> matrix[0][j] = 0);
+        if (firstColZero) IntStream.range(0, m).forEach(i -> matrix[i][0] = 0);
     }
 }

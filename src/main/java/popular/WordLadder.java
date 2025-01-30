@@ -1,5 +1,6 @@
 package popular;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -43,44 +44,39 @@ import java.util.Set;
 public class WordLadder {
 
     public int ladderLength(String beginWord, String endWord, List<String> wordDict) {
-        Set<String> beginSet = new HashSet<>();
-        Set<String> endSet = new HashSet<>();
+        if (!wordDict.contains(endWord)) return 0;
+
         Set<String> wordSet = new HashSet<>(wordDict);
+        Set<String> startSet = new HashSet<>(Collections.singleton(beginWord));
+        Set<String> endSet = new HashSet<>(Collections.singleton(endWord));
         Set<String> visited = new HashSet<>();
-        if (!wordDict.contains(endWord)) {
-            return 0;
-        }
-        int len = 1;
-        int strLen = beginWord.length();
-        beginSet.add(beginWord);
-        endSet.add(endWord);
-        while (!beginSet.isEmpty() && !endSet.isEmpty()) {
-            if (beginSet.size() > endSet.size()) {
-                Set<String> temp = beginSet;
-                beginSet = endSet;
+        int steps = 1;
+
+        while (!startSet.isEmpty() && !endSet.isEmpty()) {
+            if (startSet.size() > endSet.size()) {
+                Set<String> temp = startSet;
+                startSet = endSet;
                 endSet = temp;
             }
-            Set<String> tempSet = new HashSet<>();
-            for (String s : beginSet) {
-                char[] chars = s.toCharArray();
-                for (int i = 0; i < strLen; i++) {
-                    char old = chars[i];
-                    for (char j = 'a'; j <= 'z'; j++) {
-                        chars[i] = j;
-                        String temp = new String(chars);
-                        if (endSet.contains(temp)) {
-                            return len + 1;
-                        }
-                        if (!visited.contains(temp) && wordSet.contains(temp)) {
-                            tempSet.add(temp);
-                            visited.add(temp);
+
+            Set<String> nextSet = new HashSet<>();
+            for (String word : startSet) {
+                char[] chars = word.toCharArray();
+                for (int i = 0; i < chars.length; i++) {
+                    char originalChar = chars[i];
+                    for (char c = 'a'; c <= 'z'; c++) {
+                        chars[i] = c;
+                        String transformed = new String(chars);
+                        if (endSet.contains(transformed)) return steps + 1;
+                        if (wordSet.contains(transformed) && visited.add(transformed)) {
+                            nextSet.add(transformed);
                         }
                     }
-                    chars[i] = old;
+                    chars[i] = originalChar;
                 }
             }
-            beginSet = tempSet;
-            len++;
+            startSet = nextSet;
+            steps++;
         }
         return 0;
     }

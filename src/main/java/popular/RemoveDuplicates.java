@@ -28,18 +28,13 @@ import utils.ListNode;
 public class RemoveDuplicates {
 
     public ListNode deleteDuplicates(ListNode head) {
-        if (head == null) {
-            return null;
-        }
         ListNode current = head;
-        ListNode next = current.next;
-        while (null != next) {
-            if (current.val == next.val) {
-                current.next = next.next;
+        while (current != null && current.next != null) {
+            if (current.val == current.next.val) {
+                current.next = current.next.next;
             } else {
-                current = next;
+                current = current.next;
             }
-            next = current.next;
         }
         return head;
     }

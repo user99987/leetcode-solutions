@@ -30,16 +30,18 @@ package popular;
 public class SqrtX {
 
     public int mySqrt(int x) {
-        int s = 0, e = x;
-        long ans = 0L;
-        while (s <= e) {
-            long m = s + (e - s) / 2;
-            long prod = m * m;
-            if (prod <= x) {
-                s = (int) (m + 1);
-                ans = m;
-            } else e = (int) m - 1;
+        int start = 0, end = x;
+        long result = 0L;
+        while (start <= end) {
+            long mid = start + (end - start) / 2;
+            long square = mid * mid;
+            if (square <= x) {
+                start = (int) (mid + 1);
+                result = mid;
+            } else {
+                end = (int) mid - 1;
+            }
         }
-        return (int) ans;
+        return (int) result;
     }
 }

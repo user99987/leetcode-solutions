@@ -1,5 +1,7 @@
 package popular;
 
+import java.util.stream.IntStream;
+
 /**
  * Hard
  * <p>
@@ -53,7 +55,7 @@ package popular;
 public class MedianOfTwoSortedArrays {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length, n = nums2.length, total = m + n;
+        int total = nums1.length + nums2.length;
         int left = (total + 1) / 2, right = (total + 2) / 2;
         return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
     }
@@ -63,10 +65,20 @@ public class MedianOfTwoSortedArrays {
         if (j >= nums2.length) return nums1[i + k - 1];
         if (k == 1) return Math.min(nums1[i], nums2[j]);
 
-        int midVal1 = (i + k / 2 - 1 < nums1.length) ? nums1[i + k / 2 - 1] : Integer.MAX_VALUE;
-        int midVal2 = (j + k / 2 - 1 < nums2.length) ? nums2[j + k / 2 - 1] : Integer.MAX_VALUE;
+        int midVal1 = IntStream.of(i + k / 2 - 1)
+                .filter(idx -> idx < nums1.length)
+                .map(idx -> nums1[idx])
+                .findFirst()
+                .orElse(Integer.MAX_VALUE);
 
-        return midVal1 < midVal2 ? findKth(nums1, i + k / 2, nums2, j, k - k / 2)
+        int midVal2 = IntStream.of(j + k / 2 - 1)
+                .filter(idx -> idx < nums2.length)
+                .map(idx -> nums2[idx])
+                .findFirst()
+                .orElse(Integer.MAX_VALUE);
+
+        return midVal1 < midVal2
+                ? findKth(nums1, i + k / 2, nums2, j, k - k / 2)
                 : findKth(nums1, i, nums2, j + k / 2, k - k / 2);
     }
 }

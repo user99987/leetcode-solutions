@@ -1,7 +1,7 @@
 package popular;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 /**
  * Easy
@@ -67,28 +67,18 @@ import java.util.Map;
  */
 public class RomanToInteger {
 
+    private static final Map<Character, Integer> ROMAN_MAP = Map.of(
+            'I', 1, 'V', 5, 'X', 10, 'L', 50,
+            'C', 100, 'D', 500, 'M', 1000
+    );
+
     public int romanToInt(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        map.put('I', 1);
-        map.put('V', 5);
-        map.put('X', 10);
-        map.put('L', 50);
-        map.put('C', 100);
-        map.put('D', 500);
-        map.put('M', 1000);
-
-        String str = new StringBuilder(s).reverse().toString();
-        int sum = 0, prev = -1;
-        for (int i = 0, l = str.length(); i < l; i++) {
-            int curr = map.get(str.charAt(i));
-            if (curr < prev) {
-                sum -= curr;
-            } else {
-                sum += curr;
-            }
-            prev = curr;
-        }
-
-        return sum;
+        return IntStream.range(0, s.length())
+                .map(i -> {
+                    int curr = ROMAN_MAP.get(s.charAt(i));
+                    int next = (i < s.length() - 1) ? ROMAN_MAP.get(s.charAt(i + 1)) : 0;
+                    return curr < next ? -curr : curr;
+                })
+                .sum();
     }
 }

@@ -2,6 +2,7 @@ package popular;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * Medium
@@ -35,34 +36,24 @@ public class PalindromePartitioning {
         return result;
     }
 
-    // Recursive helper method to find all possible palindrome partitions
     private void backtrack(String s, int start, List<String> partition, List<List<String>> result) {
         if (start == s.length()) {
             result.add(new ArrayList<>(partition));
             return;
         }
 
-        for (int i = start; i < s.length(); i++) {
-            String substring = s.substring(start, i + 1);
-            if (isPalindrome(substring)) {
-                partition.add(substring);
-                backtrack(s, i + 1, partition, result);
-                partition.remove(partition.size() - 1); // Backtrack
-            }
-        }
+        IntStream.range(start, s.length())
+                .mapToObj(i -> s.substring(start, i + 1))
+                .filter(this::isPalindrome)
+                .forEach(substring -> {
+                    partition.add(substring);
+                    backtrack(s, start + substring.length(), partition, result);
+                    partition.remove(partition.size() - 1);
+                });
     }
 
-    // Helper method to check if a string is a palindrome
     private boolean isPalindrome(String s) {
-        int left = 0;
-        int right = s.length() - 1;
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true;
+        return IntStream.range(0, s.length() / 2)
+                .allMatch(i -> s.charAt(i) == s.charAt(s.length() - i - 1));
     }
 }

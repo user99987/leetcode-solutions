@@ -1,5 +1,7 @@
 package popular;
 
+import java.util.stream.IntStream;
+
 /**
  * Medium
  * <p>
@@ -41,28 +43,25 @@ package popular;
 public class NumberOfIslands {
 
     public int numIslands(char[][] grid) {
-        int islands = 0;
-        if (grid != null && grid.length != 0 && grid[0].length != 0) {
-            for (int i = 0; i < grid.length; i++) {
-                for (int j = 0; j < grid[0].length; j++) {
-                    if (grid[i][j] == '1') {
-                        dfs(grid, i, j);
-                        islands++;
-                    }
-                }
-            }
-        }
-        return islands;
+        return grid == null || grid.length == 0 ? 0 :
+                IntStream.range(0, grid.length)
+                        .flatMap(i -> IntStream.range(0, grid[0].length)
+                                .filter(j -> grid[i][j] == '1')
+                                .map(j -> {
+                                    dfs(grid, i, j);
+                                    return 1;
+                                }))
+                        .sum();
     }
 
     private void dfs(char[][] grid, int x, int y) {
-        if (x < 0 || grid.length <= x || y < 0 || grid[0].length <= y || grid[x][y] != '1') {
+        if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] != '1') {
             return;
         }
         grid[x][y] = 'x';
-        dfs(grid, x + 1, y);
-        dfs(grid, x - 1, y);
-        dfs(grid, x, y + 1);
-        dfs(grid, x, y - 1);
+        IntStream.of(-1, 1).forEach(d -> {
+            dfs(grid, x + d, y);
+            dfs(grid, x, y + d);
+        });
     }
 }

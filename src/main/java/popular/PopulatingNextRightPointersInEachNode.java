@@ -37,17 +37,19 @@ package popular;
 public class PopulatingNextRightPointersInEachNode {
 
     Node connect(Node root) {
-        if (root == null) {
-            return null;
+        if (root == null) return null;
+        Node levelStart = root;
+        while (levelStart.left != null) {
+            Node cur = levelStart;
+            while (cur != null) {
+                cur.left.next = cur.right;
+                if (cur.next != null) {
+                    cur.right.next = cur.next.left;
+                }
+                cur = cur.next;
+            }
+            levelStart = levelStart.left;
         }
-        if (root.left != null && root.right != null) {
-            root.left.next = root.right;
-        }
-        if (root.next != null && root.right != null) {
-            root.right.next = root.next.left;
-        }
-        connect(root.left);
-        connect(root.right);
         return root;
     }
 
@@ -60,14 +62,6 @@ public class PopulatingNextRightPointersInEachNode {
         public Node(int val) {
             this.val = val;
         }
-
-        public static void print(Node head) {
-            while (head != null) {
-                System.out.print(head.val + " ");
-                head = head.next;
-            }
-        }
-
     }
 
 }

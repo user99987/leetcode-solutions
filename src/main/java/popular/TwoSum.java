@@ -1,6 +1,7 @@
 package popular;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Easy
@@ -41,21 +42,13 @@ import java.util.HashMap;
 public class TwoSum {
 
     public int[] twoSum(int[] nums, int target) {
-        // Create a hashmap to store elements and their indices
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        // Iterate through the array
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            // Check if the complement exists in the hashmap
-            if (map.containsKey(complement)) {
-                // Return the indices of the current element and the complement
-                return new int[]{map.get(complement), i};
+            if (map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
             }
-            // Add the current element and its index to the hashmap
             map.put(nums[i], i);
         }
-        // If no solution is found, return an empty array or null
         return new int[]{};
     }
 

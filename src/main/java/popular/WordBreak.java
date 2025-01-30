@@ -45,28 +45,21 @@ import java.util.Set;
  */
 public class WordBreak {
 
-    public boolean wordBreak(String s, List<String> wordDict) {
+    public boolean wordBreak(String input, List<String> wordDict) {
         Set<String> dictionary = new HashSet<>(wordDict);
-        Map<Integer, Boolean> dic = new HashMap<>();
-        for (int i = s.length() - 1; i >= 0; i--) dp(i, s, dic, dictionary);
-        return dic.get(0);
+        Map<Integer, Boolean> memo = new HashMap<>();
+        return canSegment(0, input, memo, dictionary);
     }
 
-    private boolean dp(int i, String s, Map<Integer, Boolean> dic, Set<String> dictionary) {
-        if (i == s.length()) return true;
-        else if (dic.containsKey(i)) return dic.get(i);
-        else {
-            for (int j = i, l = s.length(); j < l; j++) {
-                String subStr = s.substring(i, j + 1);
-                if (dictionary.contains(subStr)) {
-                    if (dp(j + 1, s, dic, dictionary)) {
-                        dic.put(i, true);
-                        break;
-                    }
-                }
-            }
-        }
-        if (!dic.containsKey(i)) dic.put(i, false);
-        return dic.get(i);
+    private boolean canSegment(int index, String input, Map<Integer, Boolean> memo, Set<String> dictionary) {
+        if (index == input.length()) return true;
+        if (memo.containsKey(index)) return memo.get(index);
+
+        boolean canBreak = dictionary.stream()
+                .filter(word -> input.startsWith(word, index))
+                .anyMatch(word -> canSegment(index + word.length(), input, memo, dictionary));
+
+        memo.put(index, canBreak);
+        return canBreak;
     }
 }

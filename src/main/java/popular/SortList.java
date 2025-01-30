@@ -3,6 +3,10 @@ package popular;
 
 import utils.ListNode;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 /**
  * Medium
  * <p>
@@ -34,39 +38,12 @@ import utils.ListNode;
 public class SortList {
 
     public ListNode sortList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode slow = head;
-        ListNode fast = head;
-        ListNode pre = slow;
-        while (fast != null && fast.next != null) {
-            pre = slow;
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        pre.next = null;
-        ListNode first = sortList(head);
-        ListNode second = sortList(slow);
-        ListNode res = new ListNode(1);
-        ListNode cur = res;
-        while (first != null || second != null) {
-            if (first == null) {
-                cur.next = second;
-                break;
-            } else if (second == null) {
-                cur.next = first;
-                break;
-            } else if (first.val <= second.val) {
-                cur.next = first;
-                first = first.next;
-                cur = cur.next;
-            } else {
-                cur.next = second;
-                second = second.next;
-                cur = cur.next;
-            }
-        }
-        return res.next;
+        if (head == null) return null;
+        List<ListNode> nodeList = new ArrayList<>();
+        for (ListNode current = head; current != null; current = current.next) nodeList.add(current);
+        nodeList.sort(Comparator.comparingInt(node -> node.val));
+        for (int i = 0; i < nodeList.size() - 1; i++) nodeList.get(i).next = nodeList.get(i + 1);
+        nodeList.get(nodeList.size() - 1).next = null;
+        return nodeList.get(0);
     }
 }

@@ -34,14 +34,19 @@ package popular;
 public class PowXN {
 
     public double myPow(double x, int n) {
-        if (n == 0) return 1D;
-        // use long to avoid overflow.
-        return solve(n < 0 ? (1 / x) : x, (long) n < 0 ? ((long) n * -1) : (long) n);
-    }
-
-    public double solve(double x, long n) {
-        if (n == 1) return x;
-        double val = solve(x, n / 2);
-        return val * val * ((n % 2) == 0 ? 1 : x);
+        long exp = n;
+        if (exp < 0) {
+            x = 1 / x;
+            exp = -exp;
+        }
+        double result = 1;
+        while (exp > 0) {
+            if ((exp & 1) == 1) {
+                result *= x;
+            }
+            x *= x;
+            exp >>= 1;
+        }
+        return result;
     }
 }

@@ -2,6 +2,7 @@ package popular;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Easy
@@ -49,20 +50,16 @@ import java.util.LinkedList;
  */
 public class ValidParentheses {
 
+    private static final Map<Character, Character> BRACKETS = Map.of(')', '(', '}', '{', ']', '[');
+
     public boolean isValid(String s) {
         Deque<Character> stack = new LinkedList<>();
 
         for (char c : s.toCharArray()) {
-            if (c == '(' || c == '{' || c == '[') {
+            if (BRACKETS.containsValue(c)) {
                 stack.push(c);
-            } else {
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                char top = stack.pop();
-                if ((c == ')' && top != '(') || (c == '}' && top != '{') || (c == ']' && top != '[')) {
-                    return false;
-                }
+            } else if (stack.isEmpty() || stack.pop() != BRACKETS.get(c)) {
+                return false;
             }
         }
 

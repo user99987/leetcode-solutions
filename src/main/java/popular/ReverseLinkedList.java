@@ -33,15 +33,15 @@ import utils.ListNode;
 public class ReverseLinkedList {
 
     public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        while (curr != null) {
-            ListNode next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+        ListNode previous = null;
+        ListNode currernt = head;
+        while (currernt != null) {
+            ListNode next = currernt.next;
+            currernt.next = previous;
+            previous = currernt;
+            currernt = next;
         }
-        return prev;
+        return previous;
     }
 
 }

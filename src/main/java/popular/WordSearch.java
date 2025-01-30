@@ -36,29 +36,26 @@ package popular;
 public class WordSearch {
 
     public boolean exist(char[][] board, String word) {
-        int m = board.length;
-        int n = board[0].length;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (search(board, word, i, j, 0))
-                    return true;
+        int rows = board.length, cols = board[0].length;
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (search(board, word, row, col, 0)) return true;
             }
         }
         return false;
     }
 
-    private boolean search(char[][] board, String word, int i, int j, int index) {
-        if (index == word.length())
-            return true;
-        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || board[i][j] != word.charAt(index))
+    private boolean search(char[][] board, String word, int row, int col, int index) {
+        if (index == word.length()) return true;
+        if (row < 0 || row >= board.length || col < 0 || col >= board[0].length || board[row][col] != word.charAt(index))
             return false;
-        char temp = board[i][j];
-        board[i][j] = '#'; // Mark as visited
-        boolean found = search(board, word, i + 1, j, index + 1) ||
-                search(board, word, i - 1, j, index + 1) ||
-                search(board, word, i, j + 1, index + 1) ||
-                search(board, word, i, j - 1, index + 1);
-        board[i][j] = temp; // Restore original value
+
+        board[row][col] = '#';
+        boolean found = search(board, word, row + 1, col, index + 1) ||
+                search(board, word, row - 1, col, index + 1) ||
+                search(board, word, row, col + 1, index + 1) ||
+                search(board, word, row, col - 1, index + 1);
+        board[row][col] = word.charAt(index);
         return found;
     }
 

@@ -41,18 +41,7 @@ package popular;
 public class NumberOf1Bits {
 
     public int hammingWeight(int n) {
-        int sum = 0;
-        boolean flag = false;
-        if (n < 0) {
-            flag = true;
-            n = n - Integer.MIN_VALUE;
-        }
-        while (n > 0) {
-            int k = n % 2;
-            sum += k;
-            n /= 2;
-        }
-        return flag ? sum + 1 : sum;
+        return Integer.bitCount(n);
     }
 
 }

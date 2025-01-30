@@ -2,6 +2,7 @@ package popular;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 /**
  * Hard
@@ -31,21 +32,19 @@ public class MaxPointsOnLine {
 
 
     public int maxPoints(int[][] points) {
-        int max = 0;
-        for (int i = 0; i < points.length - 1; i++) {
-            Map<Double, Integer> map = new HashMap<>();
-            for (int j = i + 1; j < points.length; j++) {
-                double slope = calculateSlope(points[i], points[j]);
-                map.put(slope, map.getOrDefault(slope, 0) + 1);
-                max = Math.max(max, map.get(slope));
-            }
-        }
-        return max + 1;
+        return IntStream.range(0, points.length - 1)
+                .map(i -> {
+                    Map<Double, Integer> map = new HashMap<>();
+                    return IntStream.range(i + 1, points.length)
+                            .map(j -> map.merge(calculateSlope(points[i], points[j]), 1, Integer::sum))
+                            .max().orElse(0);
+                })
+                .max().orElse(0) + 1;
     }
 
     private double calculateSlope(int[] p1, int[] p2) {
-        double y = (p2[1] - p1[1]);
-        double x = (p2[0] - p1[0]);
+        double y = p2[1] - p1[1];
+        double x = p2[0] - p1[0];
         return x == 0 ? Double.POSITIVE_INFINITY : y == 0 ? 0.0 : y / x;
     }
 }

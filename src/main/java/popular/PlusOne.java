@@ -1,6 +1,8 @@
 package popular;
 
 
+import java.util.stream.IntStream;
+
 /**
  * Easy
  * <p>
@@ -50,20 +52,10 @@ public class PlusOne {
 
     public int[] plusOne(int[] digits) {
         int carry = 1;
-        int n = digits.length;
-        for (int i = n - 1; i >= 0; i--) {
-            int temp = digits[i] + carry;
-            if (temp <= 9) {
-                digits[i] = temp;
-                return digits;
-            }
-            digits[i] = temp % 10;
+        for (int i = digits.length - 1; i >= 0 && carry > 0; i--) {
+            digits[i] = (digits[i] + carry) % 10;
+            carry = digits[i] == 0 ? 1 : 0;
         }
-        int[] newDigits = new int[n + 1];
-        newDigits[0] = 1;
-        for (int i = 1; i < n + 1; i++) {
-            newDigits[i] = digits[i - 1];
-        }
-        return newDigits;
+        return carry == 1 ? IntStream.concat(IntStream.of(1), IntStream.of(digits)).toArray() : digits;
     }
 }

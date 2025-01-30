@@ -30,17 +30,10 @@ import java.util.LinkedList;
  * At most 3 * 104 calls will be made to push, pop, top, and getMin.
  */
 public class MinStack {
-    private final Deque<Node> stack = new LinkedList<>();
+    private final Deque<int[]> stack = new LinkedList<>();
 
     public void push(int x) {
-        Node node;
-        if (!stack.isEmpty()) {
-            Node top = stack.peek();
-            node = new Node(x, Math.min(top.min, x));
-        } else {
-            node = new Node(x, x);
-        }
-        stack.push(node);
+        stack.push(new int[]{x, stack.isEmpty() ? x : Math.min(stack.peek()[1], x)});
     }
 
     public void pop() {
@@ -48,21 +41,10 @@ public class MinStack {
     }
 
     public int top() {
-        assert stack.peek() != null;
-        return stack.peek().value;
+        return stack.peek()[0];
     }
 
     public int getMin() {
-        assert stack.peek() != null;
-        return stack.peek().min;
-    }
-
-    static class Node {
-        int value, min;
-
-        Node(int value, int min) {
-            this.value = value;
-            this.min = min;
-        }
+        return stack.peek()[1];
     }
 }

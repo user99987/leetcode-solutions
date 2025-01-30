@@ -2,6 +2,8 @@ package popular;
 
 import utils.ListNode;
 
+import java.util.PriorityQueue;
+
 /**
  * Hard
  * <p>
@@ -41,37 +43,23 @@ import utils.ListNode;
 public class MergeKSortedLists {
 
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists.length == 0) return null;
-        if (lists.length == 1) return lists[0];
-        return merge(lists, 0, lists.length - 1);
-    }
-
-    private ListNode merge(ListNode[] lists, int s, int e) {
-        if (s == e) return lists[s];
-        int m = s + (e - s) / 2;
-        ListNode left = merge(lists, s, m);
-        ListNode right = merge(lists, m + 1, e);
-        ListNode prev, temp;
-        ListNode headNode = new ListNode(0);
-        headNode.next = left;
-        prev = headNode;
-        if (left == null && right == null) return null;
-        else if (left == null) return right;
-        else if (right == null) return left;
-        while (left != null && right != null) {
-            if (left.val > right.val) {
-                temp = right;
-                right = right.next;
-                prev.next = temp;
-                temp.next = left;
-                prev = prev.next;
-            } else {
-                left = left.next;
-                prev = prev.next;
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>((a, b) -> Integer.compare(a.val, b.val));
+        for (ListNode node : lists) {
+            if (node != null) {
+                minHeap.add(node);
             }
         }
-        if (left == null && right != null) prev.next = right;
-        return headNode.next;
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        while (!minHeap.isEmpty()) {
+            ListNode minNode = minHeap.poll();
+            current.next = minNode;
+            current = current.next;
+            if (minNode.next != null) {
+                minHeap.add(minNode.next);
+            }
+        }
+        return dummy.next;
     }
 
 }
