@@ -2,18 +2,18 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DistinctSubsequencesTest {
 
     @Test
     public void testCase1() {
-        assertEquals(3, new DistinctSubsequences().numDistinct("rabbbit", "rabbit"));
+        assertThat(new DistinctSubsequences().numDistinct("rabbbit", "rabbit")).isEqualTo(3);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(5, new DistinctSubsequences().numDistinct("babgbag", "bag"));
+        assertThat(new DistinctSubsequences().numDistinct("babgbag", "bag")).isEqualTo(5);
     }
 }
 

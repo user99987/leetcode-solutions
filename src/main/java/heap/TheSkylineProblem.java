@@ -50,23 +50,23 @@ import java.util.TreeMap;
 public class TheSkylineProblem {
 
     public List<List<Integer>> getSkyline(int[][] buildings) {
-        List<int[]> events = new ArrayList<>();
-        for (int[] building : buildings) {
+        var events = new ArrayList<int[]>();
+        for (var building : buildings) {
             events.add(new int[]{building[0], building[2]});
             events.add(new int[]{building[1], -building[2]});
         }
         events.sort((a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
 
-        List<List<Integer>> skyline = new ArrayList<>();
-        TreeMap<Integer, Integer> heightMap = new TreeMap<>();
+        var skyline = new ArrayList<List<Integer>>();
+        var heightMap = new TreeMap<Integer, Integer>();
         heightMap.put(0, 1);
-        int prevHeight = 0;
+        var prevHeight = 0;
 
-        for (int[] event : events) {
+        for (var event : events) {
             if (event[1] > 0) {
                 heightMap.put(event[1], heightMap.getOrDefault(event[1], 0) + 1);
             } else {
-                int count = heightMap.get(-event[1]);
+                var count = heightMap.get(-event[1]);
                 if (count == 1) {
                     heightMap.remove(-event[1]);
                 } else {
@@ -74,7 +74,7 @@ public class TheSkylineProblem {
                 }
             }
 
-            int currentHeight = heightMap.lastKey();
+            var currentHeight = heightMap.lastKey();
             if (currentHeight != prevHeight) {
                 skyline.add(List.of(event[0], currentHeight));
                 prevHeight = currentHeight;

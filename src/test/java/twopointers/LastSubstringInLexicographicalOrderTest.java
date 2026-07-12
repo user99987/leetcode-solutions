@@ -2,21 +2,21 @@ package twopointers;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LastSubstringInLexicographicalOrderTest {
 
     @Test
     public void testCase1() {
-        String actual = new LastSubstringInLexicographicalOrder().lastSubstring("abab");
-        String expected = "bab";
-        assertEquals(expected, actual);
+        var actual = new LastSubstringInLexicographicalOrder().lastSubstring("abab");
+        var expected = "bab";
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     public void testCase2() {
-        String actual = new LastSubstringInLexicographicalOrder().lastSubstring("leetcode");
-        String expected = "tcode";
-        assertEquals(expected, actual);
+        var actual = new LastSubstringInLexicographicalOrder().lastSubstring("leetcode");
+        var expected = "tcode";
+        assertThat(actual).isEqualTo(expected);
     }
 }

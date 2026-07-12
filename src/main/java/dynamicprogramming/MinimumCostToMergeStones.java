@@ -66,10 +66,10 @@ public class MinimumCostToMergeStones {
         if ((n - 1) % (k - 1) != 0) return -1;
 
         memo = new int[n][n];
-        for (int[] arr : memo) Arrays.fill(arr, -1);
+        for (var arr : memo) Arrays.fill(arr, -1);
 
         prefixSum = new int[n + 1];
-        for (int i = 1; i <= n; i++) prefixSum[i] = prefixSum[i - 1] + stones[i - 1];
+        for (var i = 1; i <= n; i++) prefixSum[i] = prefixSum[i - 1] + stones[i - 1];
 
         return dp(0, n - 1, k);
     }
@@ -79,7 +79,7 @@ public class MinimumCostToMergeStones {
         if (right - left + 1 < k) return 0;
         int res = Integer.MAX_VALUE;
 
-        for (int mid = left; mid < right; mid += k - 1) {
+        for (var mid = left; mid < right; mid += k - 1) {
             res = Math.min(res, dp(left, mid, k) + dp(mid + 1, right, k));
         }
         return memo[left][right] = ((right - left) % (k - 1) == 0 ? res + prefixSum[right + 1] - prefixSum[left] : res);

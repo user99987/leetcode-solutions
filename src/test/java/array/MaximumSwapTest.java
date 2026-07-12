@@ -1,18 +1,17 @@
 package array;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MaximumSwapTest {
 
     @Test
     public void testCase1() {
-        assertEquals(7236, new MaximumSwap().maximumSwap(2736));
+        assertThat(new MaximumSwap().maximumSwap(2736)).isEqualTo(7236);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(9973, new MaximumSwap().maximumSwap(9973));
+        assertThat(new MaximumSwap().maximumSwap(9973)).isEqualTo(9973);
     }
 }

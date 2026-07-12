@@ -1,7 +1,6 @@
 package dynamicprogramming;
 
 import java.util.ArrayDeque;
-import java.util.Queue;
 
 /**
  * Hard
@@ -39,10 +38,10 @@ public class ShortestPathVisitingAllNodes {
 
     public int shortestPathLength(int[][] graph) {
         int n = graph.length, targetState = (1 << n) - 1;
-        Queue<int[]> queue = new ArrayDeque<>();
+        var queue = new ArrayDeque<int[]>();
         boolean[][] visited = new boolean[n][targetState + 1];
 
-        for (int i = 0; i < n; i++) {
+        for (var i = 0; i < n; i++) {
             queue.offer(new int[]{i, 1 << i});
             visited[i][1 << i] = true;
         }
@@ -50,7 +49,7 @@ public class ShortestPathVisitingAllNodes {
         int steps = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
-            for (int i = 0; i < size; i++) {
+            for (var i = 0; i < size; i++) {
                 int[] curr = queue.poll();
                 int node = curr[0], state = curr[1];
 
@@ -58,7 +57,7 @@ public class ShortestPathVisitingAllNodes {
                     return steps;
                 }
 
-                for (int neighbor : graph[node]) {
+                for (var neighbor : graph[node]) {
                     int nextState = state | (1 << neighbor);
                     if (!visited[neighbor][nextState]) {
                         visited[neighbor][nextState] = true;

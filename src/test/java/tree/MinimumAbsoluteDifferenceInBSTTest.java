@@ -2,9 +2,10 @@ package tree;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MinimumAbsoluteDifferenceInBSTTest {
 
@@ -14,7 +15,7 @@ public class MinimumAbsoluteDifferenceInBSTTest {
                 List.of(4, 3, 2, 4),
                 2
         );
-        assertEquals(0, actual);
+        assertThat(actual).isEqualTo(0);
     }
 
     @Test
@@ -23,7 +24,7 @@ public class MinimumAbsoluteDifferenceInBSTTest {
                 List.of(5, 3, 2, 10, 15),
                 1
         );
-        assertEquals(1, actual);
+        assertThat(actual).isEqualTo(1);
     }
 
     @Test
@@ -32,6 +33,6 @@ public class MinimumAbsoluteDifferenceInBSTTest {
                 List.of(1, 2, 3, 4),
                 3
         );
-        assertEquals(3, actual);
+        assertThat(actual).isEqualTo(3);
     }
 }

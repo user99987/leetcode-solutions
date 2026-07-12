@@ -41,11 +41,11 @@ public class CourseSchedule {
         for (int i = 0; i < numCourses; i++) {
             adj[i] = new ArrayList<>();
         }
-        for (int[] pre : prerequisites) {
+        for (var pre : prerequisites) {
             adj[pre[1]].add(pre[0]);
         }
-        boolean[] visited = new boolean[numCourses];
-        boolean[] inRecStack = new boolean[numCourses];
+        var visited = new boolean[numCourses];
+        var inRecStack = new boolean[numCourses];
         for (int i = 0; i < numCourses; i++) {
             if (!visited[i] && hasCycle(adj, i, visited, inRecStack)) {
                 return false;
@@ -57,7 +57,7 @@ public class CourseSchedule {
     private boolean hasCycle(ArrayList<Integer>[] adj, int node, boolean[] visited, boolean[] inRecStack) {
         visited[node] = true;
         inRecStack[node] = true;
-        for (int nei : adj[node]) {
+        for (var nei : adj[node]) {
             if (!visited[nei] && hasCycle(adj, nei, visited, inRecStack)) {
                 return true;
             }

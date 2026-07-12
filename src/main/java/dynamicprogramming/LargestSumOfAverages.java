@@ -46,7 +46,7 @@ public class LargestSumOfAverages {
             return memo[k][idx];
         }
         double maxAvg = 0, sum = 0;
-        for (int i = idx; i <= nums.length - k; i++) {
+        for (var i = idx; i <= nums.length - k; i++) {
             sum += nums[i];
             if (k - 1 > 0) {
                 maxAvg = Math.max(maxAvg, (sum / (i - idx + 1)) + helper(nums, k - 1, i + 1, memo));

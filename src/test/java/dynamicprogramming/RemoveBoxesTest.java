@@ -2,27 +2,27 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RemoveBoxesTest {
 
     @Test
     public void testCase1() {
-        assertEquals(23, new RemoveBoxes().removeBoxes(new int[]{1, 3, 2, 2, 2, 3, 4, 3, 1}));
+        assertThat(new RemoveBoxes().removeBoxes(new int[]{1, 3, 2, 2, 2, 3, 4, 3, 1})).isEqualTo(23);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(9, new RemoveBoxes().removeBoxes(new int[]{1, 1, 1}));
+        assertThat(new RemoveBoxes().removeBoxes(new int[]{1, 1, 1})).isEqualTo(9);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(1, new RemoveBoxes().removeBoxes(new int[]{1}));
+        assertThat(new RemoveBoxes().removeBoxes(new int[]{1})).isEqualTo(1);
     }
 
     @Test
     public void testCase4() {
-        assertEquals(0, new RemoveBoxes().removeBoxes(new int[]{}));
+        assertThat(new RemoveBoxes().removeBoxes(new int[]{})).isEqualTo(0);
     }
 }

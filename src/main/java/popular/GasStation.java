@@ -50,7 +50,7 @@ public class GasStation {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int total = 0, tank = 0, start = 0;
         for (int i = 0; i < gas.length; i++) {
-            int balance = gas[i] - cost[i];
+            var balance = gas[i] - cost[i];
             tank += balance;
             total += balance;
             if (tank < 0) {

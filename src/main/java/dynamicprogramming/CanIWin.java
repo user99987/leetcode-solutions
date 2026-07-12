@@ -63,7 +63,7 @@ public class CanIWin {
     private boolean dfs(int used, int max, int total) {
         if (memo.containsKey(used)) return memo.get(used);
 
-        for (int i = 1; i <= max; i++) {
+        for (var i = 1; i <= max; i++) {
             int cur = 1 << (i - 1);
             if ((used & cur) == 0) {
                 if (i >= total || !dfs(used | cur, max, total - i)) {

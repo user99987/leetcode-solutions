@@ -31,13 +31,13 @@ import java.util.List;
 public class Subsets {
 
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
+        var result = new ArrayList<List<Integer>>();
         result.add(new ArrayList<>());
 
         for (int num : nums) {
-            List<List<Integer>> newSubsets = new ArrayList<>();
+            var newSubsets = new ArrayList<List<Integer>>();
             for (List<Integer> subset : result) {
-                List<Integer> newSubset = new ArrayList<>(subset);
+                var newSubset = new ArrayList<Integer>(subset);
                 newSubset.add(num);
                 newSubsets.add(newSubset);
             }

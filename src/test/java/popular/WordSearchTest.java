@@ -1,9 +1,8 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WordSearchTest {
 
@@ -14,7 +13,7 @@ public class WordSearchTest {
                 {'S', 'F', 'C', 'S'},
                 {'A', 'D', 'E', 'E'}
         };
-        assertTrue(new WordSearch().exist(board, "ABCCED"));
+        assertThat(new WordSearch().exist(board, "ABCCED")).isTrue();
     }
 
     @Test
@@ -24,7 +23,7 @@ public class WordSearchTest {
                 {'S', 'F', 'C', 'S'},
                 {'A', 'D', 'E', 'E'}
         };
-        assertTrue(new WordSearch().exist(board, "SEE"));
+        assertThat(new WordSearch().exist(board, "SEE")).isTrue();
     }
 
     @Test
@@ -34,6 +33,6 @@ public class WordSearchTest {
                 {'S', 'F', 'C', 'S'},
                 {'A', 'D', 'E', 'E'}
         };
-        assertFalse(new WordSearch().exist(board, "ABCB"));
+        assertThat(new WordSearch().exist(board, "ABCB")).isFalse();
     }
 }

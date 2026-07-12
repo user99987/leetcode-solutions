@@ -32,15 +32,15 @@ package string;
 public class MonotoneIncreasingDigits {
 
     public int monotoneIncreasingDigits(int n) {
-        char[] digits = String.valueOf(n).toCharArray();
-        int marker = digits.length;
-        for (int i = digits.length - 1; i > 0; i--) {
+        var digits = String.valueOf(n).toCharArray();
+        var marker = digits.length;
+        for (var i = digits.length - 1; i > 0; i--) {
             if (digits[i] < digits[i - 1]) {
                 digits[i - 1]--;
                 marker = i;
             }
         }
-        for (int i = marker; i < digits.length; i++) {
+        for (var i = marker; i < digits.length; i++) {
             digits[i] = '9';
         }
         return Integer.parseInt(new String(digits));

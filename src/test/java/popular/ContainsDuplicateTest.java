@@ -2,23 +2,22 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ContainsDuplicateTest {
 
     @Test
     void testCase1() {
-        assertTrue(new ContainsDuplicate().containsDuplicate(new int[]{1, 2, 3, 1}));
+        assertThat(new ContainsDuplicate().containsDuplicate(new int[]{1, 2, 3, 1})).isTrue();
     }
 
     @Test
     void testCase2() {
-        assertFalse(new ContainsDuplicate().containsDuplicate(new int[]{1, 2, 3, 4}));
+        assertThat(new ContainsDuplicate().containsDuplicate(new int[]{1, 2, 3, 4})).isFalse();
     }
 
     @Test
     void testCase3() {
-        assertTrue(new ContainsDuplicate().containsDuplicate(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}));
+        assertThat(new ContainsDuplicate().containsDuplicate(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2})).isTrue();
     }
 }

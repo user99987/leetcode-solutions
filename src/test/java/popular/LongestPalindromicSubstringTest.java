@@ -2,28 +2,29 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class LongestPalindromicSubstringTest {
 
     @Test
     public void testCase1() {
-        assertEquals("bab", new LongestPalindromicSubstring().longestPalindrome("babad"));
+        assertThat(new LongestPalindromicSubstring().longestPalindrome("babad")).isEqualTo("bab");
     }
 
     @Test
     public void testCase2() {
-        assertEquals("bb", new LongestPalindromicSubstring().longestPalindrome("cbbd"));
+        assertThat(new LongestPalindromicSubstring().longestPalindrome("cbbd")).isEqualTo("bb");
     }
 
     @Test
     public void testCase3() {
-        assertEquals("a", new LongestPalindromicSubstring().longestPalindrome("a"));
+        assertThat(new LongestPalindromicSubstring().longestPalindrome("a")).isEqualTo("a");
     }
 
     @Test
     public void testCase4() {
-        assertEquals("a", new LongestPalindromicSubstring().longestPalindrome("ac"));
+        assertThat(new LongestPalindromicSubstring().longestPalindrome("ac")).isEqualTo("a");
     }
 }
 

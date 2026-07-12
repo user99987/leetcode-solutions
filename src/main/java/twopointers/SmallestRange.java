@@ -46,8 +46,8 @@ import java.util.Arrays;
 public class SmallestRange {
 
     public int smallestRange(int[] nums, int k) {
-        int min = Arrays.stream(nums).min().orElse(0);
-        int max = Arrays.stream(nums).max().orElse(0);
+        var min = Arrays.stream(nums).min().orElse(0);
+        var max = Arrays.stream(nums).max().orElse(0);
         return Math.max(0, (max - k) - (min + k));
     }
 }

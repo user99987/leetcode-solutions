@@ -48,8 +48,8 @@ package popular;
 public class ExcelSheetColumnNumber {
 
     public int titleToNumber(String s) {
-        int num = 0;
-        int pow = 0;
+        var num = 0;
+        var pow = 0;
         for (int i = s.length() - 1; i >= 0; i--) {
             num += (int) Math.pow(26, pow++) * (s.charAt(i) - 'A' + 1);
         }

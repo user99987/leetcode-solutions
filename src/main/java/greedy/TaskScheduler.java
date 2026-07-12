@@ -46,11 +46,12 @@ public class TaskScheduler {
             return tasks.length;
         }
 
-        int[] frequency = new int[26];
-        int maxFreq = 0, maxCount = 0;
+        var frequency = new int[26];
+        var maxFreq = 0;
+        var maxCount = 0;
 
-        for (char task : tasks) {
-            int index = task - 'A';
+        for (var task : tasks) {
+            var index = task - 'A';
             frequency[index]++;
             if (frequency[index] > maxFreq) {
                 maxFreq = frequency[index];

@@ -1,7 +1,6 @@
 package popular;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Hard
@@ -46,10 +45,10 @@ import java.util.Map;
 public class MinimumWindowSubstring {
 
     public String minWindow(String s, String t) {
-        Map<Character, Integer> tFreq = new HashMap<>();
+        var tFreq = new HashMap<Character, Integer>();
         t.chars().forEach(c -> tFreq.merge((char) c, 1, Integer::sum));
 
-        Map<Character, Integer> sFreq = new HashMap<>();
+        var sFreq = new HashMap<Character, Integer>();
         int left = 0, minLength = Integer.MAX_VALUE, minStart = 0, matched = 0;
 
         for (int right = 0; right < s.length(); right++) {

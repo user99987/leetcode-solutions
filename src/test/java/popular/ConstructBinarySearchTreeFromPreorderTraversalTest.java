@@ -3,13 +3,13 @@ package popular;
 import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ConstructBinarySearchTreeFromPreorderTraversalTest {
 
     @Test
     void testCase1() {
-        TreeNode node = new ConstructBinarySearchTreeFromPreorderTraversal().bstFromPreorder(
+        var node = new ConstructBinarySearchTreeFromPreorderTraversal().bstFromPreorder(
                 new int[]{8, 5, 1, 7, 10, 12});
         assertThat(node).isNotNull();
         assertThat(node.value).isEqualTo(8);
@@ -28,7 +28,7 @@ class ConstructBinarySearchTreeFromPreorderTraversalTest {
 
     @Test
     void testCase2() {
-        TreeNode node = new ConstructBinarySearchTreeFromPreorderTraversal().bstFromPreorder(
+        var node = new ConstructBinarySearchTreeFromPreorderTraversal().bstFromPreorder(
                 new int[]{1, 3});
         assertThat(node).isNotNull();
         assertThat(node.value).isEqualTo(1);

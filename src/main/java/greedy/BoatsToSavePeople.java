@@ -42,7 +42,9 @@ public class BoatsToSavePeople {
 
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);
-        int left = 0, right = people.length - 1, boats = 0;
+        var left = 0;
+        var right = people.length - 1;
+        var boats = 0;
 
         while (left <= right) {
             if (people[left] + people[right] <= limit) {

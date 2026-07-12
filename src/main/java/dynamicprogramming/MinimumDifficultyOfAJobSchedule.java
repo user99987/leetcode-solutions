@@ -54,17 +54,17 @@ public class MinimumDifficultyOfAJobSchedule {
         if (n < d) return -1;
 
         int[][] dp = new int[d + 1][n + 1];
-        for (int i = 0; i <= d; i++) {
-            for (int j = 0; j <= n; j++) {
+        for (var i = 0; i <= d; i++) {
+            for (var j = 0; j <= n; j++) {
                 dp[i][j] = Integer.MAX_VALUE / 2;
             }
         }
         dp[0][0] = 0;
 
-        for (int day = 1; day <= d; day++) {
-            for (int end = day; end <= n; end++) {
+        for (var day = 1; day <= d; day++) {
+            for (var end = day; end <= n; end++) {
                 int maxJob = 0;
-                for (int start = end - 1; start >= day - 1; start--) {
+                for (var start = end - 1; start >= day - 1; start--) {
                     maxJob = Math.max(maxJob, jobDifficulty[start]);
                     dp[day][end] = Math.min(dp[day][end], dp[day - 1][start] + maxJob);
                 }

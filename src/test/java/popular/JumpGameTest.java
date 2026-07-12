@@ -2,18 +2,18 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class JumpGameTest {
 
     @Test
     public void testCase1() {
-        assertTrue(new JumpGame().canJump(new int[]{2, 3, 1, 1, 4}));
+        assertThat(new JumpGame().canJump(new int[]{2, 3, 1, 1, 4})).isTrue();
     }
 
     @Test
     public void testCase2() {
-        assertFalse(new JumpGame().canJump(new int[]{3, 2, 1, 0, 4}));
+        assertThat(new JumpGame().canJump(new int[]{3, 2, 1, 0, 4})).isFalse();
     }
 }

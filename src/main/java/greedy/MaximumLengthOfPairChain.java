@@ -40,9 +40,10 @@ public class MaximumLengthOfPairChain {
 
     public int findLongestChain(int[][] pairs) {
         Arrays.sort(pairs, Comparator.comparingInt(a -> a[1]));
-        int count = 0, end = Integer.MIN_VALUE;
+        var count = 0;
+        var end = Integer.MIN_VALUE;
 
-        for (int[] pair : pairs) {
+        for (var pair : pairs) {
             if (pair[0] > end) {
                 count++;
                 end = pair[1];

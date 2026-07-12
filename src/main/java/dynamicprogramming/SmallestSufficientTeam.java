@@ -48,14 +48,14 @@ public class SmallestSufficientTeam {
     public int[] smallestSufficientTeam(String[] skills, List<List<String>> people) {
         int n = skills.length, m = people.size();
         Map<String, Integer> skillIndex = new HashMap<>();
-        for (int i = 0; i < n; i++) {
+        for (var i = 0; i < n; i++) {
             skillIndex.put(skills[i], i);
         }
 
-        int[] personSkills = new int[m];
-        for (int i = 0; i < m; i++) {
+        var personSkills = new int[m];
+        for (var i = 0; i < m; i++) {
             int skillMask = 0;
-            for (String skill : people.get(i)) {
+            for (var skill : people.get(i)) {
                 skillMask |= (1 << skillIndex.get(skill));
             }
             personSkills[i] = skillMask;
@@ -64,10 +64,10 @@ public class SmallestSufficientTeam {
         List<Integer>[] dp = new List[1 << n];
         dp[0] = new ArrayList<>();
 
-        for (int i = 0; i < m; i++) {
+        for (var i = 0; i < m; i++) {
             int skillSet = personSkills[i];
             if (skillSet == 0) continue;
-            for (int prev = (1 << n) - 1; prev >= 0; prev--) {
+            for (var prev = (1 << n) - 1; prev >= 0; prev--) {
                 if (dp[prev] == null) continue;
                 int combined = prev | skillSet;
                 if (dp[combined] == null || dp[prev].size() + 1 < dp[combined].size()) {

@@ -43,7 +43,16 @@ public class FlipEquivalentBinaryTrees {
     public boolean flipEquiv(TreeNode root1, TreeNode root2) {
         if (root1 == null || root2 == null) return root1 == root2;
         if (root1.value != root2.value) return false;
-        return (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right))
-                || (flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
+        if (sameValue(root1.left, root2.left) && sameValue(root1.right, root2.right)) {
+            return flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right);
+        }
+        if (sameValue(root1.left, root2.right) && sameValue(root1.right, root2.left)) {
+            return flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
+        }
+        return false;
+    }
+
+    private boolean sameValue(TreeNode first, TreeNode second) {
+        return first == null ? second == null : second != null && first.value == second.value;
     }
 }

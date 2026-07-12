@@ -27,7 +27,7 @@ import java.util.List;
 public class GenerateParentheses {
 
     public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList<>();
+        var result = new ArrayList<String>();
         backtrack(new StringBuilder(), 0, 0, n, result);
         return result;
     }

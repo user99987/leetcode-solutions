@@ -40,14 +40,14 @@ import java.util.List;
 public class PalindromePairs {
 
     public List<List<Integer>> palindromePairs(String[] words) {
-        List<List<Integer>> result = new ArrayList<>();
-        TrieNode root = new TrieNode();
+        var result = new ArrayList<List<Integer>>();
+        var root = new TrieNode();
 
-        for (int i = 0; i < words.length; i++) {
+        for (var i = 0; i < words.length; i++) {
             addWord(root, words[i], i);
         }
 
-        for (int i = 0; i < words.length; i++) {
+        for (var i = 0; i < words.length; i++) {
             search(words, i, root, result);
         }
 
@@ -55,7 +55,7 @@ public class PalindromePairs {
     }
 
     private void addWord(TrieNode root, String word, int index) {
-        for (int i = word.length() - 1; i >= 0; i--) {
+        for (var i = word.length() - 1; i >= 0; i--) {
             int ch = word.charAt(i) - 'a';
             if (root.children[ch] == null) {
                 root.children[ch] = new TrieNode();
@@ -70,7 +70,7 @@ public class PalindromePairs {
     }
 
     private void search(String[] words, int i, TrieNode root, List<List<Integer>> result) {
-        for (int j = 0; j < words[i].length(); j++) {
+        for (var j = 0; j < words[i].length(); j++) {
             if (root.wordIndex >= 0 && root.wordIndex != i && isPalindrome(words[i], j, words[i].length() - 1)) {
                 result.add(Arrays.asList(i, root.wordIndex));
             }
@@ -79,7 +79,7 @@ public class PalindromePairs {
                 return;
             }
         }
-        for (int j : root.palindromeList) {
+        for (var j : root.palindromeList) {
             if (i != j) {
                 result.add(Arrays.asList(i, j));
             }

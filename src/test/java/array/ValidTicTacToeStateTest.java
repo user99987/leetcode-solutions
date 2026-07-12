@@ -1,24 +1,22 @@
 package array;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ValidTicTacToeStateTest {
 
     @Test
     public void testCase1() {
-        assertFalse(new ValidTicTacToeState().validTicTacToe(new String[]{"O  ", "   ", "   "}));
+        assertThat(new ValidTicTacToeState().validTicTacToe(new String[]{"O  ", "   ", "   "})).isFalse();
     }
 
     @Test
     public void testCase2() {
-        assertFalse(new ValidTicTacToeState().validTicTacToe(new String[]{"XOX", " X ", "   "}));
+        assertThat(new ValidTicTacToeState().validTicTacToe(new String[]{"XOX", " X ", "   "})).isFalse();
     }
 
     @Test
     public void testCase3() {
-        assertTrue(new ValidTicTacToeState().validTicTacToe(new String[]{"XOX", "O O", "XOX"}));
+        assertThat(new ValidTicTacToeState().validTicTacToe(new String[]{"XOX", "O O", "XOX"})).isTrue();
     }
 }

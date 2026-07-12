@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PascalsTriangleTest {
 
@@ -19,7 +19,7 @@ public class PascalsTriangleTest {
                 Arrays.asList(1, 3, 3, 1),
                 Arrays.asList(1, 4, 6, 4, 1)
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -28,6 +28,6 @@ public class PascalsTriangleTest {
         List<List<Integer>> expected = List.of(
                 List.of(1)
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 }

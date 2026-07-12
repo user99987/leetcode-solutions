@@ -63,13 +63,13 @@ public class RevealCardsInIncreasingOrder {
     public int[] deckRevealedIncreasing(int[] deck) {
         Arrays.sort(deck);
         int n = deck.length;
-        Deque<Integer> queue = new LinkedList<>();
+        var queue = new LinkedList<Integer>();
         for (int i = 0; i < n; i++) {
             queue.add(i);
         }
 
-        int[] result = new int[n];
-        for (int card : deck) {
+        var result = new int[n];
+        for (var card : deck) {
             result[queue.poll()] = card;
             if (!queue.isEmpty()) {
                 queue.add(queue.poll());

@@ -1,8 +1,8 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class SurroundedRegionsTest {
 
@@ -21,7 +21,7 @@ public class SurroundedRegionsTest {
                 {'X', 'X', 'X', 'X'},
                 {'X', 'O', 'X', 'X'}
         };
-        assertArrayEquals(expected, board);
+        assertThat(board).isDeepEqualTo(expected);
     }
 
     @Test
@@ -29,6 +29,6 @@ public class SurroundedRegionsTest {
         char[][] board = {{'X'}};
         new SurroundedRegions().solve(board);
         char[][] expected = {{'X'}};
-        assertArrayEquals(expected, board);
+        assertThat(board).isDeepEqualTo(expected);
     }
 }

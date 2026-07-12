@@ -50,8 +50,8 @@ public class KeyboardRow {
     public String[] findWords(String[] words) {
         return Arrays.stream(words)
                 .filter(word -> {
-                    String lowerWord = word.toLowerCase();
-                    Set<Character> row = getRow(lowerWord.charAt(0));
+                    var lowerWord = word.toLowerCase();
+                    var row = getRow(lowerWord.charAt(0));
                     return lowerWord.chars().allMatch(c -> row.contains((char) c));
                 })
                 .toArray(String[]::new);

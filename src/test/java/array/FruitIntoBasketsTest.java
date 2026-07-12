@@ -1,23 +1,22 @@
 package array;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FruitIntoBasketsTest {
 
     @Test
     public void testCase1() {
-        assertEquals(3, new FruitIntoBaskets().totalFruit(new int[]{1, 2, 1}));
+        assertThat(new FruitIntoBaskets().totalFruit(new int[]{1, 2, 1})).isEqualTo(3);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(3, new FruitIntoBaskets().totalFruit(new int[]{0, 1, 2, 2}));
+        assertThat(new FruitIntoBaskets().totalFruit(new int[]{0, 1, 2, 2})).isEqualTo(3);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(4, new FruitIntoBaskets().totalFruit(new int[]{1, 2, 3, 2, 2}));
+        assertThat(new FruitIntoBaskets().totalFruit(new int[]{1, 2, 3, 2, 2})).isEqualTo(4);
     }
 }

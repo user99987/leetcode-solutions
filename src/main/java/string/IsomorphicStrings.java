@@ -42,12 +42,12 @@ public class IsomorphicStrings {
     public boolean isIsomorphic(String s, String t) {
         if (s.length() != t.length()) return false;
 
-        Map<Character, Character> forwardMap = new HashMap<>();
-        Map<Character, Character> reverseMap = new HashMap<>();
+        var forwardMap = new HashMap<Character, Character>();
+        var reverseMap = new HashMap<Character, Character>();
 
         return IntStream.range(0, s.length()).allMatch(i -> {
-            char source = s.charAt(i);
-            char target = t.charAt(i);
+            var source = s.charAt(i);
+            var target = t.charAt(i);
 
             if (forwardMap.getOrDefault(source, target) != target ||
                     reverseMap.getOrDefault(target, source) != source) {

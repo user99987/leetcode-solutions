@@ -1,7 +1,6 @@
 package popular;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Medium
@@ -55,19 +54,19 @@ public class FractionToRecurringDecimal {
         if (numerator == 0) {
             return "0";
         }
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         if ((numerator > 0) != (denominator > 0)) {
             sb.append("-");
         }
-        long num = Math.abs((long) numerator);
-        long den = Math.abs((long) denominator);
+        var num = Math.abs((long) numerator);
+        var den = Math.abs((long) denominator);
         sb.append(num / den);
-        long remainder = num % den;
+        var remainder = num % den;
         if (remainder == 0) {
             return sb.toString();
         }
         sb.append(".");
-        Map<Long, Integer> map = new HashMap<>();
+        var map = new HashMap<Long, Integer>();
         while (remainder != 0) {
             if (map.containsKey(remainder)) {
                 sb.insert(map.get(remainder), "(");

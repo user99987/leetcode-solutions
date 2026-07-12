@@ -48,11 +48,11 @@ public class FreedomTrail {
         if (j == key.length()) return 0;
         if (dp[i][j] != 0) return dp[i][j];
 
-        char target = key.charAt(j);
-        int minSteps = Integer.MAX_VALUE;
-        for (int k = 0; k < ring.length(); k++) {
+        var target = key.charAt(j);
+        var minSteps = Integer.MAX_VALUE;
+        for (var k = 0; k < ring.length(); k++) {
             if (ring.charAt(k) == target) {
-                int steps = Math.min(Math.abs(i - k), ring.length() - Math.abs(i - k));
+                var steps = Math.min(Math.abs(i - k), ring.length() - Math.abs(i - k));
                 minSteps = Math.min(minSteps, steps + calculateSteps(k, j + 1, ring, key));
             }
         }

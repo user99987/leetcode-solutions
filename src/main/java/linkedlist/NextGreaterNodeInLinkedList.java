@@ -2,10 +2,6 @@ package linkedlist;
 
 import utils.ListNode;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-
 /**
  * Medium
  * <p>
@@ -36,20 +32,26 @@ import java.util.LinkedList;
 public class NextGreaterNodeInLinkedList {
 
     public int[] nextLargerNodes(ListNode head) {
-        ArrayList<Integer> values = new ArrayList<>();
-        while (head != null) {
-            values.add(head.value);
-            head = head.next;
+        int size = 0;
+        for (ListNode node = head; node != null; node = node.next) {
+            size++;
         }
 
-        int[] result = new int[values.size()];
-        Deque<Integer> stack = new LinkedList<>();
+        var values = new int[size];
+        int index = 0;
+        for (ListNode node = head; node != null; node = node.next) {
+            values[index++] = node.value;
+        }
 
-        for (int i = 0; i < values.size(); i++) {
-            while (!stack.isEmpty() && values.get(stack.peek()) < values.get(i)) {
-                result[stack.pop()] = values.get(i);
+        var result = new int[size];
+        var stack = new int[size];
+        int top = -1;
+
+        for (int i = 0; i < size; i++) {
+            while (top >= 0 && values[stack[top]] < values[i]) {
+                result[stack[top--]] = values[i];
             }
-            stack.push(i);
+            stack[++top] = i;
         }
 
         return result;

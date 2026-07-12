@@ -2,21 +2,19 @@ package linkedlist;
 
 import org.junit.jupiter.api.Test;
 import utils.ListNode;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class PalindromeListTest {
 
     @Test
     void testCase1() {
         ListNode head = ListNode.create(new int[]{1, 2, 2, 1});
-        assertTrue(new PalindromeList().isPalindrome(head));
+        assertThat(new PalindromeList().isPalindrome(head)).isTrue();
     }
 
     @Test
     void testCase2() {
         ListNode head = ListNode.create(new int[]{1, 2});
-        assertFalse(new PalindromeList().isPalindrome(head));
+        assertThat(new PalindromeList().isPalindrome(head)).isFalse();
     }
 }

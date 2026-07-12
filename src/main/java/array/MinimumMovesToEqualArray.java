@@ -34,7 +34,7 @@ public class MinimumMovesToEqualArray {
         int min = nums[0];
         int sum = 0;
 
-        for (int num : nums) {
+        for (var num : nums) {
             min = Math.min(min, num);
             sum += num;
         }

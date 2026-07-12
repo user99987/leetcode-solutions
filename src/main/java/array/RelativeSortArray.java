@@ -29,12 +29,12 @@ package array;
 public class RelativeSortArray {
 
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
-        int[] map = new int[1001];
-        for (int a : arr1) {
+        var map = new int[1001];
+        for (var a : arr1) {
             map[a]++;
         }
         int i = 0;
-        for (int b : arr2) {
+        for (var b : arr2) {
             while (map[b] != 0) {
                 map[b]--;
                 arr1[i++] = b;

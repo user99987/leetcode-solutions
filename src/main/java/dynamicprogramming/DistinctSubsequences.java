@@ -1,7 +1,5 @@
 package dynamicprogramming;
 
-import java.util.Arrays;
-
 /**
  * Hard
  * <p>
@@ -20,26 +18,18 @@ import java.util.Arrays;
  */
 public class DistinctSubsequences {
 
-    private int[][] dp;
-
     public int numDistinct(String s, String t) {
-        int m = s.length(), n = t.length();
-        dp = new int[m][n];
-        for (int[] row : dp) {
-            Arrays.fill(row, -1);
-        }
-        return countWays(0, 0, s, t);
-    }
+        int tLength = t.length();
+        long[] dp = new long[tLength + 1];
+        dp[0] = 1;
 
-    private int countWays(int i, int j, String s, String t) {
-        if (j == t.length()) return 1;
-        if (i == s.length()) return 0;
-        if (dp[i][j] != -1) return dp[i][j];
-
-        dp[i][j] = countWays(i + 1, j, s, t);
-        if (s.charAt(i) == t.charAt(j)) {
-            dp[i][j] += countWays(i + 1, j + 1, s, t);
+        for (var i = 0; i < s.length(); i++) {
+            for (var j = tLength - 1; j >= 0; j--) {
+                if (s.charAt(i) == t.charAt(j)) {
+                    dp[j + 1] += dp[j];
+                }
+            }
         }
-        return dp[i][j];
+        return (int) dp[tLength];
     }
 }

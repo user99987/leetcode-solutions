@@ -1,16 +1,17 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BinaryTreeTiltTest {
 
     @Test
     void testCase1() {
-        TreeNode root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
-        assertEquals(1, new BinaryTreeTilt().findTilt(root));
+        var root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+        assertThat(new BinaryTreeTilt().findTilt(root)).isEqualTo(1);
     }
 
     @Test
@@ -18,7 +19,7 @@ class BinaryTreeTiltTest {
         TreeNode root = new TreeNode(4,
                 new TreeNode(2, new TreeNode(3), new TreeNode(5)),
                 new TreeNode(9, null, new TreeNode(7)));
-        assertEquals(15, new BinaryTreeTilt().findTilt(root));
+        assertThat(new BinaryTreeTilt().findTilt(root)).isEqualTo(15);
     }
 
     @Test
@@ -30,6 +31,6 @@ class BinaryTreeTiltTest {
                 new TreeNode(14,
                         new TreeNode(2),
                         new TreeNode(2)));
-        assertEquals(9, new BinaryTreeTilt().findTilt(root));
+        assertThat(new BinaryTreeTilt().findTilt(root)).isEqualTo(9);
     }
 }

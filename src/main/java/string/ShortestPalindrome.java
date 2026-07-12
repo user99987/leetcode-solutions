@@ -27,9 +27,9 @@ package string;
 public class ShortestPalindrome {
 
     public String shortestPalindrome(String s) {
-        String reversed = new StringBuilder(s).reverse().toString();
-        String combined = s + "#" + reversed;
-        int[] lps = new int[combined.length()];
+        var reversed = new StringBuilder(s).reverse().toString();
+        var combined = s + "#" + reversed;
+        var lps = new int[combined.length()];
 
         for (int i = 1, length = 0; i < combined.length(); i++) {
             while (length > 0 && combined.charAt(i) != combined.charAt(length)) {

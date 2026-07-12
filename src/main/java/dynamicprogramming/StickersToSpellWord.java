@@ -54,12 +54,12 @@ public class StickersToSpellWord {
         int n = stickers.length;
         stickerCounts = new int[n][26];
 
-        for (int i = 0; i < 26; i++) {
+        for (var i = 0; i < 26; i++) {
             charToStickers.put((char) ('a' + i), new HashSet<>());
         }
 
-        for (int i = 0; i < n; i++) {
-            for (char c : stickers[i].toCharArray()) {
+        for (var i = 0; i < n; i++) {
+            for (var c : stickers[i].toCharArray()) {
                 stickerCounts[i][c - 'a']++;
                 charToStickers.get(c).add(i);
             }
@@ -79,7 +79,7 @@ public class StickersToSpellWord {
         }
 
         int index = 0;
-        for (int i = 0; i < targetLength; i++) {
+        for (var i = 0; i < targetLength; i++) {
             if ((bitmask & (1 << i)) == 0) {
                 index = i;
                 break;
@@ -87,11 +87,11 @@ public class StickersToSpellWord {
         }
 
         int minStickers = targetLength + 1;
-        for (int stickerIndex : charToStickers.get(target.charAt(index))) {
+        for (var stickerIndex : charToStickers.get(target.charAt(index))) {
             int[] count = stickerCounts[stickerIndex].clone();
             int newBitmask = bitmask;
 
-            for (int i = index; i < targetLength; i++) {
+            for (var i = index; i < targetLength; i++) {
                 if ((newBitmask & (1 << i)) != 0) {
                     continue;
                 }

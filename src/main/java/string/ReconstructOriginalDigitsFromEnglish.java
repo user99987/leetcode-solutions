@@ -29,9 +29,9 @@ public class ReconstructOriginalDigitsFromEnglish {
 
 
     public String originalDigits(String s) {
-        int[] count = new int[26];
-        int[] digits = new int[10];
-        StringBuilder str = new StringBuilder();
+        var count = new int[26];
+        var digits = new int[10];
+        var str = new StringBuilder();
 
         s.chars().forEach(c -> ++count[c - 'a']);
 

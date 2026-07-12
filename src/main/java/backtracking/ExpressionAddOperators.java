@@ -63,27 +63,45 @@ import java.util.List;
 public class ExpressionAddOperators {
 
     public List<String> addOperators(String num, int target) {
-        List<String> result = new ArrayList<>();
-        backtrack(result, num, target, 0, 0, 0, "");
+        var result = new ArrayList<String>();
+        if (num.isEmpty()) {
+            return result;
+        }
+        backtrack(result, num.toCharArray(), target, 0, 0, 0, new char[num.length() * 2], 0);
         return result;
     }
 
-    private void backtrack(List<String> result, String num, int target, int index, long eval, long multed, String path) {
-        if (index == num.length()) {
+    private void backtrack(List<String> result, char[] digits, int target, int index, long eval, long multed,
+                           char[] expression, int length) {
+        if (index == digits.length) {
             if (eval == target) {
-                result.add(path);
+                result.add(new String(expression, 0, length));
             }
             return;
         }
-        for (int i = index; i < num.length(); i++) {
-            if (i != index && num.charAt(index) == '0') break;
-            long curr = Long.parseLong(num.substring(index, i + 1));
+
+        long current = 0;
+        int operatorIndex = length;
+        if (index != 0) {
+            length++;
+        }
+
+        for (int i = index; i < digits.length; i++) {
+            if (i > index && digits[index] == '0') {
+                break;
+            }
+            current = current * 10 + digits[i] - '0';
+            expression[length++] = digits[i];
+
             if (index == 0) {
-                backtrack(result, num, target, i + 1, curr, curr, path + curr);
+                backtrack(result, digits, target, i + 1, current, current, expression, length);
             } else {
-                backtrack(result, num, target, i + 1, eval + curr, curr, path + "+" + curr);
-                backtrack(result, num, target, i + 1, eval - curr, -curr, path + "-" + curr);
-                backtrack(result, num, target, i + 1, eval - multed + multed * curr, multed * curr, path + "*" + curr);
+                expression[operatorIndex] = '+';
+                backtrack(result, digits, target, i + 1, eval + current, current, expression, length);
+                expression[operatorIndex] = '-';
+                backtrack(result, digits, target, i + 1, eval - current, -current, expression, length);
+                expression[operatorIndex] = '*';
+                backtrack(result, digits, target, i + 1, eval - multed + multed * current, multed * current, expression, length);
             }
         }
     }

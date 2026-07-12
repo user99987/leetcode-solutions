@@ -2,36 +2,36 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FractionToRecurringDecimalTest {
 
     @Test
     public void testCase1() {
-        int numerator = 1;
-        int denominator = 2;
-        FractionToRecurringDecimal converter = new FractionToRecurringDecimal();
-        assertEquals("0.5", converter.fractionToDecimal(numerator, denominator));
+        var numerator = 1;
+        var denominator = 2;
+        var converter = new FractionToRecurringDecimal();
+        assertThat(converter.fractionToDecimal(numerator, denominator)).isEqualTo("0.5");
     }
 
     @Test
     public void testCase2() {
-        assertEquals("2", new FractionToRecurringDecimal().fractionToDecimal(2, 1));
+        assertThat(new FractionToRecurringDecimal().fractionToDecimal(2, 1)).isEqualTo("2");
     }
 
     @Test
     public void testCase3() {
-        assertEquals("0.(6)", new FractionToRecurringDecimal().fractionToDecimal(2, 3));
+        assertThat(new FractionToRecurringDecimal().fractionToDecimal(2, 3)).isEqualTo("0.(6)");
     }
 
     @Test
     public void testCase4() {
-        assertEquals("0.(012)", new FractionToRecurringDecimal().fractionToDecimal(4, 333));
+        assertThat(new FractionToRecurringDecimal().fractionToDecimal(4, 333)).isEqualTo("0.(012)");
     }
 
     @Test
     public void testCase5() {
-        assertEquals("0.2", new FractionToRecurringDecimal().fractionToDecimal(1, 5));
+        assertThat(new FractionToRecurringDecimal().fractionToDecimal(1, 5)).isEqualTo("0.2");
     }
 }
 

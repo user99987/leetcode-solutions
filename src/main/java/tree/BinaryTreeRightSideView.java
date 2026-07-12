@@ -36,7 +36,7 @@ import java.util.List;
 public class BinaryTreeRightSideView {
 
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
+        var result = new ArrayList<Integer>();
         dfs(root, 0, new int[]{-1}, result);
         return result;
     }

@@ -2,32 +2,32 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class FindTheClosestPalindromeTest {
 
     @Test
     public void testCase1() {
-        assertEquals("121", new FindTheClosestPalindrome().nearestPalindromic("123"));
+        assertThat(new FindTheClosestPalindrome().nearestPalindromic("123")).isEqualTo("121");
     }
 
     @Test
     public void testCase2() {
-        assertEquals("0", new FindTheClosestPalindrome().nearestPalindromic("1"));
+        assertThat(new FindTheClosestPalindrome().nearestPalindromic("1")).isEqualTo("0");
     }
 
     @Test
     public void testCase3() {
-        assertEquals("999", new FindTheClosestPalindrome().nearestPalindromic("1000"));
+        assertThat(new FindTheClosestPalindrome().nearestPalindromic("1000")).isEqualTo("999");
     }
 
     @Test
     public void testCase4() {
-        assertEquals("99", new FindTheClosestPalindrome().nearestPalindromic("101"));
+        assertThat(new FindTheClosestPalindrome().nearestPalindromic("101")).isEqualTo("99");
     }
 
     @Test
     public void testCase5() {
-        assertEquals("7", new FindTheClosestPalindrome().nearestPalindromic("8"));
+        assertThat(new FindTheClosestPalindrome().nearestPalindromic("8")).isEqualTo("7");
     }
 }

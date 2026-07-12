@@ -39,24 +39,41 @@ package dynamicprogramming;
 public class LargestPlusSign {
 
     public int orderOfLargestPlusSign(int n, int[][] mines) {
-        boolean[][] mat = new boolean[n][n];
-        for (int[] pos : mines) {
-            mat[pos[0]][pos[1]] = true;
-        }
-        int[][] left = new int[n][n], right = new int[n][n], up = new int[n][n], down = new int[n][n];
-        int ans = 0;
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                left[i][j] = mat[i][j] ? 0 : 1 + (j == 0 ? 0 : left[i][j - 1]);
-                up[i][j] = mat[i][j] ? 0 : 1 + (i == 0 ? 0 : up[i - 1][j]);
+        int[][] dp = new int[n][n];
+        for (var row = 0; row < n; row++) {
+            for (var col = 0; col < n; col++) {
+                dp[row][col] = n;
             }
         }
-        for (int i = n - 1; i >= 0; i--) {
-            for (int j = n - 1; j >= 0; j--) {
-                right[i][j] = mat[i][j] ? 0 : 1 + (j == n - 1 ? 0 : right[i][j + 1]);
-                down[i][j] = mat[i][j] ? 0 : 1 + (i == n - 1 ? 0 : down[i + 1][j]);
-                ans = Math.max(ans, Math.min(Math.min(left[i][j], up[i][j]), Math.min(right[i][j], down[i][j])));
+        for (var pos : mines) {
+            dp[pos[0]][pos[1]] = 0;
+        }
+
+        for (var i = 0; i < n; i++) {
+            int count = 0;
+            for (var j = 0; j < n; j++) {
+                count = dp[i][j] == 0 ? 0 : count + 1;
+                dp[i][j] = Math.min(dp[i][j], count);
+            }
+            count = 0;
+            for (var j = n - 1; j >= 0; j--) {
+                count = dp[i][j] == 0 ? 0 : count + 1;
+                dp[i][j] = Math.min(dp[i][j], count);
+            }
+        }
+
+        int ans = 0;
+        for (var j = 0; j < n; j++) {
+            int count = 0;
+            for (var i = 0; i < n; i++) {
+                count = dp[i][j] == 0 ? 0 : count + 1;
+                dp[i][j] = Math.min(dp[i][j], count);
+            }
+            count = 0;
+            for (var i = n - 1; i >= 0; i--) {
+                count = dp[i][j] == 0 ? 0 : count + 1;
+                dp[i][j] = Math.min(dp[i][j], count);
+                ans = Math.max(ans, dp[i][j]);
             }
         }
         return ans;

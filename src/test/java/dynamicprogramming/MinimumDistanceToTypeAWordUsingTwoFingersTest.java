@@ -2,23 +2,23 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MinimumDistanceToTypeAWordUsingTwoFingersTest {
 
     @Test
     public void testCase1() {
-        assertEquals(3, new MinimumDistanceToTypeAWordUsingTwoFingers().minimumDistance("CAKE"));
+        assertThat(new MinimumDistanceToTypeAWordUsingTwoFingers().minimumDistance("CAKE")).isEqualTo(3);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(6, new MinimumDistanceToTypeAWordUsingTwoFingers().minimumDistance("HAPPY"));
+        assertThat(new MinimumDistanceToTypeAWordUsingTwoFingers().minimumDistance("HAPPY")).isEqualTo(6);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(0, new MinimumDistanceToTypeAWordUsingTwoFingers().minimumDistance("AA"));
+        assertThat(new MinimumDistanceToTypeAWordUsingTwoFingers().minimumDistance("AA")).isEqualTo(0);
     }
 
 }

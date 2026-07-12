@@ -70,16 +70,16 @@ public class KnightDialer {
         int mod = 1_000_000_007;
         while (MEMO.size() < n) {
             int[] cur = MEMO.get(MEMO.size() - 1);
-            int[] next = new int[10];
-            for (int i = 0; i < 10; i++) {
-                for (int d : MAP[i]) {
+            var next = new int[10];
+            for (var i = 0; i < 10; i++) {
+                for (var d : MAP[i]) {
                     next[d] = (next[d] + cur[i]) % mod;
                 }
             }
             MEMO.add(next);
         }
         int sum = 0;
-        for (int x : MEMO.get(n - 1)) {
+        for (var x : MEMO.get(n - 1)) {
             sum = (sum + x) % mod;
         }
         return sum;

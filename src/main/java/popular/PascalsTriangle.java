@@ -31,7 +31,7 @@ import java.util.stream.IntStream;
 public class PascalsTriangle {
 
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> output = new ArrayList<>();
+        var output = new ArrayList<List<Integer>>();
         IntStream.range(0, numRows).forEach(i -> {
             List<Integer> currRow = IntStream.rangeClosed(0, i)
                     .mapToObj(j -> (j == 0 || j == i) ? 1 : output.get(i - 1).get(j - 1) + output.get(i - 1).get(j))

@@ -2,7 +2,7 @@ package greedy;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ScoreAfterFlippingMatrixTest {
 
@@ -13,8 +13,8 @@ public class ScoreAfterFlippingMatrixTest {
                 {1, 0, 1, 0},
                 {1, 1, 0, 0}
         };
-        int expected = 39;
-        assertEquals(expected, new ScoreAfterFlippingMatrix().matrixScore(grid));
+        var expected = 39;
+        assertThat(new ScoreAfterFlippingMatrix().matrixScore(grid)).isEqualTo(expected);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class ScoreAfterFlippingMatrixTest {
         int[][] grid = {
                 {0}
         };
-        int expected = 1;
-        assertEquals(expected, new ScoreAfterFlippingMatrix().matrixScore(grid));
+        var expected = 1;
+        assertThat(new ScoreAfterFlippingMatrix().matrixScore(grid)).isEqualTo(expected);
     }
 }

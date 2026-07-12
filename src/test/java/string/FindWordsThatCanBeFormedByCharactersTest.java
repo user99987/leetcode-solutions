@@ -2,21 +2,21 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class FindWordsThatCanBeFormedByCharactersTest {
 
     @Test
     void testCase1() {
         String[] words = {"cat", "bt", "hat", "tree"};
-        String chars = "atach";
-        assertEquals(6, new FindWordsThatCanBeFormedByCharacters().countCharacters(words, chars));
+        var chars = "atach";
+        assertThat(new FindWordsThatCanBeFormedByCharacters().countCharacters(words, chars)).isEqualTo(6);
     }
 
     @Test
     void testCase2() {
         String[] words = {"hello", "world", "leetcode"};
-        String chars = "welldonehoneyr";
-        assertEquals(10, new FindWordsThatCanBeFormedByCharacters().countCharacters(words, chars));
+        var chars = "welldonehoneyr";
+        assertThat(new FindWordsThatCanBeFormedByCharacters().countCharacters(words, chars)).isEqualTo(10);
     }
 }

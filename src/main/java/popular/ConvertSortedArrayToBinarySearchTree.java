@@ -1,6 +1,5 @@
 package popular;
 
-
 import utils.TreeNode;
 
 /**
@@ -40,8 +39,8 @@ public class ConvertSortedArrayToBinarySearchTree {
 
     private TreeNode buildTree(int[] nums, int left, int right) {
         if (left > right) return null;
-        int mid = left + (right - left) / 2;
-        TreeNode root = new TreeNode(nums[mid]);
+        var mid = left + (right - left) / 2;
+        var root = new TreeNode(nums[mid]);
         root.left = buildTree(nums, left, mid - 1);
         root.right = buildTree(nums, mid + 1, right);
         return root;

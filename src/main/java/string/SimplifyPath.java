@@ -58,7 +58,7 @@ import java.util.Deque;
 public class SimplifyPath {
 
     public String simplifyPath(String path) {
-        Deque<String> deque = new ArrayDeque<>();
+        var deque = new ArrayDeque<String>();
         Arrays.stream(path.split("/"))
                 .filter(token -> !token.isEmpty() && !token.equals("."))
                 .forEach(token -> {
@@ -69,9 +69,9 @@ public class SimplifyPath {
                     }
                 });
 
-        StringBuilder builder = new StringBuilder();
+        var builder = new StringBuilder();
         deque.descendingIterator().forEachRemaining(s -> builder.append(s).append("/"));
-        String result = builder.toString();
+        var result = builder.toString();
         return "/" + (!result.isBlank() ? builder.replace(result.lastIndexOf("/"), result.lastIndexOf("/") + 1, "") : "");
     }
 }

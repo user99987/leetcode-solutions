@@ -35,12 +35,13 @@ package greedy;
 public class ScoreAfterFlippingMatrix {
 
     public int matrixScore(int[][] grid) {
-        int m = grid.length, n = grid[0].length;
-        int score = (1 << (n - 1)) * m;
+        var m = grid.length;
+        var n = grid[0].length;
+        var score = (1 << (n - 1)) * m;
 
-        for (int j = 1; j < n; j++) {
-            int count = 0;
-            for (int[] ints : grid) {
+        for (var j = 1; j < n; j++) {
+            var count = 0;
+            for (var ints : grid) {
                 count += ints[0] == ints[j] ? 1 : 0;
             }
             score += Math.max(count, m - count) * (1 << (n - 1 - j));

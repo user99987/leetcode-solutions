@@ -38,7 +38,7 @@ public class SurroundedRegions {
         if (board == null || board.length == 0) return;
 
         int rows = board.length, cols = board[0].length;
-        List<int[]> borders = new ArrayList<>();
+        var borders = new ArrayList<int[]>();
 
         IntStream.range(0, rows).forEach(r -> {
             borders.add(new int[]{r, 0});

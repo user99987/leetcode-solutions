@@ -53,7 +53,7 @@ public class ValidParentheses {
     private static final Map<Character, Character> BRACKETS = Map.of(')', '(', '}', '{', ']', '[');
 
     public boolean isValid(String s) {
-        Deque<Character> stack = new LinkedList<>();
+        var stack = new LinkedList<Character>();
 
         for (char c : s.toCharArray()) {
             if (BRACKETS.containsValue(c)) {

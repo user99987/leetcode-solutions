@@ -2,28 +2,27 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RotateStringTest {
 
     @Test
     void testCase1() {
-        assertTrue(new RotateString().rotateString("abcde", "cdeab"));
+        assertThat(new RotateString().rotateString("abcde", "cdeab")).isTrue();
     }
 
     @Test
     void testCase2() {
-        assertFalse(new RotateString().rotateString("abcde", "abced"));
+        assertThat(new RotateString().rotateString("abcde", "abced")).isFalse();
     }
 
     @Test
     void testCase3() {
-        assertTrue(new RotateString().rotateString("a", "a"));
+        assertThat(new RotateString().rotateString("a", "a")).isTrue();
     }
 
     @Test
     void testCase4() {
-        assertFalse(new RotateString().rotateString("abc", "abcd"));
+        assertThat(new RotateString().rotateString("abc", "abcd")).isFalse();
     }
 }

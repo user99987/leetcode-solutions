@@ -1,7 +1,5 @@
 package popular;
 
-import java.util.Arrays;
-
 /**
  * Medium
  * <p>
@@ -29,8 +27,40 @@ import java.util.Arrays;
 public class KthLargestElementInAnArray {
 
     public int findKthLargest(int[] nums, int k) {
-        int n = nums.length;
-        Arrays.sort(nums);
-        return nums[n - k];
+        int left = 0;
+        int right = nums.length - 1;
+        int targetIndex = nums.length - k;
+
+        while (left <= right) {
+            int pivotIndex = partition(nums, left, right);
+            if (pivotIndex == targetIndex) {
+                return nums[pivotIndex];
+            }
+            if (pivotIndex < targetIndex) {
+                left = pivotIndex + 1;
+            } else {
+                right = pivotIndex - 1;
+            }
+        }
+        return -1;
+    }
+
+    private int partition(int[] nums, int left, int right) {
+        int pivot = nums[right];
+        int storeIndex = left;
+
+        for (int i = left; i < right; i++) {
+            if (nums[i] <= pivot) {
+                swap(nums, storeIndex++, i);
+            }
+        }
+        swap(nums, storeIndex, right);
+        return storeIndex;
+    }
+
+    private void swap(int[] nums, int first, int second) {
+        int temp = nums[first];
+        nums[first] = nums[second];
+        nums[second] = temp;
     }
 }

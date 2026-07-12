@@ -2,42 +2,42 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ReverseWordsInAStringTest {
 
     @Test
     void testCase1() {
-        String input = "the sky is blue";
-        String expected = "blue is sky the";
-        assertEquals(expected, new ReverseWordsInAString().reverseWords(input));
+        var input = "the sky is blue";
+        var expected = "blue is sky the";
+        assertThat(new ReverseWordsInAString().reverseWords(input)).isEqualTo(expected);
     }
 
     @Test
     void testCase2() {
-        String input = " hello world ";
-        String expected = "world hello";
-        assertEquals(expected, new ReverseWordsInAString().reverseWords(input));
+        var input = " hello world ";
+        var expected = "world hello";
+        assertThat(new ReverseWordsInAString().reverseWords(input)).isEqualTo(expected);
     }
 
     @Test
     void testCase3() {
-        String input = "a good example";
-        String expected = "example good a";
-        assertEquals(expected, new ReverseWordsInAString().reverseWords(input));
+        var input = "a good example";
+        var expected = "example good a";
+        assertThat(new ReverseWordsInAString().reverseWords(input)).isEqualTo(expected);
     }
 
     @Test
     void testCase4() {
-        String input = " Bob Loves Alice ";
-        String expected = "Alice Loves Bob";
-        assertEquals(expected, new ReverseWordsInAString().reverseWords(input));
+        var input = " Bob Loves Alice ";
+        var expected = "Alice Loves Bob";
+        assertThat(new ReverseWordsInAString().reverseWords(input)).isEqualTo(expected);
     }
 
     @Test
     void testCase5() {
-        String input = "Alice does not even like bob";
-        String expected = "bob like even not does Alice";
-        assertEquals(expected, new ReverseWordsInAString().reverseWords(input));
+        var input = "Alice does not even like bob";
+        var expected = "bob like even not does Alice";
+        assertThat(new ReverseWordsInAString().reverseWords(input)).isEqualTo(expected);
     }
 }

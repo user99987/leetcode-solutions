@@ -53,20 +53,20 @@ import java.util.stream.IntStream;
 public class TextJustification {
 
     public List<String> fullJustify(String[] words, int maxWidth) {
-        List<String> result = new ArrayList<>();
-        int index = 0;
+        var result = new ArrayList<String>();
+        var index = 0;
 
         while (index < words.length) {
-            int count = words[index].length();
-            int last = index + 1;
+            var count = words[index].length();
+            var last = index + 1;
 
             while (last < words.length && count + words[last].length() + (last - index) <= maxWidth) {
                 count += words[last].length();
                 last++;
             }
 
-            int spaces = last - index - 1;
-            StringBuilder sb = new StringBuilder(maxWidth);
+            var spaces = last - index - 1;
+            var sb = new StringBuilder(maxWidth);
 
             if (last == words.length || spaces == 0) {
                 sb.append(Arrays.stream(words, index, last)
@@ -75,10 +75,10 @@ public class TextJustification {
                     sb.append(' ');
                 }
             } else {
-                int spaceSize = (maxWidth - count) / spaces;
-                int extraSpaces = (maxWidth - count) % spaces;
+                var spaceSize = (maxWidth - count) / spaces;
+                var extraSpaces = (maxWidth - count) % spaces;
 
-                int finalIndex = index;
+                var finalIndex = index;
                 IntStream.range(index, last - 1).forEach(i -> sb.append(words[i]).append(" ".repeat(spaceSize + (i - finalIndex < extraSpaces ? 1 : 0))));
                 sb.append(words[last - 1]);
             }

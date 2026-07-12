@@ -2,28 +2,28 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MonotoneIncreasingDigitsTest {
 
     @Test
     void testCase1() {
-        int n = 10;
-        int expected = 9;
-        assertEquals(expected, new MonotoneIncreasingDigits().monotoneIncreasingDigits(n));
+        var n = 10;
+        var expected = 9;
+        assertThat(new MonotoneIncreasingDigits().monotoneIncreasingDigits(n)).isEqualTo(expected);
     }
 
     @Test
     void testCase2() {
-        int n = 1234;
-        int expected = 1234;
-        assertEquals(expected, new MonotoneIncreasingDigits().monotoneIncreasingDigits(n));
+        var n = 1234;
+        var expected = 1234;
+        assertThat(new MonotoneIncreasingDigits().monotoneIncreasingDigits(n)).isEqualTo(expected);
     }
 
     @Test
     void testCase3() {
-        int n = 332;
-        int expected = 299;
-        assertEquals(expected, new MonotoneIncreasingDigits().monotoneIncreasingDigits(n));
+        var n = 332;
+        var expected = 299;
+        assertThat(new MonotoneIncreasingDigits().monotoneIncreasingDigits(n)).isEqualTo(expected);
     }
 }

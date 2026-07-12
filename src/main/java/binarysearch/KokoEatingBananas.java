@@ -40,7 +40,7 @@ public class KokoEatingBananas {
     public int minEatingSpeed(int[] piles, int h) {
         int maxP = 0;
         long sumP = 0;
-        for (int pile : piles) {
+        for (var pile : piles) {
             maxP = Math.max(maxP, pile);
             sumP += pile;
         }
@@ -60,7 +60,7 @@ public class KokoEatingBananas {
 
     private boolean canFinish(int[] piles, int speed, int h) {
         int totalHours = 0;
-        for (int pile : piles) {
+        for (var pile : piles) {
             totalHours += (pile + speed - 1) / speed;
         }
         return totalHours <= h;

@@ -38,10 +38,10 @@ public class RussianDollEnvelopes {
     public int maxEnvelopes(int[][] envelopes) {
         Arrays.sort(envelopes, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
         int n = envelopes.length;
-        int[] dp = new int[n];
+        var dp = new int[n];
         int length = 0;
 
-        for (int[] envelope : envelopes) {
+        for (var envelope : envelopes) {
             int height = envelope[1];
             int index = Arrays.binarySearch(dp, 0, length, height);
             if (index < 0) {

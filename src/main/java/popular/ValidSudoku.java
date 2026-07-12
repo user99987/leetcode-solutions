@@ -62,7 +62,9 @@ public class ValidSudoku {
     private static final int SIZE = 9;
 
     public boolean isValidSudoku(char[][] board) {
-        int[][] rows = new int[SIZE][SIZE], cols = new int[SIZE][SIZE], boxes = new int[SIZE][SIZE];
+        var rows = new int[SIZE][SIZE];
+        var cols = new int[SIZE][SIZE];
+        var boxes = new int[SIZE][SIZE];
 
         return IntStream.range(0, SIZE).allMatch(r ->
                 IntStream.range(0, SIZE).allMatch(c -> isValid(board, r, c, rows, cols, boxes))

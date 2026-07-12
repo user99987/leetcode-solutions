@@ -56,7 +56,7 @@ import java.util.List;
 public class InsertInterval {
 
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        List<int[]> result = new ArrayList<>();
+        var result = new ArrayList<int[]>();
         int i = 0;
 
         while (i < intervals.length && intervals[i][1] < newInterval[0]) {

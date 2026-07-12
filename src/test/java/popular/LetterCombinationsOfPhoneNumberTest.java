@@ -2,27 +2,26 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LetterCombinationsOfPhoneNumberTest {
 
     @Test
     public void testCase1() {
-        assertEquals(Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"),
-                new LetterCombinationsOfPhoneNumber().letterCombinations("23"));
+        assertThat(new LetterCombinationsOfPhoneNumber().letterCombinations("23")).isEqualTo(Arrays.asList("ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"));
     }
 
     @Test
     public void testCase2() {
-        assertEquals(List.of(), new LetterCombinationsOfPhoneNumber().letterCombinations(""));
+        assertThat(new LetterCombinationsOfPhoneNumber().letterCombinations("")).isEqualTo(List.of());
     }
 
     @Test
     public void testCase3() {
-        assertEquals(Arrays.asList("a", "b", "c"),
-                new LetterCombinationsOfPhoneNumber().letterCombinations("2"));
+        assertThat(new LetterCombinationsOfPhoneNumber().letterCombinations("2")).isEqualTo(Arrays.asList("a", "b", "c"));
     }
 }

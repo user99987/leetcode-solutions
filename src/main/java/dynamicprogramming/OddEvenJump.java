@@ -91,14 +91,15 @@ public class OddEvenJump {
 
     public int oddEvenJumps(int[] arr) {
         int n = arr.length;
-        boolean[] odd = new boolean[n], even = new boolean[n];
+        var odd = new boolean[n];
+        var even = new boolean[n];
         odd[n - 1] = even[n - 1] = true;
         int count = 1;
 
         TreeMap<Integer, Integer> map = new TreeMap<>();
         map.put(arr[n - 1], n - 1);
 
-        for (int i = n - 2; i >= 0; i--) {
+        for (var i = n - 2; i >= 0; i--) {
             Integer higher = map.ceilingKey(arr[i]);
             Integer lower = map.floorKey(arr[i]);
 

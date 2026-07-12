@@ -51,8 +51,9 @@ public class ZigZagConversion {
                 .mapToObj(i -> new StringBuilder())
                 .toArray(StringBuilder[]::new);
 
-        int row = 0, step = 1;
-        for (char c : s.toCharArray()) {
+        var row = 0;
+        var step = 1;
+        for (var c : s.toCharArray()) {
             rows[row].append(c);
             if (row == 0) step = 1;
             else if (row == numRows - 1) step = -1;

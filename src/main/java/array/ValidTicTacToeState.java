@@ -50,8 +50,8 @@ public class ValidTicTacToeState {
         boolean oWon = hasWon(board, 'O');
         int xCount = 0, oCount = 0;
 
-        for (String row : board) {
-            for (char c : row.toCharArray()) {
+        for (var row : board) {
+            for (var c : row.toCharArray()) {
                 if (c == 'X') xCount++;
                 else if (c == 'O') oCount++;
             }

@@ -44,13 +44,13 @@ import java.util.PriorityQueue;
 public class MergeKSortedLists {
 
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a.value));
+        var minHeap = new PriorityQueue<ListNode>(Comparator.comparingInt(a -> a.value));
         for (ListNode node : lists) {
             if (node != null) {
                 minHeap.add(node);
             }
         }
-        ListNode dummy = new ListNode(0);
+        var dummy = new ListNode(0);
         ListNode current = dummy;
         while (!minHeap.isEmpty()) {
             ListNode minNode = minHeap.poll();

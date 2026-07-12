@@ -3,7 +3,6 @@ package popular;
 import utils.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,18 +36,18 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        List<List<Integer>> levels = new ArrayList<>();
+        var levels = new ArrayList<List<Integer>>();
         if (root == null) return levels;
 
-        Deque<TreeNode> queue = new LinkedList<>();
+        var queue = new LinkedList<TreeNode>();
         queue.offer(root);
-        boolean leftToRight = true;
+        var leftToRight = true;
 
         while (!queue.isEmpty()) {
-            List<Integer> level = new ArrayList<>();
-            int size = queue.size();
+            var level = new ArrayList<Integer>();
+            var size = queue.size();
             while (size-- > 0) {
-                TreeNode node = queue.poll();
+                var node = queue.poll();
                 if (leftToRight) level.add(node.value);
                 else level.add(0, node.value);
                 if (node.left != null) queue.offer(node.left);

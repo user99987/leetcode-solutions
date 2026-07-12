@@ -36,7 +36,7 @@ public class OutOfBoundaryPaths {
     public int findPaths(int m, int n, int maxMoves, int startRow, int startCol) {
         int[][][] dp = new int[m][n][maxMoves + 1];
         for (int[][] layer : dp) {
-            for (int[] row : layer) {
+            for (var row : layer) {
                 Arrays.fill(row, -1);
             }
         }
@@ -55,7 +55,7 @@ public class OutOfBoundaryPaths {
         }
 
         int paths = 0;
-        for (int[] dir : DIRECTIONS) {
+        for (var dir : DIRECTIONS) {
             paths = (paths + dfs(m, n, remainingMoves - 1, row + dir[0], col + dir[1], dp)) % MOD;
         }
 

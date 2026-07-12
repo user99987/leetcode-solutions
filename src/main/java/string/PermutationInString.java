@@ -31,11 +31,12 @@ import java.util.stream.IntStream;
 public class PermutationInString {
 
     public boolean checkInclusion(String s1, String s2) {
-        int n = s1.length(), m = s2.length();
+        var n = s1.length();
+        var m = s2.length();
         if (n > m) return false;
 
-        int[] cntS1 = new int[26];
-        int[] cntS2 = new int[26];
+        var cntS1 = new int[26];
+        var cntS2 = new int[26];
 
         IntStream.range(0, n).forEach(i -> {
             cntS1[s1.charAt(i) - 'a']++;

@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PalindromePartitioningTest {
 
@@ -16,7 +16,7 @@ public class PalindromePartitioningTest {
                 Arrays.asList("a", "a", "b"),
                 Arrays.asList("aa", "b")
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -25,6 +25,6 @@ public class PalindromePartitioningTest {
         List<List<String>> expected = List.of(
                 List.of("a")
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 }

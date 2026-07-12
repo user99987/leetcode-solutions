@@ -45,18 +45,18 @@ public class MakeArrayStrictlyIncreasing {
     public int makeArrayIncreasing(int[] arr1, int[] arr2) {
         Arrays.sort(arr2);
         int start = 0;
-        for (int i = 0; i < arr2.length; i++) {
+        for (var i = 0; i < arr2.length; i++) {
             if (arr2[i] != arr2[start]) {
                 arr2[++start] = arr2[i];
             }
         }
-        int[] dp = new int[start + 3];
-        for (int i = 0; i < arr1.length; i++) {
+        var dp = new int[start + 3];
+        for (var i = 0; i < arr1.length; i++) {
             int noChange = dp[dp.length - 1];
             if (i > 0 && (arr1[i - 1] >= arr1[i])) {
                 noChange = -1;
             }
-            for (int j = dp.length - 2; j > 0; j--) {
+            for (var j = dp.length - 2; j > 0; j--) {
                 if (arr2[j - 1] < arr1[i] && dp[j] != -1) {
                     noChange = noChange == -1 ? dp[j] : Math.min(noChange, dp[j]);
                 }
@@ -76,7 +76,7 @@ public class MakeArrayStrictlyIncreasing {
             dp[dp.length - 1] = noChange;
         }
         int result = -1;
-        for (int num : dp) {
+        for (var num : dp) {
             if (num != -1) {
                 result = result == -1 ? num : Math.min(result, num);
             }

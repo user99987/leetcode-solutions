@@ -32,7 +32,7 @@ package popular;
  */
 public class FirstMissingPositive {
     public int firstMissingPositive(int[] nums) {
-        int n = nums.length;
+        var n = nums.length;
         for (int i = 0; i < n; i++) {
             while (nums[i] > 0 && nums[i] <= n && nums[i] != nums[nums[i] - 1]) {
                 swap(nums, i, nums[i] - 1);
@@ -47,7 +47,7 @@ public class FirstMissingPositive {
     }
 
     private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
+        var temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
     }

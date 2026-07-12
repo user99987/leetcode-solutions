@@ -39,7 +39,7 @@ public class ThirdMaximumNumber {
     public int thirdMax(int[] nums) {
         long max1 = Long.MIN_VALUE, max2 = Long.MIN_VALUE, max3 = Long.MIN_VALUE;
 
-        for (int num : nums) {
+        for (var num : nums) {
             if (num > max1) {
                 max3 = max2;
                 max2 = max1;

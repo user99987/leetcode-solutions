@@ -46,7 +46,7 @@ public class CountVowelsPermutation {
     public int countVowelPermutation(int n) {
         long a = 1, e = 1, i = 1, o = 1, u = 1;
 
-        for (int j = 1; j < n; j++) {
+        for (var j = 1; j < n; j++) {
             long newA = (e + i + u) % MOD;
             long newE = (a + i) % MOD;
             long newI = (e + o) % MOD;

@@ -2,7 +2,6 @@ package tree;
 
 import utils.TreeNode;
 
-import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -39,11 +38,11 @@ public class FlattenBinaryTree {
 
     public void flatten(TreeNode root) {
         if (root == null) return;
-        Deque<TreeNode> stack = new LinkedList<>();
+        var stack = new LinkedList<TreeNode>();
         stack.push(root);
 
         while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
+            var node = stack.pop();
             if (node.right != null) stack.push(node.right);
             if (node.left != null) stack.push(node.left);
             node.right = stack.peek();

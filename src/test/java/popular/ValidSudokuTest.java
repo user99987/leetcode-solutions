@@ -1,9 +1,8 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidSudokuTest {
 
@@ -20,7 +19,7 @@ public class ValidSudokuTest {
                 {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
                 {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
         };
-        assertTrue(new ValidSudoku().isValidSudoku(board));
+        assertThat(new ValidSudoku().isValidSudoku(board)).isTrue();
     }
 
     @Test
@@ -36,6 +35,6 @@ public class ValidSudokuTest {
                 {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
                 {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
         };
-        assertFalse(new ValidSudoku().isValidSudoku(board));
+        assertThat(new ValidSudoku().isValidSudoku(board)).isFalse();
     }
 }

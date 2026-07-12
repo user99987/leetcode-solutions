@@ -1,23 +1,23 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MinimumWindowSubstringTest {
 
     @Test
     public void testCase1() {
-        assertEquals("BANC", new MinimumWindowSubstring().minWindow("ADOBECODEBANC", "ABC"));
+        assertThat(new MinimumWindowSubstring().minWindow("ADOBECODEBANC", "ABC")).isEqualTo("BANC");
     }
 
     @Test
     public void testCase2() {
-        assertEquals("a", new MinimumWindowSubstring().minWindow("a", "a"));
+        assertThat(new MinimumWindowSubstring().minWindow("a", "a")).isEqualTo("a");
     }
 
     @Test
     public void testCase3() {
-        assertEquals("", new MinimumWindowSubstring().minWindow("a", "aa"));
+        assertThat(new MinimumWindowSubstring().minWindow("a", "aa")).isEqualTo("");
     }
 }

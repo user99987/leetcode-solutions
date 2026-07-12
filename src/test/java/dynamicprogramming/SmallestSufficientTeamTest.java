@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SmallestSufficientTeamTest {
 
@@ -17,8 +17,8 @@ public class SmallestSufficientTeamTest {
                 List.of("nodejs"),
                 Arrays.asList("nodejs", "reactjs")
         );
-        int[] result = new SmallestSufficientTeam().smallestSufficientTeam(reqSkills, people);
-        assertArrayEquals(new int[]{0, 2}, result);
+        var result = new SmallestSufficientTeam().smallestSufficientTeam(reqSkills, people);
+        assertThat(result).containsExactly(new int[]{0, 2});
     }
 
     @Test
@@ -32,8 +32,8 @@ public class SmallestSufficientTeamTest {
                 List.of("csharp", "math"),
                 List.of("aws", "java")
         );
-        int[] result = new SmallestSufficientTeam().smallestSufficientTeam(reqSkills, people);
-        assertArrayEquals(new int[]{1, 2}, result);
+        var result = new SmallestSufficientTeam().smallestSufficientTeam(reqSkills, people);
+        assertThat(result).containsExactly(new int[]{1, 2});
     }
 
 }

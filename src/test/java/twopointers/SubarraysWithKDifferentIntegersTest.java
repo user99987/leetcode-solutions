@@ -2,7 +2,7 @@ package twopointers;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SubarraysWithKDifferentIntegersTest {
 
@@ -12,8 +12,8 @@ public class SubarraysWithKDifferentIntegersTest {
                 new int[]{1, 2, 1, 2, 3},
                 2
         );
-        int expected = 7;
-        assertEquals(expected, actual);
+        var expected = 7;
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class SubarraysWithKDifferentIntegersTest {
                 new int[]{1, 2, 1, 3, 4},
                 3
         );
-        int expected = 3;
-        assertEquals(expected, actual);
+        var expected = 3;
+        assertThat(actual).isEqualTo(expected);
     }
 }

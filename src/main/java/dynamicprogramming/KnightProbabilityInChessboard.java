@@ -39,24 +39,38 @@ public class KnightProbabilityInChessboard {
 
     private final int[][] directions =
             {{-2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, -1}, {2, 1}, {1, -2}, {-1, -2}};
-    private double[][][] probabilityGiven;
 
     public double knightProbability(int n, int k, int row, int column) {
-        probabilityGiven = new double[n][n][k + 1];
-        return probability(row, column, k, n);
-    }
+        double[][] current = new double[n][n];
+        current[row][column] = 1.0;
 
-    private double probability(int row, int column, int k, int n) {
-        if (k == 0) return 1.0;
-        if (probabilityGiven[row][column][k] != 0) return probabilityGiven[row][column][k];
+        for (var move = 0; move < k; move++) {
+            double[][] next = new double[n][n];
+            for (var r = 0; r < n; r++) {
+                for (var c = 0; c < n; c++) {
+                    if (current[r][c] == 0) {
+                        continue;
+                    }
+                    double probability = current[r][c] / 8.0;
+                    for (var dir : directions) {
+                        int nextRow = r + dir[0];
+                        int nextColumn = c + dir[1];
+                        if (isValid(nextRow, nextColumn, n)) {
+                            next[nextRow][nextColumn] += probability;
+                        }
+                    }
+                }
+            }
+            current = next;
+        }
 
-        double p = 0;
-        for (int[] dir : directions) {
-            if (isValid(row + dir[0], column + dir[1], n)) {
-                p += probability(row + dir[0], column + dir[1], k - 1, n);
+        double answer = 0;
+        for (var probabilities : current) {
+            for (var probability : probabilities) {
+                answer += probability;
             }
         }
-        return probabilityGiven[row][column][k] = p / 8.0;
+        return answer;
     }
 
     private boolean isValid(int row, int column, int n) {

@@ -37,13 +37,13 @@ public class BurstBalloons {
         int n = nums.length;
         int[][] dp = new int[n][n];
 
-        for (int gap = 0; gap < n; gap++) {
+        for (var gap = 0; gap < n; gap++) {
             for (int left = 0, right = gap; right < n; left++, right++) {
                 int maxCoins = 0;
                 int leftVal = (left == 0) ? 1 : nums[left - 1];
                 int rightVal = (right == n - 1) ? 1 : nums[right + 1];
 
-                for (int i = left; i <= right; i++) {
+                for (var i = left; i <= right; i++) {
                     int coins = (i == left ? 0 : dp[left][i - 1])
                             + leftVal * nums[i] * rightVal
                             + (i == right ? 0 : dp[i + 1][right]);

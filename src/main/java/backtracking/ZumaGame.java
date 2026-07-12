@@ -71,8 +71,8 @@ import java.util.Map;
 public class ZumaGame {
 
     public int findMinStep(String board, String hand) {
-        Map<Character, Integer> handMap = new HashMap<>();
-        for (char c : hand.toCharArray()) {
+        var handMap = new HashMap<Character, Integer>();
+        for (var c : hand.toCharArray()) {
             handMap.put(c, handMap.getOrDefault(c, 0) + 1);
         }
         return backtrack(board, handMap);

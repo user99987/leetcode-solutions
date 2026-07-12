@@ -30,7 +30,7 @@ import java.util.List;
 public class LetterCasePermutation {
 
     public List<String> letterCasePermutation(String s) {
-        List<String> result = new ArrayList<>();
+        var result = new ArrayList<String>();
         backtrack(s.toCharArray(), 0, result);
         return result;
     }

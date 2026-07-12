@@ -43,13 +43,14 @@ import java.util.stream.IntStream;
 public class PushDominoes {
 
     public String pushDominoes(String dominoes) {
-        int R = -1, L = -1;
-        char[] A = dominoes.toCharArray();
-        for (int i = 0; i < A.length; i++) {
+        var R = -1;
+        var L = -1;
+        var A = dominoes.toCharArray();
+        for (var i = 0; i < A.length; i++) {
             if (A[i] == 'L') {
                 if (R > L) {
-                    int d = (i - R);
-                    int st = R + d / 2;
+                    var d = (i - R);
+                    var st = R + d / 2;
                     if ((d % 2) == 0) A[st] = '.';
                     IntStream.range(st + 1, i).forEach(j -> A[j] = 'L');
                 } else {

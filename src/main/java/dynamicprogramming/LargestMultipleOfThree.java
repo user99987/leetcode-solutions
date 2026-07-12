@@ -36,12 +36,12 @@ public class LargestMultipleOfThree {
 
     public String largestMultipleOfThree(int[] digits) {
         int sum = 0;
-        int[] count = new int[10];
-        for (int x : digits) {
+        var count = new int[10];
+        for (var x : digits) {
             sum += x;
             count[x]++;
         }
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
         int[] copied = Arrays.copyOf(count, count.length);
 
         if (sum % 3 != 0) {
@@ -61,7 +61,7 @@ public class LargestMultipleOfThree {
                 }
             }
         }
-        for (int i = 9; i >= 0; i--) {
+        for (var i = 9; i >= 0; i--) {
             while (copied[i]-- > 0) {
                 sb.append(i);
             }

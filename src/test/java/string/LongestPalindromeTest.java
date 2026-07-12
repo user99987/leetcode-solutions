@@ -2,22 +2,22 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class LongestPalindromeTest {
 
     @Test
     void testCase1() {
-        assertEquals(7, new LongestPalindrome().longestPalindrome("abccccdd"));
+        assertThat(new LongestPalindrome().longestPalindrome("abccccdd")).isEqualTo(7);
     }
 
     @Test
     void testCase2() {
-        assertEquals(1, new LongestPalindrome().longestPalindrome("a"));
+        assertThat(new LongestPalindrome().longestPalindrome("a")).isEqualTo(1);
     }
 
     @Test
     void testCase3() {
-        assertEquals(2, new LongestPalindrome().longestPalindrome("bb"));
+        assertThat(new LongestPalindrome().longestPalindrome("bb")).isEqualTo(2);
     }
 }

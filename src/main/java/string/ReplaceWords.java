@@ -42,12 +42,12 @@ import java.util.stream.Stream;
 public class ReplaceWords {
 
     public String replaceWords(List<String> dict, String sentence) {
-        Trie root = new Trie();
+        var root = new Trie();
         dict.forEach(root::insert);
         return sentence.lines()
                 .flatMap(line -> Stream.of(line.split(" ")))
                 .map(word -> {
-                    String replacement = root.find(word);
+                    var replacement = root.find(word);
                     return replacement.isEmpty() ? word : replacement;
                 })
                 .collect(Collectors.joining(" "));
@@ -72,15 +72,15 @@ public class ReplaceWords {
 
         private void add(int i, String word, int length) {
             if (i < length) {
-                char c = word.charAt(i);
-                Trie subTrie = map.computeIfAbsent(c, k -> new Trie());
+                var c = word.charAt(i);
+                var subTrie = map.computeIfAbsent(c, k -> new Trie());
                 subTrie.add(i + 1, word, length);
             } else map.put(null, new Trie());
         }
 
         private String search(Trie curr, String s, int i, StringBuilder sb) {
             if (s.length() == i) return sb.toString();
-            Trie subTrie = curr.map.get(s.charAt(i));
+            var subTrie = curr.map.get(s.charAt(i));
             if (subTrie == null) {
                 return curr.map.containsKey(null) ? sb.toString() : "";
             } else {

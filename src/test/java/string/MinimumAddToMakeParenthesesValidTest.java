@@ -2,17 +2,17 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MinimumAddToMakeParenthesesValidTest {
 
     @Test
     void testCase1() {
-        assertEquals(1, new MinimumAddToMakeParenthesesValid().minAddToMakeValid("())"));
+        assertThat(new MinimumAddToMakeParenthesesValid().minAddToMakeValid("())")).isEqualTo(1);
     }
 
     @Test
     void testCase2() {
-        assertEquals(3, new MinimumAddToMakeParenthesesValid().minAddToMakeValid("((("));
+        assertThat(new MinimumAddToMakeParenthesesValid().minAddToMakeValid("(((")).isEqualTo(3);
     }
 }

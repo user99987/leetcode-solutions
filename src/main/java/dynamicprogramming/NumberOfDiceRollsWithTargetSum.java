@@ -47,13 +47,13 @@ public class NumberOfDiceRollsWithTargetSum {
     public int numRollsToTarget(int n, int k, int target) {
         int[][] dp = new int[n + 1][target + 1];
 
-        for (int i = 1; i <= Math.min(k, target); i++) {
+        for (var i = 1; i <= Math.min(k, target); i++) {
             dp[1][i] = 1;
         }
 
-        for (int dice = 2; dice <= n; dice++) {
-            for (int sum = 1; sum <= target; sum++) {
-                for (int face = 1; face <= Math.min(k, sum); face++) {
+        for (var dice = 2; dice <= n; dice++) {
+            for (var sum = 1; sum <= target; sum++) {
+                for (var face = 1; face <= Math.min(k, sum); face++) {
                     dp[dice][sum] = (dp[dice][sum] + dp[dice - 1][sum - face]) % MOD;
                 }
             }

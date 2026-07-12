@@ -2,27 +2,27 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumberOfDiceRollsWithTargetSumTest {
 
     @Test
     public void testCase1() {
-        assertEquals(1, new NumberOfDiceRollsWithTargetSum().numRollsToTarget(1, 6, 3));
+        assertThat(new NumberOfDiceRollsWithTargetSum().numRollsToTarget(1, 6, 3)).isEqualTo(1);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(6, new NumberOfDiceRollsWithTargetSum().numRollsToTarget(2, 6, 7));
+        assertThat(new NumberOfDiceRollsWithTargetSum().numRollsToTarget(2, 6, 7)).isEqualTo(6);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(222616187, new NumberOfDiceRollsWithTargetSum().numRollsToTarget(30, 30, 500));
+        assertThat(new NumberOfDiceRollsWithTargetSum().numRollsToTarget(30, 30, 500)).isEqualTo(222616187);
     }
 
     @Test
     public void testCase4() {
-        assertEquals(0, new NumberOfDiceRollsWithTargetSum().numRollsToTarget(2, 6, 15));
+        assertThat(new NumberOfDiceRollsWithTargetSum().numRollsToTarget(2, 6, 15)).isEqualTo(0);
     }
 }

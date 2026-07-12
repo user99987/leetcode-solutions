@@ -1,23 +1,22 @@
 package binarysearch;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class KokoEatingBananasTest {
 
     @Test
     public void testCase1() {
-        assertEquals(4, new KokoEatingBananas().minEatingSpeed(new int[]{3, 6, 7, 11}, 8));
+        assertThat(new KokoEatingBananas().minEatingSpeed(new int[]{3, 6, 7, 11}, 8)).isEqualTo(4);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(30, new KokoEatingBananas().minEatingSpeed(new int[]{30, 11, 23, 4, 20}, 5));
+        assertThat(new KokoEatingBananas().minEatingSpeed(new int[]{30, 11, 23, 4, 20}, 5)).isEqualTo(30);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(23, new KokoEatingBananas().minEatingSpeed(new int[]{30, 11, 23, 4, 20}, 6));
+        assertThat(new KokoEatingBananas().minEatingSpeed(new int[]{30, 11, 23, 4, 20}, 6)).isEqualTo(23);
     }
 }

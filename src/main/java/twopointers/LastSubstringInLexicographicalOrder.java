@@ -27,11 +27,11 @@ package twopointers;
 public class LastSubstringInLexicographicalOrder {
 
     public String lastSubstring(String s) {
-        int i = 0;
-        int j = 1;
-        int k = 0;
-        int n = s.length();
-        char[] array = s.toCharArray();
+        var i = 0;
+        var j = 1;
+        var k = 0;
+        var n = s.length();
+        var array = s.toCharArray();
         while (j + k < n) {
             if (array[i + k] == array[j + k]) {
                 k++;

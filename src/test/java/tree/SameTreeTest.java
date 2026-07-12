@@ -1,10 +1,10 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SameTreeTest {
 
@@ -14,7 +14,7 @@ public class SameTreeTest {
                 TreeNode.create(new Integer[]{1, 2, 3}),
                 TreeNode.create(new Integer[]{1, 2, 3})
         );
-        assertTrue(actual);
+        assertThat(actual).isTrue();
     }
 
     @Test
@@ -23,7 +23,7 @@ public class SameTreeTest {
                 TreeNode.create(new Integer[]{1, 2}),
                 TreeNode.create(new Integer[]{1, null, 2})
         );
-        assertFalse(actual);
+        assertThat(actual).isFalse();
     }
 
     @Test
@@ -32,6 +32,6 @@ public class SameTreeTest {
                 TreeNode.create(new Integer[]{1, 2, 1}),
                 TreeNode.create(new Integer[]{1, 1, 2})
         );
-        assertFalse(actual);
+        assertThat(actual).isFalse();
     }
 }

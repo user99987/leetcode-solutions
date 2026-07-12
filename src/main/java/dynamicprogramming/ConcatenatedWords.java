@@ -37,10 +37,10 @@ import java.util.Set;
 public class ConcatenatedWords {
 
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
-        Set<String> dictionary = new HashSet<>(Arrays.asList(words));
-        List<String> result = new ArrayList<>();
+        var dictionary = new HashSet<String>(Arrays.asList(words));
+        var result = new ArrayList<String>();
 
-        for (String word : words) {
+        for (var word : words) {
             if (!word.isEmpty() && canForm(word, dictionary)) {
                 result.add(word);
             }
@@ -51,11 +51,11 @@ public class ConcatenatedWords {
     private boolean canForm(String word, Set<String> dictionary) {
         dictionary.remove(word);
         int n = word.length();
-        boolean[] dp = new boolean[n + 1];
+        var dp = new boolean[n + 1];
         dp[0] = true;
 
-        for (int i = 1; i <= n; i++) {
-            for (int j = 0; j < i; j++) {
+        for (var i = 1; i <= n; i++) {
+            for (var j = 0; j < i; j++) {
                 if (dp[j] && dictionary.contains(word.substring(j, i))) {
                     dp[i] = true;
                     break;

@@ -1,34 +1,33 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegularExpressionMatchingTest {
 
     @Test
     public void testCase1() {
-        assertFalse(new RegularExpressionMatching().isMatch("aa", "a"));
+        assertThat(new RegularExpressionMatching().isMatch("aa", "a")).isFalse();
     }
 
     @Test
     public void testCase2() {
-        assertTrue(new RegularExpressionMatching().isMatch("aa", "a*"));
+        assertThat(new RegularExpressionMatching().isMatch("aa", "a*")).isTrue();
     }
 
     @Test
     public void testCase3() {
-        assertTrue(new RegularExpressionMatching().isMatch("ab", ".*"));
+        assertThat(new RegularExpressionMatching().isMatch("ab", ".*")).isTrue();
     }
 
     @Test
     public void testCase4() {
-        assertTrue(new RegularExpressionMatching().isMatch("aab", "c*a*b"));
+        assertThat(new RegularExpressionMatching().isMatch("aab", "c*a*b")).isTrue();
     }
 
     @Test
     public void testCase5() {
-        assertFalse(new RegularExpressionMatching().isMatch("mississippi", "mis*is*p*."));
+        assertThat(new RegularExpressionMatching().isMatch("mississippi", "mis*is*p*.")).isFalse();
     }
 }

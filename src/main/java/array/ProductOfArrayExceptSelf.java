@@ -31,7 +31,7 @@ public class ProductOfArrayExceptSelf {
 
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length;
-        int[] result = new int[n];
+        var result = new int[n];
 
         int leftProduct = 1;
         for (int i = 0; i < n; i++) {

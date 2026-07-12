@@ -2,18 +2,18 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LongestPalindromicSubsequenceTest {
 
     @Test
     public void testCase1() {
-        assertEquals(4, new LongestPalindromicSubsequence().longestPalindromeSubseq("bbbab"));
+        assertThat(new LongestPalindromicSubsequence().longestPalindromeSubseq("bbbab")).isEqualTo(4);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(2, new LongestPalindromicSubsequence().longestPalindromeSubseq("cbbd"));
+        assertThat(new LongestPalindromicSubsequence().longestPalindromeSubseq("cbbd")).isEqualTo(2);
     }
 }
 

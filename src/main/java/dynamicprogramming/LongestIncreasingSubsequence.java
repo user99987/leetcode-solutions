@@ -38,12 +38,12 @@ public class LongestIncreasingSubsequence {
         if (nums == null || nums.length == 0) {
             return 0;
         }
-        int[] dp = new int[nums.length + 1];
-        for (int i = 1; i < dp.length; i++) {
+        var dp = new int[nums.length + 1];
+        for (var i = 1; i < dp.length; i++) {
             dp[i] = Integer.MAX_VALUE;
         }
         int left = 1, right = 1;
-        for (int curr : nums) {
+        for (var curr : nums) {
             int start = left, end = right;
             while (start + 1 < end) {
                 int mid = start + (end - start) / 2;

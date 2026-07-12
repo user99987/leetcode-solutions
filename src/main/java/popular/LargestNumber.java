@@ -42,7 +42,7 @@ import java.util.stream.Collectors;
 public class LargestNumber {
 
     public String largestNumber(int[] nums) {
-        String largestNumber = Arrays.stream(nums)
+        var largestNumber = Arrays.stream(nums)
                 .boxed()
                 .map(String::valueOf)
                 .sorted((o1, o2) -> (o2 + o1).compareTo(o1 + o2))

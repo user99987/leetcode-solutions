@@ -2,23 +2,22 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class IsomorphicStringsTest {
 
     @Test
     public void testCase1() {
-        assertTrue(new IsomorphicStrings().isIsomorphic("egg", "add"));
+        assertThat(new IsomorphicStrings().isIsomorphic("egg", "add")).isTrue();
     }
 
     @Test
     public void testCase2() {
-        assertFalse(new IsomorphicStrings().isIsomorphic("foo", "bar"));
+        assertThat(new IsomorphicStrings().isIsomorphic("foo", "bar")).isFalse();
     }
 
     @Test
     public void testCase3() {
-        assertTrue(new IsomorphicStrings().isIsomorphic("paper", "title"));
+        assertThat(new IsomorphicStrings().isIsomorphic("paper", "title")).isTrue();
     }
 }

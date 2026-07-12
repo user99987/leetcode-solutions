@@ -55,17 +55,16 @@ package dynamicprogramming;
  */
 public class MinimumCostForTickets {
 
-
     public int mincostTickets(int[] days, int[] costs) {
         int lastDay = days[days.length - 1];
-        int[] dp = new int[lastDay + 1];
-        boolean[] travelDays = new boolean[lastDay + 1];
+        var dp = new int[lastDay + 1];
+        var travelDays = new boolean[lastDay + 1];
 
-        for (int day : days) {
+        for (var day : days) {
             travelDays[day] = true;
         }
 
-        for (int i = 1; i <= lastDay; i++) {
+        for (var i = 1; i <= lastDay; i++) {
             if (!travelDays[i]) {
                 dp[i] = dp[i - 1];
             } else {

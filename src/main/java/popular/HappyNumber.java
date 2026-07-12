@@ -1,7 +1,6 @@
 package popular;
 
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Easy
@@ -44,7 +43,7 @@ import java.util.Set;
 public class HappyNumber {
 
     public boolean isHappy(int n) {
-        Set<Integer> seen = new HashSet<>();
+        var seen = new HashSet<Integer>();
         while (n != 1 && !seen.contains(n)) {
             seen.add(n);
             n = getSumOfSquares(n);
@@ -53,9 +52,9 @@ public class HappyNumber {
     }
 
     private int getSumOfSquares(int n) {
-        int sum = 0;
+        var sum = 0;
         while (n > 0) {
-            int digit = n % 10;
+            var digit = n % 10;
             sum += digit * digit;
             n /= 10;
         }

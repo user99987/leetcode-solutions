@@ -33,10 +33,10 @@ import java.util.Map;
 public class MostFrequentSubtreeSum {
 
     public int[] findFrequentTreeSum(TreeNode root) {
-        Map<Integer, Integer> freqMap = new HashMap<>();
+        var freqMap = new HashMap<Integer, Integer>();
         computeSum(root, freqMap);
-        int maxFreq = freqMap.values().stream().max(Integer::compare).orElse(0);
-        List<Integer> result = freqMap.entrySet().stream()
+        var maxFreq = freqMap.values().stream().max(Integer::compare).orElse(0);
+        var result = freqMap.entrySet().stream()
                 .filter(e -> e.getValue() == maxFreq)
                 .map(Map.Entry::getKey)
                 .toList();
@@ -45,7 +45,7 @@ public class MostFrequentSubtreeSum {
 
     private int computeSum(TreeNode node, Map<Integer, Integer> freqMap) {
         if (node == null) return 0;
-        int sum = node.value + computeSum(node.left, freqMap) + computeSum(node.right, freqMap);
+        var sum = node.value + computeSum(node.left, freqMap) + computeSum(node.right, freqMap);
         freqMap.merge(sum, 1, Integer::sum);
         return sum;
     }

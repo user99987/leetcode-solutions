@@ -42,8 +42,8 @@ public class DiameterOfBinaryTree {
 
     private int depth(TreeNode node) {
         if (node == null) return 0;
-        int left = depth(node.left);
-        int right = depth(node.right);
+        var left = depth(node.left);
+        var right = depth(node.right);
         diameter = Math.max(diameter, left + right);
         return Math.max(left, right) + 1;
     }

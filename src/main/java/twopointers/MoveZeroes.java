@@ -32,7 +32,7 @@ public class MoveZeroes {
         int index = IntStream.range(0, nums.length)
                 .filter(i -> nums[i] != 0)
                 .reduce(0, (i, j) -> {
-                    int temp = nums[i];
+                    var temp = nums[i];
                     nums[i] = nums[j];
                     nums[j] = temp;
                     return i + 1;

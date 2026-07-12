@@ -2,23 +2,23 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LongestChunkedPalindromeDecompositionTest {
 
     @Test
     public void testCase1() {
-        assertEquals(7, new LongestChunkedPalindromeDecomposition().longestDecomposition("ghiabcdefhelloadamhelloabcdefghi"));
+        assertThat(new LongestChunkedPalindromeDecomposition().longestDecomposition("ghiabcdefhelloadamhelloabcdefghi")).isEqualTo(7);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(1, new LongestChunkedPalindromeDecomposition().longestDecomposition("merchant"));
+        assertThat(new LongestChunkedPalindromeDecomposition().longestDecomposition("merchant")).isEqualTo(1);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(11, new LongestChunkedPalindromeDecomposition().longestDecomposition("antaprezatepzapreanta"));
+        assertThat(new LongestChunkedPalindromeDecomposition().longestDecomposition("antaprezatepzapreanta")).isEqualTo(11);
     }
 }
 

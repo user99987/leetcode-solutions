@@ -3,7 +3,6 @@ package popular;
 import utils.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -50,9 +49,9 @@ import java.util.List;
 public class BinaryTreeInorderTraversal {
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> inorder = new ArrayList<>();
-        Deque<TreeNode> stack = new LinkedList<>();
-        TreeNode curr = root;
+        var inorder = new ArrayList<Integer>();
+        var stack = new LinkedList<TreeNode>();
+        var curr = root;
 
         while (curr != null || !stack.isEmpty()) {
             while (curr != null) {

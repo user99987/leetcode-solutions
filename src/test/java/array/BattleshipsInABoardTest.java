@@ -1,8 +1,7 @@
 package array;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BattleshipsInABoardTest {
 
@@ -13,12 +12,12 @@ public class BattleshipsInABoardTest {
                 {'.', '.', '.', 'X'},
                 {'.', '.', '.', 'X'}
         };
-        assertEquals(2, new BattleshipsInABoard().countBattleships(board));
+        assertThat(new BattleshipsInABoard().countBattleships(board)).isEqualTo(2);
     }
 
     @Test
     public void testCase2() {
         char[][] board = {{'.'}};
-        assertEquals(0, new BattleshipsInABoard().countBattleships(board));
+        assertThat(new BattleshipsInABoard().countBattleships(board)).isEqualTo(0);
     }
 }

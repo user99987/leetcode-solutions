@@ -41,15 +41,15 @@ package heap;
 public class SmallestRotationWithHighestScore {
 
     public int bestRotation(int[] nums) {
-        int n = nums.length;
-        int[] change = new int[n];
-        int maxIndex = 0;
+        var n = nums.length;
+        var change = new int[n];
+        var maxIndex = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (var i = 0; i < n; i++) {
             change[(i - nums[i] + 1 + n) % n]--;
         }
 
-        for (int i = 1; i < n; i++) {
+        for (var i = 1; i < n; i++) {
             change[i] += change[i - 1] + 1;
             if (change[i] > change[maxIndex]) {
                 maxIndex = i;

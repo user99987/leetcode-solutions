@@ -1,28 +1,27 @@
 package binarysearch;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchInsertPositionTest {
 
     @Test
     public void testCase1() {
-        assertEquals(2, new SearchInsertPosition().searchInsert(new int[]{1, 3, 5, 6}, 5));
+        assertThat(new SearchInsertPosition().searchInsert(new int[]{1, 3, 5, 6}, 5)).isEqualTo(2);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(1, new SearchInsertPosition().searchInsert(new int[]{1, 3, 5, 6}, 2));
+        assertThat(new SearchInsertPosition().searchInsert(new int[]{1, 3, 5, 6}, 2)).isEqualTo(1);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(4, new SearchInsertPosition().searchInsert(new int[]{1, 3, 5, 6}, 7));
+        assertThat(new SearchInsertPosition().searchInsert(new int[]{1, 3, 5, 6}, 7)).isEqualTo(4);
     }
 
     @Test
     public void testCase4() {
-        assertEquals(0, new SearchInsertPosition().searchInsert(new int[]{1, 3, 5, 6}, 0));
+        assertThat(new SearchInsertPosition().searchInsert(new int[]{1, 3, 5, 6}, 0)).isEqualTo(0);
     }
 }

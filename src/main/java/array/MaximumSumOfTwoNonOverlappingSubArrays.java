@@ -43,8 +43,8 @@ package array;
 public class MaximumSumOfTwoNonOverlappingSubArrays {
 
     public int maxSumTwoNoOverlap(int[] nums, int firstLen, int secondLen) {
-        int[] prefixMax = new int[nums.length];
-        int[] suffixMax = new int[nums.length];
+        var prefixMax = new int[nums.length];
+        var suffixMax = new int[nums.length];
         int sum = 0;
 
         for (int i = 0; i < nums.length; i++) {

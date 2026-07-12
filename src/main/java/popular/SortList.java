@@ -1,11 +1,6 @@
 package popular;
 
-
 import utils.ListNode;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * Medium
@@ -38,12 +33,46 @@ import java.util.List;
 public class SortList {
 
     public ListNode sortList(ListNode head) {
-        if (head == null) return null;
-        List<ListNode> nodeList = new ArrayList<>();
-        for (ListNode current = head; current != null; current = current.next) nodeList.add(current);
-        nodeList.sort(Comparator.comparingInt(node -> node.value));
-        for (int i = 0; i < nodeList.size() - 1; i++) nodeList.get(i).next = nodeList.get(i + 1);
-        nodeList.get(nodeList.size() - 1).next = null;
-        return nodeList.get(0);
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode middle = split(head);
+        ListNode left = sortList(head);
+        ListNode right = sortList(middle);
+        return merge(left, right);
+    }
+
+    private ListNode split(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode middle = slow.next;
+        slow.next = null;
+        return middle;
+    }
+
+    private ListNode merge(ListNode left, ListNode right) {
+        var dummy = new ListNode();
+        ListNode tail = dummy;
+
+        while (left != null && right != null) {
+            if (left.value <= right.value) {
+                tail.next = left;
+                left = left.next;
+            } else {
+                tail.next = right;
+                right = right.next;
+            }
+            tail = tail.next;
+        }
+
+        tail.next = left != null ? left : right;
+        return dummy.next;
     }
 }

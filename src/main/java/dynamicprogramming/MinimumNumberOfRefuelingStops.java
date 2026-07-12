@@ -56,9 +56,8 @@ import java.util.PriorityQueue;
  */
 public class MinimumNumberOfRefuelingStops {
 
-
     public int minRefuelStops(int target, int startFuel, int[][] stations) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        var pq = new PriorityQueue<Integer>((a, b) -> b - a);
         int fuel = startFuel, stops = 0, index = 0;
 
         while (fuel < target) {

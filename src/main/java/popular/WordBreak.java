@@ -46,8 +46,8 @@ import java.util.Set;
 public class WordBreak {
 
     public boolean wordBreak(String input, List<String> wordDict) {
-        Set<String> dictionary = new HashSet<>(wordDict);
-        Map<Integer, Boolean> memo = new HashMap<>();
+        var dictionary = new HashSet<String>(wordDict);
+        var memo = new HashMap<Integer, Boolean>();
         return canSegment(0, input, memo, dictionary);
     }
 

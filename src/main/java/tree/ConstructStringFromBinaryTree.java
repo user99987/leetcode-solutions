@@ -38,9 +38,23 @@ public class ConstructStringFromBinaryTree {
 
     public String tree2str(TreeNode root) {
         if (root == null) return "";
-        String left = tree2str(root.left);
-        String right = tree2str(root.right);
-        return right.isEmpty() ? (left.isEmpty() ? root.value + "" : root.value + "(" + left + ")")
-                : root.value + "(" + left + ")(" + right + ")";
+        var result = new StringBuilder();
+        build(root, result);
+        return result.toString();
+    }
+
+    private void build(TreeNode node, StringBuilder result) {
+        result.append(node.value);
+        if (node.left == null && node.right == null) return;
+        result.append('(');
+        if (node.left != null) {
+            build(node.left, result);
+        }
+        result.append(')');
+        if (node.right != null) {
+            result.append('(');
+            build(node.right, result);
+            result.append(')');
+        }
     }
 }

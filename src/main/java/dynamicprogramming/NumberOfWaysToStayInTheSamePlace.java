@@ -1,7 +1,5 @@
 package dynamicprogramming;
 
-import java.util.Arrays;
-
 /**
  * Hard
  * <p>
@@ -51,33 +49,27 @@ import java.util.Arrays;
 public class NumberOfWaysToStayInTheSamePlace {
 
     private static final int MOD = 1_000_000_007;
-    private int[][] dp;
 
     public int numWays(int steps, int arrLen) {
         int maxPos = Math.min(arrLen - 1, steps / 2);
-        dp = new int[steps + 1][maxPos + 1];
-        for (int[] row : dp) {
-            Arrays.fill(row, -1);
-        }
-        return findWays(steps, 0, maxPos);
-    }
+        int[] current = new int[maxPos + 1];
+        current[0] = 1;
 
-    private int findWays(int remainingSteps, int position, int maxPos) {
-        if (remainingSteps == 0) {
-            return position == 0 ? 1 : 0;
+        for (var step = 1; step <= steps; step++) {
+            int[] next = new int[maxPos + 1];
+            int upperBound = Math.min(maxPos, step);
+            for (var position = 0; position <= upperBound; position++) {
+                long ways = current[position];
+                if (position > 0) {
+                    ways += current[position - 1];
+                }
+                if (position < maxPos) {
+                    ways += current[position + 1];
+                }
+                next[position] = (int) (ways % MOD);
+            }
+            current = next;
         }
-        if (dp[remainingSteps][position] != -1) {
-            return dp[remainingSteps][position];
-        }
-
-        int ways = findWays(remainingSteps - 1, position, maxPos);
-        if (position > 0) {
-            ways = (ways + findWays(remainingSteps - 1, position - 1, maxPos)) % MOD;
-        }
-        if (position < maxPos) {
-            ways = (ways + findWays(remainingSteps - 1, position + 1, maxPos)) % MOD;
-        }
-
-        return dp[remainingSteps][position] = ways;
+        return current[0];
     }
 }

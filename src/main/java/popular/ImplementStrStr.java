@@ -1,7 +1,5 @@
 package popular;
 
-import java.util.stream.IntStream;
-
 /**
  * Easy
  * <p>
@@ -44,10 +42,39 @@ public class ImplementStrStr {
         if (needle.isEmpty()) {
             return 0;
         }
-        int n = needle.length();
-        return IntStream.rangeClosed(0, haystack.length() - n)
-                .filter(i -> haystack.startsWith(needle, i))
-                .findFirst()
-                .orElse(-1);
+        var lps = buildLps(needle);
+        int haystackIndex = 0;
+        int needleIndex = 0;
+
+        while (haystackIndex < haystack.length()) {
+            if (haystack.charAt(haystackIndex) == needle.charAt(needleIndex)) {
+                haystackIndex++;
+                needleIndex++;
+                if (needleIndex == needle.length()) {
+                    return haystackIndex - needleIndex;
+                }
+            } else if (needleIndex > 0) {
+                needleIndex = lps[needleIndex - 1];
+            } else {
+                haystackIndex++;
+            }
+        }
+        return -1;
+    }
+
+    private int[] buildLps(String pattern) {
+        var lps = new int[pattern.length()];
+        int prefixLength = 0;
+
+        for (int i = 1; i < pattern.length(); ) {
+            if (pattern.charAt(i) == pattern.charAt(prefixLength)) {
+                lps[i++] = ++prefixLength;
+            } else if (prefixLength > 0) {
+                prefixLength = lps[prefixLength - 1];
+            } else {
+                lps[i++] = 0;
+            }
+        }
+        return lps;
     }
 }

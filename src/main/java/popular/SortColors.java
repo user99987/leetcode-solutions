@@ -44,7 +44,7 @@ import java.util.Arrays;
 public class SortColors {
 
     public void sortColors(int[] nums) {
-        int[] count = new int[3];
+        var count = new int[3];
         Arrays.stream(nums).forEach(num -> count[num]++);
         int index = 0;
         for (int i = 0; i < 3; i++) {

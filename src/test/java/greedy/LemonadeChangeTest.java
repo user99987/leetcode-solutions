@@ -2,18 +2,17 @@ package greedy;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LemonadeChangeTest {
 
     @Test
     public void testCase1() {
-        assertTrue(new LemonadeChange().lemonadeChange(new int[]{5, 5, 5, 10, 20}));
+        assertThat(new LemonadeChange().lemonadeChange(new int[]{5, 5, 5, 10, 20})).isTrue();
     }
 
     @Test
     public void testCase2() {
-        assertFalse(new LemonadeChange().lemonadeChange(new int[]{5, 5, 10, 10, 20}));
+        assertThat(new LemonadeChange().lemonadeChange(new int[]{5, 5, 10, 10, 20})).isFalse();
     }
 }

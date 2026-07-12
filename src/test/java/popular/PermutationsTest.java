@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PermutationsTest {
 
@@ -20,7 +20,7 @@ public class PermutationsTest {
                 Arrays.asList(3, 1, 2),
                 Arrays.asList(3, 2, 1)
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class PermutationsTest {
                 Arrays.asList(0, 1),
                 Arrays.asList(1, 0)
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -39,6 +39,6 @@ public class PermutationsTest {
         List<List<Integer>> expected = List.of(
                 List.of(1)
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 }

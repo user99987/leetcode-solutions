@@ -1,34 +1,33 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WildcardMatchingTest {
 
     @Test
     public void testCase1() {
-        assertFalse(new WildcardMatching().isMatch("aa", "a"));
+        assertThat(new WildcardMatching().isMatch("aa", "a")).isFalse();
     }
 
     @Test
     public void testCase2() {
-        assertTrue(new WildcardMatching().isMatch("aa", "*"));
+        assertThat(new WildcardMatching().isMatch("aa", "*")).isTrue();
     }
 
     @Test
     public void testCase3() {
-        assertFalse(new WildcardMatching().isMatch("cb", "?a"));
+        assertThat(new WildcardMatching().isMatch("cb", "?a")).isFalse();
     }
 
     @Test
     public void testCase4() {
-        assertTrue(new WildcardMatching().isMatch("adceb", "*a*b"));
+        assertThat(new WildcardMatching().isMatch("adceb", "*a*b")).isTrue();
     }
 
     @Test
     public void testCase5() {
-        assertFalse(new WildcardMatching().isMatch("acdcb", "a*c?b"));
+        assertThat(new WildcardMatching().isMatch("acdcb", "a*c?b")).isFalse();
     }
 }

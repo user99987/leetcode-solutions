@@ -40,14 +40,23 @@ package backtracking;
 public class TargetSum {
 
     public int findTargetSumWays(int[] nums, int target) {
-        return backtrack(nums, target, 0, 0);
-    }
-
-    private int backtrack(int[] nums, int target, int index, int sum) {
-        if (index == nums.length) {
-            return sum == target ? 1 : 0;
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
         }
-        return backtrack(nums, target, index + 1, sum + nums[index]) +
-                backtrack(nums, target, index + 1, sum - nums[index]);
+        if (Math.abs(target) > sum || ((sum + target) & 1) == 1) {
+            return 0;
+        }
+
+        int subsetSum = (sum + target) / 2;
+        var ways = new int[subsetSum + 1];
+        ways[0] = 1;
+
+        for (int num : nums) {
+            for (int current = subsetSum; current >= num; current--) {
+                ways[current] += ways[current - num];
+            }
+        }
+        return ways[subsetSum];
     }
 }

@@ -49,7 +49,7 @@ import utils.ListNode;
 public class SwapNodesInPairs {
 
     public ListNode swapPairs(ListNode head) {
-        ListNode dummy = new ListNode(0);
+        var dummy = new ListNode(0);
         dummy.next = head;
         ListNode prev = dummy;
 

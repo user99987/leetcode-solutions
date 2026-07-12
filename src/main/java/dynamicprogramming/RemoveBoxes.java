@@ -64,7 +64,7 @@ public class RemoveBoxes {
 
         int maxPoints = (count + 1) * (count + 1) + calculate(left + 1, right, 0, boxes);
 
-        for (int mid = left + 1; mid <= right; mid++) {
+        for (var mid = left + 1; mid <= right; mid++) {
             if (boxes[left] == boxes[mid]) {
                 maxPoints = Math.max(maxPoints,
                         calculate(left + 1, mid - 1, 0, boxes) + calculate(mid, right, count + 1, boxes));

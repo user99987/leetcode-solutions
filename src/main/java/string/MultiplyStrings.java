@@ -32,13 +32,14 @@ public class MultiplyStrings {
     public String multiply(String num1, String num2) {
         if (num1.equals("0") || num2.equals("0")) return "0";
 
-        int len1 = num1.length(), len2 = num2.length();
-        int[] result = new int[len1 + len2];
+        var len1 = num1.length();
+        var len2 = num2.length();
+        var result = new int[len1 + len2];
 
         IntStream.range(0, len1).forEach(i ->
                 IntStream.range(0, len2).forEach(j -> {
-                    int product = (num1.charAt(len1 - 1 - i) - '0') * (num2.charAt(len2 - 1 - j) - '0');
-                    int sum = product + result[len1 + len2 - 1 - (i + j)];
+                    var product = (num1.charAt(len1 - 1 - i) - '0') * (num2.charAt(len2 - 1 - j) - '0');
+                    var sum = product + result[len1 + len2 - 1 - (i + j)];
 
                     result[len1 + len2 - 1 - (i + j)] = sum % 10;
                     result[len1 + len2 - 2 - (i + j)] += sum / 10;

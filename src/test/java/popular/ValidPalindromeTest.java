@@ -1,24 +1,23 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidPalindromeTest {
 
     @Test
     public void testCase1() {
-        assertTrue(new ValidPalindrome().isPalindrome("A man, a plan, a canal: Panama"));
+        assertThat(new ValidPalindrome().isPalindrome("A man, a plan, a canal: Panama")).isTrue();
     }
 
     @Test
     public void testCase2() {
-        assertFalse(new ValidPalindrome().isPalindrome("race a car"));
+        assertThat(new ValidPalindrome().isPalindrome("race a car")).isFalse();
     }
 
     @Test
     public void testCase3() {
-        assertTrue(new ValidPalindrome().isPalindrome(" "));
+        assertThat(new ValidPalindrome().isPalindrome(" ")).isTrue();
     }
 }

@@ -52,7 +52,7 @@ public class LongestChunkedPalindromeDecomposition {
         if (i == e) return 1;
         if (dp[i] > 0) return dp[i];
 
-        for (int j = e; j > i; j--) {
+        for (var j = e; j > i; j--) {
             if (text.charAt(j) == text.charAt(i)) {
                 if (text.substring(j, e + 1).equals(text.substring(i, i + (e - j + 1)))) {
                     dp[i] = Math.max(dp[i], dp(i + (e - j + 1), j - 1, text) + 2);

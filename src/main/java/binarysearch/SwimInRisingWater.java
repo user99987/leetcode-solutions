@@ -48,8 +48,8 @@ public class SwimInRisingWater {
 
     public int swimInWater(int[][] grid) {
         int n = grid.length;
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[2]));
-        boolean[][] visited = new boolean[n][n];
+        var pq = new PriorityQueue<int[]>(Comparator.comparingInt(a -> a[2]));
+        var visited = new boolean[n][n];
 
         pq.offer(new int[]{0, 0, grid[0][0]});
         visited[0][0] = true;

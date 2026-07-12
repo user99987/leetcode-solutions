@@ -41,10 +41,10 @@ package array;
 public class ChampagneTower {
 
     public double champagneTower(int poured, int queryRow, int queryGlass) {
-        double[] currentRow = new double[]{poured};
+        var currentRow = new double[]{poured};
 
         for (int row = 0; row < queryRow; row++) {
-            double[] nextRow = new double[row + 2];
+            var nextRow = new double[row + 2];
 
             for (int glass = 0; glass < currentRow.length; glass++) {
                 double overflow = currentRow[glass] - 1;

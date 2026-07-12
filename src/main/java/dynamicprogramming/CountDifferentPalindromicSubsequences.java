@@ -41,12 +41,12 @@ public class CountDifferentPalindromicSubsequences {
             return len;
         }
         int[][] dp = new int[len][len];
-        for (int i = 0; i < len; i++) {
+        for (var i = 0; i < len; i++) {
             char c = s.charAt(i);
             int deta = 1;
             dp[i][i] = 1;
             int l2 = -1;
-            for (int j = i - 1; j >= 0; j--) {
+            for (var j = i - 1; j >= 0; j--) {
                 if (s.charAt(j) == c) {
                     if (l2 < 0) {
                         l2 = j;

@@ -57,7 +57,7 @@ public class ValidateIPAddress {
     }
 
     private boolean isValidIPv4(String ip) {
-        String[] parts = ip.split("\\.", -1);
+        var parts = ip.split("\\.", -1);
         return parts.length == 4 && Stream.of(parts).allMatch(isValidIPv4Segment());
     }
 
@@ -66,7 +66,7 @@ public class ValidateIPAddress {
     }
 
     private boolean isValidIPv6(String ip) {
-        String[] parts = ip.split(":", -1);
+        var parts = ip.split(":", -1);
         return parts.length == 8 && Stream.of(parts).allMatch(isValidIPv6Segment());
     }
 

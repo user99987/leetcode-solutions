@@ -2,19 +2,19 @@ package greedy;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.List;
 
 public class PartitionLabelsTest {
 
     @Test
     public void testCase1() {
-        assertEquals(List.of(9, 7, 8), new PartitionLabels().partitionLabels("ababcbacadefegdehijhklij"));
+        assertThat(new PartitionLabels().partitionLabels("ababcbacadefegdehijhklij")).isEqualTo(List.of(9, 7, 8));
     }
 
     @Test
     public void testCase2() {
-        assertEquals(List.of(10), new PartitionLabels().partitionLabels("eccbbbbdec"));
+        assertThat(new PartitionLabels().partitionLabels("eccbbbbdec")).isEqualTo(List.of(10));
     }
 }

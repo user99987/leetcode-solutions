@@ -2,27 +2,28 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class LongestSubstringWithoutRepeatingCharactersTest {
 
     @Test
     public void testCase1() {
-        assertEquals(3, new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("abcabcbb"));
+        assertThat(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("abcabcbb")).isEqualTo(3);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(1, new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("bbbbb"));
+        assertThat(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("bbbbb")).isEqualTo(1);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(3, new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("pwwkew"));
+        assertThat(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("pwwkew")).isEqualTo(3);
     }
 
     @Test
     public void testCase4() {
-        assertEquals(0, new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring(""));
+        assertThat(new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("")).isEqualTo(0);
     }
 }

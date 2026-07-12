@@ -1,12 +1,13 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FindLargestValueInEachTreeRowTest {
 
@@ -15,18 +16,18 @@ class FindLargestValueInEachTreeRowTest {
         TreeNode root = new TreeNode(1,
                 new TreeNode(3, new TreeNode(5), new TreeNode(3)),
                 new TreeNode(2, null, new TreeNode(9)));
-        assertEquals(Arrays.asList(1, 3, 9), new FindLargestValueInEachTreeRow().largestValues(root));
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).isEqualTo(Arrays.asList(1, 3, 9));
     }
 
     @Test
     void testCase2() {
-        TreeNode root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
-        assertEquals(Arrays.asList(1, 3), new FindLargestValueInEachTreeRow().largestValues(root));
+        var root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).isEqualTo(Arrays.asList(1, 3));
     }
 
     @Test
     void testCase3() {
         TreeNode root = null;
-        assertEquals(Collections.emptyList(), new FindLargestValueInEachTreeRow().largestValues(root));
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).isEqualTo(Collections.emptyList());
     }
 }

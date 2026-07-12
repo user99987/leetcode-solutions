@@ -3,8 +3,8 @@ package popular;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SubsetsTest {
 
@@ -21,7 +21,7 @@ public class SubsetsTest {
                 List.of(2, 3),
                 List.of(1, 2, 3)
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -31,6 +31,6 @@ public class SubsetsTest {
                 List.of(),
                 List.of(0)
         );
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 }

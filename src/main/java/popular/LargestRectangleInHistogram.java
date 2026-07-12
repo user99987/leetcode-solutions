@@ -1,6 +1,5 @@
 package popular;
 
-import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -30,7 +29,7 @@ import java.util.LinkedList;
 public class LargestRectangleInHistogram {
 
     public int largestRectangleArea(int[] heights) {
-        Deque<Integer> deque = new LinkedList<>();
+        var deque = new LinkedList<Integer>();
         int maxArea = 0;
         deque.push(-1);
         for (int i = 0; i < heights.length; i++) {

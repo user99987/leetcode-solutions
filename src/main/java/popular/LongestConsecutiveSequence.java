@@ -32,12 +32,12 @@ import java.util.stream.IntStream;
 public class LongestConsecutiveSequence {
 
     public int longestConsecutive(int[] nums) {
-        var numSet = new HashSet<>();
+        var numSet = new HashSet<Integer>();
         IntStream.of(nums).forEach(numSet::add);
         return IntStream.of(nums)
                 .filter(num -> !numSet.contains(num - 1))
                 .map(num -> {
-                    int length = 1;
+                    var length = 1;
                     while (numSet.contains(num + 1)) {
                         num++;
                         length++;

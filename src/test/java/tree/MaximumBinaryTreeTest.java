@@ -1,25 +1,26 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MaximumBinaryTreeTest {
 
     @Test
     public void testCase1() {
-        List<Integer> expected = List.of(6, 3, 5, 2, 0, 1);
-        List<Integer> actual = TreeNode.toList(new MaximumBinaryTree().constructMaximumBinaryTree(new int[]{3, 2, 1, 6, 0, 5}));
-        assertEquals(expected, actual);
+        var expected = List.of(6, 3, 5, 2, 0, 1);
+        var actual = TreeNode.toList(new MaximumBinaryTree().constructMaximumBinaryTree(new int[]{3, 2, 1, 6, 0, 5}));
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     public void testCase2() {
-        List<Integer> expected = List.of(3, 2, 1);
-        List<Integer> actual = TreeNode.toList(new MaximumBinaryTree().constructMaximumBinaryTree(new int[]{3, 2, 1}));
-        assertEquals(expected, actual);
+        var expected = List.of(3, 2, 1);
+        var actual = TreeNode.toList(new MaximumBinaryTree().constructMaximumBinaryTree(new int[]{3, 2, 1}));
+        assertThat(actual).isEqualTo(expected);
     }
 }

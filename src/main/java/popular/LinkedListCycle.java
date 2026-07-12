@@ -46,7 +46,8 @@ import utils.ListNode;
 public class LinkedListCycle {
 
     public boolean hasCycle(ListNode head) {
-        ListNode fast = head, slow = head;
+        var fast = head;
+        var slow = head;
         while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;

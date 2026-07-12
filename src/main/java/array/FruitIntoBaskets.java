@@ -50,7 +50,7 @@ public class FruitIntoBaskets {
         int currentMax = 0;
         int maxTotal = 0;
 
-        for (int fruit : fruits) {
+        for (var fruit : fruits) {
             if (fruit == lastFruit || fruit == secondLastFruit) {
                 currentMax++;
             } else {

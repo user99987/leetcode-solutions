@@ -7,7 +7,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -37,8 +36,8 @@ public class FindLargestValueInEachTreeRow {
 
     public List<Integer> largestValues(TreeNode root) {
         if (root == null) return Collections.emptyList();
-        List<Integer> result = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>(List.of(root));
+        var result = new ArrayList<Integer>();
+        var queue = new LinkedList<TreeNode>(List.of(root));
 
         while (!queue.isEmpty()) {
             result.add(queue.stream().mapToInt(node -> node.value).max().orElse(Integer.MIN_VALUE));

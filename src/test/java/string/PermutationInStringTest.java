@@ -2,43 +2,42 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class PermutationInStringTest {
 
     @Test
     void testCase1() {
-        String s1 = "ab";
-        String s2 = "eidbaooo";
-        assertTrue(new PermutationInString().checkInclusion(s1, s2));
+        var s1 = "ab";
+        var s2 = "eidbaooo";
+        assertThat(new PermutationInString().checkInclusion(s1, s2)).isTrue();
     }
 
     @Test
     void testCase2() {
-        String s1 = "ab";
-        String s2 = "eidboaoo";
-        assertFalse(new PermutationInString().checkInclusion(s1, s2));
+        var s1 = "ab";
+        var s2 = "eidboaoo";
+        assertThat(new PermutationInString().checkInclusion(s1, s2)).isFalse();
     }
 
     @Test
     void testCase3() {
-        String s1 = "abc";
-        String s2 = "ccccbabaaaa";
-        assertTrue(new PermutationInString().checkInclusion(s1, s2));
+        var s1 = "abc";
+        var s2 = "ccccbabaaaa";
+        assertThat(new PermutationInString().checkInclusion(s1, s2)).isTrue();
     }
 
     @Test
     void testCase4() {
-        String s1 = "abcd";
-        String s2 = "efgh";
-        assertFalse(new PermutationInString().checkInclusion(s1, s2));
+        var s1 = "abcd";
+        var s2 = "efgh";
+        assertThat(new PermutationInString().checkInclusion(s1, s2)).isFalse();
     }
 
     @Test
     void testCase5() {
-        String s1 = "a";
-        String s2 = "a";
-        assertTrue(new PermutationInString().checkInclusion(s1, s2));
+        var s1 = "a";
+        var s2 = "a";
+        assertThat(new PermutationInString().checkInclusion(s1, s2)).isTrue();
     }
 }

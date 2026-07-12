@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import utils.ListNode;
 
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SplitLinkedListInPartsTest {
 
@@ -21,7 +20,7 @@ class SplitLinkedListInPartsTest {
                 null
         }).map(ListNode::toArray).toArray(int[][]::new);
         int[][] actual = Arrays.stream(new SplitLinkedListInParts().splitListToParts(head, k)).map(ListNode::toArray).toArray(int[][]::new);
-        assertArrayEquals(expected, actual);
+        assertThat(java.util.Arrays.deepEquals(actual, expected)).isTrue();
     }
 
     @Test
@@ -34,6 +33,6 @@ class SplitLinkedListInPartsTest {
                 ListNode.create(new int[]{8, 9, 10})
         }).map(ListNode::toArray).toArray(int[][]::new);
         int[][] actual = Arrays.stream(new SplitLinkedListInParts().splitListToParts(head, k)).map(ListNode::toArray).toArray(int[][]::new);
-        assertArrayEquals(expected, actual);
+        assertThat(java.util.Arrays.deepEquals(actual, expected)).isTrue();
     }
 }

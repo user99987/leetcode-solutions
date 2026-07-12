@@ -2,7 +2,7 @@ package twopointers;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumberOfMatchingSubsequencesTest {
 
@@ -12,8 +12,8 @@ public class NumberOfMatchingSubsequencesTest {
                 "abcde",
                 new String[]{"a", "bb", "acd", "ace"}
         );
-        int expected = 3;
-        assertEquals(expected, actual);
+        var expected = 3;
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class NumberOfMatchingSubsequencesTest {
                 "dsahjpjauf",
                 new String[]{"ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"}
         );
-        int expected = 2;
-        assertEquals(expected, actual);
+        var expected = 2;
+        assertThat(actual).isEqualTo(expected);
     }
 }

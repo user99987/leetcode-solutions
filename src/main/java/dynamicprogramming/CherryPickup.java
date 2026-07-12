@@ -41,22 +41,58 @@ public class CherryPickup {
 
     public int cherryPickup(int[][] grid) {
         int n = grid.length;
-        int[][][] dp = new int[n][n][n];
-        return Math.max(0, dfs(grid, dp, 0, 0, 0));
-    }
+        int[][] dp = new int[n][n];
+        for (var r1 = 0; r1 < n; r1++) {
+            for (var r2 = 0; r2 < n; r2++) {
+                dp[r1][r2] = Integer.MIN_VALUE;
+            }
+        }
+        dp[0][0] = grid[0][0];
 
-    private int dfs(int[][] grid, int[][][] dp, int r1, int c1, int r2) {
-        int c2 = r1 + c1 - r2;
-        int n = grid.length;
-        if (r1 >= n || r2 >= n || c1 >= n || c2 >= n || grid[r1][c1] == -1 || grid[r2][c2] == -1)
-            return Integer.MIN_VALUE;
-        if (r1 == n - 1 && c1 == n - 1) return grid[r1][c1];
-        if (dp[r1][c1][r2] != 0) return dp[r1][c1][r2];
+        for (var step = 1; step < 2 * n - 1; step++) {
+            int[][] next = new int[n][n];
+            for (var r1 = 0; r1 < n; r1++) {
+                for (var r2 = 0; r2 < n; r2++) {
+                    next[r1][r2] = Integer.MIN_VALUE;
+                }
+            }
 
-        int cherries = grid[r1][c1] + (r1 != r2 ? grid[r2][c2] : 0);
-        int maxCherries = Math.max(Math.max(dfs(grid, dp, r1 + 1, c1, r2 + 1), dfs(grid, dp, r1, c1 + 1, r2)),
-                Math.max(dfs(grid, dp, r1 + 1, c1, r2), dfs(grid, dp, r1, c1 + 1, r2 + 1)));
+            int minRow = Math.max(0, step - (n - 1));
+            int maxRow = Math.min(n - 1, step);
+            for (var r1 = minRow; r1 <= maxRow; r1++) {
+                int c1 = step - r1;
+                if (grid[r1][c1] == -1) {
+                    continue;
+                }
+                for (var r2 = minRow; r2 <= maxRow; r2++) {
+                    int c2 = step - r2;
+                    if (grid[r2][c2] == -1) {
+                        continue;
+                    }
 
-        return dp[r1][c1][r2] = cherries + maxCherries;
+                    int best = dp[r1][r2];
+                    if (r1 > 0) {
+                        best = Math.max(best, dp[r1 - 1][r2]);
+                    }
+                    if (r2 > 0) {
+                        best = Math.max(best, dp[r1][r2 - 1]);
+                    }
+                    if (r1 > 0 && r2 > 0) {
+                        best = Math.max(best, dp[r1 - 1][r2 - 1]);
+                    }
+                    if (best == Integer.MIN_VALUE) {
+                        continue;
+                    }
+
+                    int cherries = best + grid[r1][c1];
+                    if (r1 != r2) {
+                        cherries += grid[r2][c2];
+                    }
+                    next[r1][r2] = Math.max(next[r1][r2], cherries);
+                }
+            }
+            dp = next;
+        }
+        return Math.max(0, dp[n - 1][n - 1]);
     }
 }

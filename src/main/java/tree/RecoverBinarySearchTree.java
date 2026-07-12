@@ -2,9 +2,6 @@ package tree;
 
 import utils.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Medium
  * <p>
@@ -33,29 +30,33 @@ import java.util.List;
  */
 public class RecoverBinarySearchTree {
 
+    private TreeNode previous;
+    private TreeNode first;
+    private TreeNode second;
+
     public void recoverTree(TreeNode root) {
-        List<TreeNode> nodes = new ArrayList<>();
-        inorder(root, nodes);
-        TreeNode first = null, second = null;
-
-        for (int i = 0; i < nodes.size() - 1; i++) {
-            if (nodes.get(i).value > nodes.get(i + 1).value) {
-                if (first == null) first = nodes.get(i);
-                second = nodes.get(i + 1);
-            }
+        previous = null;
+        first = null;
+        second = null;
+        inorder(root);
+        if (first != null && second != null) {
+            var temp = first.value;
+            first.value = second.value;
+            second.value = temp;
         }
-
-        assert first != null;
-        int temp = first.value;
-        first.value = second.value;
-        second.value = temp;
     }
 
-    private void inorder(TreeNode node, List<TreeNode> nodes) {
+    private void inorder(TreeNode node) {
         if (node != null) {
-            inorder(node.left, nodes);
-            nodes.add(node);
-            inorder(node.right, nodes);
+            inorder(node.left);
+            if (previous != null && previous.value > node.value) {
+                if (first == null) {
+                    first = previous;
+                }
+                second = node;
+            }
+            previous = node;
+            inorder(node.right);
         }
     }
 }

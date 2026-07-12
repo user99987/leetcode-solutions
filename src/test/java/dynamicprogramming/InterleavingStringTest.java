@@ -2,23 +2,22 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class InterleavingStringTest {
 
     @Test
     public void testCase1() {
-        assertTrue(new InterleavingString().isInterleave("aabcc", "dbbca", "aadbbcbcac"));
+        assertThat(new InterleavingString().isInterleave("aabcc", "dbbca", "aadbbcbcac")).isTrue();
     }
 
     @Test
     public void testCase2() {
-        assertFalse(new InterleavingString().isInterleave("aabcc", "dbbca", "aadbbbaccc"));
+        assertThat(new InterleavingString().isInterleave("aabcc", "dbbca", "aadbbbaccc")).isFalse();
     }
 
     @Test
     public void testCase3() {
-        assertTrue(new InterleavingString().isInterleave("", "", ""));
+        assertThat(new InterleavingString().isInterleave("", "", "")).isTrue();
     }
 }

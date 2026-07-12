@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConcatenatedWordsTest {
 
@@ -14,7 +14,7 @@ public class ConcatenatedWordsTest {
                 new String[]{"cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"}
         );
         List<String> expected = List.of("catsdogcats", "dogcatsdog", "ratcatdogcat");
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -23,6 +23,6 @@ public class ConcatenatedWordsTest {
                 new String[]{"cat", "dog", "catdog"}
         );
         List<String> expected = List.of("catdog");
-        assertEquals(expected, result);
+        assertThat(result).isEqualTo(expected);
     }
 }

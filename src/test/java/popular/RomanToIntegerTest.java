@@ -1,33 +1,33 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RomanToIntegerTest {
 
     @Test
     public void testCase1() {
-        assertEquals(3, new RomanToInteger().romanToInt("III"));
+        assertThat(new RomanToInteger().romanToInt("III")).isEqualTo(3);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(4, new RomanToInteger().romanToInt("IV"));
+        assertThat(new RomanToInteger().romanToInt("IV")).isEqualTo(4);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(9, new RomanToInteger().romanToInt("IX"));
+        assertThat(new RomanToInteger().romanToInt("IX")).isEqualTo(9);
     }
 
     @Test
     public void testCase4() {
-        assertEquals(58, new RomanToInteger().romanToInt("LVIII"));
+        assertThat(new RomanToInteger().romanToInt("LVIII")).isEqualTo(58);
     }
 
     @Test
     public void testCase5() {
-        assertEquals(1994, new RomanToInteger().romanToInt("MCMXCIV"));
+        assertThat(new RomanToInteger().romanToInt("MCMXCIV")).isEqualTo(1994);
     }
 }

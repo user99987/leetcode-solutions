@@ -49,7 +49,7 @@ import java.util.stream.IntStream;
 public class UniquePaths {
 
     public int uniquePaths(int m, int n) {
-        int[][] dp = new int[m][n];
+        var dp = new int[m][n];
         IntStream.range(0, m).forEach(i -> dp[i][0] = 1);
         IntStream.range(0, n).forEach(j -> dp[0][j] = 1);
         IntStream.range(1, m).forEach(i ->

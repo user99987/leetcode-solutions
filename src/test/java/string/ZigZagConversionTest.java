@@ -2,31 +2,31 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ZigZagConversionTest {
 
     @Test
     public void testCase1() {
-        String s = "PAYPALISHIRING";
-        int numRows = 3;
-        String expected = "PAHNAPLSIIGYIR";
-        assertEquals(expected, new ZigZagConversion().convert(s, numRows));
+        var s = "PAYPALISHIRING";
+        var numRows = 3;
+        var expected = "PAHNAPLSIIGYIR";
+        assertThat(new ZigZagConversion().convert(s, numRows)).isEqualTo(expected);
     }
 
     @Test
     public void testCase2() {
-        String s = "PAYPALISHIRING";
-        int numRows = 4;
-        String expected = "PINALSIGYAHRPI";
-        assertEquals(expected, new ZigZagConversion().convert(s, numRows));
+        var s = "PAYPALISHIRING";
+        var numRows = 4;
+        var expected = "PINALSIGYAHRPI";
+        assertThat(new ZigZagConversion().convert(s, numRows)).isEqualTo(expected);
     }
 
     @Test
     public void testCase3() {
-        String s = "A";
-        int numRows = 1;
-        String expected = "A";
-        assertEquals(expected, new ZigZagConversion().convert(s, numRows));
+        var s = "A";
+        var numRows = 1;
+        var expected = "A";
+        assertThat(new ZigZagConversion().convert(s, numRows)).isEqualTo(expected);
     }
 }

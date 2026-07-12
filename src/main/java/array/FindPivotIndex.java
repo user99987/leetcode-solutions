@@ -60,7 +60,7 @@ public class FindPivotIndex {
         if (nums == null || nums.length == 0) return -1;
 
         int totalSum = 0;
-        for (int num : nums) totalSum += num;
+        for (var num : nums) totalSum += num;
 
         int leftSum = 0;
         for (int i = 0; i < nums.length; i++) {

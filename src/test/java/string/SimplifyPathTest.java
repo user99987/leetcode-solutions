@@ -2,35 +2,35 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SimplifyPathTest {
 
     @Test
     public void testCase1() {
-        String path = "/home/";
-        String expected = "/home";
-        assertEquals(expected, new SimplifyPath().simplifyPath(path));
+        var path = "/home/";
+        var expected = "/home";
+        assertThat(new SimplifyPath().simplifyPath(path)).isEqualTo(expected);
     }
 
     @Test
     public void testCase2() {
-        String path = "/../";
-        String expected = "/";
-        assertEquals(expected, new SimplifyPath().simplifyPath(path));
+        var path = "/../";
+        var expected = "/";
+        assertThat(new SimplifyPath().simplifyPath(path)).isEqualTo(expected);
     }
 
     @Test
     public void testCase3() {
-        String path = "/home//foo/";
-        String expected = "/home/foo";
-        assertEquals(expected, new SimplifyPath().simplifyPath(path));
+        var path = "/home//foo/";
+        var expected = "/home/foo";
+        assertThat(new SimplifyPath().simplifyPath(path)).isEqualTo(expected);
     }
 
     @Test
     public void testCase4() {
-        String path = "/a/./b/../../c/";
-        String expected = "/c";
-        assertEquals(expected, new SimplifyPath().simplifyPath(path));
+        var path = "/a/./b/../../c/";
+        var expected = "/c";
+        assertThat(new SimplifyPath().simplifyPath(path)).isEqualTo(expected);
     }
 }

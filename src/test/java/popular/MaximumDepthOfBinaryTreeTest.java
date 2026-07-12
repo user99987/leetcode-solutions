@@ -1,35 +1,36 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MaximumDepthOfBinaryTreeTest {
 
     @Test
     public void testCase1() {
-        TreeNode root = new TreeNode(3);
+        var root = new TreeNode(3);
         root.left = new TreeNode(9);
         root.right = new TreeNode(20, new TreeNode(15), new TreeNode(7));
-        assertEquals(3, new MaximumDepthOfBinaryTree().maxDepth(root));
+        assertThat(new MaximumDepthOfBinaryTree().maxDepth(root)).isEqualTo(3);
     }
 
     @Test
     public void testCase2() {
-        TreeNode root = new TreeNode(1, null, new TreeNode(2));
-        assertEquals(2, new MaximumDepthOfBinaryTree().maxDepth(root));
+        var root = new TreeNode(1, null, new TreeNode(2));
+        assertThat(new MaximumDepthOfBinaryTree().maxDepth(root)).isEqualTo(2);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(0, new MaximumDepthOfBinaryTree().maxDepth(null));
+        assertThat(new MaximumDepthOfBinaryTree().maxDepth(null)).isEqualTo(0);
     }
 
     @Test
     public void testCase4() {
-        TreeNode root = new TreeNode(0);
-        assertEquals(1, new MaximumDepthOfBinaryTree().maxDepth(root));
+        var root = new TreeNode(0);
+        assertThat(new MaximumDepthOfBinaryTree().maxDepth(root)).isEqualTo(1);
     }
 }
 

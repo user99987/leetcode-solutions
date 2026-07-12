@@ -2,7 +2,6 @@ package popular;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * Medium
@@ -31,29 +30,35 @@ import java.util.stream.IntStream;
 public class PalindromePartitioning {
 
     public List<List<String>> partition(String s) {
-        List<List<String>> result = new ArrayList<>();
-        backtrack(s, 0, new ArrayList<>(), result);
+        var result = new ArrayList<List<String>>();
+        backtrack(s, 0, new ArrayList<>(), buildPalindromeTable(s), result);
         return result;
     }
 
-    private void backtrack(String s, int start, List<String> partition, List<List<String>> result) {
+    private void backtrack(String s, int start, List<String> partition, boolean[][] palindrome, List<List<String>> result) {
         if (start == s.length()) {
             result.add(new ArrayList<>(partition));
             return;
         }
 
-        IntStream.range(start, s.length())
-                .mapToObj(i -> s.substring(start, i + 1))
-                .filter(this::isPalindrome)
-                .forEach(substring -> {
-                    partition.add(substring);
-                    backtrack(s, start + substring.length(), partition, result);
-                    partition.remove(partition.size() - 1);
-                });
+        for (int end = start; end < s.length(); end++) {
+            if (!palindrome[start][end]) {
+                continue;
+            }
+            partition.add(s.substring(start, end + 1));
+            backtrack(s, end + 1, partition, palindrome, result);
+            partition.remove(partition.size() - 1);
+        }
     }
 
-    private boolean isPalindrome(String s) {
-        return IntStream.range(0, s.length() / 2)
-                .allMatch(i -> s.charAt(i) == s.charAt(s.length() - i - 1));
+    private boolean[][] buildPalindromeTable(String s) {
+        boolean[][] palindrome = new boolean[s.length()][s.length()];
+        for (int start = s.length() - 1; start >= 0; start--) {
+            for (int end = start; end < s.length(); end++) {
+                palindrome[start][end] = s.charAt(start) == s.charAt(end)
+                        && (end - start < 2 || palindrome[start + 1][end - 1]);
+            }
+        }
+        return palindrome;
     }
 }

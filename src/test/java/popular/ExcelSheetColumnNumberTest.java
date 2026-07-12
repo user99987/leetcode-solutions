@@ -2,27 +2,27 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExcelSheetColumnNumberTest {
 
     @Test
     public void testCase1() {
-        assertEquals(1, new ExcelSheetColumnNumber().titleToNumber("A"));
+        assertThat(new ExcelSheetColumnNumber().titleToNumber("A")).isEqualTo(1);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(28, new ExcelSheetColumnNumber().titleToNumber("AB"));
+        assertThat(new ExcelSheetColumnNumber().titleToNumber("AB")).isEqualTo(28);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(701, new ExcelSheetColumnNumber().titleToNumber("ZY"));
+        assertThat(new ExcelSheetColumnNumber().titleToNumber("ZY")).isEqualTo(701);
     }
 
     @Test
     public void testCase4() {
-        assertEquals(2147483647, new ExcelSheetColumnNumber().titleToNumber("FXSHRXW"));
+        assertThat(new ExcelSheetColumnNumber().titleToNumber("FXSHRXW")).isEqualTo(2147483647);
     }
 }

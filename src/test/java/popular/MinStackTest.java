@@ -1,20 +1,20 @@
 package popular;
 
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MinStackTest {
 
     @Test
     public void testCase1() {
-        MinStack minStack = new MinStack();
+        var minStack = new MinStack();
         minStack.push(-2);
         minStack.push(0);
         minStack.push(-3);
-        assertEquals(-3, minStack.getMin());
+        assertThat(minStack.getMin()).isEqualTo(-3);
         minStack.pop();
-        assertEquals(0, minStack.top());
-        assertEquals(-2, minStack.getMin());
+        assertThat(minStack.top()).isEqualTo(0);
+        assertThat(minStack.getMin()).isEqualTo(-2);
     }
 }

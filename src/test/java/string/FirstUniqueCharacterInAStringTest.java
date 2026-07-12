@@ -2,25 +2,25 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class FirstUniqueCharacterInAStringTest {
 
     @Test
     void testCase1() {
-        String s = "leetcode";
-        assertEquals(0, new FirstUniqueCharacterInAString().firstUniqChar(s));
+        var s = "leetcode";
+        assertThat(new FirstUniqueCharacterInAString().firstUniqChar(s)).isEqualTo(0);
     }
 
     @Test
     void testCase2() {
-        String s = "loveleetcode";
-        assertEquals(2, new FirstUniqueCharacterInAString().firstUniqChar(s));
+        var s = "loveleetcode";
+        assertThat(new FirstUniqueCharacterInAString().firstUniqChar(s)).isEqualTo(2);
     }
 
     @Test
     void testCase3() {
-        String s = "aabb";
-        assertEquals(-1, new FirstUniqueCharacterInAString().firstUniqChar(s));
+        var s = "aabb";
+        assertThat(new FirstUniqueCharacterInAString().firstUniqChar(s)).isEqualTo(-1);
     }
 }

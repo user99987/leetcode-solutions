@@ -59,11 +59,11 @@ import java.util.LinkedList;
 public class SlidingWindowMaximum {
 
     public int[] maxSlidingWindow(int[] nums, int k) {
-        int n = nums.length;
-        int[] result = new int[n - k + 1];
-        Deque<Integer> deque = new LinkedList<>();
+        var n = nums.length;
+        var result = new int[n - k + 1];
+        var deque = new LinkedList<Integer>();
 
-        for (int j = 0; j < n; j++) {
+        for (var j = 0; j < n; j++) {
             while (!deque.isEmpty() && deque.peekFirst() < j - k + 1) {
                 deque.pollFirst();
             }

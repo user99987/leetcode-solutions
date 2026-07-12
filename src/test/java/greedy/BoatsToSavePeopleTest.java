@@ -2,23 +2,23 @@ package greedy;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BoatsToSavePeopleTest {
 
     @Test
     public void testCase1() {
-        assertEquals(1, new BoatsToSavePeople().numRescueBoats(new int[]{1, 2}, 3));
+        assertThat(new BoatsToSavePeople().numRescueBoats(new int[]{1, 2}, 3)).isEqualTo(1);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(3, new BoatsToSavePeople().numRescueBoats(new int[]{3, 2, 2, 1}, 3));
+        assertThat(new BoatsToSavePeople().numRescueBoats(new int[]{3, 2, 2, 1}, 3)).isEqualTo(3);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(4, new BoatsToSavePeople().numRescueBoats(new int[]{3, 5, 3, 4}, 5));
+        assertThat(new BoatsToSavePeople().numRescueBoats(new int[]{3, 5, 3, 4}, 5)).isEqualTo(4);
     }
 }
 

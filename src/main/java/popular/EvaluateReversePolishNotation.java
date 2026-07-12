@@ -1,6 +1,5 @@
 package popular;
 
-import java.util.Deque;
 import java.util.LinkedList;
 
 /**
@@ -53,8 +52,8 @@ import java.util.LinkedList;
 public class EvaluateReversePolishNotation {
 
     public int evalRPN(String[] tokens) {
-        Deque<Integer> st = new LinkedList<>();
-        for (String token : tokens) {
+        var st = new LinkedList<Integer>();
+        for (var token : tokens) {
             if (!Character.isDigit(token.charAt(token.length() - 1))) {
                 st.push(eval(st.pop(), st.pop(), token));
             } else {

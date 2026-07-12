@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PalindromePairsTest {
 
@@ -17,8 +17,8 @@ public class PalindromePairsTest {
                 List.of(3, 2)
 
         );
-        assertEquals(expected, new PalindromePairs().palindromePairs(
-                new String[]{"abcd", "dcba", "lls", "s", "sssll"}));
+        assertThat(new PalindromePairs().palindromePairs(
+                new String[]{"abcd", "dcba", "lls", "s", "sssll"})).isEqualTo(expected);
     }
 
     @Test
@@ -27,8 +27,8 @@ public class PalindromePairsTest {
                 List.of(0, 1),
                 List.of(1, 0)
         );
-        assertEquals(expected, new PalindromePairs().palindromePairs(
-                new String[]{"bat", "tab", "cat"}));
+        assertThat(new PalindromePairs().palindromePairs(
+                new String[]{"bat", "tab", "cat"})).isEqualTo(expected);
     }
 
     @Test
@@ -37,15 +37,15 @@ public class PalindromePairsTest {
                 List.of(0, 1),
                 List.of(1, 0)
         );
-        assertEquals(expected, new PalindromePairs().palindromePairs(
-                new String[]{"a", ""}));
+        assertThat(new PalindromePairs().palindromePairs(
+                new String[]{"a", ""})).isEqualTo(expected);
     }
 
     @Test
     public void testCase4() {
         List<List<Integer>> expected = List.of();
-        assertEquals(expected, new PalindromePairs().palindromePairs(
-                new String[]{"abc", "def", "ghi"}));
+        assertThat(new PalindromePairs().palindromePairs(
+                new String[]{"abc", "def", "ghi"})).isEqualTo(expected);
     }
 
 }

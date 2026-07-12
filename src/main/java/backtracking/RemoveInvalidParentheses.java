@@ -41,11 +41,11 @@ import java.util.Set;
 public class RemoveInvalidParentheses {
 
     public List<String> removeInvalidParentheses(String s) {
-        List<String> result = new ArrayList<>();
+        var result = new ArrayList<String>();
         if (s == null) return result;
 
-        Set<String> visited = new HashSet<>();
-        Queue<String> queue = new LinkedList<>();
+        var visited = new HashSet<String>();
+        var queue = new LinkedList<String>();
         queue.add(s);
         visited.add(s);
         boolean found = false;
@@ -72,7 +72,7 @@ public class RemoveInvalidParentheses {
 
     private boolean isValid(String s) {
         int count = 0;
-        for (char c : s.toCharArray()) {
+        for (var c : s.toCharArray()) {
             if (c == '(') count++;
             if (c == ')') count--;
             if (count < 0) return false;

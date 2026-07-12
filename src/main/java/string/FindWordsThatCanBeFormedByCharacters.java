@@ -1,10 +1,5 @@
 package string;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
 /**
  * Easy
  * <p>
@@ -39,22 +34,27 @@ import java.util.stream.Collectors;
 public class FindWordsThatCanBeFormedByCharacters {
 
     public int countCharacters(String[] words, String chars) {
-        Map<Character, Long> charMap = chars.chars()
-                .mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        var available = new int[26];
+        for (var i = 0; i < chars.length(); i++) {
+            available[chars.charAt(i) - 'a']++;
+        }
 
-        return Arrays.stream(words)
-                .filter(word -> canForm(word, charMap))
-                .mapToInt(String::length)
-                .sum();
+        var totalLength = 0;
+        for (var word : words) {
+            if (canForm(word, available)) {
+                totalLength += word.length();
+            }
+        }
+        return totalLength;
     }
 
-    private boolean canForm(String word, Map<Character, Long> charMap) {
-        Map<Character, Long> wordMap = word.chars()
-                .mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
-        return wordMap.entrySet().stream()
-                .allMatch(entry -> charMap.getOrDefault(entry.getKey(), 0L) >= entry.getValue());
+    private boolean canForm(String word, int[] available) {
+        var remaining = available.clone();
+        for (var i = 0; i < word.length(); i++) {
+            if (--remaining[word.charAt(i) - 'a'] < 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

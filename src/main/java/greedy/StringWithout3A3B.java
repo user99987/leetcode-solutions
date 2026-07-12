@@ -30,10 +30,11 @@ package greedy;
 public class StringWithout3A3B {
 
     public String strWithout3a3b(int a, int b) {
-        StringBuilder result = new StringBuilder();
-        char first = a >= b ? 'a' : 'b';
-        char second = first == 'a' ? 'b' : 'a';
-        int firstCount = Math.max(a, b), secondCount = Math.min(a, b);
+        var result = new StringBuilder();
+        var first = a >= b ? 'a' : 'b';
+        var second = first == 'a' ? 'b' : 'a';
+        var firstCount = Math.max(a, b);
+        var secondCount = Math.min(a, b);
 
         while (firstCount > 0 || secondCount > 0) {
             if (firstCount > secondCount) {

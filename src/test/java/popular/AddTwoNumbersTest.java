@@ -3,15 +3,15 @@ package popular;
 import org.junit.jupiter.api.Test;
 import utils.ListNode;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class AddTwoNumbersTest {
 
     @Test
     void testCase1() {
-        ListNode node1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        ListNode node2 = new ListNode(5, new ListNode(6, new ListNode(4)));
-        ListNode result = new AddTwoNumbers().addTwoNumbers(node1, node2);
+        var node1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+        var node2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+        var result = new AddTwoNumbers().addTwoNumbers(node1, node2);
 
         assertThat(result).isNotNull();
         assertThat(result.value).isEqualTo(7);
@@ -23,9 +23,9 @@ class AddTwoNumbersTest {
 
     @Test
     void testCase2() {
-        ListNode node1 = new ListNode(0);
-        ListNode node2 = new ListNode(0);
-        ListNode result = new AddTwoNumbers().addTwoNumbers(node1, node2);
+        var node1 = new ListNode(0);
+        var node2 = new ListNode(0);
+        var result = new AddTwoNumbers().addTwoNumbers(node1, node2);
 
         assertThat(result).isNotNull();
         assertThat(result.value).isEqualTo(0);
@@ -34,9 +34,9 @@ class AddTwoNumbersTest {
 
     @Test
     void testCase3() {
-        ListNode node1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
-        ListNode node2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
-        ListNode result = new AddTwoNumbers().addTwoNumbers(node1, node2);
+        var node1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
+        var node2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
+        var result = new AddTwoNumbers().addTwoNumbers(node1, node2);
 
         assertThat(result).isNotNull();
         assertThat(result.value).isEqualTo(8);

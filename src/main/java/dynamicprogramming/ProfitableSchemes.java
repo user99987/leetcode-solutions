@@ -50,17 +50,17 @@ public class ProfitableSchemes {
         int[][] dp = new int[n + 1][minProfit + 1];
         dp[0][0] = 1;
 
-        for (int i = 0; i < group.length; i++) {
+        for (var i = 0; i < group.length; i++) {
             int members = group[i], gain = profit[i];
-            for (int people = n; people >= members; people--) {
-                for (int p = minProfit; p >= 0; p--) {
+            for (var people = n; people >= members; people--) {
+                for (var p = minProfit; p >= 0; p--) {
                     dp[people][p] = (dp[people][p] + dp[people - members][Math.max(0, p - gain)]) % MOD;
                 }
             }
         }
 
         int totalWays = 0;
-        for (int people = 0; people <= n; people++) {
+        for (var people = 0; people <= n; people++) {
             totalWays = (totalWays + dp[people][minProfit]) % MOD;
         }
         return totalWays;

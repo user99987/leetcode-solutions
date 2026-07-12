@@ -40,7 +40,7 @@ public class SplitArrayLargestSum {
 
     public int splitArray(int[] nums, int m) {
         int left = 0, right = 0;
-        for (int num : nums) {
+        for (var num : nums) {
             left = Math.max(left, num);
             right += num;
         }
@@ -58,7 +58,7 @@ public class SplitArrayLargestSum {
 
     private boolean canSplit(int[] nums, int m, int maxSum) {
         int count = 1, sum = 0;
-        for (int num : nums) {
+        for (var num : nums) {
             if (sum + num > maxSum) {
                 count++;
                 sum = num;

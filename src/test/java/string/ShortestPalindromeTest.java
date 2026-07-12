@@ -2,27 +2,27 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ShortestPalindromeTest {
 
     @Test
     void testCase1() {
-        assertEquals("aaacecaaa", new ShortestPalindrome().shortestPalindrome("aacecaaa"));
+        assertThat(new ShortestPalindrome().shortestPalindrome("aacecaaa")).isEqualTo("aaacecaaa");
     }
 
     @Test
     void testCase2() {
-        assertEquals("dcbabcd", new ShortestPalindrome().shortestPalindrome("abcd"));
+        assertThat(new ShortestPalindrome().shortestPalindrome("abcd")).isEqualTo("dcbabcd");
     }
 
     @Test
     void testCase3() {
-        assertEquals("a", new ShortestPalindrome().shortestPalindrome("a"));
+        assertThat(new ShortestPalindrome().shortestPalindrome("a")).isEqualTo("a");
     }
 
     @Test
     void testCase4() {
-        assertEquals("", new ShortestPalindrome().shortestPalindrome(""));
+        assertThat(new ShortestPalindrome().shortestPalindrome("")).isEqualTo("");
     }
 }

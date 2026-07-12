@@ -22,8 +22,8 @@ public class TreeNode {
 
     public static TreeNode create(Integer[] values) {
         if (values.length == 0 || values[0] == null) return null;
-        TreeNode root = new TreeNode(values[0]);
-        Queue<TreeNode> queue = new LinkedList<>();
+        var root = new TreeNode(values[0]);
+        var queue = new LinkedList<TreeNode>();
         queue.offer(root);
         int index = 1;
         while (index < values.length) {
@@ -48,8 +48,8 @@ public class TreeNode {
     }
 
     public static List<Integer> toList(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
+        var result = new ArrayList<Integer>();
+        var queue = new LinkedList<TreeNode>();
         if (root == null) return result;
         queue.offer(root);
         while (!queue.isEmpty()) {

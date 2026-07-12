@@ -3,13 +3,13 @@ package popular;
 import org.junit.jupiter.api.Test;
 import utils.TreeNode;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class BinaryTreeMaximumPathSumTest {
 
     @Test
     void testCase1() {
-        TreeNode root = new TreeNode(1);
+        var root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
 
@@ -18,7 +18,7 @@ class BinaryTreeMaximumPathSumTest {
 
     @Test
     void testCase2() {
-        TreeNode root = new TreeNode(-10);
+        var root = new TreeNode(-10);
         root.left = new TreeNode(9);
         root.right = new TreeNode(20);
         root.right.right = new TreeNode(7);

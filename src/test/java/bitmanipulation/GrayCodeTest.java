@@ -3,20 +3,19 @@ package bitmanipulation;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class GrayCodeTest {
 
     @Test
     public void testCase1() {
-        List<Integer> result = new GrayCode().grayCode(2);
-        assertEquals(List.of(0, 1, 3, 2), result);
+        var result = new GrayCode().grayCode(2);
+        assertThat(result).isEqualTo(List.of(0, 1, 3, 2));
     }
 
     @Test
     public void testCase2() {
-        List<Integer> result = new GrayCode().grayCode(1);
-        assertEquals(List.of(0, 1), result);
+        var result = new GrayCode().grayCode(1);
+        assertThat(result).isEqualTo(List.of(0, 1));
     }
 }

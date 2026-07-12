@@ -1,8 +1,5 @@
 package popular;
 
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.IntStream;
-
 /**
  * Medium
  * <p>
@@ -40,27 +37,31 @@ import java.util.stream.IntStream;
 public class LongestPalindromicSubstring {
 
     public String longestPalindrome(String s) {
-        int n = s.length();
-        AtomicInteger maxLength = new AtomicInteger(1);
-        AtomicInteger start = new AtomicInteger();
+        int bestStart = 0;
+        int bestLength = 1;
 
-        IntStream.range(0, n).forEach(i -> IntStream.range(i, n).forEach(j -> {
-            if (checkPalindrome(s, i, j) && (j - i + 1) > maxLength.get()) {
-                start.set(i);
-                maxLength.set(j - i + 1);
+        for (int center = 0; center < s.length(); center++) {
+            int oddLength = expandAroundCenter(s, center, center);
+            if (oddLength > bestLength) {
+                bestLength = oddLength;
+                bestStart = center - oddLength / 2;
             }
-        }));
-        return s.substring(start.get(), start.get() + maxLength.get());
+
+            int evenLength = expandAroundCenter(s, center, center + 1);
+            if (evenLength > bestLength) {
+                bestLength = evenLength;
+                bestStart = center - evenLength / 2 + 1;
+            }
+        }
+        return s.substring(bestStart, bestStart + bestLength);
     }
 
-    private boolean checkPalindrome(String s, int low, int high) {
-        while (low < high) {
-            if (s.charAt(low) != s.charAt(high))
-                return false;
-            low++;
-            high--;
+    private int expandAroundCenter(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
         }
-        return true;
+        return right - left - 1;
     }
 
 }

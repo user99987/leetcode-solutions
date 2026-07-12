@@ -33,8 +33,9 @@ package string;
 public class MinimumAddToMakeParenthesesValid {
 
     public int minAddToMakeValid(String s) {
-        int open = 0, close = 0;
-        for (char c : s.toCharArray()) {
+        var open = 0;
+        var close = 0;
+        for (var c : s.toCharArray()) {
             if (c == '(') {
                 open++;
             } else if (open > 0) {

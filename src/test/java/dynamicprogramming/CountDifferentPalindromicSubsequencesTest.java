@@ -2,18 +2,18 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CountDifferentPalindromicSubsequencesTest {
 
     @Test
     public void testCase1() {
-        assertEquals(6, new CountDifferentPalindromicSubsequences().countPalindromicSubsequences("bccb"));
+        assertThat(new CountDifferentPalindromicSubsequences().countPalindromicSubsequences("bccb")).isEqualTo(6);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(104860361, new CountDifferentPalindromicSubsequences().countPalindromicSubsequences(
-                "abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba"));
+        assertThat(new CountDifferentPalindromicSubsequences().countPalindromicSubsequences(
+                "abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba")).isEqualTo(104860361);
     }
 }

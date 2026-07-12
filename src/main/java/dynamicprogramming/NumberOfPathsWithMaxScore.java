@@ -44,8 +44,8 @@ public class NumberOfPathsWithMaxScore {
         int rows = board.size();
         int columns = board.get(0).length();
         int[][][] dp = new int[rows][columns][2];
-        for (int r = rows - 1; r >= 0; r--) {
-            for (int c = columns - 1; c >= 0; c--) {
+        for (var r = rows - 1; r >= 0; r--) {
+            for (var c = columns - 1; c >= 0; c--) {
                 char current = board.get(r).charAt(c);
                 if (current == 'S') {
                     dp[r][c][0] = 0;
@@ -54,7 +54,7 @@ public class NumberOfPathsWithMaxScore {
                     int maxScore = 0;
                     int paths = 0;
                     int currentScore = current == 'E' ? 0 : current - '0';
-                    for (int[] dir : DIRECTIONS) {
+                    for (var dir : DIRECTIONS) {
                         int nextR = r + dir[0];
                         int nextC = c + dir[1];
                         if (nextR < rows && nextC < columns && dp[nextR][nextC][1] > 0) {

@@ -1,7 +1,6 @@
 package popular;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.IntStream;
 
 /**
@@ -34,7 +33,7 @@ public class MaxPointsOnLine {
     public int maxPoints(int[][] points) {
         return IntStream.range(0, points.length - 1)
                 .map(i -> {
-                    Map<Double, Integer> map = new HashMap<>();
+                    var map = new HashMap<Double, Integer>();
                     return IntStream.range(i + 1, points.length)
                             .map(j -> map.merge(calculateSlope(points[i], points[j]), 1, Integer::sum))
                             .max().orElse(0);

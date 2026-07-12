@@ -1,8 +1,5 @@
 package utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ListNode {
     public int value;
     public ListNode next;
@@ -20,19 +17,23 @@ public class ListNode {
     }
 
     public static int[] toArray(ListNode node) {
-        List<Integer> list = new ArrayList<>();
-        while (node != null) {
-            list.add(node.value);
+        int size = 0;
+        for (ListNode current = node; current != null; current = current.next) {
+            size++;
+        }
+        var values = new int[size];
+        for (int i = 0; i < size; i++) {
+            values[i] = node.value;
             node = node.next;
         }
-        return list.stream().mapToInt(i -> i).toArray();
+        return values;
     }
 
     public static ListNode create(int[] values) {
         if (values == null || values.length == 0) {
             return null;
         }
-        ListNode head = new ListNode(values[0]);
+        var head = new ListNode(values[0]);
         ListNode current = head;
         for (int i = 1; i < values.length; i++) {
             current.next = new ListNode(values[i]);

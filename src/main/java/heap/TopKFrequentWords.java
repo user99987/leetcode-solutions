@@ -40,24 +40,24 @@ import java.util.PriorityQueue;
 public class TopKFrequentWords {
 
     public List<String> topKFrequent(String[] words, int k) {
-        Map<String, Integer> frequencyMap = new HashMap<>();
-        for (String word : words) {
+        var frequencyMap = new HashMap<String, Integer>();
+        for (var word : words) {
             frequencyMap.put(word, frequencyMap.getOrDefault(word, 0) + 1);
         }
 
         PriorityQueue<String> minHeap = new PriorityQueue<>((a, b) -> {
-            int freqCompare = frequencyMap.get(a) - frequencyMap.get(b);
+            var freqCompare = frequencyMap.get(a) - frequencyMap.get(b);
             return freqCompare != 0 ? freqCompare : b.compareTo(a);
         });
 
-        for (String word : frequencyMap.keySet()) {
+        for (var word : frequencyMap.keySet()) {
             minHeap.offer(word);
             if (minHeap.size() > k) {
                 minHeap.poll();
             }
         }
 
-        List<String> result = new ArrayList<>();
+        var result = new ArrayList<String>();
         while (!minHeap.isEmpty()) {
             result.add(minHeap.poll());
         }

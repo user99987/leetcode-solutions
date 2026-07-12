@@ -1,8 +1,5 @@
 package string;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Easy
  * <p>
@@ -34,13 +31,15 @@ import java.util.Map;
 public class FirstUniqueCharacterInAString {
 
     public int firstUniqChar(String s) {
-        Map<Character, Integer> frequencyMap = new HashMap<>();
-        s.chars().forEach(c -> frequencyMap.merge((char) c, 1, Integer::sum));
-        return s.chars()
-                .mapToObj(c -> (char) c)
-                .filter(c -> frequencyMap.get(c) == 1)
-                .mapToInt(s::indexOf)
-                .findFirst()
-                .orElse(-1);
+        var frequencies = new int[26];
+        for (var i = 0; i < s.length(); i++) {
+            frequencies[s.charAt(i) - 'a']++;
+        }
+        for (var i = 0; i < s.length(); i++) {
+            if (frequencies[s.charAt(i) - 'a'] == 1) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

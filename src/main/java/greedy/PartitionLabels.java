@@ -35,15 +35,16 @@ import java.util.List;
 public class PartitionLabels {
 
     public List<Integer> partitionLabels(String s) {
-        int[] lastPosition = new int[26];
-        List<Integer> result = new ArrayList<>();
+        var lastPosition = new int[26];
+        var result = new ArrayList<Integer>();
 
-        for (int i = 0; i < s.length(); i++) {
+        for (var i = 0; i < s.length(); i++) {
             lastPosition[s.charAt(i) - 'a'] = i;
         }
 
-        int maxEnd = 0, prev = -1;
-        for (int i = 0; i < s.length(); i++) {
+        var maxEnd = 0;
+        var prev = -1;
+        for (var i = 0; i < s.length(); i++) {
             maxEnd = Math.max(maxEnd, lastPosition[s.charAt(i) - 'a']);
             if (i == maxEnd) {
                 result.add(i - prev);

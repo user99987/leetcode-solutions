@@ -46,15 +46,15 @@ public class MaximumProfitInJobScheduling {
         int n = startTime.length;
         int[][] jobs = new int[n][3];
 
-        for (int i = 0; i < n; i++) {
+        for (var i = 0; i < n; i++) {
             jobs[i] = new int[]{startTime[i], endTime[i], profit[i]};
         }
         Arrays.sort(jobs, Comparator.comparingInt(a -> a[1]));
 
-        int[] dp = new int[n];
+        var dp = new int[n];
         dp[0] = jobs[0][2];
 
-        for (int i = 1; i < n; i++) {
+        for (var i = 1; i < n; i++) {
             int include = jobs[i][2];
             int l = binarySearch(jobs, i);
             if (l != -1) include += dp[l];

@@ -48,13 +48,14 @@ package popular;
 public class DivideTwoIntegers {
 
     public int divide(int dividend, int divisor) {
-        boolean isNegative = (dividend > 0) != (divisor > 0);
-        long dividendAbs = Math.abs((long) dividend);
-        long divisorAbs = Math.abs((long) divisor);
-        long result = 0;
+        var isNegative = (dividend > 0) != (divisor > 0);
+        var dividendAbs = Math.abs((long) dividend);
+        var divisorAbs = Math.abs((long) divisor);
+        var result = 0L;
 
         while (dividendAbs >= divisorAbs) {
-            long temp = divisorAbs, count = 1;
+            var temp = divisorAbs;
+            var count = 1L;
             while (dividendAbs >= (temp << 1)) {
                 temp <<= 1;
                 count <<= 1;

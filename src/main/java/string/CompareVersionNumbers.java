@@ -63,9 +63,9 @@ import java.util.stream.IntStream;
 public class CompareVersionNumbers {
 
     public int compareVersion(String version1, String version2) {
-        int[] v1 = Arrays.stream(version1.split("\\.")).mapToInt(Integer::parseInt).toArray();
-        int[] v2 = Arrays.stream(version2.split("\\.")).mapToInt(Integer::parseInt).toArray();
-        int maxLength = Math.max(v1.length, v2.length);
+        var v1 = Arrays.stream(version1.split("\\.")).mapToInt(Integer::parseInt).toArray();
+        var v2 = Arrays.stream(version2.split("\\.")).mapToInt(Integer::parseInt).toArray();
+        var maxLength = Math.max(v1.length, v2.length);
 
         return IntStream.range(0, maxLength)
                 .map(i -> Integer.compare(i < v1.length ? v1[i] : 0, i < v2.length ? v2[i] : 0))

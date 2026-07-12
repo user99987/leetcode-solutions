@@ -49,9 +49,10 @@ package greedy;
 public class LemonadeChange {
 
     public boolean lemonadeChange(int[] bills) {
-        int five = 0, ten = 0;
+        var five = 0;
+        var ten = 0;
 
-        for (int bill : bills) {
+        for (var bill : bills) {
             if (bill == 5) {
                 five++;
             } else if (bill == 10) {

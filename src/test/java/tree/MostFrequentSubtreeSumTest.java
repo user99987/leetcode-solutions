@@ -1,11 +1,12 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class MostFrequentSubtreeSumTest {
 
@@ -17,7 +18,7 @@ public class MostFrequentSubtreeSumTest {
         int[] expected = {2, -3, 4};
         Arrays.sort(actual);
         Arrays.sort(expected);
-        assertArrayEquals(expected, actual);
+        assertThat(actual).containsExactly(expected);
     }
 
     @Test
@@ -28,6 +29,6 @@ public class MostFrequentSubtreeSumTest {
         int[] expected = {2};
         Arrays.sort(actual);
         Arrays.sort(expected);
-        assertArrayEquals(expected, actual);
+        assertThat(actual).containsExactly(expected);
     }
 }

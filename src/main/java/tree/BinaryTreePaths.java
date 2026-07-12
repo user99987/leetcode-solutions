@@ -4,7 +4,6 @@ import utils.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * Easy
@@ -35,19 +34,25 @@ import java.util.stream.Stream;
 public class BinaryTreePaths {
 
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> result = new ArrayList<>();
-        traverse(root, "", result);
+        var result = new ArrayList<String>();
+        traverse(root, new StringBuilder(), result);
         return result;
     }
 
-    private void traverse(TreeNode node, String path, List<String> result) {
+    private void traverse(TreeNode node, StringBuilder path, List<String> result) {
         if (node == null) return;
-        String newPath = path.isEmpty() ? String.valueOf(node.value) : path + "->" + node.value;
-        if (node.left == null && node.right == null) {
-            result.add(newPath);
-        } else {
-            Stream.of(node.left, node.right).forEach(child -> traverse(child, newPath, result));
+        int previousLength = path.length();
+        if (previousLength > 0) {
+            path.append("->");
         }
+        path.append(node.value);
+        if (node.left == null && node.right == null) {
+            result.add(path.toString());
+        } else {
+            traverse(node.left, path, result);
+            traverse(node.right, path, result);
+        }
+        path.setLength(previousLength);
     }
 
 }

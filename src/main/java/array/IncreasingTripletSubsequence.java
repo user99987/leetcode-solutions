@@ -40,7 +40,7 @@ public class IncreasingTripletSubsequence {
         int first = Integer.MAX_VALUE;
         int second = Integer.MAX_VALUE;
 
-        for (int num : nums) {
+        for (var num : nums) {
             if (num <= first) {
                 first = num;
             } else if (num <= second) {

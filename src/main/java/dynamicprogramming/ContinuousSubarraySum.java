@@ -46,7 +46,7 @@ public class ContinuousSubarraySum {
         remainderMap.put(0, -1);
         int sum = 0;
 
-        for (int i = 0; i < nums.length; i++) {
+        for (var i = 0; i < nums.length; i++) {
             sum += nums[i];
             int remainder = sum % k;
             if (remainder < 0) remainder += k; // Handle negative remainders

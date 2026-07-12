@@ -2,9 +2,8 @@ package tree;
 
 import utils.TreeNode;
 
-import java.util.ArrayList;
+import java.util.ArrayDeque;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Easy
@@ -31,19 +30,22 @@ import java.util.stream.Collectors;
 public class AverageOfLevelsInBinaryTree {
 
     public List<Double> averageOfLevels(TreeNode root) {
-        List<List<Integer>> levels = new ArrayList<>();
-        traverse(root, 0, levels);
-        return levels.stream()
-                .map(level -> level.stream().collect(Collectors.averagingDouble(Integer::doubleValue)))
-                .collect(Collectors.toList());
-    }
-
-    private void traverse(TreeNode node, int depth, List<List<Integer>> levels) {
-        if (node == null) return;
-        if (levels.size() == depth) levels.add(new ArrayList<>());
-        levels.get(depth).add(node.value);
-        traverse(node.left, depth + 1, levels);
-        traverse(node.right, depth + 1, levels);
+        if (root == null) return List.of();
+        var result = new java.util.ArrayList<Double>();
+        var queue = new ArrayDeque<TreeNode>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            long sum = 0;
+            for (int i = 0; i < levelSize; i++) {
+                var node = queue.poll();
+                sum += node.value;
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
+            }
+            result.add(sum / (double) levelSize);
+        }
+        return result;
     }
 
 }

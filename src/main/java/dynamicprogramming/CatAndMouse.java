@@ -1,7 +1,6 @@
 package dynamicprogramming;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Hard
@@ -59,11 +58,11 @@ public class CatAndMouse {
         int n = graph.length;
         int[][][] states = new int[n][n][2];
         int[][][] degree = new int[n][n][2];
-        for (int m = 0; m < n; ++m) {
-            for (int c = 0; c < n; ++c) {
+        for (var m = 0; m < n; ++m) {
+            for (var c = 0; c < n; ++c) {
                 degree[m][c][MOUSE] = graph[m].length;
                 degree[m][c][CAT] = graph[c].length;
-                for (int node : graph[c]) {
+                for (var node : graph[c]) {
                     if (node == 0) {
                         --degree[m][c][CAT];
                         break;
@@ -71,8 +70,8 @@ public class CatAndMouse {
                 }
             }
         }
-        Queue<int[]> q = new LinkedList<>();
-        for (int i = 1; i < n; ++i) {
+        var q = new LinkedList<int[]>();
+        for (var i = 1; i < n; ++i) {
             states[0][i][MOUSE] = MOUSE_WIN;
             states[0][i][CAT] = MOUSE_WIN;
             states[i][i][MOUSE] = CAT_WIN;
@@ -92,7 +91,7 @@ public class CatAndMouse {
                 return result;
             }
             int prevTurn = 1 - turn;
-            for (int prev : graph[prevTurn == MOUSE ? mouse : cat]) {
+            for (var prev : graph[prevTurn == MOUSE ? mouse : cat]) {
                 int prevMouse = prevTurn == MOUSE ? prev : mouse;
                 int prevCat = prevTurn == CAT ? prev : cat;
                 if (prevCat != 0

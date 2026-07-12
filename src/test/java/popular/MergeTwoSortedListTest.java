@@ -2,9 +2,8 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 import utils.ListNode;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class MergeTwoSortedListTest {
 
@@ -13,7 +12,7 @@ public class MergeTwoSortedListTest {
         ListNode l1 = ListNode.create(new int[]{1, 2, 4});
         ListNode l2 = ListNode.create(new int[]{1, 3, 4});
         ListNode result = new MergeTwoSortedList().mergeTwoLists(l1, l2);
-        assertArrayEquals(new int[]{1, 1, 2, 3, 4, 4}, ListNode.toArray(result));
+        assertThat(ListNode.toArray(result)).containsExactly(new int[]{1, 1, 2, 3, 4, 4});
     }
 
     @Test
@@ -21,14 +20,14 @@ public class MergeTwoSortedListTest {
         ListNode l1 = null;
         ListNode l2 = null;
         ListNode result = new MergeTwoSortedList().mergeTwoLists(l1, l2);
-        assertNull(result);
+        assertThat(result).isNull();
     }
 
     @Test
     public void testCase3() {
         ListNode l1 = null;
-        ListNode l2 = new ListNode(0);
+        var l2 = new ListNode(0);
         ListNode result = new MergeTwoSortedList().mergeTwoLists(l1, l2);
-        assertArrayEquals(new int[]{0}, ListNode.toArray(result));
+        assertThat(ListNode.toArray(result)).containsExactly(new int[]{0});
     }
 }

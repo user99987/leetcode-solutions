@@ -50,9 +50,9 @@ import utils.ListNode;
 public class AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode();
-        ListNode current = dummy;
-        int carry = 0;
+        var dummy = new ListNode();
+        var current = dummy;
+        var carry = 0;
 
         while (l1 != null || l2 != null || carry > 0) {
             if (l1 != null) {

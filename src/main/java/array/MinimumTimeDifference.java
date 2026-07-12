@@ -1,6 +1,5 @@
 package array;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,20 +27,41 @@ import java.util.List;
 public class MinimumTimeDifference {
 
     public int findMinDifference(List<String> timePoints) {
-        int[] times = new int[timePoints.size()];
-        for (int i = 0; i < timePoints.size(); i++) {
-            String[] parts = timePoints.get(i).split(":");
-            times[i] = Integer.parseInt(parts[0]) * 60 + Integer.parseInt(parts[1]);
+        if (timePoints.size() > 1440) {
+            return 0;
         }
 
-        Arrays.sort(times);
+        var seen = new boolean[1440];
+        for (String timePoint : timePoints) {
+            int minutes = toMinutes(timePoint);
+            if (seen[minutes]) {
+                return 0;
+            }
+            seen[minutes] = true;
+        }
+
+        int first = -1;
+        int prev = -1;
         int minDiff = Integer.MAX_VALUE;
-
-        for (int i = 1; i < times.length; i++) {
-            minDiff = Math.min(minDiff, times[i] - times[i - 1]);
+        for (int minute = 0; minute < seen.length; minute++) {
+            if (!seen[minute]) {
+                continue;
+            }
+            if (first == -1) {
+                first = minute;
+            } else {
+                minDiff = Math.min(minDiff, minute - prev);
+            }
+            prev = minute;
         }
 
-        minDiff = Math.min(minDiff, 1440 + times[0] - times[times.length - 1]);
+        minDiff = Math.min(minDiff, 1440 - prev + first);
         return minDiff;
+    }
+
+    private int toMinutes(String timePoint) {
+        return ((timePoint.charAt(0) - '0') * 10 + (timePoint.charAt(1) - '0')) * 60
+                + (timePoint.charAt(3) - '0') * 10
+                + (timePoint.charAt(4) - '0');
     }
 }

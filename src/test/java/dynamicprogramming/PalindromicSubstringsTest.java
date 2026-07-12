@@ -2,28 +2,28 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PalindromicSubstringsTest {
 
     @Test
     public void testCase1() {
-        assertEquals(3, new PalindromicSubstrings().countSubstrings("abc"));
+        assertThat(new PalindromicSubstrings().countSubstrings("abc")).isEqualTo(3);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(6, new PalindromicSubstrings().countSubstrings("aaa"));
+        assertThat(new PalindromicSubstrings().countSubstrings("aaa")).isEqualTo(6);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(1, new PalindromicSubstrings().countSubstrings("a"));
+        assertThat(new PalindromicSubstrings().countSubstrings("a")).isEqualTo(1);
     }
 
     @Test
     public void testCase4() {
-        assertEquals(0, new PalindromicSubstrings().countSubstrings(""));
+        assertThat(new PalindromicSubstrings().countSubstrings("")).isEqualTo(0);
     }
 
 }

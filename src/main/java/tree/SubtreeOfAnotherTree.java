@@ -2,8 +2,6 @@ package tree;
 
 import utils.TreeNode;
 
-import java.util.stream.Stream;
-
 /**
  * Easy
  * <p>
@@ -34,12 +32,50 @@ public class SubtreeOfAnotherTree {
 
 
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        return root != null && (isSameTree(root, subRoot) ||
-                Stream.of(root.left, root.right).anyMatch(node -> isSubtree(node, subRoot)));
+        var tree = new StringBuilder();
+        var subtree = new StringBuilder();
+        serialize(root, tree);
+        serialize(subRoot, subtree);
+        return contains(tree, subtree);
     }
 
-    private boolean isSameTree(TreeNode root, TreeNode subRoot) {
-        return root == subRoot || (root != null && subRoot != null && root.value == subRoot.value &&
-                isSameTree(root.left, subRoot.left) && isSameTree(root.right, subRoot.right));
+    private void serialize(TreeNode node, StringBuilder result) {
+        if (node == null) {
+            result.append(",#");
+            return;
+        }
+        result.append(',').append(node.value);
+        serialize(node.left, result);
+        serialize(node.right, result);
+    }
+
+    private boolean contains(CharSequence text, CharSequence pattern) {
+        int[] lps = buildLps(pattern);
+        int j = 0;
+        for (int i = 0; i < text.length(); i++) {
+            while (j > 0 && text.charAt(i) != pattern.charAt(j)) {
+                j = lps[j - 1];
+            }
+            if (text.charAt(i) == pattern.charAt(j)) {
+                j++;
+                if (j == pattern.length()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private int[] buildLps(CharSequence pattern) {
+        var lps = new int[pattern.length()];
+        for (int i = 1, length = 0; i < pattern.length(); i++) {
+            while (length > 0 && pattern.charAt(i) != pattern.charAt(length)) {
+                length = lps[length - 1];
+            }
+            if (pattern.charAt(i) == pattern.charAt(length)) {
+                lps[i] = ++length;
+            }
+        }
+        return lps;
     }
 }

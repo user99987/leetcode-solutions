@@ -30,7 +30,7 @@ import java.util.List;
 public class Combinations {
 
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> result = new ArrayList<>();
+        var result = new ArrayList<List<Integer>>();
         backtrack(1, n, k, new ArrayList<>(), result);
         return result;
     }

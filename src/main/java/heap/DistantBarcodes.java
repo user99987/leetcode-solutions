@@ -31,22 +31,22 @@ import java.util.PriorityQueue;
 public class DistantBarcodes {
 
     public int[] rearrangeBarcodes(int[] barcodes) {
-        Map<Integer, Integer> countMap = new HashMap<>();
-        for (int barcode : barcodes) {
+        var countMap = new HashMap<Integer, Integer>();
+        for (var barcode : barcodes) {
             countMap.put(barcode, countMap.getOrDefault(barcode, 0) + 1);
         }
 
-        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a, b) -> b[1] - a[1]);
-        for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
+        var maxHeap = new PriorityQueue<int[]>((a, b) -> b[1] - a[1]);
+        for (var entry : countMap.entrySet()) {
             maxHeap.offer(new int[]{entry.getKey(), entry.getValue()});
         }
 
-        int[] result = new int[barcodes.length];
-        int index = 0;
+        var result = new int[barcodes.length];
+        var index = 0;
 
         while (!maxHeap.isEmpty()) {
-            int[] first = maxHeap.poll();
-            for (int i = 0; i < first[1]; i++) {
+            var first = maxHeap.poll();
+            for (var i = 0; i < first[1]; i++) {
                 if (index >= barcodes.length) {
                     index = 1;
                 }

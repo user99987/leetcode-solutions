@@ -2,10 +2,10 @@ package heap;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TheSkylineProblemTest {
 
@@ -21,7 +21,7 @@ class TheSkylineProblemTest {
                 Arrays.asList(20, 8),
                 Arrays.asList(24, 0)
         );
-        assertEquals(expected, new TheSkylineProblem().getSkyline(buildings));
+        assertThat(new TheSkylineProblem().getSkyline(buildings)).isEqualTo(expected);
     }
 
     @Test
@@ -31,6 +31,6 @@ class TheSkylineProblemTest {
                 Arrays.asList(0, 3),
                 Arrays.asList(5, 0)
         );
-        assertEquals(expected, new TheSkylineProblem().getSkyline(buildings));
+        assertThat(new TheSkylineProblem().getSkyline(buildings)).isEqualTo(expected);
     }
 }

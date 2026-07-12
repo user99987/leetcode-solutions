@@ -2,7 +2,7 @@ package tree;
 
 import utils.TreeNode;
 
-import java.util.stream.IntStream;
+import java.util.ArrayDeque;
 
 /**
  * Medium
@@ -55,18 +55,21 @@ import java.util.stream.IntStream;
 public class MaximumBinaryTree {
 
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return buildTree(nums, 0, nums.length - 1);
-    }
-
-    private TreeNode buildTree(int[] nums, int left, int right) {
-        if (left > right) return null;
-        int maxIndex = IntStream.rangeClosed(left, right)
-                .reduce((a, b) -> nums[a] > nums[b] ? a : b)
-                .orElse(left);
-        TreeNode root = new TreeNode(nums[maxIndex]);
-        root.left = buildTree(nums, left, maxIndex - 1);
-        root.right = buildTree(nums, maxIndex + 1, right);
-        return root;
+        var stack = new ArrayDeque<TreeNode>();
+        for (int num : nums) {
+            var current = new TreeNode(num);
+            while (!stack.isEmpty() && stack.peek().value < num) {
+                current.left = stack.pop();
+            }
+            if (!stack.isEmpty()) {
+                stack.peek().right = current;
+            }
+            stack.push(current);
+        }
+        while (stack.size() > 1) {
+            stack.pop();
+        }
+        return stack.peek();
     }
 
 }

@@ -2,28 +2,28 @@ package string;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class PushDominoesTest {
 
     @Test
     void testCase1() {
-        String dominoes = "RR.L";
-        String expected = "RR.L";
-        assertEquals(expected, new PushDominoes().pushDominoes(dominoes));
+        var dominoes = "RR.L";
+        var expected = "RR.L";
+        assertThat(new PushDominoes().pushDominoes(dominoes)).isEqualTo(expected);
     }
 
     @Test
     void testCase2() {
-        String dominoes = ".L.R...LR..L..";
-        String expected = "LL.RR.LLRRLL..";
-        assertEquals(expected, new PushDominoes().pushDominoes(dominoes));
+        var dominoes = ".L.R...LR..L..";
+        var expected = "LL.RR.LLRRLL..";
+        assertThat(new PushDominoes().pushDominoes(dominoes)).isEqualTo(expected);
     }
 
     @Test
     void testCase3() {
-        String dominoes = "R...L";
-        String expected = "RR.LL";
-        assertEquals(expected, new PushDominoes().pushDominoes(dominoes));
+        var dominoes = "R...L";
+        var expected = "RR.LL";
+        assertThat(new PushDominoes().pushDominoes(dominoes)).isEqualTo(expected);
     }
 }

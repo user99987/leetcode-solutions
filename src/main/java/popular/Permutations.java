@@ -2,7 +2,6 @@ package popular;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * Medium
@@ -36,22 +35,27 @@ import java.util.stream.IntStream;
 public class Permutations {
 
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        permuteHelper(nums, new ArrayList<>(), result);
+        var result = new ArrayList<List<Integer>>();
+        permuteHelper(nums, new ArrayList<>(), new boolean[nums.length], result);
         return result;
     }
 
-    private void permuteHelper(int[] nums, List<Integer> current, List<List<Integer>> result) {
+    private void permuteHelper(int[] nums, List<Integer> current, boolean[] used, List<List<Integer>> result) {
         if (current.size() == nums.length) {
             result.add(new ArrayList<>(current));
             return;
         }
 
-        IntStream.of(nums).filter(num -> !current.contains(num)).forEach(num -> {
-            current.add(num);
-            permuteHelper(nums, current, result);
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) {
+                continue;
+            }
+            used[i] = true;
+            current.add(nums[i]);
+            permuteHelper(nums, current, used, result);
             current.remove(current.size() - 1);
-        });
+            used[i] = false;
+        }
     }
 
 }

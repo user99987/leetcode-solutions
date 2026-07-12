@@ -1,8 +1,5 @@
 package string;
 
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
 /**
  * Easy
  * <p>
@@ -38,14 +35,19 @@ import java.util.stream.Collectors;
 public class LongestPalindrome {
 
     public int longestPalindrome(String s) {
-        int oddCount = Integer.parseInt(String.valueOf(s.chars()
-                .boxed()
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                .values()
-                .stream()
-                .filter(count -> count % 2 == 1)
-                .count()));
+        var frequencies = new int[128];
+        for (var i = 0; i < s.length(); i++) {
+            frequencies[s.charAt(i)]++;
+        }
 
-        return s.length() - (oddCount > 0 ? oddCount - 1 : 0);
+        var palindromeLength = 0;
+        var hasOddFrequency = false;
+        for (var frequency : frequencies) {
+            palindromeLength += frequency / 2 * 2;
+            if ((frequency & 1) == 1) {
+                hasOddFrequency = true;
+            }
+        }
+        return hasOddFrequency ? palindromeLength + 1 : palindromeLength;
     }
 }

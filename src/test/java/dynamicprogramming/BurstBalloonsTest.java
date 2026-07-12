@@ -2,17 +2,17 @@ package dynamicprogramming;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class BurstBalloonsTest {
 
     @Test
     public void testCase1() {
-        assertEquals(167, new BurstBalloons().maxCoins(new int[]{3, 1, 5, 8}));
+        assertThat(new BurstBalloons().maxCoins(new int[]{3, 1, 5, 8})).isEqualTo(167);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(10, new BurstBalloons().maxCoins(new int[]{1, 5}));
+        assertThat(new BurstBalloons().maxCoins(new int[]{1, 5})).isEqualTo(10);
     }
 }

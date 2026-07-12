@@ -3,7 +3,6 @@ package popular;
 import utils.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -38,17 +37,17 @@ import java.util.List;
 public class BinaryTreeLevelOrderTraversal {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> levels = new ArrayList<>();
+        var levels = new ArrayList<List<Integer>>();
         if (root == null) return levels;
 
-        Deque<TreeNode> queue = new LinkedList<>();
+        var queue = new LinkedList<TreeNode>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            List<Integer> level = new ArrayList<>();
-            int size = queue.size();
+            var level = new ArrayList<Integer>();
+            var size = queue.size();
             while (size-- > 0) {
-                TreeNode node = queue.poll();
+                var node = queue.poll();
                 assert node != null;
                 level.add(node.value);
                 if (node.left != null) queue.offer(node.left);

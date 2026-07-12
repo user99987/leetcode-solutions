@@ -65,15 +65,15 @@ import java.util.TreeSet;
 public class MinimumAbsoluteDifferenceInBST {
 
     public int minAbsoluteDifference(List<Integer> nums, int x) {
-        TreeSet<Integer> set = new TreeSet<>();
+        var set = new TreeSet<Integer>();
         int minDiff = Integer.MAX_VALUE;
 
         for (int i = x; i < nums.size(); i++) {
             set.add(nums.get(i - x));
 
-            int current = nums.get(i);
-            Integer lower = set.floor(current);
-            Integer higher = set.ceiling(current);
+            var current = nums.get(i);
+            var lower = set.floor(current);
+            var higher = set.ceiling(current);
 
             if (lower != null) minDiff = Math.min(minDiff, Math.abs(lower - current));
             if (higher != null) minDiff = Math.min(minDiff, Math.abs(higher - current));

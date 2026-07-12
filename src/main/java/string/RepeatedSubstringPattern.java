@@ -31,8 +31,8 @@ public class RepeatedSubstringPattern {
     public int repeatedStringMatch(String a, String b) {
         if (b.chars().anyMatch(ch -> a.indexOf(ch) == -1)) return -1;
 
-        StringBuilder sb = new StringBuilder(a);
-        int repeatCount = 1;
+        var sb = new StringBuilder(a);
+        var repeatCount = 1;
         while (sb.length() < b.length()) {
             sb.append(a);
             repeatCount++;

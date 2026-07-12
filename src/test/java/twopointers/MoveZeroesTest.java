@@ -2,7 +2,7 @@ package twopointers;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MoveZeroesTest {
 
@@ -11,7 +11,7 @@ public class MoveZeroesTest {
         int[] nums = {0, 1, 0, 3, 12};
         int[] expected = {1, 3, 12, 0, 0};
         new MoveZeroes().moveZeroes(nums);
-        assertArrayEquals(expected, nums);
+        assertThat(nums).containsExactly(expected);
     }
 
     @Test
@@ -19,6 +19,6 @@ public class MoveZeroesTest {
         int[] nums = {0};
         int[] expected = {0};
         new MoveZeroes().moveZeroes(nums);
-        assertArrayEquals(expected, nums);
+        assertThat(nums).containsExactly(expected);
     }
 }

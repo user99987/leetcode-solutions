@@ -2,22 +2,23 @@ package popular;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class ImplementStrStrTest {
 
     @Test
     public void testCase1() {
-        assertEquals(2, new ImplementStrStr().strStr("hello", "ll"));
+        assertThat(new ImplementStrStr().strStr("hello", "ll")).isEqualTo(2);
     }
 
     @Test
     public void testCase2() {
-        assertEquals(-1, new ImplementStrStr().strStr("aaaaa", "bba"));
+        assertThat(new ImplementStrStr().strStr("aaaaa", "bba")).isEqualTo(-1);
     }
 
     @Test
     public void testCase3() {
-        assertEquals(0, new ImplementStrStr().strStr("", ""));
+        assertThat(new ImplementStrStr().strStr("", "")).isEqualTo(0);
     }
 }

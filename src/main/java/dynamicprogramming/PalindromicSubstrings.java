@@ -36,7 +36,7 @@ public class PalindromicSubstrings {
         int count = 0;
         char[] chars = s.toCharArray();
 
-        for (int i = 0; i < chars.length; i++) {
+        for (var i = 0; i < chars.length; i++) {
             count += expandAroundCenter(chars, i, i);
             count += expandAroundCenter(chars, i, i + 1);
         }

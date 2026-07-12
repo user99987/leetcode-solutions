@@ -41,10 +41,11 @@ public class SubarraysWithKDifferentIntegers {
     }
 
     private int atMostKDistinct(int[] nums, int k) {
-        Map<Integer, Integer> countMap = new HashMap<>();
-        int left = 0, count = 0;
+        var countMap = new HashMap<Integer, Integer>();
+        var left = 0;
+        var count = 0;
 
-        for (int right = 0; right < nums.length; right++) {
+        for (var right = 0; right < nums.length; right++) {
             countMap.merge(nums[right], 1, Integer::sum);
             while (countMap.size() > k) {
                 countMap.compute(nums[left], (key, val) -> val == 1 ? null : val - 1);

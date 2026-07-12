@@ -47,7 +47,7 @@ public class RelativeRanks {
         int[] sortedScore = score.clone();
         Arrays.sort(sortedScore);
 
-        Map<Integer, String> rankMap = new HashMap<>();
+        var rankMap = new HashMap<Integer, String>();
         for (int i = 0; i < n; i++) {
             int rank = n - i;
             if (rank == 1) {
@@ -61,7 +61,7 @@ public class RelativeRanks {
             }
         }
 
-        String[] result = new String[n];
+        var result = new String[n];
         for (int i = 0; i < n; i++) {
             result[i] = rankMap.get(score[i]);
         }

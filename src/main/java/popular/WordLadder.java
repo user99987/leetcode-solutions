@@ -46,10 +46,10 @@ public class WordLadder {
     public int ladderLength(String beginWord, String endWord, List<String> wordDict) {
         if (!wordDict.contains(endWord)) return 0;
 
-        Set<String> wordSet = new HashSet<>(wordDict);
+        var wordSet = new HashSet<String>(wordDict);
         Set<String> startSet = new HashSet<>(Collections.singleton(beginWord));
         Set<String> endSet = new HashSet<>(Collections.singleton(endWord));
-        Set<String> visited = new HashSet<>();
+        var visited = new HashSet<String>();
         int steps = 1;
 
         while (!startSet.isEmpty() && !endSet.isEmpty()) {
@@ -66,7 +66,7 @@ public class WordLadder {
                     char originalChar = chars[i];
                     for (char c = 'a'; c <= 'z'; c++) {
                         chars[i] = c;
-                        String transformed = new String(chars);
+                        var transformed = new String(chars);
                         if (endSet.contains(transformed)) return steps + 1;
                         if (wordSet.contains(transformed) && visited.add(transformed)) {
                             nextSet.add(transformed);
