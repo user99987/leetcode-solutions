@@ -7,27 +7,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StringToIntegerTest {
 
     @Test
-    public void testCase1() {
+    public void shouldParseSimplePositiveNumber() {
         assertThat(new StringToInteger().myAtoi("42")).isEqualTo(42);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldParseNegativeNumberWithLeadingWhitespace() {
         assertThat(new StringToInteger().myAtoi("   -42")).isEqualTo(-42);
     }
 
     @Test
-    public void testCase3() {
+    public void shouldStopParsingAtFirstNonDigitCharacter() {
         assertThat(new StringToInteger().myAtoi("4193 with words")).isEqualTo(4193);
     }
 
     @Test
-    public void testCase4() {
+    public void shouldReturnZeroWhenNoDigitsAtStart() {
         assertThat(new StringToInteger().myAtoi("words and 987")).isEqualTo(0);
     }
 
     @Test
-    public void testCase5() {
+    public void shouldClampToIntegerMinValueOnOverflow() {
         assertThat(new StringToInteger().myAtoi("-91283472332")).isEqualTo(-2147483648);
     }
 }

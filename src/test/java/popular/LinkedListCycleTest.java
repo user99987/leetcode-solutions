@@ -9,7 +9,7 @@ import utils.ListNode;
 public class LinkedListCycleTest {
 
     @Test
-    public void testCase1() {
+    public void shouldDetectCycleInMiddleOfList() {
         var node1 = new ListNode(3);
         var node2 = new ListNode(2);
         var node3 = new ListNode(0);
@@ -23,7 +23,7 @@ public class LinkedListCycleTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldDetectCycleBetweenTwoNodes() {
         var node1 = new ListNode(1);
         var node2 = new ListNode(2);
         node1.next = node2;
@@ -33,7 +33,7 @@ public class LinkedListCycleTest {
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnFalseForSingleNodeWithoutCycle() {
         assertThat(new LinkedListCycle().hasCycle(new ListNode(1))).isFalse();
     }
 }

@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CombinationsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldGenerateAllTwoElementCombinationsFromFour() {
         var result = new Combinations().combine(4, 2);
         List<List<Integer>> expected = List.of(
                 List.of(1, 2), List.of(1, 3), List.of(1, 4),
@@ -18,10 +18,16 @@ public class CombinationsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnSingleCombinationWhenNEqualsKEqualsOne() {
         var result = new Combinations().combine(1, 1);
         List<List<Integer>> expected = List.of(List.of(1));
         assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldReturnSingleFullRangeCombinationWhenKEqualsN() {
+        var result = new Combinations().combine(3, 3);
+        assertThat(result).isEqualTo(List.of(List.of(1, 2, 3)));
     }
 }
 

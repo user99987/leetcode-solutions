@@ -10,14 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SpiralMatrixTest {
 
     @Test
-    public void testCase1() {
+    public void shouldTraverseSquareMatrixInSpiralOrder() {
         int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         List<Integer> result = new SpiralMatrix().spiralOrder(matrix);
         assertThat(result).isEqualTo(Arrays.asList(1, 2, 3, 6, 9, 8, 7, 4, 5));
     }
 
     @Test
-    public void testCase2() {
+    public void shouldTraverseRectangularMatrixInSpiralOrder() {
         int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
         List<Integer> result = new SpiralMatrix().spiralOrder(matrix);
         assertThat(result).isEqualTo(Arrays.asList(1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7));

@@ -1,22 +1,44 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
-class ConstructStringFromBinaryTreeTest {
+public class ConstructStringFromBinaryTreeTest {
 
     @Test
-    void testCase1() {
-        var root = new TreeNode(1, new TreeNode(2, new TreeNode(4), null), new TreeNode(3));
+    public void shouldOmitEmptyParensForLeftOnlyChild() {
+        var root = TreeNode.create(new Integer[]{1, 2, 3, 4});
         assertThat(new ConstructStringFromBinaryTree().tree2str(root)).isEqualTo("1(2(4))(3)");
     }
 
     @Test
-    void testCase2() {
-        var root = new TreeNode(1, new TreeNode(2, null, new TreeNode(4)), new TreeNode(3));
+    public void shouldIncludeEmptyLeftParensWhenLeftMissingButRightGrandchildExists() {
+        var root = TreeNode.create(new Integer[]{1, 2, 3, null, 4});
         assertThat(new ConstructStringFromBinaryTree().tree2str(root)).isEqualTo("1(2()(4))(3)");
+    }
+
+    @Test
+    public void shouldReturnEmptyStringWhenRootIsNull() {
+        assertThat(new ConstructStringFromBinaryTree().tree2str(null)).isEmpty();
+    }
+
+    @Test
+    public void shouldReturnJustValueForSingleNode() {
+        var root = TreeNode.create(new Integer[]{5});
+        assertThat(new ConstructStringFromBinaryTree().tree2str(root)).isEqualTo("5");
+    }
+
+    @Test
+    public void shouldIncludeEmptyLeftParensWhenOnlyRightChildExists() {
+        var root = TreeNode.create(new Integer[]{1, null, 2});
+        assertThat(new ConstructStringFromBinaryTree().tree2str(root)).isEqualTo("1()(2)");
+    }
+
+    @Test
+    public void shouldFormatNegativeValuesCorrectly() {
+        var root = TreeNode.create(new Integer[]{-1, -2});
+        assertThat(new ConstructStringFromBinaryTree().tree2str(root)).isEqualTo("-1(-2)");
     }
 }

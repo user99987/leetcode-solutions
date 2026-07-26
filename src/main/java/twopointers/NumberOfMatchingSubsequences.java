@@ -1,6 +1,7 @@
 package twopointers;
 
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Medium
@@ -34,11 +35,39 @@ import java.util.Arrays;
 public class NumberOfMatchingSubsequences {
 
     public int numMatchingSubseq(String s, String[] words) {
-        return (int) Arrays.stream(words).filter(word -> isSubsequence(s, word)).count();
-    }
+        // Bucket each word by the next character it is waiting for.
+        // This lets us make a single O(s.length) pass instead of repeatedly
+        // scanning s per word (which would be O(s.length * totalWordsLength)).
+        @SuppressWarnings("unchecked")
+        Deque<int[]>[] buckets = new ArrayDeque[26];
+        for (int i = 0; i < 26; i++) {
+            buckets[i] = new ArrayDeque<>();
+        }
 
-    private boolean isSubsequence(String s, String word) {
-        final int[] index = {-1};
-        return word.chars().allMatch(c -> (index[0] = s.indexOf(c, index[0] + 1)) != -1);
+        for (int w = 0; w < words.length; w++) {
+            char first = words[w].charAt(0);
+            buckets[first - 'a'].add(new int[]{w, 0});
+        }
+
+        int matched = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int c = s.charAt(i) - 'a';
+            var current = buckets[c];
+            int size = current.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                int[] entry = current.poll();
+                int wordIndex = entry[0], charIndex = entry[1] + 1;
+                String word = words[wordIndex];
+                if (charIndex == word.length()) {
+                    matched++;
+                } else {
+                    buckets[word.charAt(charIndex) - 'a'].add(new int[]{wordIndex, charIndex});
+                }
+            }
+        }
+
+        return matched;
     }
 }
+
+

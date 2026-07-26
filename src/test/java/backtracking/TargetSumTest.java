@@ -6,17 +6,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TargetSumTest {
 
     @Test
-    public void testCase1() {
+    public void shouldCountAllExpressionsForFiveOnes() {
         assertThat(new TargetSum().findTargetSumWays(new int[]{1, 1, 1, 1, 1}, 3)).isEqualTo(5);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnOneForSingleElementMatchingTarget() {
         assertThat(new TargetSum().findTargetSumWays(new int[]{1}, 1)).isEqualTo(1);
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnZeroWhenTargetIsUnreachable() {
         assertThat(new TargetSum().findTargetSumWays(new int[]{1, 2, 3}, 7)).isEqualTo(0);
     }
 }

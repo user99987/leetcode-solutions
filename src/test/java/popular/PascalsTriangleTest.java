@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PascalsTriangleTest {
 
     @Test
-    public void testCase1() {
+    public void shouldGenerateFiveRowsOfTriangle() {
         List<List<Integer>> result = new PascalsTriangle().generate(5);
         List<List<Integer>> expected = Arrays.asList(
                 List.of(1),
@@ -23,7 +23,7 @@ public class PascalsTriangleTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldGenerateSingleRowForOne() {
         List<List<Integer>> result = new PascalsTriangle().generate(1);
         List<List<Integer>> expected = List.of(
                 List.of(1)

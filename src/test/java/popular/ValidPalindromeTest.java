@@ -7,17 +7,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidPalindromeTest {
 
     @Test
-    public void testCase1() {
+    public void shouldReturnTrueForPalindromeWithPunctuationAndCase() {
         assertThat(new ValidPalindrome().isPalindrome("A man, a plan, a canal: Panama")).isTrue();
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnFalseForNonPalindromePhrase() {
         assertThat(new ValidPalindrome().isPalindrome("race a car")).isFalse();
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnTrueForBlankString() {
         assertThat(new ValidPalindrome().isPalindrome(" ")).isTrue();
     }
 }

@@ -7,12 +7,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LongestPalindromicSubsequenceTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindLongestPalindromicSubsequenceWithRepeatedLetter() {
         assertThat(new LongestPalindromicSubsequence().longestPalindromeSubseq("bbbab")).isEqualTo(4);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFindLongestPalindromicSubsequenceForShortString() {
         assertThat(new LongestPalindromicSubsequence().longestPalindromeSubseq("cbbd")).isEqualTo(2);
     }
 }

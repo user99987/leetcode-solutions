@@ -9,7 +9,7 @@ import utils.ListNode;
 public class IntersectionOfTwoListsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindIntersectionNodeWithDifferentLeadingLengths() {
         var common = new ListNode(8, new ListNode(4, new ListNode(5)));
         var listA = new ListNode(4, new ListNode(1, common));
         var listB = new ListNode(5, new ListNode(6, new ListNode(1, common)));
@@ -18,7 +18,7 @@ public class IntersectionOfTwoListsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFindIntersectionNodeWithShortLeadingLengths() {
         var common = new ListNode(2, new ListNode(4));
         var listA = new ListNode(1, new ListNode(9, new ListNode(1, common)));
         var listB = new ListNode(3, common);
@@ -27,7 +27,7 @@ public class IntersectionOfTwoListsTest {
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnNullWhenListsDoNotIntersect() {
         var listA = new ListNode(2, new ListNode(6, new ListNode(4)));
         var listB = new ListNode(1, new ListNode(5));
 

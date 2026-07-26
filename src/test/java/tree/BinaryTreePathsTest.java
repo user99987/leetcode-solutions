@@ -1,26 +1,45 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
-import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
-
-class BinaryTreePathsTest {
+public class BinaryTreePathsTest {
 
     @Test
-    void testCase1() {
-        var root = new TreeNode(1, new TreeNode(2, null, new TreeNode(5)), new TreeNode(3));
-        var expected = List.of("1->2->5", "1->3");
-        assertThat(new BinaryTreePaths().binaryTreePaths(root)).isEqualTo(expected);
+    public void shouldFindAllRootToLeafPaths() {
+        var root = TreeNode.create(new Integer[]{1, 2, 3, null, 5});
+        assertThat(new BinaryTreePaths().binaryTreePaths(root)).containsExactlyInAnyOrder("1->2->5", "1->3");
     }
 
     @Test
-    void testCase2() {
-        var root = new TreeNode(1);
-        var expected = List.of("1");
-        assertThat(new BinaryTreePaths().binaryTreePaths(root)).isEqualTo(expected);
+    public void shouldReturnSinglePathForSingleNode() {
+        var root = TreeNode.create(new Integer[]{1});
+        assertThat(new BinaryTreePaths().binaryTreePaths(root)).containsExactly("1");
+    }
+
+    @Test
+    public void shouldReturnEmptyListWhenRootIsNull() {
+        assertThat(new BinaryTreePaths().binaryTreePaths(null)).isEmpty();
+    }
+
+    @Test
+    public void shouldReturnSinglePathForSkewedLeftTree() {
+        var root = TreeNode.create(new Integer[]{1, 2, null, 3});
+        assertThat(new BinaryTreePaths().binaryTreePaths(root)).containsExactly("1->2->3");
+    }
+
+    @Test
+    public void shouldFormatNegativeValuesCorrectly() {
+        var root = TreeNode.create(new Integer[]{-1, -2, -3});
+        assertThat(new BinaryTreePaths().binaryTreePaths(root)).containsExactlyInAnyOrder("-1->-2", "-1->-3");
+    }
+
+    @Test
+    public void shouldFindAllPathsInFullBinaryTree() {
+        var root = TreeNode.create(new Integer[]{1, 2, 3, 4, 5, 6, 7});
+        assertThat(new BinaryTreePaths().binaryTreePaths(root)).containsExactlyInAnyOrder(
+                "1->2->4", "1->2->5", "1->3->6", "1->3->7");
     }
 }

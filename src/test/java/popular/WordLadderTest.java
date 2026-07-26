@@ -9,12 +9,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class WordLadderTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindShortestTransformationSequence() {
         assertThat(new WordLadder().ladderLength("hit", "cog", List.of("hot", "dot", "dog", "lot", "log", "cog"))).isEqualTo(5);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnZeroWhenEndWordNotInWordList() {
         assertThat(new WordLadder().ladderLength("hit", "cog", List.of("hot", "dot", "dog", "lot", "log"))).isEqualTo(0);
     }
 }

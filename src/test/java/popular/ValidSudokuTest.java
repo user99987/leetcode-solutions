@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidSudokuTest {
 
     @Test
-    public void testCase1() {
+    public void shouldReturnTrueForValidPartiallyFilledBoard() {
         char[][] board = {
                 {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
                 {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
@@ -23,7 +23,7 @@ public class ValidSudokuTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnFalseWhenColumnHasDuplicate() {
         char[][] board = {
                 {'8', '3', '.', '.', '7', '.', '.', '.', '.'},
                 {'6', '.', '.', '1', '9', '5', '.', '.', '.'},

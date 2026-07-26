@@ -1,24 +1,39 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
-class FindBottomLeftTreeValueTest {
+public class FindBottomLeftTreeValueTest {
 
     @Test
-    void testCase1() {
-        var root = new TreeNode(2, new TreeNode(1), new TreeNode(3));
+    public void shouldFindLeftmostValueInLastRow() {
+        var root = TreeNode.create(new Integer[]{2, 1, 3});
         assertThat(new FindBottomLeftTreeValue().findBottomLeftValue(root)).isEqualTo(1);
     }
 
     @Test
-    void testCase2() {
-        TreeNode root = new TreeNode(1,
-                new TreeNode(2, new TreeNode(4), null),
-                new TreeNode(3, new TreeNode(5, new TreeNode(7), null), new TreeNode(6)));
+    public void shouldFindLeftmostValueInDeeperUnbalancedTree() {
+        var root = TreeNode.create(new Integer[]{1, 2, 3, 4, null, 5, 6, null, null, 7});
         assertThat(new FindBottomLeftTreeValue().findBottomLeftValue(root)).isEqualTo(7);
+    }
+
+    @Test
+    public void shouldReturnItsValueForSingleNode() {
+        var root = TreeNode.create(new Integer[]{5});
+        assertThat(new FindBottomLeftTreeValue().findBottomLeftValue(root)).isEqualTo(5);
+    }
+
+    @Test
+    public void shouldReturnBottommostAvailableNodeWhenOnlyRightSubtreeExists() {
+        var root = TreeNode.create(new Integer[]{1, null, 2, null, 3});
+        assertThat(new FindBottomLeftTreeValue().findBottomLeftValue(root)).isEqualTo(3);
+    }
+
+    @Test
+    public void shouldReturnLeftmostOfLastRowForBalancedTree() {
+        var root = TreeNode.create(new Integer[]{1, 2, 3, 4, 5, 6, 7});
+        assertThat(new FindBottomLeftTreeValue().findBottomLeftValue(root)).isEqualTo(4);
     }
 }

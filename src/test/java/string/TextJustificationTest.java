@@ -10,7 +10,7 @@ import java.util.List;
 public class TextJustificationTest {
 
     @Test
-    public void testCase1() {
+    public void shouldJustifyTextWithDistributedSpacesAndLeftJustifyLastLine() {
         String[] words = {"This", "is", "an", "example", "of", "text", "justification."};
         var maxWidth = 16;
         List<String> expected = Arrays.asList(
@@ -22,7 +22,7 @@ public class TextJustificationTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldLeftJustifySingleWordLine() {
         String[] words = {"What", "must", "be", "acknowledgment", "shall", "be"};
         var maxWidth = 16;
         List<String> expected = Arrays.asList(
@@ -34,7 +34,7 @@ public class TextJustificationTest {
     }
 
     @Test
-    public void testCase3() {
+    public void shouldJustifyLongerParagraphAcrossMultipleLines() {
         String[] words = {"Science", "is", "what", "we", "understand", "well", "enough", "to",
                 "explain", "to", "a", "computer.", "Art", "is", "everything", "else",
                 "we", "do"};

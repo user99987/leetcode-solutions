@@ -7,26 +7,33 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TaskSchedulerTest {
 
     @Test
-    public void testCase1() {
-        char[] tasks = {'A', 'A', 'A', 'B', 'B', 'B'};
-        var n = 2;
-        var expected = 8; // A -> B -> idle -> A -> B -> idle -> A -> B
-        assertThat(new TaskScheduler().leastInterval(tasks, n)).isEqualTo(expected);
+    public void shouldRequireIdleSlotsWhenCooldownExceedsAvailableTasks() {
+        assertThat(new TaskScheduler().leastInterval(new char[]{'A', 'A', 'A', 'B', 'B', 'B'}, 2)).isEqualTo(8);
     }
 
     @Test
-    public void testCase2() {
-        char[] tasks = {'A', 'A', 'A', 'B', 'B', 'B'};
-        var n = 0;
-        var expected = 6; // No cooldown required, tasks can be arranged consecutively.
-        assertThat(new TaskScheduler().leastInterval(tasks, n)).isEqualTo(expected);
+    public void shouldNeedNoIdleWhenCooldownIsZero() {
+        assertThat(new TaskScheduler().leastInterval(new char[]{'A', 'A', 'A', 'B', 'B', 'B'}, 0)).isEqualTo(6);
     }
 
     @Test
-    public void testCase3() {
-        char[] tasks = {'A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'D', 'E', 'F', 'G'};
-        var n = 2;
-        var expected = 16; // A -> B -> C -> A -> D -> E -> A -> F -> G -> A -> idle -> idle -> A -> idle -> idle -> A
-        assertThat(new TaskScheduler().leastInterval(tasks, n)).isEqualTo(expected);
+    public void shouldFillCooldownWithOtherTasksWhenPossible() {
+        assertThat(new TaskScheduler().leastInterval(
+                new char[]{'A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'D', 'E', 'F', 'G'}, 2)).isEqualTo(16);
+    }
+
+    @Test
+    public void shouldTakeOneUnitForSingleTask() {
+        assertThat(new TaskScheduler().leastInterval(new char[]{'A'}, 5)).isEqualTo(1);
+    }
+
+    @Test
+    public void shouldNeedNoIdleWhenAllTasksAreDistinct() {
+        assertThat(new TaskScheduler().leastInterval(new char[]{'A', 'B', 'C', 'D'}, 2)).isEqualTo(4);
+    }
+
+    @Test
+    public void shouldNeedNoIdleWhenEnoughDistinctTasksFillCooldown() {
+        assertThat(new TaskScheduler().leastInterval(new char[]{'A', 'A', 'B', 'B', 'C', 'C'}, 2)).isEqualTo(6);
     }
 }

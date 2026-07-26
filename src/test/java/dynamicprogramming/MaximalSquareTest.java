@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MaximalSquareTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindMaximalSquareAreaInMixedMatrix() {
         assertThat(new MaximalSquare().maximalSquare(new char[][]{
                 {'1', '0', '1', '0', '0'},
                 {'1', '0', '1', '1', '1'},
@@ -17,7 +17,7 @@ public class MaximalSquareTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnOneForCheckerboardMatrix() {
         assertThat(new MaximalSquare().maximalSquare(new char[][]{
                 {'0', '1'},
                 {'1', '0'}
@@ -25,7 +25,7 @@ public class MaximalSquareTest {
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnZeroForSingleZeroCell() {
         assertThat(new MaximalSquare().maximalSquare(new char[][]{
                 {'0'}
         })).isEqualTo(0);

@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NumberOfIslandsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldCountSingleConnectedIsland() {
         char[][] grid = {
                 {'1', '1', '1', '1', '0'},
                 {'1', '1', '0', '1', '0'},
@@ -18,7 +18,7 @@ public class NumberOfIslandsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldCountMultipleSeparateIslands() {
         char[][] grid = {
                 {'1', '1', '0', '0', '0'},
                 {'1', '1', '0', '0', '0'},

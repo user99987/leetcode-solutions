@@ -6,22 +6,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ZumaGameTest {
 
     @Test
-    public void testCase1() {
+    public void shouldReturnMinusOneWhenBoardCannotBeCleared() {
         assertThat(new ZumaGame().findMinStep("WRRBBW", "RB")).isEqualTo(-1);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFindMinimumInsertionsToClearBoard() {
         assertThat(new ZumaGame().findMinStep("WWRRBBWW", "WRBRW")).isEqualTo(2);
     }
 
     @Test
-    public void testCase3() {
+    public void shouldFindMinimumInsertionsForSingleBallBoard() {
         assertThat(new ZumaGame().findMinStep("G", "GGGGG")).isEqualTo(2);
     }
 
     @Test
-    public void testCase4() {
+    public void shouldClearBoardWithMultipleColorGroupsUsingOneInsertion() {
         assertThat(new ZumaGame().findMinStep("BBWWRRYYRRWWBB", "Y")).isEqualTo(1);
     }
 }

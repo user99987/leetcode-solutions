@@ -7,14 +7,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ReconstructOriginalDigitsFromEnglishTest {
 
     @Test
-    public void testCase1() {
+    public void shouldReconstructDigitsZeroOneAndTwo() {
         var input = "owoztneoer";
         var expected = "012";
         assertThat(new ReconstructOriginalDigitsFromEnglish().originalDigits(input)).isEqualTo(expected);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReconstructDigitsFourAndFive() {
         var input = "fviefuro";
         var expected = "45";
         assertThat(new ReconstructOriginalDigitsFromEnglish().originalDigits(input)).isEqualTo(expected);

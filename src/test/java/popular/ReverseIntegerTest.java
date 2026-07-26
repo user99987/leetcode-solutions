@@ -7,22 +7,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ReverseIntegerTest {
 
     @Test
-    public void testCase1() {
+    public void shouldReversePositiveNumber() {
         assertThat(new ReverseInteger().reverse(123)).isEqualTo(321);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReverseNegativeNumber() {
         assertThat(new ReverseInteger().reverse(-123)).isEqualTo(-321);
     }
 
     @Test
-    public void testCase3() {
+    public void shouldDropTrailingZeroWhenReversed() {
         assertThat(new ReverseInteger().reverse(120)).isEqualTo(21);
     }
 
     @Test
-    public void testCase4() {
+    public void shouldReturnZeroForZeroInput() {
         assertThat(new ReverseInteger().reverse(0)).isEqualTo(0);
     }
 }

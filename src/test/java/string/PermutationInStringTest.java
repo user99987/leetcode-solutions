@@ -7,35 +7,35 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PermutationInStringTest {
 
     @Test
-    void testCase1() {
+    void shouldReturnTrueWhenPermutationExistsAsSubstring() {
         var s1 = "ab";
         var s2 = "eidbaooo";
         assertThat(new PermutationInString().checkInclusion(s1, s2)).isTrue();
     }
 
     @Test
-    void testCase2() {
+    void shouldReturnFalseWhenNoPermutationExists() {
         var s1 = "ab";
         var s2 = "eidboaoo";
         assertThat(new PermutationInString().checkInclusion(s1, s2)).isFalse();
     }
 
     @Test
-    void testCase3() {
+    void shouldReturnTrueWhenPermutationFoundAtEndOfLongerString() {
         var s1 = "abc";
         var s2 = "ccccbabaaaa";
         assertThat(new PermutationInString().checkInclusion(s1, s2)).isTrue();
     }
 
     @Test
-    void testCase4() {
+    void shouldReturnFalseWhenStringsShareNoCharacters() {
         var s1 = "abcd";
         var s2 = "efgh";
         assertThat(new PermutationInString().checkInclusion(s1, s2)).isFalse();
     }
 
     @Test
-    void testCase5() {
+    void shouldReturnTrueForIdenticalSingleCharacterStrings() {
         var s1 = "a";
         var s2 = "a";
         assertThat(new PermutationInString().checkInclusion(s1, s2)).isTrue();

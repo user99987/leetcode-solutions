@@ -7,13 +7,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StoneGameTest {
 
     @Test
-    public void testCase1() {
+    public void shouldLetFirstPlayerWinWithFourPiles() {
         int[] piles = {5, 3, 4, 5};
         assertThat(new StoneGame().stoneGame(piles)).isTrue();
     }
 
     @Test
-    public void testCase2() {
+    public void shouldLetFirstPlayerWinWithUnevenPiles() {
         int[] piles = {3, 7, 2, 3};
         assertThat(new StoneGame().stoneGame(piles)).isTrue();
     }

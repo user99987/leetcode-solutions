@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SurroundedRegionsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldCaptureEnclosedRegionsButKeepBorderConnectedOnes() {
         char[][] board = {
                 {'X', 'X', 'X', 'X'},
                 {'X', 'O', 'O', 'X'},
@@ -25,7 +25,7 @@ public class SurroundedRegionsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldKeepSingleCellBoardUnchanged() {
         char[][] board = {{'X'}};
         new SurroundedRegions().solve(board);
         char[][] expected = {{'X'}};

@@ -7,27 +7,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidParenthesesTest {
 
     @Test
-    public void testCase1() {
+    public void shouldReturnTrueForSimpleValidPair() {
         assertThat(new ValidParentheses().isValid("()")).isTrue();
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnTrueForMultipleValidPairTypes() {
         assertThat(new ValidParentheses().isValid("()[]{}")).isTrue();
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnFalseForMismatchedBracketTypes() {
         assertThat(new ValidParentheses().isValid("(]")).isFalse();
     }
 
     @Test
-    public void testCase4() {
+    public void shouldReturnFalseForIncorrectlyNestedBrackets() {
         assertThat(new ValidParentheses().isValid("([)]")).isFalse();
     }
 
     @Test
-    public void testCase5() {
+    public void shouldReturnTrueForProperlyNestedBrackets() {
         assertThat(new ValidParentheses().isValid("{[]}")).isTrue();
     }
 }

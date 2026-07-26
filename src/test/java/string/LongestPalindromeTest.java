@@ -7,17 +7,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LongestPalindromeTest {
 
     @Test
-    void testCase1() {
+    void shouldBuildLongestPalindromeFromMixedFrequencies() {
         assertThat(new LongestPalindrome().longestPalindrome("abccccdd")).isEqualTo(7);
     }
 
     @Test
-    void testCase2() {
+    void shouldReturnOneForSingleCharacter() {
         assertThat(new LongestPalindrome().longestPalindrome("a")).isEqualTo(1);
     }
 
     @Test
-    void testCase3() {
+    void shouldReturnTwoForMatchingPair() {
         assertThat(new LongestPalindrome().longestPalindrome("bb")).isEqualTo(2);
     }
 }

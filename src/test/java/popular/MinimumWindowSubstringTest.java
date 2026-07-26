@@ -7,17 +7,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MinimumWindowSubstringTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindSmallestWindowContainingAllCharacters() {
         assertThat(new MinimumWindowSubstring().minWindow("ADOBECODEBANC", "ABC")).isEqualTo("BANC");
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnSameStringWhenItExactlyMatchesTarget() {
         assertThat(new MinimumWindowSubstring().minWindow("a", "a")).isEqualTo("a");
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnEmptyStringWhenTargetCannotBeMatched() {
         assertThat(new MinimumWindowSubstring().minWindow("a", "aa")).isEqualTo("");
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 class ReplaceWordsTest {
 
     @Test
-    void testCase1() {
+    void shouldReplaceSuccessorsWithShortestMatchingRoot() {
         var dictionary = Arrays.asList("cat", "bat", "rat");
         var sentence = "the cattle was rattled by the battery";
         var expected = "the cat was rat by the bat";
@@ -18,7 +18,7 @@ class ReplaceWordsTest {
     }
 
     @Test
-    void testCase2() {
+    void shouldReplaceSuccessorsWithSingleLetterRoots() {
         var dictionary = Arrays.asList("a", "b", "c");
         var sentence = "aadsfasf absbs bbab cadsfafs";
         var expected = "a a b c";

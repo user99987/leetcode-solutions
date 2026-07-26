@@ -11,7 +11,7 @@ import java.util.List;
 public class GroupAnagramsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldGroupWordsByAnagramSets() {
         assertThat(Arrays.asList(
                 List.of("bat"),
                 Arrays.asList("nat", "tan"),
@@ -20,14 +20,14 @@ public class GroupAnagramsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldGroupSingleEmptyString() {
         assertThat(new GroupAnagrams().groupAnagrams(new String[]{""})).isEqualTo(List.of(
                 List.of("")
         ));
     }
 
     @Test
-    public void testCase3() {
+    public void shouldGroupSingleCharacterWord() {
         assertThat(new GroupAnagrams().groupAnagrams(new String[]{"a"})).isEqualTo(List.of(
                 List.of("a")
         ));

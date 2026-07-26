@@ -2,29 +2,49 @@ package linkedlist;
 
 import org.junit.jupiter.api.Test;
 import utils.ListNode;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SwapNodesInPairsTest {
+public class SwapNodesInPairsTest {
 
     @Test
-    void testCase1() {
-        ListNode head = ListNode.create(new int[]{1, 2, 3, 4});
-        ListNode expected = ListNode.create(new int[]{2, 1, 4, 3});
-        var actual = new SwapNodesInPairs().swapPairs(head);
-        assertThat(ListNode.toArray(actual)).containsExactly(ListNode.toArray(expected));
+    public void shouldSwapPairsOfEvenLengthList() {
+        var head = ListNode.create(new int[]{1, 2, 3, 4});
+        var result = new SwapNodesInPairs().swapPairs(head);
+        assertThat(ListNode.toArray(result)).containsExactly(2, 1, 4, 3);
     }
 
     @Test
-    void testCase2() {
-        ListNode head = ListNode.create(new int[]{});
-        assertThat(new SwapNodesInPairs().swapPairs(head)).isNull();
+    public void shouldReturnNullForEmptyList() {
+        var result = new SwapNodesInPairs().swapPairs(null);
+        assertThat(result).isNull();
     }
 
     @Test
-    void testCase3() {
-        ListNode head = ListNode.create(new int[]{1});
-        ListNode expected = ListNode.create(new int[]{1});
-        var actual = new SwapNodesInPairs().swapPairs(head);
-        assertThat(ListNode.toArray(actual)).containsExactly(ListNode.toArray(expected));
+    public void shouldReturnSameNodeForSingleElementList() {
+        var head = ListNode.create(new int[]{1});
+        var result = new SwapNodesInPairs().swapPairs(head);
+        assertThat(ListNode.toArray(result)).containsExactly(1);
+    }
+
+    @Test
+    public void shouldLeaveLastNodeUnchangedForOddNumberOfNodes() {
+        var head = ListNode.create(new int[]{1, 2, 3, 4, 5});
+        var result = new SwapNodesInPairs().swapPairs(head);
+        assertThat(ListNode.toArray(result)).containsExactly(2, 1, 4, 3, 5);
+    }
+
+    @Test
+    public void shouldSwapTwoNodesCorrectly() {
+        var head = ListNode.create(new int[]{1, 2});
+        var result = new SwapNodesInPairs().swapPairs(head);
+        assertThat(ListNode.toArray(result)).containsExactly(2, 1);
+    }
+
+    @Test
+    public void shouldSwapAllPairsForSixNodes() {
+        var head = ListNode.create(new int[]{1, 2, 3, 4, 5, 6});
+        var result = new SwapNodesInPairs().swapPairs(head);
+        assertThat(ListNode.toArray(result)).containsExactly(2, 1, 4, 3, 6, 5);
     }
 }

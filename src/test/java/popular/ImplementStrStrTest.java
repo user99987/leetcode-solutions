@@ -8,17 +8,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ImplementStrStrTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindNeedleIndexWithinHaystack() {
         assertThat(new ImplementStrStr().strStr("hello", "ll")).isEqualTo(2);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnMinusOneWhenNeedleNotFound() {
         assertThat(new ImplementStrStr().strStr("aaaaa", "bba")).isEqualTo(-1);
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnZeroForEmptyNeedleAndHaystack() {
         assertThat(new ImplementStrStr().strStr("", "")).isEqualTo(0);
     }
 }

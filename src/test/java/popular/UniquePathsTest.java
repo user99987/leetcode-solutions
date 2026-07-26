@@ -7,22 +7,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UniquePathsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldCountPathsForWideGrid() {
         assertThat(new UniquePaths().uniquePaths(3, 7)).isEqualTo(28);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldCountPathsForSmallGrid() {
         assertThat(new UniquePaths().uniquePaths(3, 2)).isEqualTo(3);
     }
 
     @Test
-    public void testCase3() {
+    public void shouldCountPathsForTransposedGrid() {
         assertThat(new UniquePaths().uniquePaths(7, 3)).isEqualTo(28);
     }
 
     @Test
-    public void testCase4() {
+    public void shouldCountPathsForSquareGrid() {
         assertThat(new UniquePaths().uniquePaths(3, 3)).isEqualTo(6);
     }
 }

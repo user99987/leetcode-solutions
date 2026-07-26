@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FractionToRecurringDecimalTest {
 
     @Test
-    public void testCase1() {
+    public void shouldConvertToTerminatingDecimal() {
         var numerator = 1;
         var denominator = 2;
         var converter = new FractionToRecurringDecimal();
@@ -15,22 +15,22 @@ public class FractionToRecurringDecimalTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldConvertToIntegerWhenEvenlyDivisible() {
         assertThat(new FractionToRecurringDecimal().fractionToDecimal(2, 1)).isEqualTo("2");
     }
 
     @Test
-    public void testCase3() {
+    public void shouldConvertToSingleDigitRepeatingDecimal() {
         assertThat(new FractionToRecurringDecimal().fractionToDecimal(2, 3)).isEqualTo("0.(6)");
     }
 
     @Test
-    public void testCase4() {
+    public void shouldConvertToMultiDigitRepeatingDecimal() {
         assertThat(new FractionToRecurringDecimal().fractionToDecimal(4, 333)).isEqualTo("0.(012)");
     }
 
     @Test
-    public void testCase5() {
+    public void shouldConvertToNonRepeatingDecimal() {
         assertThat(new FractionToRecurringDecimal().fractionToDecimal(1, 5)).isEqualTo("0.2");
     }
 }

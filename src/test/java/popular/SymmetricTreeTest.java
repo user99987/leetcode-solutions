@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SymmetricTreeTest {
 
     @Test
-    public void testCase1() {
+    public void shouldReturnTrueForMirroredTree() {
         TreeNode root = new TreeNode(1,
                 new TreeNode(2, new TreeNode(3), new TreeNode(4)),
                 new TreeNode(2, new TreeNode(4), new TreeNode(3)));
@@ -16,7 +16,7 @@ public class SymmetricTreeTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnFalseForAsymmetricTree() {
         TreeNode root = new TreeNode(1,
                 new TreeNode(2, null, new TreeNode(3)),
                 new TreeNode(2, null, new TreeNode(3)));

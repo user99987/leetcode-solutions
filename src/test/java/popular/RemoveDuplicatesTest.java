@@ -8,14 +8,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RemoveDuplicatesTest {
 
     @Test
-    public void testCase1() {
+    public void shouldRemoveSingleDuplicatePair() {
         ListNode input = ListNode.create(new int[]{1, 1, 2});
         ListNode result = new RemoveDuplicates().deleteDuplicates(input);
         assertThat(ListNode.toArray(result)).containsExactly(new int[]{1, 2});
     }
 
     @Test
-    public void testCase2() {
+    public void shouldRemoveMultipleDuplicateGroups() {
         ListNode input = ListNode.create(new int[]{1, 1, 2, 3, 3});
         ListNode result = new RemoveDuplicates().deleteDuplicates(input);
         assertThat(ListNode.toArray(result)).containsExactly(new int[]{1, 2, 3});

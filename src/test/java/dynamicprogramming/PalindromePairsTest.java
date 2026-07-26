@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PalindromePairsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindPairsFormingPalindromesFromReversedAndPrefixedWords() {
         List<List<Integer>> expected = List.of(
                 List.of(0, 1),
                 List.of(1, 0),
@@ -22,7 +22,7 @@ public class PalindromePairsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFindPairsFormingPalindromesFromReversedWords() {
         List<List<Integer>> expected = List.of(
                 List.of(0, 1),
                 List.of(1, 0)
@@ -32,7 +32,7 @@ public class PalindromePairsTest {
     }
 
     @Test
-    public void testCase3() {
+    public void shouldFindPairsWithEmptyString() {
         List<List<Integer>> expected = List.of(
                 List.of(0, 1),
                 List.of(1, 0)
@@ -42,7 +42,7 @@ public class PalindromePairsTest {
     }
 
     @Test
-    public void testCase4() {
+    public void shouldReturnEmptyListWhenNoPairsFormPalindrome() {
         List<List<Integer>> expected = List.of();
         assertThat(new PalindromePairs().palindromePairs(
                 new String[]{"abc", "def", "ghi"})).isEqualTo(expected);

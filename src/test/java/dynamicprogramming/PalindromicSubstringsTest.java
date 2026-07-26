@@ -7,22 +7,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PalindromicSubstringsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldCountOnlySingleCharacterPalindromes() {
         assertThat(new PalindromicSubstrings().countSubstrings("abc")).isEqualTo(3);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldCountAllPalindromesForRepeatedCharacter() {
         assertThat(new PalindromicSubstrings().countSubstrings("aaa")).isEqualTo(6);
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnOneForSingleCharacterString() {
         assertThat(new PalindromicSubstrings().countSubstrings("a")).isEqualTo(1);
     }
 
     @Test
-    public void testCase4() {
+    public void shouldReturnZeroForEmptyString() {
         assertThat(new PalindromicSubstrings().countSubstrings("")).isEqualTo(0);
     }
 

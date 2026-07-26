@@ -9,13 +9,13 @@ import utils.TreeNode;
 class BinaryTreeTiltTest {
 
     @Test
-    void testCase1() {
+    void shouldCalculateTiltForSimpleTree() {
         var root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
         assertThat(new BinaryTreeTilt().findTilt(root)).isEqualTo(1);
     }
 
     @Test
-    void testCase2() {
+    void shouldCalculateTiltForMultiLevelTree() {
         TreeNode root = new TreeNode(4,
                 new TreeNode(2, new TreeNode(3), new TreeNode(5)),
                 new TreeNode(9, null, new TreeNode(7)));
@@ -23,7 +23,7 @@ class BinaryTreeTiltTest {
     }
 
     @Test
-    void testCase3() {
+    void shouldCalculateTiltForDeeperTreeWithDuplicateValues() {
         TreeNode root = new TreeNode(21,
                 new TreeNode(7,
                         new TreeNode(1, new TreeNode(3), new TreeNode(3)),

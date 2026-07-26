@@ -7,21 +7,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PushDominoesTest {
 
     @Test
-    void testCase1() {
+    void shouldLeaveUnaffectedDominoesUnchanged() {
         var dominoes = "RR.L";
         var expected = "RR.L";
         assertThat(new PushDominoes().pushDominoes(dominoes)).isEqualTo(expected);
     }
 
     @Test
-    void testCase2() {
+    void shouldResolveMixedPushesAndStandingDominoes() {
         var dominoes = ".L.R...LR..L..";
         var expected = "LL.RR.LLRRLL..";
         assertThat(new PushDominoes().pushDominoes(dominoes)).isEqualTo(expected);
     }
 
     @Test
-    void testCase3() {
+    void shouldSplitEvenlyBetweenOpposingForces() {
         var dominoes = "R...L";
         var expected = "RR.LL";
         assertThat(new PushDominoes().pushDominoes(dominoes)).isEqualTo(expected);

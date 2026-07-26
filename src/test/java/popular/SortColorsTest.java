@@ -7,28 +7,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SortColorsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldSortMixedColorsArray() {
         int[] nums = {2, 0, 2, 1, 1, 0};
         new SortColors().sortColors(nums);
         assertThat(nums).containsExactly(new int[]{0, 0, 1, 1, 2, 2});
     }
 
     @Test
-    public void testCase2() {
+    public void shouldSortThreeDistinctColors() {
         int[] nums = {2, 0, 1};
         new SortColors().sortColors(nums);
         assertThat(nums).containsExactly(new int[]{0, 1, 2});
     }
 
     @Test
-    public void testCase3() {
+    public void shouldKeepSingleZeroUnchanged() {
         int[] nums = {0};
         new SortColors().sortColors(nums);
         assertThat(nums).containsExactly(new int[]{0});
     }
 
     @Test
-    public void testCase4() {
+    public void shouldKeepSingleOneUnchanged() {
         int[] nums = {1};
         new SortColors().sortColors(nums);
         assertThat(nums).containsExactly(new int[]{1});

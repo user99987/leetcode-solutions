@@ -7,12 +7,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CourseScheduleTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFinishAllCoursesWithoutCycle() {
         assertThat(new CourseSchedule().canFinish(2, new int[][]{{1, 0}})).isTrue();
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFailToFinishWhenCycleExists() {
         assertThat(new CourseSchedule().canFinish(2, new int[][]{{1, 0}, {0, 1}})).isFalse();
     }
 }

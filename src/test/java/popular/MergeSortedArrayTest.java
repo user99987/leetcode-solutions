@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MergeSortedArrayTest {
 
     @Test
-    public void testCase1() {
+    public void shouldMergeTwoNonEmptySortedArrays() {
         int[] nums1 = {1, 2, 3, 0, 0, 0};
         int[] nums2 = {2, 5, 6};
         new MergeSortedArray().merge(nums1, 3, nums2, 3);
@@ -15,7 +15,7 @@ public class MergeSortedArrayTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldKeepFirstArrayUnchangedWhenSecondIsEmpty() {
         int[] nums1 = {1};
         int[] nums2 = {};
         new MergeSortedArray().merge(nums1, 1, nums2, 0);
@@ -23,7 +23,7 @@ public class MergeSortedArrayTest {
     }
 
     @Test
-    public void testCase3() {
+    public void shouldCopySecondArrayWhenFirstIsEmpty() {
         int[] nums1 = {0};
         int[] nums2 = {1};
         new MergeSortedArray().merge(nums1, 0, nums2, 1);

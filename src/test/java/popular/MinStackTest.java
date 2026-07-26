@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MinStackTest {
 
     @Test
-    public void testCase1() {
+    public void shouldTrackMinimumAfterPushAndPop() {
         var minStack = new MinStack();
         minStack.push(-2);
         minStack.push(0);

@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MergeKSortedListsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldMergeMultipleSortedLists() {
         ListNode[] lists = new ListNode[]{
                 ListNode.create(new int[]{1, 4, 5}),
                 ListNode.create(new int[]{1, 3, 4}),
@@ -19,14 +19,14 @@ public class MergeKSortedListsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnNullForEmptyListArray() {
         var lists = new ListNode[]{};
         ListNode result = new MergeKSortedLists().mergeKLists(lists);
         assertThat(result).isNull();
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnSingleListUnchanged() {
         var lists = new ListNode[]{new ListNode()};
         ListNode result = new MergeKSortedLists().mergeKLists(lists);
         assertThat(result.next).isNull();

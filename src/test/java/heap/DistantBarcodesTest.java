@@ -7,27 +7,40 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DistantBarcodesTest {
 
     @Test
-    public void testCase1() {
-        var distantBarcodes = new DistantBarcodes();
-        int[] barcodes = {1, 1, 1, 2, 2, 2};
-        var result = distantBarcodes.rearrangeBarcodes(barcodes);
-        assertThat(isValidRearrangement(result)).isTrue();
+    public void shouldRearrangeEqualGroupsWithNoAdjacentDuplicates() {
+        var result = new DistantBarcodes().rearrangeBarcodes(new int[]{1, 1, 1, 2, 2, 2});
+        assertNoAdjacentDuplicates(result);
+        assertThat(result).containsExactlyInAnyOrder(1, 1, 1, 2, 2, 2);
     }
 
     @Test
-    public void testCase2() {
-        var distantBarcodes = new DistantBarcodes();
-        int[] barcodes = {1, 1, 1, 1, 2, 2, 3, 3};
-        var result = distantBarcodes.rearrangeBarcodes(barcodes);
-        assertThat(isValidRearrangement(result)).isTrue();
+    public void shouldRearrangeUnequalGroupsWithNoAdjacentDuplicates() {
+        var result = new DistantBarcodes().rearrangeBarcodes(new int[]{1, 1, 1, 1, 2, 2, 3, 3});
+        assertNoAdjacentDuplicates(result);
+        assertThat(result).containsExactlyInAnyOrder(1, 1, 1, 1, 2, 2, 3, 3);
     }
 
-    private boolean isValidRearrangement(int[] barcodes) {
-        for (var i = 1; i < barcodes.length; i++) {
-            if (barcodes[i] == barcodes[i - 1]) {
-                return false;
-            }
+    @Test
+    public void shouldReturnSameBarcodeForSingleElement() {
+        assertThat(new DistantBarcodes().rearrangeBarcodes(new int[]{5})).containsExactly(5);
+    }
+
+    @Test
+    public void shouldReturnAnyOrderWhenAllBarcodesAreDistinct() {
+        var result = new DistantBarcodes().rearrangeBarcodes(new int[]{1, 2, 3});
+        assertNoAdjacentDuplicates(result);
+        assertThat(result).containsExactlyInAnyOrder(1, 2, 3);
+    }
+
+    @Test
+    public void shouldAvoidAdjacentDuplicatesForTwoAlternatingBarcodes() {
+        var result = new DistantBarcodes().rearrangeBarcodes(new int[]{1, 1, 2, 2});
+        assertNoAdjacentDuplicates(result);
+    }
+
+    private void assertNoAdjacentDuplicates(int[] result) {
+        for (int i = 1; i < result.length; i++) {
+            assertThat(result[i]).isNotEqualTo(result[i - 1]);
         }
-        return true;
     }
 }

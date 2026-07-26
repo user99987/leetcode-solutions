@@ -7,12 +7,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BurstBalloonsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldMaximizeCoinsForFourBalloons() {
         assertThat(new BurstBalloons().maxCoins(new int[]{3, 1, 5, 8})).isEqualTo(167);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldMaximizeCoinsForTwoBalloons() {
         assertThat(new BurstBalloons().maxCoins(new int[]{1, 5})).isEqualTo(10);
     }
 }

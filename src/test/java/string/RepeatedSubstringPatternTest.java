@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RepeatedSubstringPatternTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindMinimumRepeatsToContainSubstring() {
         var a = "abcd";
         var b = "cdabcdab";
         var expected = 3;
@@ -15,7 +15,7 @@ public class RepeatedSubstringPatternTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFindMinimumRepeatsForSingleCharacterString() {
         var a = "a";
         var b = "aa";
         var expected = 2;

@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SmallestSufficientTeamTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindSmallestTeamForThreeSkills() {
         String[] reqSkills = {"java", "nodejs", "reactjs"};
         List<List<String>> people = Arrays.asList(
                 List.of("java"),
@@ -22,7 +22,7 @@ public class SmallestSufficientTeamTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFindSmallestTeamForManySkillsAndOverlappingPeople() {
         String[] reqSkills = {"algorithms", "math", "java", "reactjs", "csharp", "aws"};
         List<List<String>> people = Arrays.asList(
                 List.of("algorithms", "math", "java"),

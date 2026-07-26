@@ -3,36 +3,60 @@ package linkedlist;
 import org.junit.jupiter.api.Test;
 import utils.ListNode;
 
-import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SplitLinkedListInPartsTest {
+public class SplitLinkedListInPartsTest {
 
     @Test
-    void testCase1() {
-        ListNode head = ListNode.create(new int[]{1, 2, 3});
-        int k = 5;
-        int[][] expected = Arrays.stream(new ListNode[]{
-                ListNode.create(new int[]{1}),
-                ListNode.create(new int[]{2}),
-                ListNode.create(new int[]{3}),
-                null,
-                null
-        }).map(ListNode::toArray).toArray(int[][]::new);
-        int[][] actual = Arrays.stream(new SplitLinkedListInParts().splitListToParts(head, k)).map(ListNode::toArray).toArray(int[][]::new);
-        assertThat(java.util.Arrays.deepEquals(actual, expected)).isTrue();
+    public void shouldSplitShortListIntoMorePartsThanNodes() {
+        var head = ListNode.create(new int[]{1, 2, 3});
+        var result = new SplitLinkedListInParts().splitListToParts(head, 5);
+        assertThat(result).hasSize(5);
+        assertThat(ListNode.toArray(result[0])).containsExactly(1);
+        assertThat(ListNode.toArray(result[1])).containsExactly(2);
+        assertThat(ListNode.toArray(result[2])).containsExactly(3);
+        assertThat(result[3]).isNull();
+        assertThat(result[4]).isNull();
     }
 
     @Test
-    void testCase2() {
-        ListNode head = ListNode.create(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
-        int k = 3;
-        int[][] expected = Arrays.stream(new ListNode[]{
-                ListNode.create(new int[]{1, 2, 3, 4}),
-                ListNode.create(new int[]{5, 6, 7}),
-                ListNode.create(new int[]{8, 9, 10})
-        }).map(ListNode::toArray).toArray(int[][]::new);
-        int[][] actual = Arrays.stream(new SplitLinkedListInParts().splitListToParts(head, k)).map(ListNode::toArray).toArray(int[][]::new);
-        assertThat(java.util.Arrays.deepEquals(actual, expected)).isTrue();
+    public void shouldSplitLongerListWithUnequalRemainder() {
+        var head = ListNode.create(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+        var result = new SplitLinkedListInParts().splitListToParts(head, 3);
+        assertThat(ListNode.toArray(result[0])).containsExactly(1, 2, 3, 4);
+        assertThat(ListNode.toArray(result[1])).containsExactly(5, 6, 7);
+        assertThat(ListNode.toArray(result[2])).containsExactly(8, 9, 10);
+    }
+
+    @Test
+    public void shouldReturnAllNullPartsForEmptyList() {
+        var result = new SplitLinkedListInParts().splitListToParts(null, 3);
+        assertThat(result).hasSize(3);
+        assertThat(result).containsOnlyNulls();
+    }
+
+    @Test
+    public void shouldReturnWholeListInSinglePartWhenKEqualsOne() {
+        var head = ListNode.create(new int[]{1, 2, 3});
+        var result = new SplitLinkedListInParts().splitListToParts(head, 1);
+        assertThat(result).hasSize(1);
+        assertThat(ListNode.toArray(result[0])).containsExactly(1, 2, 3);
+    }
+
+    @Test
+    public void shouldSplitEvenlyDivisibleListIntoEqualParts() {
+        var head = ListNode.create(new int[]{1, 2, 3, 4});
+        var result = new SplitLinkedListInParts().splitListToParts(head, 2);
+        assertThat(ListNode.toArray(result[0])).containsExactly(1, 2);
+        assertThat(ListNode.toArray(result[1])).containsExactly(3, 4);
+    }
+
+    @Test
+    public void shouldPutSingleNodeInFirstPartOnlyWhenSplitIntoManyParts() {
+        var head = ListNode.create(new int[]{1});
+        var result = new SplitLinkedListInParts().splitListToParts(head, 3);
+        assertThat(ListNode.toArray(result[0])).containsExactly(1);
+        assertThat(result[1]).isNull();
+        assertThat(result[2]).isNull();
     }
 }

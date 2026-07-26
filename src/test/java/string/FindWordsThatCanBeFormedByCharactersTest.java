@@ -7,14 +7,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FindWordsThatCanBeFormedByCharactersTest {
 
     @Test
-    void testCase1() {
+    void shouldSumLengthsOfWordsFormableFromChars() {
         String[] words = {"cat", "bt", "hat", "tree"};
         var chars = "atach";
         assertThat(new FindWordsThatCanBeFormedByCharacters().countCharacters(words, chars)).isEqualTo(6);
     }
 
     @Test
-    void testCase2() {
+    void shouldSumLengthsForLongerWordsFormableFromChars() {
         String[] words = {"hello", "world", "leetcode"};
         var chars = "welldonehoneyr";
         assertThat(new FindWordsThatCanBeFormedByCharacters().countCharacters(words, chars)).isEqualTo(10);

@@ -7,19 +7,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 class FirstUniqueCharacterInAStringTest {
 
     @Test
-    void testCase1() {
+    void shouldReturnFirstIndexWhenFirstCharacterIsUnique() {
         var s = "leetcode";
         assertThat(new FirstUniqueCharacterInAString().firstUniqChar(s)).isEqualTo(0);
     }
 
     @Test
-    void testCase2() {
+    void shouldFindUniqueCharacterInMiddleOfString() {
         var s = "loveleetcode";
         assertThat(new FirstUniqueCharacterInAString().firstUniqChar(s)).isEqualTo(2);
     }
 
     @Test
-    void testCase3() {
+    void shouldReturnMinusOneWhenNoUniqueCharacterExists() {
         var s = "aabb";
         assertThat(new FirstUniqueCharacterInAString().firstUniqChar(s)).isEqualTo(-1);
     }

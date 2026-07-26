@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ConcatenatedWordsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindAllConcatenatedWordsFromMultipleComponents() {
         List<String> result = new ConcatenatedWords().findAllConcatenatedWordsInADict(
                 new String[]{"cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"}
         );
@@ -18,7 +18,7 @@ public class ConcatenatedWordsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFindSingleConcatenatedWordFromTwoParts() {
         List<String> result = new ConcatenatedWords().findAllConcatenatedWordsInADict(
                 new String[]{"cat", "dog", "catdog"}
         );

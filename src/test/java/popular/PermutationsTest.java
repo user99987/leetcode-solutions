@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PermutationsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldGenerateAllPermutationsForThreeElements() {
         List<List<Integer>> result = new Permutations().permute(new int[]{1, 2, 3});
         List<List<Integer>> expected = Arrays.asList(
                 Arrays.asList(1, 2, 3),
@@ -24,7 +24,7 @@ public class PermutationsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldGenerateAllPermutationsForTwoElements() {
         List<List<Integer>> result = new Permutations().permute(new int[]{0, 1});
         List<List<Integer>> expected = Arrays.asList(
                 Arrays.asList(0, 1),
@@ -34,7 +34,7 @@ public class PermutationsTest {
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnSinglePermutationForSingleElement() {
         List<List<Integer>> result = new Permutations().permute(new int[]{1});
         List<List<Integer>> expected = List.of(
                 List.of(1)

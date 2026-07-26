@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SubsetsTest {
 
     @Test
-    public void testCase1() {
+    public void shouldGenerateAllSubsetsForThreeElements() {
         List<List<Integer>> result = new Subsets().subsets(new int[]{1, 2, 3});
         List<List<Integer>> expected = List.of(
                 List.of(),
@@ -25,7 +25,7 @@ public class SubsetsTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldGenerateSubsetsForSingleElement() {
         List<List<Integer>> result = new Subsets().subsets(new int[]{0});
         List<List<Integer>> expected = List.of(
                 List.of(),

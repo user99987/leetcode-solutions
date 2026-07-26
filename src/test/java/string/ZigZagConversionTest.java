@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ZigZagConversionTest {
 
     @Test
-    public void testCase1() {
+    public void shouldConvertToZigZagWithThreeRows() {
         var s = "PAYPALISHIRING";
         var numRows = 3;
         var expected = "PAHNAPLSIIGYIR";
@@ -15,7 +15,7 @@ public class ZigZagConversionTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldConvertToZigZagWithFourRows() {
         var s = "PAYPALISHIRING";
         var numRows = 4;
         var expected = "PINALSIGYAHRPI";
@@ -23,7 +23,7 @@ public class ZigZagConversionTest {
     }
 
     @Test
-    public void testCase3() {
+    public void shouldReturnSameStringWhenSingleRow() {
         var s = "A";
         var numRows = 1;
         var expected = "A";

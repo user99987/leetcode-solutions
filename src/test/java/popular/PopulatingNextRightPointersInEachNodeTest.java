@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PopulatingNextRightPointersInEachNodeTest {
 
     @Test
-    public void testCase1() {
+    public void shouldConnectNextPointersAcrossLevels() {
         var root = new PopulatingNextRightPointersInEachNode.Node(1);
         root.left = new PopulatingNextRightPointersInEachNode.Node(2);
         root.right = new PopulatingNextRightPointersInEachNode.Node(3);
@@ -25,7 +25,7 @@ public class PopulatingNextRightPointersInEachNodeTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnNullForEmptyTree() {
         PopulatingNextRightPointersInEachNode.Node root = null;
         PopulatingNextRightPointersInEachNode.Node result = new PopulatingNextRightPointersInEachNode().connect(root);
         assertThat(result).isNull();

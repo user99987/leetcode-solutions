@@ -7,17 +7,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LongestChunkedPalindromeDecompositionTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindSevenChunksForNestedPalindromicString() {
         assertThat(new LongestChunkedPalindromeDecomposition().longestDecomposition("ghiabcdefhelloadamhelloabcdefghi")).isEqualTo(7);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnOneWhenStringHasNoRepeatingChunks() {
         assertThat(new LongestChunkedPalindromeDecomposition().longestDecomposition("merchant")).isEqualTo(1);
     }
 
     @Test
-    public void testCase3() {
+    public void shouldFindElevenChunksForComplexPalindromicString() {
         assertThat(new LongestChunkedPalindromeDecomposition().longestDecomposition("antaprezatepzapreanta")).isEqualTo(11);
     }
 }

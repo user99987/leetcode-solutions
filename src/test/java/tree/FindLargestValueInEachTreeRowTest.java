@@ -1,33 +1,44 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
-import java.util.Arrays;
-import java.util.Collections;
+import static org.assertj.core.api.Assertions.assertThat;
 
-
-class FindLargestValueInEachTreeRowTest {
+public class FindLargestValueInEachTreeRowTest {
 
     @Test
-    void testCase1() {
-        TreeNode root = new TreeNode(1,
-                new TreeNode(3, new TreeNode(5), new TreeNode(3)),
-                new TreeNode(2, null, new TreeNode(9)));
-        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).isEqualTo(Arrays.asList(1, 3, 9));
+    public void shouldFindLargestValuePerRow() {
+        var root = TreeNode.create(new Integer[]{1, 3, 2, 5, 3, null, 9});
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).containsExactly(1, 3, 9);
     }
 
     @Test
-    void testCase2() {
-        var root = new TreeNode(1, new TreeNode(2), new TreeNode(3));
-        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).isEqualTo(Arrays.asList(1, 3));
+    public void shouldFindLargestValueForSimpleTree() {
+        var root = TreeNode.create(new Integer[]{1, 2, 3});
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).containsExactly(1, 3);
     }
 
     @Test
-    void testCase3() {
-        TreeNode root = null;
-        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).isEqualTo(Collections.emptyList());
+    public void shouldReturnEmptyListWhenRootIsNull() {
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(null)).isEmpty();
+    }
+
+    @Test
+    public void shouldReturnItsValueForSingleNode() {
+        var root = TreeNode.create(new Integer[]{7});
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).containsExactly(7);
+    }
+
+    @Test
+    public void shouldHandleNegativeValuesCorrectly() {
+        var root = TreeNode.create(new Integer[]{-1, -2, -3});
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).containsExactly(-1, -2);
+    }
+
+    @Test
+    public void shouldHandleSkewedTreeWithSingleValuePerLevel() {
+        var root = TreeNode.create(new Integer[]{1, 2, null, 3});
+        assertThat(new FindLargestValueInEachTreeRow().largestValues(root)).containsExactly(1, 2, 3);
     }
 }

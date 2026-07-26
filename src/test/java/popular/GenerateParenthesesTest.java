@@ -11,12 +11,12 @@ import java.util.List;
 public class GenerateParenthesesTest {
 
     @Test
-    public void testCase1() {
+    public void shouldGenerateAllCombinationsForThreePairs() {
         assertThat(new GenerateParentheses().generateParenthesis(3)).isEqualTo(Arrays.asList("((()))", "(()())", "(())()", "()(())", "()()()"));
     }
 
     @Test
-    public void testCase2() {
+    public void shouldGenerateSingleCombinationForOnePair() {
         assertThat(new GenerateParentheses().generateParenthesis(1)).isEqualTo(List.of("()"));
     }
 }

@@ -8,12 +8,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HappyNumberTest {
 
     @Test
-    public void testCase1() {
+    public void shouldReturnTrueForHappyNumber() {
         assertThat(new HappyNumber().isHappy(19)).isTrue();
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnFalseForNonHappyNumber() {
         assertThat(new HappyNumber().isHappy(2)).isFalse();
     }
 }

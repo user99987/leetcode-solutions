@@ -1,47 +1,45 @@
 package tree;
 
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import utils.TreeNode;
 
-import java.util.List;
+import static org.assertj.core.api.Assertions.assertThat;
 
-
-class BinaryTreePostorderTraversalTest {
+public class BinaryTreePostorderTraversalTest {
 
     @Test
-    void testCase1() {
-        var root = new TreeNode(1, null, new TreeNode(2, new TreeNode(3), null));
-        var expected = List.of(3, 2, 1);
-        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).isEqualTo(expected);
+    public void shouldTraversePostorderForMixedTree() {
+        var root = TreeNode.create(new Integer[]{1, null, 2, 3});
+        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).containsExactly(3, 2, 1);
     }
 
     @Test
-    void testCase2() {
-        TreeNode root = null;
-        var expected = List.of();
-        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).isEqualTo(expected);
+    public void shouldReturnEmptyListForEmptyTree() {
+        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(null)).isEmpty();
     }
 
     @Test
-    void testCase3() {
-        var root = new TreeNode(1);
-        var expected = List.of(1);
-        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).isEqualTo(expected);
+    public void shouldReturnSingleValueForSingleNode() {
+        var root = TreeNode.create(new Integer[]{1});
+        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).containsExactly(1);
     }
 
     @Test
-    void testCase4() {
-        var root = new TreeNode(1, new TreeNode(2), null);
-        var expected = List.of(2, 1);
-        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).isEqualTo(expected);
+    public void shouldTraversePostorderWhenOnlyLeftChildExists() {
+        var root = TreeNode.create(new Integer[]{1, 2});
+        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).containsExactly(2, 1);
     }
 
     @Test
-    void testCase5() {
-        var root = new TreeNode(1, null, new TreeNode(2));
-        var expected = List.of(2, 1);
-        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).isEqualTo(expected);
+    public void shouldTraversePostorderWhenOnlyRightChildExists() {
+        var root = TreeNode.create(new Integer[]{1, null, 2});
+        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root)).containsExactly(2, 1);
+    }
+
+    @Test
+    public void shouldTraversePostorderForFullTree() {
+        var root = TreeNode.create(new Integer[]{1, 2, 3, 4, 5, 6, 7});
+        assertThat(new BinaryTreePostorderTraversal().postorderTraversal(root))
+                .containsExactly(4, 5, 2, 6, 7, 3, 1);
     }
 }

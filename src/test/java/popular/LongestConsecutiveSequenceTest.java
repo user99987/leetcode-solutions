@@ -8,12 +8,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LongestConsecutiveSequenceTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindLongestSequenceInUnsortedArray() {
         assertThat(new LongestConsecutiveSequence().longestConsecutive(new int[]{100, 4, 200, 1, 3, 2})).isEqualTo(4);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldFindLongestSequenceWithDuplicates() {
         assertThat(new LongestConsecutiveSequence().longestConsecutive(new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1})).isEqualTo(9);
     }
 }

@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PalindromePartitioningTest {
 
     @Test
-    public void testCase1() {
+    public void shouldFindAllPartitionsForMultiCharacterString() {
         List<List<String>> result = new PalindromePartitioning().partition("aab");
         List<List<String>> expected = Arrays.asList(
                 Arrays.asList("a", "a", "b"),
@@ -20,7 +20,7 @@ public class PalindromePartitioningTest {
     }
 
     @Test
-    public void testCase2() {
+    public void shouldReturnSinglePartitionForSingleCharacter() {
         List<List<String>> result = new PalindromePartitioning().partition("a");
         List<List<String>> expected = List.of(
                 List.of("a")

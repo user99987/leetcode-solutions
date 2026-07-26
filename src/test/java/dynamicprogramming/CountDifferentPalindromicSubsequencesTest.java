@@ -7,12 +7,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CountDifferentPalindromicSubsequencesTest {
 
     @Test
-    public void testCase1() {
+    public void shouldCountDistinctPalindromicSubsequencesForShortString() {
         assertThat(new CountDifferentPalindromicSubsequences().countPalindromicSubsequences("bccb")).isEqualTo(6);
     }
 
     @Test
-    public void testCase2() {
+    public void shouldCountDistinctPalindromicSubsequencesModuloForLongString() {
         assertThat(new CountDifferentPalindromicSubsequences().countPalindromicSubsequences(
                 "abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba")).isEqualTo(104860361);
     }
