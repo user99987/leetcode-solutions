@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ConstructBinarySearchTreeFromPreorderTraversalTest {
 
     @Test
-    void testCase1() {
+    void shouldBuildBstFromSixElementPreorderArray() {
         var node = new ConstructBinarySearchTreeFromPreorderTraversal().bstFromPreorder(
                 new int[]{8, 5, 1, 7, 10, 12});
         assertThat(node).isNotNull();
@@ -27,7 +27,7 @@ class ConstructBinarySearchTreeFromPreorderTraversalTest {
     }
 
     @Test
-    void testCase2() {
+    void shouldBuildBstFromTwoElementPreorderArray() {
         var node = new ConstructBinarySearchTreeFromPreorderTraversal().bstFromPreorder(
                 new int[]{1, 3});
         assertThat(node).isNotNull();

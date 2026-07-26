@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BinaryTreeMaximumPathSumTest {
 
     @Test
-    void testCase1() {
+    void shouldFindMaxPathSumForSimpleThreeNodeTree() {
         var root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
@@ -17,7 +17,7 @@ class BinaryTreeMaximumPathSumTest {
     }
 
     @Test
-    void testCase2() {
+    void shouldFindMaxPathSumIgnoringNegativeRoot() {
         var root = new TreeNode(-10);
         root.left = new TreeNode(9);
         root.right = new TreeNode(20);

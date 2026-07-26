@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LRUCacheTest {
 
     @Test
-    public void testCase() {
+    public void shouldEvictLeastRecentlyUsedEntryWhenCapacityExceeded() {
         var cache = new LRUCache(2);
         cache.put(1, 1); // Cache: [1]
         cache.put(2, 2); // Cache: [2, 1]

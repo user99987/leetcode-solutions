@@ -8,12 +8,12 @@ class CountAndSayTest {
 
 
     @Test
-    void testCase1() {
+    void shouldReturnOneForFirstTerm() {
         assertThat(new CountAndSay().countAndSay(1)).isEqualTo("1");
     }
 
     @Test
-    void testCase2() {
+    void shouldReturnFourthTermOfCountAndSaySequence() {
         assertThat(new CountAndSay().countAndSay(4)).isEqualTo("1211");
     }
 }

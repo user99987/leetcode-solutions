@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ConvertSortedArrayToBinarySearchTreeTest {
 
     @Test
-    void testCase1() {
+    void shouldBuildBalancedBstFromFiveElementArray() {
         var node = new ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(new int[]{-10, -3, 0, 5, 9});
         assertThat(node).isNotNull();
         assertThat(node.value).isEqualTo(0);
@@ -25,7 +25,7 @@ class ConvertSortedArrayToBinarySearchTreeTest {
     }
 
     @Test
-    void testCase2() {
+    void shouldBuildBalancedBstFromTwoElementArray() {
         var node = new ConvertSortedArrayToBinarySearchTree().sortedArrayToBST(new int[]{1, 3});
         assertThat(node).isNotNull();
         assertThat(node.value).isEqualTo(1);

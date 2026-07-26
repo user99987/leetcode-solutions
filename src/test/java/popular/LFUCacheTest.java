@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LFUCacheTest {
 
     @Test
-    public void testCase() {
+    public void shouldEvictLeastFrequentlyUsedEntryWhenCapacityExceeded() {
         var cache = new LFUCache(2);
         cache.put(1, 1);
         cache.put(2, 2);

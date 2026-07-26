@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BinaryTreeInorderTraversalTest {
 
     @Test
-    void testCase1() {
+    void shouldTraverseTreeWithRightChildHavingLeftGrandchild() {
         var root = new TreeNode(1);
         root.right = new TreeNode(2);
         root.right.left = new TreeNode(3);
@@ -16,25 +16,25 @@ class BinaryTreeInorderTraversalTest {
     }
 
     @Test
-    void testCase2() {
+    void shouldReturnEmptyListForNullRoot() {
         assertThat(new BinaryTreeInorderTraversal().inorderTraversal(null)).isEmpty();
     }
 
     @Test
-    void testCase3() {
+    void shouldReturnSingleValueForSingleNodeTree() {
         var root = new TreeNode(1);
         assertThat(new BinaryTreeInorderTraversal().inorderTraversal(root)).containsExactly(1);
     }
 
     @Test
-    void testCase4() {
+    void shouldTraverseTreeWithOnlyLeftChild() {
         var root = new TreeNode(1);
         root.left = new TreeNode(2);
         assertThat(new BinaryTreeInorderTraversal().inorderTraversal(root)).containsExactly(2, 1);
     }
 
     @Test
-    void testCase5() {
+    void shouldTraverseTreeWithOnlyRightChild() {
         var root = new TreeNode(1);
         root.right = new TreeNode(2);
         assertThat(new BinaryTreeInorderTraversal().inorderTraversal(root)).containsExactly(1, 2);

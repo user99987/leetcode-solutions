@@ -7,12 +7,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ClimbingStairsTest {
 
     @Test
-    void testCase1() {
+    void shouldReturnTwoWaysForTwoSteps() {
         assertThat(new ClimbingStairs().climbStairs(2)).isEqualTo(2);
     }
 
     @Test
-    void testCase2() {
+    void shouldReturnThreeWaysForThreeSteps() {
         assertThat(new ClimbingStairs().climbStairs(3)).isEqualTo(3);
     }
 }

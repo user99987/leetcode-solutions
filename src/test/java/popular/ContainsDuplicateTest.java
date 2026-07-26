@@ -7,17 +7,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ContainsDuplicateTest {
 
     @Test
-    void testCase1() {
+    void shouldReturnTrueWhenArrayHasDuplicate() {
         assertThat(new ContainsDuplicate().containsDuplicate(new int[]{1, 2, 3, 1})).isTrue();
     }
 
     @Test
-    void testCase2() {
+    void shouldReturnFalseWhenAllElementsAreUnique() {
         assertThat(new ContainsDuplicate().containsDuplicate(new int[]{1, 2, 3, 4})).isFalse();
     }
 
     @Test
-    void testCase3() {
+    void shouldReturnTrueForMultipleDuplicatesInArray() {
         assertThat(new ContainsDuplicate().containsDuplicate(new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2})).isTrue();
     }
 }

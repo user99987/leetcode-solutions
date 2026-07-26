@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AddTwoNumbersTest {
 
     @Test
-    void testCase1() {
+    void shouldAddTwoMultiDigitNumbersRepresentedAsReversedLists() {
         var node1 = new ListNode(2, new ListNode(4, new ListNode(3)));
         var node2 = new ListNode(5, new ListNode(6, new ListNode(4)));
         var result = new AddTwoNumbers().addTwoNumbers(node1, node2);
@@ -22,7 +22,7 @@ class AddTwoNumbersTest {
     }
 
     @Test
-    void testCase2() {
+    void shouldReturnZeroWhenBothListsAreZero() {
         var node1 = new ListNode(0);
         var node2 = new ListNode(0);
         var result = new AddTwoNumbers().addTwoNumbers(node1, node2);
@@ -33,7 +33,7 @@ class AddTwoNumbersTest {
     }
 
     @Test
-    void testCase3() {
+    void shouldHandleCarryOverAcrossDifferentLengthLists() {
         var node1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
         var node2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
         var result = new AddTwoNumbers().addTwoNumbers(node1, node2);

@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BinaryTreeLevelOrderTraversalTest {
 
     @Test
-    void testCase1() {
+    void shouldGroupNodesByLevelForBalancedTree() {
         var root = new TreeNode(3);
         root.left = new TreeNode(9);
         root.right = new TreeNode(20);
@@ -21,13 +21,13 @@ class BinaryTreeLevelOrderTraversalTest {
     }
 
     @Test
-    void testCase2() {
+    void shouldReturnSingleLevelForSingleNodeTree() {
         var root = new TreeNode(1);
         assertThat(new BinaryTreeLevelOrderTraversal().levelOrder(root)).containsExactly(List.of(1));
     }
 
     @Test
-    void testCase3() {
+    void shouldReturnEmptyListForNullRoot() {
         assertThat(new BinaryTreeLevelOrderTraversal().levelOrder(null)).isEmpty();
     }
 
